@@ -56,6 +56,41 @@ def test_low_importance_suppressed():
         assert a.urgent is False, f"{title} should not be urgent"
 
 
+def test_real_world_false_positives_suppressed():
+    """本番の実データで誤検出(過大評価)していた開示が抑制されること。"""
+    cases = [
+        # RSU(譲渡制限付株式報酬)は増資ではなく軽微 → 高インパクト/urgentにしない
+        "譲渡制限付株式報酬としての新株式発行の払込完了に関するお知らせ",
+        "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
+        # 増資の事後・続報は初回announcementより軽い
+        "第三者割当による新株式発行（現物出資）の払込日の確定に関するお知らせ",
+        "第三者割当増資における発行株式数の確定に関するお知らせ",
+        "第三者割当増資における調達資金の資金使途および支出予定時期の一部変更に関するお知らせ",
+        # 定例のガバナンス報告(実際の異動ではない)
+        "支配株主等に関する事項について",
+    ]
+    for title in cases:
+        a = analyze_title(title)
+        assert a.urgent is False, f"{title} は urgent であるべきでない (score={a.score})"
+        assert a.impact != "high", f"{title} は high であるべきでない (score={a.score})"
+
+
+def test_real_world_true_positives_kept():
+    """本番の実データで正しく高インパクトと判定すべき開示は維持されること。"""
+    cases = [
+        "新光商事株式会社（証券コード：8141）の普通株式に対する公開買付けに係る公開買付届出書",
+        "証券取引等監視委員会による課徴金納付命令の勧告についてのお知らせ",
+        "業績予想の修正及び特別損失の計上に関するお知らせ",
+        "剰余金の配当（無配）に関するお知らせ",
+        "自己株式取得に係る事項の決定に関するお知らせ",
+        # 新株予約権の「発行」(初回)は希薄化材料として高インパクト維持
+        "第９回及び第10回新株予約権の発行並びに新株予約権の買取契約の締結に関するお知らせ",
+    ]
+    for title in cases:
+        a = analyze_title(title)
+        assert a.impact == "high", f"{title} は high であるべき (score={a.score}, cat={a.category})"
+
+
 def test_urgent_flag():
     a = analyze_title("業績予想の上方修正および増配に関するお知らせ")
     assert a.urgent is True

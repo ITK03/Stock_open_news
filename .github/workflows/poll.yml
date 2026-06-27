@@ -1,0 +1,73 @@
+name: poll-tdnet
+
+# 適時開示を定期取得→分析→docs/data/disclosures.json を更新してコミット。
+# GitHub Pages(docs/) が同ファイルを読み、スマホから閲覧できる。
+#
+# 注意:
+# - スケジュールはデフォルトブランチ(通常 main)の本ファイルのみ有効。
+#   このブランチを main にマージして初めて cron が動き出す。
+# - private リポジトリは Actions 無料枠 2000分/月。間隔は下の cron で調整可。
+#   public にすると Actions は無制限無料 → */5 などに上げられる。
+# - GitHub の cron は実行が数分遅延・スキップされることがある(準リアルタイム)。
+
+on:
+  workflow_dispatch: {}        # 手動実行
+  schedule:
+    # UTC基準。public 前提で 5分間隔。平日 JST 08:00-18:59 をカバー(場中〜大引け後の開示ラッシュ)。
+    # private に戻す場合は無料枠(2000分/月)節約のため間隔を広げること。
+    - cron: "*/5 23 * * 0-4"   # JST 08:00-08:59 (月-金)
+    - cron: "*/5 0-9 * * 1-5"  # JST 09:00-18:59 (月-金)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: poll-tdnet
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Fetch + analyze + store
+        env:
+          LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          LLM_MIN_SCORE: ${{ vars.LLM_MIN_SCORE }}
+          MIN_SCORE: ${{ vars.MIN_SCORE }}
+          MAX_ITEMS: ${{ vars.MAX_ITEMS }}
+        run: python -m src.main --limit 100
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- docs/data/disclosures.json; then
+            echo "変更なし。スキップ。"
+            exit 0
+          fi
+          git add docs/data/disclosures.json
+          git commit -m "data: update disclosures [skip ci]"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
+            echo "push retry $i"; sleep $((2 ** i))
+          done
+          exit 1

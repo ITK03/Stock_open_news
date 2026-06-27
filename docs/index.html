@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="日本の適時開示（TDnet）を分析したリアルタイム・ダッシュボード">
+  <title>TDnet 適時開示ダッシュボード</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <h1 class="site-title">TDnet <span>適時開示</span></h1>
+      <div class="header-meta">
+        <span class="updated-at">
+          最終更新:&nbsp;<strong id="updated-at">—</strong>
+        </span>
+        <span class="count-badge" id="count-badge">全 0 件</span>
+      </div>
+      <button class="btn-refresh" id="btn-refresh" type="button" aria-label="データを手動更新">
+        &#8635; 更新
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== メインコンテンツ ===== -->
+  <main class="main-container" id="main">
+
+    <!-- フィルタパネル -->
+    <section class="filter-panel" aria-label="フィルタ">
+
+      <!-- 重要度フィルタ -->
+      <div class="filter-row">
+        <span class="filter-label">重要度</span>
+        <div class="toggle-group" role="group" aria-label="重要度フィルタ">
+          <button class="toggle-btn" type="button" data-impact="high"   aria-pressed="false">高</button>
+          <button class="toggle-btn" type="button" data-impact="medium" aria-pressed="false">中</button>
+          <button class="toggle-btn" type="button" data-impact="low"    aria-pressed="false">低</button>
+        </div>
+      </div>
+
+      <!-- カテゴリ + urgent -->
+      <div class="filter-row">
+        <span class="filter-label">カテゴリ</span>
+        <select class="filter-select" id="filter-category" aria-label="カテゴリで絞り込み">
+          <option value="all">すべて</option>
+        </select>
+
+        <label class="urgent-toggle">
+          <input type="checkbox" id="filter-urgent" aria-label="緊急開示のみ表示">
+          🔥 緊急のみ
+        </label>
+      </div>
+
+      <!-- 並び順 + 検索 -->
+      <div class="filter-row">
+        <span class="filter-label">並び順</span>
+        <div class="toggle-group" role="group" aria-label="並び順">
+          <button class="toggle-btn active" type="button" data-sort="time"  aria-pressed="true">時刻順</button>
+          <button class="toggle-btn"        type="button" data-sort="score" aria-pressed="false">スコア順</button>
+        </div>
+
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">&#128269;</span>
+          <input
+            class="search-input"
+            id="search-input"
+            type="search"
+            placeholder="会社名・コード・キーワード検索"
+            aria-label="フリーワード検索"
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </div>
+      </div>
+
+    </section><!-- /filter-panel -->
+
+    <!-- ステータスバー -->
+    <div class="status-bar" role="status" aria-live="polite">
+      <span class="result-count" id="result-count">0 件表示</span>
+      <span class="status-msg"   id="status-msg"></span>
+    </div>
+
+    <!-- カードリスト -->
+    <div class="card-list" id="card-list" aria-label="適時開示一覧">
+      <!-- JS で描画 -->
+    </div>
+
+  </main><!-- /main-container -->
+
+  <!-- ===== フッター ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <p>データ出典: TDnet 適時開示情報閲覧サービス &mdash; 分析結果は参考情報です</p>
+  </footer>
+
+  <!-- スクロールトップボタン -->
+  <button
+    class="scroll-top-btn"
+    id="scroll-top-btn"
+    type="button"
+    aria-label="ページ先頭へ戻る"
+  >&#8679;</button>
+
+  <script src="./app.js"></script>
+</body>
+</html>

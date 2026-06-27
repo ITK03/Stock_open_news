@@ -100,11 +100,30 @@ def _parse_exchange_markets(markets_string: str) -> tuple[str, str]:
     return exchange, markets
 
 
-def _make_id(tdnet: dict) -> str:
-    raw_id = tdnet.get("id", "").strip()
+def _extract_pdf_url(tdnet: dict) -> str:
+    """PDF URL を取得。yanoshin はバージョンにより document_url / url / pdf_path
+    等で返すため、PDFらしいものを優先的に選ぶ。"""
+    candidates = [
+        tdnet.get("document_url"),
+        tdnet.get("pdf"),
+        tdnet.get("pdf_path"),
+        tdnet.get("url"),
+    ]
+    for c in candidates:
+        if isinstance(c, str) and c.strip():
+            if c.lower().endswith(".pdf") or "release.tdnet.info" in c:
+                return c.strip()
+    # PDFらしいものが無ければ最初の非空URL
+    for c in candidates:
+        if isinstance(c, str) and c.strip():
+            return c.strip()
+    return ""
+
+
+def _make_id(tdnet: dict, pdf_url: str) -> str:
+    raw_id = str(tdnet.get("id") or "").strip()
     if raw_id:
         return raw_id
-    pdf_url = tdnet.get("document_url", "")
     title = tdnet.get("title", "")
     return hashlib.sha1((pdf_url + title).encode()).hexdigest()[:16]
 
@@ -115,13 +134,14 @@ def _parse_item(item: dict) -> Optional[dict]:
         return None
     try:
         exchange, markets = _parse_exchange_markets(tdnet.get("markets_string", ""))
+        pdf_url = _extract_pdf_url(tdnet)
         return {
-            "id": _make_id(tdnet),
+            "id": _make_id(tdnet, pdf_url),
             "time": _pubdate_to_iso(tdnet.get("pubdate", "")),
-            "code": _normalize_code(tdnet.get("company_code", "")),
+            "code": _normalize_code(str(tdnet.get("company_code") or "")),
             "company": tdnet.get("company_name", ""),
             "title": tdnet.get("title", ""),
-            "pdf_url": tdnet.get("document_url", ""),
+            "pdf_url": pdf_url,
             "exchange": exchange,
             "markets": markets,
             "source": "yanoshin",

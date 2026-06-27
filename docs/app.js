@@ -299,7 +299,7 @@ function createCard(item) {
   ));
 
   // direction
-  const dirLabels    = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立' };
+  const dirLabels    = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立', unknown: '? 不明' };
   const dirKey       = item.direction || 'neutral';
   badgesDiv.appendChild(createBadge(
     dirLabels[dirKey] ?? dirKey,

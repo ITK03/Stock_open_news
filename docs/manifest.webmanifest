@@ -1,0 +1,20 @@
+{
+  "name": "TDnet 適時開示ダッシュボード",
+  "short_name": "適時開示",
+  "description": "日本の適時開示(TDnet)を分析したリアルタイム・ダッシュボード",
+  "lang": "ja",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1419",
+  "theme_color": "#0f1419",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

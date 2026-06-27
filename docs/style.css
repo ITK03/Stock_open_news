@@ -507,6 +507,7 @@ body {
 .badge-direction-positive { background: var(--positive-bg); color: var(--positive); border-color: var(--positive); }
 .badge-direction-negative { background: var(--negative-bg); color: var(--negative); border-color: var(--negative); }
 .badge-direction-neutral  { background: var(--neutral-bg);  color: var(--neutral);  border-color: var(--neutral); }
+.badge-direction-unknown  { background: var(--neutral-bg);  color: var(--neutral);  border-color: var(--neutral); }
 
 /* Category badge */
 .badge-category {

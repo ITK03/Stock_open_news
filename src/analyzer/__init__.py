@@ -8,7 +8,7 @@ from __future__ import annotations
 import logging
 from datetime import datetime, timezone, timedelta
 
-from .rules import analyze_title, _impact_of
+from .rules import analyze_title, interpret, _impact_of
 from .llm import Provider, NoneProvider
 
 log = logging.getLogger(__name__)
@@ -18,13 +18,6 @@ JST = timezone(timedelta(hours=9))
 
 def _now_jst_iso() -> str:
     return datetime.now(JST).isoformat(timespec="seconds")
-
-
-def _fallback_summary(category: str, title: str) -> str:
-    title = title or ""
-    if len(title) <= 70:
-        return f"[{category}] {title}"
-    return f"[{category}] {title[:67]}…"
 
 
 def analyze(raw: dict, provider: Provider | None = None, llm_min_score: int = 50) -> dict:
@@ -42,7 +35,7 @@ def analyze(raw: dict, provider: Provider | None = None, llm_min_score: int = 50
             "direction": ra.direction,
             "urgent": ra.urgent,
             "reasons": ra.reasons,
-            "summary": _fallback_summary(ra.category, title),
+            "summary": interpret(ra.category, ra.direction),
             "analyzed_by": "rules",
             "analyzed_at": _now_jst_iso(),
         }

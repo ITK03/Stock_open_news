@@ -6,8 +6,10 @@
 'use strict';
 
 /* ===== 定数 ===== */
-const DATA_URL        = './data/disclosures.json';
-const AUTO_REFRESH_MS = 60_000; // 60秒
+const DATA_URL          = './data/disclosures.json';
+const ARCHIVE_INDEX_URL = './data/archive/index.json';
+const ARCHIVE_BASE_URL  = './data/archive/';
+const AUTO_REFRESH_MS   = 60_000; // 60秒
 
 /* ===== 状態 ===== */
 const state = {
@@ -21,9 +23,28 @@ const state = {
   filterKeyword:   '',
   sortOrder:       'time', // 'time' | 'score'
 
-  loading:  false,
-  error:    null,
+  loading:      false,
+  error:        null,
+
+  // 追加: 日付選択
+  // null = ライブ(最新), 'YYYY-MM-DD' = 過去日付
+  selectedDate: null,
 };
+
+/* ===== 自動更新タイマー管理 ===== */
+let autoRefreshTimer = null;
+
+function startAutoRefresh() {
+  stopAutoRefresh();
+  autoRefreshTimer = setInterval(fetchData, AUTO_REFRESH_MS);
+}
+
+function stopAutoRefresh() {
+  if (autoRefreshTimer !== null) {
+    clearInterval(autoRefreshTimer);
+    autoRefreshTimer = null;
+  }
+}
 
 /* ===== DOM 参照キャッシュ ===== */
 const el = {};
@@ -89,17 +110,16 @@ function safePdfUrl(url) {
 
 /**
  * XSS-safe なテキストノードを作成して要素に追加
- * @param {HTMLElement} parent
  * @param {string} tag
  * @param {string} text
  * @param {string} [className]
  * @returns {HTMLElement}
  */
 function createTextEl(tag, text, className) {
-  const el = document.createElement(tag);
-  if (className) el.className = className;
-  el.textContent = String(text ?? '');
-  return el;
+  const elem = document.createElement(tag);
+  if (className) elem.className = className;
+  elem.textContent = String(text ?? '');
+  return elem;
 }
 
 /* ===== カテゴリ一覧を items から動的生成 ===== */
@@ -232,6 +252,99 @@ function createScoreRing(score, impact) {
 }
 
 /**
+ * 決算サマリー (<details>) を生成（XSS安全）
+ * @param {object} earnings
+ * @returns {HTMLDetailsElement}
+ */
+function createEarningsSummary(earnings) {
+  const details = document.createElement('details');
+  details.className = 'earnings-details';
+
+  const summary = document.createElement('summary');
+  summary.className = 'earnings-summary-toggle';
+  summary.textContent = '📊 決算サマリー';
+  details.appendChild(summary);
+
+  const body = document.createElement('div');
+  body.className = 'earnings-body';
+
+  // period（見出し）
+  if (earnings.period) {
+    body.appendChild(createTextEl('p', earnings.period, 'earnings-period'));
+  }
+
+  // figures（表）
+  if (Array.isArray(earnings.figures) && earnings.figures.length > 0) {
+    const table = document.createElement('table');
+    table.className = 'earnings-table';
+
+    const thead = document.createElement('thead');
+    const hRow = document.createElement('tr');
+    ['項目', '値', '前期比'].forEach((h) => {
+      hRow.appendChild(createTextEl('th', h));
+    });
+    thead.appendChild(hRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    for (const fig of earnings.figures) {
+      const tr = document.createElement('tr');
+
+      tr.appendChild(createTextEl('td', fig.label ?? '', 'earnings-label'));
+
+      tr.appendChild(createTextEl('td', fig.value ?? '', 'earnings-value'));
+
+      const yoyTd = document.createElement('td');
+      yoyTd.className = 'earnings-yoy';
+      const yoyStr = String(fig.yoy ?? '');
+      if (yoyStr.startsWith('+')) {
+        yoyTd.classList.add('yoy-positive');
+      } else if (yoyStr.startsWith('-')) {
+        yoyTd.classList.add('yoy-negative');
+      } else {
+        yoyTd.classList.add('yoy-neutral');
+      }
+      yoyTd.textContent = yoyStr;
+      tr.appendChild(yoyTd);
+
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    body.appendChild(table);
+  }
+
+  // dividend
+  if (earnings.dividend) {
+    const row = document.createElement('p');
+    row.className = 'earnings-meta-row';
+    const label = createTextEl('span', '配当: ', 'earnings-meta-label');
+    const value = createTextEl('span', earnings.dividend, 'earnings-meta-value');
+    row.appendChild(label);
+    row.appendChild(value);
+    body.appendChild(row);
+  }
+
+  // forecast
+  if (earnings.forecast) {
+    const row = document.createElement('p');
+    row.className = 'earnings-meta-row';
+    const label = createTextEl('span', '業績予想: ', 'earnings-meta-label');
+    const value = createTextEl('span', earnings.forecast, 'earnings-meta-value');
+    row.appendChild(label);
+    row.appendChild(value);
+    body.appendChild(row);
+  }
+
+  // comment
+  if (earnings.comment) {
+    body.appendChild(createTextEl('p', earnings.comment, 'earnings-comment'));
+  }
+
+  details.appendChild(body);
+  return details;
+}
+
+/**
  * 1件分のカード要素を生成（XSS 安全、innerHTML 不使用）
  */
 function createCard(item) {
@@ -312,6 +425,11 @@ function createCard(item) {
   }
 
   card.appendChild(badgesDiv);
+
+  /* --- 決算サマリー (earnings があるカードのみ) --- */
+  if (item.earnings && typeof item.earnings === 'object') {
+    card.appendChild(createEarningsSummary(item.earnings));
+  }
 
   /* --- フッター: reasons / PDF リンク --- */
   const footer = document.createElement('div');
@@ -395,8 +513,13 @@ async function fetchData() {
   el.refreshBtn.prepend(spinnerSpan);
   setStatus('データを取得中…', 'loading');
 
+  // 選択日付に応じて URL を切り替える
+  const targetDate = state.selectedDate; // null = ライブ
+  const url = targetDate
+    ? `${ARCHIVE_BASE_URL}${targetDate}.json?t=${Date.now()}`
+    : `${DATA_URL}?t=${Date.now()}`;
+
   try {
-    const url  = `${DATA_URL}?t=${Date.now()}`;
     const resp = await fetch(url);
     if (!resp.ok) {
       throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
@@ -440,6 +563,64 @@ async function fetchData() {
       el.refreshBtn.removeChild(el.refreshBtn.firstChild);
     }
   }
+}
+
+/* ===== 日付セレクタ構築 ===== */
+
+/**
+ * archive/index.json を取得して日付セレクタを構築する。
+ * 失敗しても最新フィードの表示には影響しない。
+ */
+async function buildDateSelector() {
+  try {
+    const resp = await fetch(`${ARCHIVE_INDEX_URL}?t=${Date.now()}`);
+    if (!resp.ok) {
+      // index.json が無い/取得失敗 → セレクタは「最新」のみのまま
+      return;
+    }
+    const json = await resp.json();
+    if (!Array.isArray(json.dates) || json.dates.length === 0) return;
+
+    const sel = el.dateSelector;
+    // 新しい順（index.json は既に新しい順のはずだが念のためソート）
+    const sorted = [...json.dates].sort((a, b) => {
+      return String(b.date).localeCompare(String(a.date));
+    });
+
+    for (const entry of sorted) {
+      if (!entry.date) continue;
+      const opt = document.createElement('option');
+      opt.value = String(entry.date);
+      // ラベル: "2026-06-27 (89件)"
+      const countPart = typeof entry.count === 'number' ? ` (${entry.count}件)` : '';
+      opt.textContent = `${entry.date}${countPart}`;
+      sel.appendChild(opt);
+    }
+  } catch (err) {
+    // 失敗しても無視（最新フィードは引き続き表示される）
+    console.warn('[TDnet Dashboard] archive/index.json 取得失敗:', err);
+  }
+}
+
+/* ===== 日付選択変更ハンドラ ===== */
+
+function onDateSelectorChange() {
+  const value = el.dateSelector.value;
+  if (value === 'live') {
+    state.selectedDate = null;
+    // ライブ → 自動更新を再開
+    startAutoRefresh();
+  } else {
+    state.selectedDate = value;
+    // 過去日付 → 自動更新を停止
+    stopAutoRefresh();
+  }
+  // 選択変更時はカテゴリフィルタをリセット（別日付では別カテゴリ）
+  state.filterCategory = 'all';
+  el.categorySelect.value = 'all';
+
+  // データ取得
+  fetchData();
 }
 
 /* ===== イベントハンドラ ===== */
@@ -500,18 +681,19 @@ function onWindowScroll() {
 /* ===== 初期化 ===== */
 
 function initDOM() {
-  el.updatedAt    = document.getElementById('updated-at');
-  el.countBadge   = document.getElementById('count-badge');
-  el.refreshBtn   = document.getElementById('btn-refresh');
-  el.impactBtns   = document.querySelectorAll('[data-impact]');
+  el.updatedAt      = document.getElementById('updated-at');
+  el.countBadge     = document.getElementById('count-badge');
+  el.refreshBtn     = document.getElementById('btn-refresh');
+  el.impactBtns     = document.querySelectorAll('[data-impact]');
   el.categorySelect = document.getElementById('filter-category');
-  el.urgentCheck  = document.getElementById('filter-urgent');
-  el.searchInput  = document.getElementById('search-input');
-  el.sortBtns     = document.querySelectorAll('[data-sort]');
-  el.cardList     = document.getElementById('card-list');
-  el.resultCount  = document.getElementById('result-count');
-  el.statusMsg    = document.getElementById('status-msg');
-  el.scrollTopBtn = document.getElementById('scroll-top-btn');
+  el.urgentCheck    = document.getElementById('filter-urgent');
+  el.searchInput    = document.getElementById('search-input');
+  el.sortBtns       = document.querySelectorAll('[data-sort]');
+  el.cardList       = document.getElementById('card-list');
+  el.resultCount    = document.getElementById('result-count');
+  el.statusMsg      = document.getElementById('status-msg');
+  el.scrollTopBtn   = document.getElementById('scroll-top-btn');
+  el.dateSelector   = document.getElementById('date-selector');
 }
 
 function initEvents() {
@@ -531,15 +713,24 @@ function initEvents() {
 
   el.scrollTopBtn.addEventListener('click', onScrollTop);
   window.addEventListener('scroll', onWindowScroll, { passive: true });
+
+  el.dateSelector.addEventListener('change', onDateSelectorChange);
 }
 
 function initAutoRefresh() {
-  setInterval(fetchData, AUTO_REFRESH_MS);
+  // ライブモードでのみ自動更新を開始
+  if (state.selectedDate === null) {
+    startAutoRefresh();
+  }
 }
 
-function init() {
+async function init() {
   initDOM();
   initEvents();
+
+  // 日付セレクタを構築（失敗しても初期フェッチに影響しない）
+  await buildDateSelector();
+
   initAutoRefresh();
   fetchData();
 }

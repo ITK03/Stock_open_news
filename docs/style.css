@@ -636,6 +636,168 @@ body {
   margin-right: 4px;
 }
 
+/* ===== Date Selector ===== */
+.date-selector {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  max-width: 200px;
+  white-space: nowrap;
+}
+
+.date-selector:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* 狭い画面ではヘッダーを2段にして重なりを防ぐ
+   (1段目: タイトル + 日付セレクタ + 更新 / 2段目: 最終更新・件数) */
+@media (max-width: 560px) {
+  .header-meta { order: 3; flex-basis: 100%; }
+  .date-selector { flex: 1 1 auto; max-width: none; }
+}
+
+/* ===== Earnings Summary ===== */
+.earnings-details {
+  margin: 10px 0 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.earnings-summary-toggle {
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  list-style: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.earnings-summary-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.earnings-summary-toggle::after {
+  content: '▸';
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  transition: transform var(--transition);
+}
+
+.earnings-details[open] > .earnings-summary-toggle::after {
+  transform: rotate(90deg);
+}
+
+.earnings-summary-toggle:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.earnings-body {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.earnings-period {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  margin-bottom: 2px;
+}
+
+/* Earnings table */
+.earnings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.earnings-table th,
+.earnings-table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.earnings-table thead th {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(0,0,0,0.2);
+}
+
+.earnings-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.earnings-table tbody tr:hover td {
+  background: rgba(255,255,255,0.03);
+}
+
+.earnings-label {
+  color: var(--text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.earnings-value {
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.earnings-yoy {
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.yoy-positive { color: var(--positive); }
+.yoy-negative { color: var(--negative); }
+.yoy-neutral  { color: var(--text-muted); }
+
+/* Earnings meta rows (dividend / forecast) */
+.earnings-meta-row {
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.earnings-meta-label {
+  color: var(--text-muted);
+}
+
+.earnings-meta-value {
+  color: var(--text-secondary);
+}
+
+/* Earnings comment */
+.earnings-comment {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding: 6px 8px;
+  border-left: 3px solid var(--accent);
+  background: rgba(92,107,192,0.08);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
 /* ===== Responsive: tablet+ ===== */
 @media (min-width: 600px) {
   html { font-size: 15px; }

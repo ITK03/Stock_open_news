@@ -32,12 +32,25 @@ RawDisclosure に以下を付与:
   "summary": "営業利益を上方修正(前回比+30%)。",  // 簡潔な日本語要約(LLM無時はtitleベース)
   "reasons": ["上方修正"],           // スコア根拠キーワード
   "analyzed_by": "rules",            // "rules" | "gemini" | "groq" | "claude" | "openai"
-  "analyzed_at": "2026-06-27T15:01:00+09:00"
+  "analyzed_at": "2026-06-27T15:01:00+09:00",
+
+  // 決算(category=="決算")にのみ付くことがある決算要約(任意)
+  "earnings": {
+    "period": "2026年3月期 第1四半期",
+    "figures": [
+      {"label": "売上高",   "value": "12,345百万円", "yoy": "+12.3%"},
+      {"label": "営業利益", "value": "1,234百万円",  "yoy": "-5.0%"}
+    ],
+    "dividend": "1株当たり30円（前期25円）",   // 任意
+    "forecast": "通期予想を据え置き",           // 任意
+    "comment": "増収だが営業減益。",            // 任意(LLM時)
+    "source": "llm"                            // "llm" | "regex"
+  }
 }
 ```
 
 ## 永続化ファイル: docs/data/disclosures.json
-Web UI(GitHub Pages, docs/) が `./data/disclosures.json` として読む。
+Web UI(GitHub Pages, docs/) が `./data/disclosures.json` として読む。最新(ライブ)フィード。
 
 ```json
 {
@@ -46,3 +59,11 @@ Web UI(GitHub Pages, docs/) が `./data/disclosures.json` として読む。
   "items": [ /* Disclosure を time 降順。最大 N 件保持 */ ]
 }
 ```
+
+## 日付別アーカイブ(過去に遡って閲覧)
+- `docs/data/archive/YYYY-MM-DD.json` … その日(JST)の Disclosure。disclosures.json と同形。
+- `docs/data/archive/index.json` … 利用可能な日付の索引。
+  ```json
+  { "updated_at": "...", "dates": [ {"date":"2026-06-27","count":89}, {"date":"2026-06-26","count":120} ] }
+  ```
+  UI は index.json で日付セレクタを構築し、選択日の archive/YYYY-MM-DD.json を表示する。

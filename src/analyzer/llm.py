@@ -1,6 +1,6 @@
 """LLM 抽象化レイヤー。
 
-重要度がしきい値以上の開示についてのみ呼び出し、要約・方向・スコアを精査する。
+重要度がしきい値以上の開示の精査(refine)や、決算PDFの要約(chat)に使う。
 プロバイダは環境変数で差し替え可能(無料枠の gemini / groq を推奨、claude/openai も可)。
 鍵が無い・provider=none の場合は None を返し、呼び出し側はルールベース結果を使う。
 
@@ -17,7 +17,7 @@ import requests
 
 log = logging.getLogger(__name__)
 
-TIMEOUT = 20
+TIMEOUT = 30
 
 SYSTEM_PROMPT = (
     "あなたは日本株の専門アナリストです。与えられた適時開示(TDnet)について、"
@@ -43,11 +43,9 @@ USER_TEMPLATE = """次の適時開示を評価してください。
 def _extract_json(text: str) -> dict | None:
     if not text:
         return None
-    # コードフェンス除去
     text = text.strip()
     text = re.sub(r"^```(?:json)?", "", text).strip()
     text = re.sub(r"```$", "", text).strip()
-    # 最初の { ... } を抽出
     m = re.search(r"\{.*\}", text, re.DOTALL)
     if not m:
         return None
@@ -79,20 +77,6 @@ def _coerce(obj: dict) -> dict | None:
     return result or None
 
 
-class Provider:
-    name = "none"
-
-    def refine(self, disclosure: dict, rule_result: dict) -> dict | None:
-        raise NotImplementedError
-
-
-class NoneProvider(Provider):
-    name = "none"
-
-    def refine(self, disclosure, rule_result):
-        return None
-
-
 def _build_user_prompt(d: dict) -> str:
     return USER_TEMPLATE.format(
         company=d.get("company", ""),
@@ -102,6 +86,29 @@ def _build_user_prompt(d: dict) -> str:
     )
 
 
+class Provider:
+    name = "none"
+
+    def chat(self, system: str, user: str, max_tokens: int = 600) -> str | None:
+        """システム/ユーザープロンプトから生テキスト応答を得る。失敗時 None。"""
+        raise NotImplementedError
+
+    def refine(self, disclosure: dict, rule_result: dict) -> dict | None:
+        text = self.chat(SYSTEM_PROMPT, _build_user_prompt(disclosure), max_tokens=400)
+        obj = _extract_json(text) if text else None
+        return _coerce(obj) if obj else None
+
+
+class NoneProvider(Provider):
+    name = "none"
+
+    def chat(self, system, user, max_tokens=600):
+        return None
+
+    def refine(self, disclosure, rule_result):
+        return None
+
+
 class GeminiProvider(Provider):
     name = "gemini"
 
@@ -109,25 +116,24 @@ class GeminiProvider(Provider):
         self.api_key = api_key
         self.model = model
 
-    def refine(self, disclosure, rule_result):
-        url = (
-            f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent"
-        )
+    def chat(self, system, user, max_tokens=600):
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent"
         body = {
-            "system_instruction": {"parts": [{"text": SYSTEM_PROMPT}]},
-            "contents": [{"parts": [{"text": _build_user_prompt(disclosure)}]}],
-            "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
+            "system_instruction": {"parts": [{"text": system}]},
+            "contents": [{"parts": [{"text": user}]}],
+            "generationConfig": {
+                "temperature": 0.2,
+                "maxOutputTokens": max_tokens,
+                "responseMimeType": "application/json",
+            },
         }
         try:
             r = requests.post(url, params={"key": self.api_key}, json=body, timeout=TIMEOUT)
             r.raise_for_status()
-            data = r.json()
-            text = data["candidates"][0]["content"]["parts"][0]["text"]
+            return r.json()["candidates"][0]["content"]["parts"][0]["text"]
         except (requests.RequestException, KeyError, IndexError, ValueError) as e:
-            log.warning("Gemini refine failed: %s", e)
+            log.warning("Gemini chat failed: %s", e)
             return None
-        obj = _extract_json(text)
-        return _coerce(obj) if obj else None
 
 
 class _OpenAICompatProvider(Provider):
@@ -139,27 +145,26 @@ class _OpenAICompatProvider(Provider):
         self.base_url = base_url.rstrip("/")
         self.name = name
 
-    def refine(self, disclosure, rule_result):
+    def chat(self, system, user, max_tokens=600):
         url = f"{self.base_url}/chat/completions"
         headers = {"Authorization": f"Bearer {self.api_key}"}
         body = {
             "model": self.model,
             "temperature": 0.2,
+            "max_tokens": max_tokens,
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": _build_user_prompt(disclosure)},
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
             ],
             "response_format": {"type": "json_object"},
         }
         try:
             r = requests.post(url, headers=headers, json=body, timeout=TIMEOUT)
             r.raise_for_status()
-            text = r.json()["choices"][0]["message"]["content"]
+            return r.json()["choices"][0]["message"]["content"]
         except (requests.RequestException, KeyError, IndexError, ValueError) as e:
-            log.warning("%s refine failed: %s", self.name, e)
+            log.warning("%s chat failed: %s", self.name, e)
             return None
-        obj = _extract_json(text)
-        return _coerce(obj) if obj else None
 
 
 class ClaudeProvider(Provider):
@@ -169,7 +174,7 @@ class ClaudeProvider(Provider):
         self.api_key = api_key
         self.model = model
 
-    def refine(self, disclosure, rule_result):
+    def chat(self, system, user, max_tokens=600):
         url = "https://api.anthropic.com/v1/messages"
         headers = {
             "x-api-key": self.api_key,
@@ -178,19 +183,17 @@ class ClaudeProvider(Provider):
         }
         body = {
             "model": self.model,
-            "max_tokens": 400,
-            "system": SYSTEM_PROMPT,
-            "messages": [{"role": "user", "content": _build_user_prompt(disclosure)}],
+            "max_tokens": max_tokens,
+            "system": system,
+            "messages": [{"role": "user", "content": user}],
         }
         try:
             r = requests.post(url, headers=headers, json=body, timeout=TIMEOUT)
             r.raise_for_status()
-            text = r.json()["content"][0]["text"]
+            return r.json()["content"][0]["text"]
         except (requests.RequestException, KeyError, IndexError, ValueError) as e:
-            log.warning("Claude refine failed: %s", e)
+            log.warning("Claude chat failed: %s", e)
             return None
-        obj = _extract_json(text)
-        return _coerce(obj) if obj else None
 
 
 def get_provider(env: dict | None = None) -> Provider:

@@ -54,17 +54,19 @@ jobs:
           LLM_MIN_SCORE: ${{ vars.LLM_MIN_SCORE }}
           MIN_SCORE: ${{ vars.MIN_SCORE }}
           MAX_ITEMS: ${{ vars.MAX_ITEMS }}
+          EARNINGS_ENABLED: ${{ vars.EARNINGS_ENABLED }}
+          EARNINGS_PER_RUN: ${{ vars.EARNINGS_PER_RUN }}
         run: python -m src.main --limit 100
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- docs/data/disclosures.json; then
+          if git diff --quiet -- docs/data/disclosures.json docs/data/archive; then
             echo "変更なし。スキップ。"
             exit 0
           fi
-          git add docs/data/disclosures.json
+          git add docs/data/disclosures.json docs/data/archive
           git commit -m "data: update disclosures [skip ci]"
           for i in 1 2 3 4; do
             git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0

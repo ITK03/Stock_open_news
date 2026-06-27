@@ -1,0 +1,69 @@
+name: backfill-archive
+
+# 過去の適時開示をさかのぼって日付別アーカイブに蓄積する手動ワークフロー。
+# Actions タブ → backfill-archive → Run workflow で days を指定して実行。
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "さかのぼる日数(例: 30)"
+        required: true
+        default: "30"
+      earnings:
+        description: "決算PDFも解析する(遅い)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: poll-tdnet      # 通常ポーリングと直列化し push 競合を防ぐ
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Backfill archive
+        env:
+          LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MIN_SCORE: ${{ vars.MIN_SCORE }}
+          LLM_MIN_SCORE: ${{ vars.LLM_MIN_SCORE }}
+        run: |
+          python -m src.backfill --days "${{ github.event.inputs.days }}" \
+            ${{ github.event.inputs.earnings == 'true' && '--earnings' || '' }}
+
+      - name: Commit archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- docs/data/archive; then
+            echo "変更なし。スキップ。"
+            exit 0
+          fi
+          git add docs/data/archive
+          git commit -m "data: backfill archive [skip ci]"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
+            echo "push retry $i"; sleep $((2 ** i))
+          done
+          exit 1

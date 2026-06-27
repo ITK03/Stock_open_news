@@ -13,7 +13,8 @@ import sys
 from .fetcher import fetch_recent
 from .analyzer import analyze_many
 from .analyzer.llm import get_provider
-from .store import jsonstore
+from .analyzer.earnings import extract_earnings
+from .store import jsonstore, archive
 from .notify import discord
 
 logging.basicConfig(
@@ -34,6 +35,40 @@ def _env_int(name: str, default: int) -> int:
     except ValueError:
         log.warning("環境変数 %s=%r を整数解釈できないため既定値 %d を使用", name, raw, default)
         return default
+
+
+def _env_flag(name: str, default: bool) -> bool:
+    raw = os.environ.get(name)
+    if raw is None or str(raw).strip() == "":
+        return default
+    return str(raw).strip().lower() in ("1", "true", "yes", "on")
+
+
+def _enrich_earnings(curated: list[dict], provider, existing: list[dict],
+                     enabled: bool, cap: int) -> int:
+    """決算カテゴリの開示に earnings 要約を付与。既存の要約は再利用し、
+    新規のみ上限 cap 件まで PDF を解析する。付与した新規件数を返す。"""
+    if not enabled:
+        return 0
+    prev = {it.get("id"): it.get("earnings") for it in existing if it.get("earnings")}
+    n_new = 0
+    for d in curated:
+        if d.get("category") != "決算":
+            continue
+        if d.get("id") in prev:          # 既に要約済み → 再利用(再DLしない)
+            d["earnings"] = prev[d["id"]]
+            continue
+        if n_new >= cap:
+            continue
+        try:
+            e = extract_earnings(d, provider)
+        except Exception as ex:           # 1件の失敗で全体を止めない
+            log.warning("決算要約失敗 (%s): %s", d.get("id"), ex)
+            e = None
+        n_new += 1
+        if e:
+            d["earnings"] = e
+    return n_new
 
 
 def _load_dotenv() -> None:
@@ -63,7 +98,18 @@ def run(limit: int = 100, date: str | None = None, path: str = jsonstore.DEFAULT
     curated = [d for d in analyzed if d.get("score", 0) >= min_score]
     log.info("重要度フィルタ: %d件中 %d件を保持 (MIN_SCORE=%d)", len(analyzed), len(curated), min_score)
 
+    # 決算カテゴリは PDF を解析して決算要約を付与(既存は再利用・新規は上限件数まで)
+    earnings_enabled = _env_flag("EARNINGS_ENABLED", True)
+    earnings_cap = _env_int("EARNINGS_PER_RUN", 8)
+    existing = jsonstore.load(path)
+    n_earnings = _enrich_earnings(curated, provider, existing, earnings_enabled, earnings_cap)
+    if n_earnings:
+        log.info("決算要約: 新規 %d件を解析", n_earnings)
+
     fresh = jsonstore.merge_and_save(curated, path=path, max_items=max_items)
+
+    # 日付別アーカイブにも蓄積(過去に遡って閲覧できるようにする)
+    archive.archive_items(curated)
 
     # 新着のうち urgent を Discord 通知(Webhook 未設定なら no-op)
     sent = discord.notify_urgent(fresh)
@@ -75,6 +121,7 @@ def run(limit: int = 100, date: str | None = None, path: str = jsonstore.DEFAULT
         "stored": len(curated),
         "fresh": len(fresh),
         "high_impact": high,
+        "earnings_new": n_earnings,
         "urgent_notified": sent,
     }
     log.info("完了: %s", summary)

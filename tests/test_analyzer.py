@@ -92,6 +92,24 @@ def test_store_merge_and_fresh(tmp_path):
     assert len(loaded) == 2
 
 
+def test_store_evicts_demo_on_real_data(tmp_path):
+    path = str(tmp_path / "disclosures.json")
+    demo = analyze_many([_raw("業績予想の上方修正に関するお知らせ", code="0001")])
+    for d in demo:
+        d["source"] = "demo"
+    jsonstore.merge_and_save(demo, path=path)
+    assert len(jsonstore.load(path)) == 1
+
+    # 実データ(source!=demo)が来たらデモは消える
+    real = analyze_many([_raw("自己株式の取得に係る事項の決定", code="0002")])
+    for d in real:
+        d["source"] = "yanoshin"
+    jsonstore.merge_and_save(real, path=path)
+    loaded = jsonstore.load(path)
+    assert len(loaded) == 1
+    assert loaded[0]["source"] == "yanoshin"
+
+
 if __name__ == "__main__":
     import subprocess
 

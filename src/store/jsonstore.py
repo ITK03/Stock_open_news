@@ -39,6 +39,11 @@ def merge_and_save(
 ) -> list[dict]:
     """new_items を既存とマージ保存し、初めて追加された Disclosure を返す。"""
     existing = load(path)
+
+    # 実データ(source!=demo)が来たら、初期表示用のデモデータは破棄して混在を防ぐ
+    if any((it.get("source") != "demo") for it in new_items):
+        existing = [it for it in existing if it.get("source") != "demo"]
+
     by_id: dict[str, dict] = {it.get("id"): it for it in existing if it.get("id")}
 
     fresh: list[dict] = []

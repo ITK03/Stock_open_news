@@ -49,6 +49,18 @@ def test_archive_merges_and_dedupes(tmp_path):
     assert by_id["a"]["score"] == 90
 
 
+def test_archive_preserves_earnings_on_rewrite(tmp_path):
+    base = str(tmp_path / "archive")
+    enriched = _item("a", "2026-06-27T15:00:00+09:00")
+    enriched["earnings"] = {"period": "2026年3月期 第1四半期", "source": "llm"}
+    archive.archive_items([enriched], base_dir=base)
+
+    # 決算要約を持たない同id(バックフィル相当)で再書き込み → earnings は維持
+    archive.archive_items([_item("a", "2026-06-27T15:00:00+09:00")], base_dir=base)
+    d27 = json.load(open(os.path.join(base, "2026-06-27.json"), encoding="utf-8"))
+    assert d27["items"][0].get("earnings", {}).get("source") == "llm"
+
+
 def test_archive_ignores_bad_time(tmp_path):
     base = str(tmp_path / "archive")
     res = archive.archive_items([_item("a", "")], base_dir=base)

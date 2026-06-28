@@ -73,10 +73,12 @@ GitHub の Settings → Secrets and variables → Actions で設定:
 ローカルは `.env`(`.env.example` を参照)で同様に設定できます。
 
 ### 過去データのバックフィル(過去に遡る)
-平常運用では日々のデータが自動でアーカイブに溜まりますが、過去分も取り込みたい場合:
-Actions → **backfill-archive** → Run workflow → `days`(例: 30) を指定して実行。
-`docs/data/archive/YYYY-MM-DD.json` と `index.json` が生成され、UIの日付セレクタに過去日付が並びます。
-ローカルなら `python -m src.backfill --days 30`(決算PDFも解析するなら `--earnings`)。
+- **自動**: 当日分は毎回のポーリングでアーカイブに蓄積。さらに **backfill-archive ワークフローが
+  毎日 JST 20:00 に直近7日を自動バックフィル**するので、通常は手動操作は不要(穴も自動で埋まる)。
+- **手動(深い過去を一度だけ入れたい時)**: Actions → **backfill-archive** → Run workflow →
+  `days`(例: 90) を指定。または UI フッターの「⏪ 過去データを追加取得」リンクからその画面を開ける。
+  ローカルなら `python -m src.backfill --days 90`(決算PDFも解析するなら `--earnings`)。
+- 生成物 `docs/data/archive/YYYY-MM-DD.json` と `index.json` が UI の日付セレクタに反映される。
 
 ### 決算要約について
 `決算`カテゴリの開示はPDFを解析して主要数値(売上/営業益/経常/純益と前年比)を抽出・表示します。

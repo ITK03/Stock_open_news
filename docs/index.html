@@ -1,55 +1,153 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="日本の適時開示（TDnet）を分析したリアルタイム・ダッシュボード">
-  <title>TDnet 適時開示ダッシュボード</title>
-  <!-- PWA / スマホのホーム画面に追加 -->
+  <meta name="description" content="日本株の適時開示（TDnet）をリアルタイム分析。重要度・方向性・カテゴリで即座にフィルタリング。">
+
+  <title>開示レーダー — TDnet 適時開示モニター</title>
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="開示レーダー — TDnet 適時開示モニター">
+  <meta property="og:description" content="日本株の適時開示をリアルタイム分析。重要度・方向性・カテゴリで即座にフィルタリング。">
+  <meta property="og:image"       content="./icon.svg">
+  <meta property="og:locale"      content="ja_JP">
+  <meta name="twitter:card"       content="summary">
+  <meta name="twitter:title"      content="開示レーダー — TDnet 適時開示モニター">
+  <meta name="twitter:description" content="日本株の適時開示をリアルタイム分析。重要度・方向性・カテゴリで即座にフィルタリング。">
+  <meta name="twitter:image"      content="./icon.svg">
+
+  <!-- PWA -->
   <link rel="manifest" href="./manifest.webmanifest">
-  <meta name="theme-color" content="#0f1419">
+  <meta name="theme-color" id="meta-theme-color" content="#0d1117">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="適時開示">
+  <meta name="apple-mobile-web-app-title" content="開示レーダー">
   <link rel="apple-touch-icon" href="./icon.svg">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
+
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-  <!-- ===== ヘッダー ===== -->
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <h1 class="site-title">TDnet <span>適時開示</span></h1>
-      <div class="header-meta">
-        <span class="updated-at">
-          最終更新:&nbsp;<strong id="updated-at">—</strong>
-        </span>
-        <span class="count-badge" id="count-badge">全 0 件</span>
-      </div>
-      <!-- 日付セレクタ -->
-      <select
-        class="date-selector"
-        id="date-selector"
-        aria-label="表示する日付を選択"
-        title="閲覧する日付を選択"
-      >
-        <option value="live">最新（ライブ）</option>
-      </select>
+  <!-- ===== APP BAR ===== -->
+  <header class="appbar" role="banner">
+    <div class="appbar-inner">
 
-      <button class="btn-refresh" id="btn-refresh" type="button" aria-label="データを手動更新">
-        &#8635; 更新
-      </button>
+      <!-- Logo + Brand -->
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <!-- Inline radar SVG logo -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="12" fill="none" stroke="var(--brand)" stroke-width="1.5" opacity="0.25"/>
+            <circle cx="14" cy="14" r="7.5" fill="none" stroke="var(--brand)" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="14" cy="14" r="3"   fill="none" stroke="var(--brand)" stroke-width="1.5" opacity="0.6"/>
+            <path d="M14 14 L14 2 A12 12 0 0 1 23.6 19.6 Z" fill="var(--brand)" opacity="0.15"/>
+            <line x1="14" y1="14" x2="14" y2="2" stroke="var(--brand)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="19" cy="6.2" r="2.5" fill="var(--brand-light)"/>
+            <circle cx="14" cy="14" r="2"   fill="var(--brand)"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">開示レーダー</span>
+          <span class="brand-sub">TDnet 適時開示モニター</span>
+        </div>
+      </div>
+
+      <!-- Live indicator -->
+      <div class="live-indicator" id="live-indicator" aria-label="ライブ更新中">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span class="live-label" id="live-label">LIVE</span>
+      </div>
+
+      <!-- Appbar actions -->
+      <div class="appbar-actions">
+        <!-- Notification toggle -->
+        <button class="icon-btn" id="btn-notify" type="button"
+                aria-label="ブラウザ通知を有効にする" title="ブラウザ通知">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </button>
+
+        <!-- Theme toggle -->
+        <button class="icon-btn" id="btn-theme" type="button"
+                aria-label="ライト/ダークテーマを切り替え" title="テーマ切替">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Date selector -->
+        <select class="date-selector" id="date-selector"
+                aria-label="表示する日付を選択" title="閲覧する日付を選択">
+          <option value="live">最新（ライブ）</option>
+        </select>
+
+        <!-- Refresh button -->
+        <button class="btn-refresh" id="btn-refresh" type="button" aria-label="データを手動更新">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="23 4 23 10 17 10"/>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+          <span>更新</span>
+        </button>
+      </div>
+
     </div>
   </header>
 
-  <!-- ===== メインコンテンツ ===== -->
+  <!-- ===== MAIN ===== -->
   <main class="main-container" id="main">
 
-    <!-- フィルタパネル -->
+    <!-- Summary strip -->
+    <section class="summary-strip" id="summary-strip" aria-label="本日のサマリー">
+      <div class="summary-item">
+        <span class="summary-value" id="stat-total">—</span>
+        <span class="summary-label">総件数</span>
+      </div>
+      <div class="summary-divider" aria-hidden="true"></div>
+      <div class="summary-item summary-item--high">
+        <span class="summary-value" id="stat-high">—</span>
+        <span class="summary-label">高インパクト</span>
+      </div>
+      <div class="summary-divider" aria-hidden="true"></div>
+      <div class="summary-item summary-item--urgent">
+        <span class="summary-value" id="stat-urgent">—</span>
+        <span class="summary-label">緊急</span>
+      </div>
+      <div class="summary-divider" aria-hidden="true"></div>
+      <div class="summary-item">
+        <span class="summary-value summary-value--category" id="stat-category">—</span>
+        <span class="summary-label">上位カテゴリ</span>
+      </div>
+    </section>
+
+    <!-- Stock filter chip (active when filtering by company) -->
+    <div class="stock-filter-bar" id="stock-filter-bar" hidden>
+      <span class="stock-filter-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <strong id="stock-filter-name"></strong> のみ表示
+      </span>
+      <button class="stock-filter-clear" id="stock-filter-clear" type="button" aria-label="銘柄フィルタを解除">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        解除
+      </button>
+    </div>
+
+    <!-- Filter panel -->
     <section class="filter-panel" aria-label="フィルタ">
 
-      <!-- 重要度フィルタ -->
+      <!-- Row 1: Impact + Watchlist -->
       <div class="filter-row">
         <span class="filter-label">重要度</span>
         <div class="toggle-group" role="group" aria-label="重要度フィルタ">
@@ -57,36 +155,40 @@
           <button class="toggle-btn" type="button" data-impact="medium" aria-pressed="false">中</button>
           <button class="toggle-btn" type="button" data-impact="low"    aria-pressed="false">低</button>
         </div>
+
+        <button class="toggle-btn watchlist-toggle-btn" id="btn-watchlist" type="button" aria-pressed="false">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          お気に入り
+        </button>
       </div>
 
-      <!-- カテゴリ + urgent -->
+      <!-- Row 2: Category + Urgent -->
       <div class="filter-row">
         <span class="filter-label">カテゴリ</span>
         <select class="filter-select" id="filter-category" aria-label="カテゴリで絞り込み">
           <option value="all">すべて</option>
         </select>
-
         <label class="urgent-toggle">
           <input type="checkbox" id="filter-urgent" aria-label="緊急開示のみ表示">
-          🔥 緊急のみ
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          緊急のみ
         </label>
       </div>
 
-      <!-- 並び順 + 検索 -->
+      <!-- Row 3: Sort + Search -->
       <div class="filter-row">
         <span class="filter-label">並び順</span>
         <div class="toggle-group" role="group" aria-label="並び順">
           <button class="toggle-btn active" type="button" data-sort="time"  aria-pressed="true">時刻順</button>
           <button class="toggle-btn"        type="button" data-sort="score" aria-pressed="false">スコア順</button>
         </div>
-
         <div class="search-wrap">
-          <span class="search-icon" aria-hidden="true">&#128269;</span>
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input
             class="search-input"
             id="search-input"
             type="search"
-            placeholder="会社名・コード・キーワード検索"
+            placeholder="会社名・コード・キーワード"
             aria-label="フリーワード検索"
             autocomplete="off"
             spellcheck="false"
@@ -96,39 +198,40 @@
 
     </section><!-- /filter-panel -->
 
-    <!-- ステータスバー -->
+    <!-- Status bar -->
     <div class="status-bar" role="status" aria-live="polite">
       <span class="result-count" id="result-count">0 件表示</span>
-      <span class="status-msg"   id="status-msg"></span>
+      <span class="updated-at-inline">
+        最終更新: <strong id="updated-at">—</strong>
+      </span>
+      <span class="status-msg" id="status-msg"></span>
     </div>
 
-    <!-- カードリスト -->
+    <!-- Card list -->
     <div class="card-list" id="card-list" aria-label="適時開示一覧">
       <!-- JS で描画 -->
     </div>
 
-  </main><!-- /main-container -->
+  </main>
 
-  <!-- ===== フッター ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer" role="contentinfo">
-    <p>
+    <div class="footer-inner">
       <a class="backfill-link"
          href="https://github.com/ITK03/Stock_open_news/actions/workflows/backfill.yml"
          target="_blank" rel="noopener noreferrer"
          title="過去の開示をさかのぼって取得（GitHub Actionsのページで「Run workflow」を押す）">
-        ⏪ 過去データを追加取得
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg>
+        過去データを追加取得
       </a>
-    </p>
-    <p>データ出典: TDnet 適時開示情報閲覧サービス &mdash; 分析結果は参考情報です</p>
+      <p class="footer-note">データ出典: TDnet 適時開示情報閲覧サービス — 分析結果は参考情報です</p>
+    </div>
   </footer>
 
-  <!-- スクロールトップボタン -->
-  <button
-    class="scroll-top-btn"
-    id="scroll-top-btn"
-    type="button"
-    aria-label="ページ先頭へ戻る"
-  >&#8679;</button>
+  <!-- Scroll to top -->
+  <button class="scroll-top-btn" id="scroll-top-btn" type="button" aria-label="ページ先頭へ戻る">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="./app.js"></script>
 </body>

@@ -1,14 +1,15 @@
 {
-  "name": "TDnet 適時開示ダッシュボード",
-  "short_name": "適時開示",
-  "description": "日本の適時開示(TDnet)を分析したリアルタイム・ダッシュボード",
+  "name": "開示レーダー — TDnet 適時開示モニター",
+  "short_name": "開示レーダー",
+  "description": "日本株の適時開示（TDnet）をリアルタイム分析。重要度・方向性・カテゴリで即座にフィルタリング。",
   "lang": "ja",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0f1419",
-  "theme_color": "#0f1419",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "categories": ["finance", "news"],
   "icons": [
     {
       "src": "./icon.svg",

@@ -102,10 +102,46 @@ def test_urgent_flag():
 def test_analyze_produces_full_schema():
     d = analyze(_raw("業績予想の上方修正に関するお知らせ"))
     for key in ("category", "score", "impact", "direction", "urgent", "summary",
-                "reasons", "analyzed_by", "analyzed_at"):
+                "reasons", "analyzed_by", "analyzed_at",
+                "confidence", "is_correction", "tags"):
         assert key in d, f"missing {key}"
     assert d["analyzed_by"] == "rules"
     assert isinstance(d["score"], int)
+    assert isinstance(d["confidence"], int) and 0 <= d["confidence"] <= 100
+    assert isinstance(d["tags"], list)
+
+
+def test_expanded_categories():
+    cases = [
+        ("行政処分（業務改善命令）に関するお知らせ", "不祥事・処分"),
+        ("希望退職者の募集に関するお知らせ", "リストラ"),
+        ("格付の引き下げに関するお知らせ", "格付"),
+        ("新薬候補の第Ⅲ相臨床試験開始に関するお知らせ", "新薬・開発"),
+        ("訴訟の提起に関するお知らせ", "訴訟・係争"),
+        ("通期業績予想と実績値との差異に関するお知らせ", "業績修正"),
+        ("立会外分売に関するお知らせ", "売出し・分売"),
+    ]
+    for title, cat in cases:
+        a = analyze_title(title)
+        assert a.category == cat, f"{title}: {a.category} != {cat} (score={a.score})"
+
+
+def test_magnitude_bonus_and_confidence():
+    big = analyze_title("業績予想の上方修正に関するお知らせ（前期比＋45.0％）")
+    small = analyze_title("業績予想の上方修正に関するお知らせ")
+    assert big.score >= small.score          # 大きな変化率は加点
+    assert big.urgent and big.impact == "high"
+    # 具体的な高インパクト語は確信度が高い
+    assert big.confidence >= 80
+    # フォールバックは確信度が低い
+    low = analyze_title("当社ウェブサイト一部リニューアルのお知らせ")
+    assert low.confidence <= 60
+
+
+def test_correction_flag():
+    a = analyze_title("（変更）「公開買付けに関する意見表明」の一部訂正について")
+    assert a.is_correction is True
+    assert a.urgent is False
 
 
 def test_store_merge_and_fresh(tmp_path):

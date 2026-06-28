@@ -12,11 +12,16 @@ const ARCHIVE_INDEX_URL = './data/archive/index.json';
 const ARCHIVE_BASE_URL  = './data/archive/';
 const AUTO_REFRESH_MS   = 60_000; // 60秒
 
-/* ===== localStorage キー (名前衝突回避) ===== */
-const LS_THEME     = 'kaiji.theme';
-const LS_WATCHLIST = 'kaiji.watchlist';
-const LS_LAST_SEEN = 'kaiji.lastSeen';
-const LS_NOTIFY    = 'kaiji.notify';
+/* ===== localStorage キー (名前空間: kaiji.*) ===== */
+const LS_THEME         = 'kaiji.theme';
+const LS_WATCHLIST     = 'kaiji.watchlist';
+const LS_LAST_SEEN     = 'kaiji.lastSeen';
+const LS_NOTIFY        = 'kaiji.notify';
+const LS_FILTER_IMPACT = 'kaiji.filter.impact';
+const LS_FILTER_CAT    = 'kaiji.filter.category';
+const LS_FILTER_URGENT = 'kaiji.filter.urgent';
+const LS_FILTER_WL     = 'kaiji.filter.watchlist';
+const LS_SORT_ORDER    = 'kaiji.sort';
 
 /* ===== 状態 ===== */
 const state = {
@@ -29,41 +34,45 @@ const state = {
   filterUrgent:    false,
   filterKeyword:   '',
   filterWatchlist: false,
-  filterStockCode: null, // 銘柄絞り込み
+  filterStockCode: null,
+  filterNewOnly:   false,
   sortOrder:       'time',
 
   loading:      false,
   error:        null,
   selectedDate: null, // null = ライブ
 
-  // 新着チェック用（前回訪問時刻）
   lastSeenTs:   0,
-
-  // ウォッチリスト: Set<code string>
   watchlist:    new Set(),
-
-  // 通知許可状態
   notifyEnabled: false,
-
-  // 前回の urgent アイテム ID set (通知の重複防止)
-  notifiedIds: new Set(),
+  notifiedIds:  new Set(),
 };
 
 /* ===== 自動更新タイマー ===== */
-let autoRefreshTimer = null;
+let autoRefreshTimer     = null;
+let relTimeRefreshTimer  = null;
 
 function startAutoRefresh() {
   stopAutoRefresh();
   autoRefreshTimer = setInterval(() => fetchData({ silent: true }), AUTO_REFRESH_MS);
+  // 相対時刻も60秒ごと更新
+  relTimeRefreshTimer = setInterval(() => updateAllRelTimes(), AUTO_REFRESH_MS);
   updateLiveIndicator(true);
 }
 
 function stopAutoRefresh() {
-  if (autoRefreshTimer !== null) {
-    clearInterval(autoRefreshTimer);
-    autoRefreshTimer = null;
-  }
+  if (autoRefreshTimer !== null)    { clearInterval(autoRefreshTimer);    autoRefreshTimer    = null; }
+  if (relTimeRefreshTimer !== null) { clearInterval(relTimeRefreshTimer); relTimeRefreshTimer = null; }
   updateLiveIndicator(false);
+}
+
+/** 相対時刻だけ再計算してDOMを更新(データ再取得なし) */
+function updateAllRelTimes() {
+  const spans = document.querySelectorAll('.time-rel[data-ts]');
+  for (const span of spans) {
+    const ts = parseInt(span.dataset.ts, 10);
+    if (ts) span.textContent = relativeTime(ts);
+  }
 }
 
 function updateLiveIndicator(isLive) {
@@ -114,11 +123,6 @@ function formatUpdatedAt(iso) {
   } catch { return iso; }
 }
 
-/**
- * 相対時刻を返す
- * @param {number} ts — epoch ms
- * @returns {string}
- */
 function relativeTime(ts) {
   if (!ts) return '';
   const diff = Date.now() - ts;
@@ -141,6 +145,15 @@ function safePdfUrl(url) {
   } catch { return null; }
 }
 
+/** コードを4桁に正規化(5桁→前4桁、それ以外はそのまま) */
+function normalizeCode4(code) {
+  if (!code) return null;
+  const s = String(code).trim();
+  if (/^\d{5}$/.test(s)) return s.slice(0, 4);
+  if (/^\d{4}$/.test(s)) return s;
+  return null;
+}
+
 function createTextEl(tag, text, className) {
   const elem = document.createElement(tag);
   if (className) elem.className = className;
@@ -152,7 +165,6 @@ function createTextEl(tag, text, className) {
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  // PWA theme-color
   const meta = document.getElementById('meta-theme-color');
   if (meta) {
     meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#0d1117');
@@ -166,7 +178,6 @@ function initTheme() {
   if (saved === 'light' || saved === 'dark') {
     applyTheme(saved);
   } else {
-    // prefers-color-scheme の初期値
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     applyTheme(prefersDark ? 'dark' : 'light');
   }
@@ -184,29 +195,26 @@ function loadWatchlist() {
     const raw = localStorage.getItem(LS_WATCHLIST);
     if (raw) {
       const arr = JSON.parse(raw);
-      if (Array.isArray(arr)) {
-        state.watchlist = new Set(arr);
-        return;
-      }
+      if (Array.isArray(arr)) { state.watchlist = new Set(arr); return; }
     }
   } catch { /* ok */ }
   state.watchlist = new Set();
 }
 
 function saveWatchlist() {
-  try {
-    localStorage.setItem(LS_WATCHLIST, JSON.stringify([...state.watchlist]));
-  } catch { /* ok */ }
+  try { localStorage.setItem(LS_WATCHLIST, JSON.stringify([...state.watchlist])); } catch { /* ok */ }
 }
 
 function toggleWatchlist(code) {
   if (!code) return;
-  if (state.watchlist.has(code)) {
+  const wasStarred = state.watchlist.has(code);
+  if (wasStarred) {
     state.watchlist.delete(code);
   } else {
     state.watchlist.add(code);
   }
   saveWatchlist();
+  showToast(wasStarred ? `★ ウォッチリストから解除しました` : `★ ウォッチリストに追加しました`);
 }
 
 /* ===== 前回訪問時刻 ===== */
@@ -215,15 +223,83 @@ function loadLastSeen() {
   try {
     const raw = localStorage.getItem(LS_LAST_SEEN);
     state.lastSeenTs = raw ? parseInt(raw, 10) : 0;
-  } catch {
-    state.lastSeenTs = 0;
-  }
+  } catch { state.lastSeenTs = 0; }
 }
 
 function saveLastSeen() {
+  try { localStorage.setItem(LS_LAST_SEEN, String(Date.now())); } catch { /* ok */ }
+}
+
+/* ===== フィルタ永続化 ===== */
+
+function saveFilters() {
   try {
-    localStorage.setItem(LS_LAST_SEEN, String(Date.now()));
+    localStorage.setItem(LS_FILTER_IMPACT, state.filterImpact);
+    localStorage.setItem(LS_FILTER_CAT,    state.filterCategory);
+    localStorage.setItem(LS_FILTER_URGENT, state.filterUrgent ? '1' : '0');
+    localStorage.setItem(LS_FILTER_WL,     state.filterWatchlist ? '1' : '0');
+    localStorage.setItem(LS_SORT_ORDER,    state.sortOrder);
   } catch { /* ok */ }
+}
+
+function loadFilters() {
+  try {
+    const impact = localStorage.getItem(LS_FILTER_IMPACT);
+    if (impact && ['all','high','medium','low'].includes(impact)) state.filterImpact = impact;
+
+    const urgent = localStorage.getItem(LS_FILTER_URGENT);
+    if (urgent) state.filterUrgent = urgent === '1';
+
+    const wl = localStorage.getItem(LS_FILTER_WL);
+    if (wl) state.filterWatchlist = wl === '1';
+
+    const sort = localStorage.getItem(LS_SORT_ORDER);
+    if (sort && ['time','score'].includes(sort)) state.sortOrder = sort;
+    // category は buildCategoryOptions 後に復元するため別途対応
+  } catch { /* ok */ }
+}
+
+function restoreCategoryFilter() {
+  try {
+    const cat = localStorage.getItem(LS_FILTER_CAT);
+    if (cat) {
+      state.filterCategory = cat;
+      if (el.categorySelect) el.categorySelect.value = cat;
+    }
+  } catch { /* ok */ }
+}
+
+/* ===== フィルタUI同期 ===== */
+
+function syncFilterUI() {
+  // impact ボタン
+  if (el.impactBtns) {
+    el.impactBtns.forEach((b) => {
+      const active = b.dataset.impact === state.filterImpact;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
+  }
+  // urgent
+  if (el.urgentCheck) el.urgentCheck.checked = state.filterUrgent;
+  // watchlist
+  if (el.btnWatchlist) {
+    el.btnWatchlist.classList.toggle('active', state.filterWatchlist);
+    el.btnWatchlist.setAttribute('aria-pressed', String(state.filterWatchlist));
+  }
+  // sort
+  if (el.sortBtns) {
+    el.sortBtns.forEach((b) => {
+      const active = b.dataset.sort === state.sortOrder;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
+  }
+  // new-only toggle
+  if (el.btnNewOnly) {
+    el.btnNewOnly.classList.toggle('active', state.filterNewOnly);
+    el.btnNewOnly.setAttribute('aria-pressed', String(state.filterNewOnly));
+  }
 }
 
 /* ===== ブラウザ通知 ===== */
@@ -232,9 +308,7 @@ function loadNotifyPref() {
   try {
     const raw = localStorage.getItem(LS_NOTIFY);
     state.notifyEnabled = raw === '1' && Notification.permission === 'granted';
-  } catch {
-    state.notifyEnabled = false;
-  }
+  } catch { state.notifyEnabled = false; }
   updateNotifyBtn();
 }
 
@@ -253,31 +327,28 @@ async function toggleNotify() {
   if (!('Notification' in window)) return;
 
   if (state.notifyEnabled) {
-    // 無効化
     state.notifyEnabled = false;
     try { localStorage.setItem(LS_NOTIFY, '0'); } catch { /* ok */ }
     updateNotifyBtn();
+    showToast('通知を無効にしました');
     return;
   }
 
-  // 有効化リクエスト
   if (Notification.permission === 'granted') {
     state.notifyEnabled = true;
     try { localStorage.setItem(LS_NOTIFY, '1'); } catch { /* ok */ }
     updateNotifyBtn();
+    showToast('通知を有効にしました');
     return;
   }
 
-  if (Notification.permission === 'denied') {
-    // 拒否済み — 静かに何もしない
-    return;
-  }
+  if (Notification.permission === 'denied') return;
 
-  // default → 要求
   const perm = await Notification.requestPermission().catch(() => 'denied');
   if (perm === 'granted') {
     state.notifyEnabled = true;
     try { localStorage.setItem(LS_NOTIFY, '1'); } catch { /* ok */ }
+    showToast('通知を有効にしました');
   }
   updateNotifyBtn();
 }
@@ -285,7 +356,6 @@ async function toggleNotify() {
 function sendNotification(item) {
   if (!state.notifyEnabled) return;
   if (!('Notification' in window) || Notification.permission !== 'granted') return;
-
   try {
     const n = new Notification('開示レーダー — 緊急開示', {
       body: `${item.company ?? ''} (${item.code ?? ''}) — ${item.title ?? ''}`,
@@ -304,6 +374,135 @@ function checkNewUrgent(newItems) {
       sendNotification(item);
     }
   }
+}
+
+/* ===== トースト通知 ===== */
+
+let _toastTimer = null;
+
+function showToast(message, duration = 2800) {
+  let toast = document.getElementById('kaiji-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'kaiji-toast';
+    toast.className = 'kaiji-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.setAttribute('aria-atomic', 'true');
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('kaiji-toast--show');
+
+  if (_toastTimer) clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => {
+    toast.classList.remove('kaiji-toast--show');
+  }, duration);
+}
+
+/* ===== ヘルプダイアログ ===== */
+
+function openHelp() {
+  const existing = document.getElementById('help-dialog');
+  if (existing) { existing.showModal(); return; }
+
+  const dlg = document.createElement('dialog');
+  dlg.id = 'help-dialog';
+  dlg.className = 'help-dialog';
+
+  const header = document.createElement('div');
+  header.className = 'help-header';
+  const title = createTextEl('h2', 'スコアリング凡例', 'help-title');
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'help-close-btn';
+  closeBtn.setAttribute('aria-label', 'ヘルプを閉じる');
+  closeBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+  closeBtn.addEventListener('click', () => dlg.close());
+  header.appendChild(title);
+  header.appendChild(closeBtn);
+  dlg.appendChild(header);
+
+  const body = document.createElement('div');
+  body.className = 'help-body';
+
+  const sections = [
+    {
+      heading: 'スコア (0〜100)',
+      items: [
+        '開示の重要度を0〜100の数値で表します。',
+        '市場インパクト・緊急性・確信度を複合評価した独自スコアです。',
+      ],
+    },
+    {
+      heading: '重要度',
+      items: [
+        '高 (High): 株価に大きな影響を与える可能性が高い開示。決算、M&A、業績修正など。',
+        '中 (Medium): 一定のインパクトが見込まれる開示。人事異動、契約締結など。',
+        '低 (Low): 軽微な開示、定型的な情報開示など。',
+      ],
+    },
+    {
+      heading: '方向性',
+      items: [
+        '▲ 上昇: 株価にポジティブな影響が見込まれる内容。',
+        '▼ 下落: 株価にネガティブな影響が見込まれる内容。',
+        '─ 中立: 影響が限定的または中立的な内容。',
+        '? 不明: 方向性が判断できない内容。',
+      ],
+    },
+    {
+      heading: '⚡ 緊急',
+      items: [
+        '速報性・重要性が特に高い開示。市場開示直後などに付与されます。',
+      ],
+    },
+    {
+      heading: '確信度 (%)',
+      items: [
+        'AIによるスコアリングの確信度を示します。高いほど評価の信頼性が高くなります。',
+      ],
+    },
+  ];
+
+  for (const sec of sections) {
+    const secEl = document.createElement('section');
+    secEl.className = 'help-section';
+    secEl.appendChild(createTextEl('h3', sec.heading, 'help-section-title'));
+    const ul = document.createElement('ul');
+    ul.className = 'help-list';
+    for (const item of sec.items) {
+      ul.appendChild(createTextEl('li', item, 'help-list-item'));
+    }
+    secEl.appendChild(ul);
+    body.appendChild(secEl);
+  }
+
+  dlg.appendChild(body);
+  document.body.appendChild(dlg);
+
+  // ESC は dialog の組み込み動作で閉じる
+  // focus trap: 簡易実装
+  dlg.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusables = Array.from(dlg.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )).filter((el2) => !el2.disabled);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last  = focusables[focusables.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  dlg.showModal();
+  // 閉じた後フォーカスをヘルプボタンへ
+  dlg.addEventListener('close', () => {
+    if (el.btnHelp) el.btnHelp.focus();
+  }, { once: true });
 }
 
 /* ===== カテゴリ options 構築 ===== */
@@ -332,7 +531,6 @@ function renderSummary(items) {
   const high   = items.filter((i) => i.impact === 'high').length;
   const urgent = items.filter((i) => i.urgent === true).length;
 
-  // 上位カテゴリ
   const catCount = {};
   for (const item of items) {
     if (item.category) catCount[item.category] = (catCount[item.category] || 0) + 1;
@@ -340,14 +538,29 @@ function renderSummary(items) {
   const topCat = Object.entries(catCount).sort((a, b) => b[1] - a[1])[0];
 
   const setText = (id, text) => {
-    const el2 = document.getElementById(id);
-    if (el2) el2.textContent = text;
+    const elem = document.getElementById(id);
+    if (elem) elem.textContent = text;
   };
 
   setText('stat-total',    total);
   setText('stat-high',     high);
   setText('stat-urgent',   urgent);
   setText('stat-category', topCat ? topCat[0] : '—');
+
+  // サマリーボタンの active 状態を更新
+  updateSummaryActiveStates();
+}
+
+function updateSummaryActiveStates() {
+  const btnHigh     = document.getElementById('stat-btn-high');
+  const btnUrgent   = document.getElementById('stat-btn-urgent');
+  const btnCategory = document.getElementById('stat-btn-category');
+  if (btnHigh)     btnHigh.classList.toggle('active',   state.filterImpact === 'high');
+  if (btnUrgent)   btnUrgent.classList.toggle('active', state.filterUrgent === true);
+  if (btnCategory) {
+    const catVal = document.getElementById('stat-category')?.textContent;
+    btnCategory.classList.toggle('active', state.filterCategory !== 'all' && catVal && state.filterCategory === catVal);
+  }
 }
 
 /* ===== フィルタ & ソート ===== */
@@ -369,6 +582,12 @@ function applyFilters() {
   }
   if (state.filterStockCode) {
     result = result.filter((i) => String(i.code ?? '') === state.filterStockCode);
+  }
+  if (state.filterNewOnly && state.lastSeenTs > 0) {
+    result = result.filter((i) => {
+      const ts = i.time ? new Date(i.time).getTime() : 0;
+      return ts > state.lastSeenTs;
+    });
   }
 
   const kw = state.filterKeyword.trim().toLowerCase();
@@ -403,7 +622,7 @@ function createBadge(text, className) {
   return span;
 }
 
-/* ===== スコアリング SVG サークル ===== */
+/* ===== スコアリング SVG サークル (グラデーション対応) ===== */
 
 function createScoreRing(score, impact) {
   const safeScore = Math.max(0, Math.min(100, Number(score) || 0));
@@ -423,6 +642,34 @@ function createScoreRing(score, impact) {
   svg.setAttribute('viewBox', '0 0 44 44');
   svg.setAttribute('aria-hidden', 'true');
 
+  // linearGradient for stroke
+  const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  const gradId = `score-grad-${impact}-${safeScore}-${Math.random().toString(36).slice(2,7)}`;
+  const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+  grad.setAttribute('id', gradId);
+  grad.setAttribute('x1', '0%');
+  grad.setAttribute('y1', '0%');
+  grad.setAttribute('x2', '100%');
+  grad.setAttribute('y2', '100%');
+
+  // gradient colours by impact
+  const gradColors = {
+    high:   ['#ff6b6b', '#f85149'],
+    medium: ['#fbbf24', '#d29922'],
+    low:    ['#6ee7a3', '#3fb950'],
+  };
+  const [c1, c2] = gradColors[impact] || gradColors.low;
+  const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  stop1.setAttribute('offset', '0%');
+  stop1.setAttribute('stop-color', c1);
+  const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  stop2.setAttribute('offset', '100%');
+  stop2.setAttribute('stop-color', c2);
+  grad.appendChild(stop1);
+  grad.appendChild(stop2);
+  defs.appendChild(grad);
+  svg.appendChild(defs);
+
   const track = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   track.setAttribute('class', 'score-track');
   track.setAttribute('cx', '22');
@@ -438,6 +685,7 @@ function createScoreRing(score, impact) {
   fill.setAttribute('stroke-width', '3');
   fill.setAttribute('stroke-dasharray', String(circ));
   fill.setAttribute('stroke-dashoffset', String(offset));
+  fill.setAttribute('stroke', `url(#${gradId})`);
 
   svg.appendChild(track);
   svg.appendChild(fill);
@@ -501,7 +749,7 @@ function createEarningsSummary(earnings) {
 
   const addMetaRow = (label, value) => {
     if (!value) return;
-    const row   = document.createElement('p');
+    const row = document.createElement('p');
     row.className = 'earnings-meta-row';
     row.appendChild(createTextEl('span', label, 'earnings-meta-label'));
     row.appendChild(createTextEl('span', value, 'earnings-meta-value'));
@@ -519,17 +767,122 @@ function createEarningsSummary(earnings) {
   return details;
 }
 
+/* ===== 詳細展開パネル ===== */
+
+function createDetailPanel(item, pdfUrl, code4) {
+  const panel = document.createElement('div');
+  panel.className = 'card-detail-panel';
+  panel.setAttribute('role', 'region');
+  panel.setAttribute('aria-label', '開示詳細');
+
+  // タイトル全文
+  const titleFull = createTextEl('p', item.title ?? '', 'card-detail-title');
+  panel.appendChild(titleFull);
+
+  // 全 reasons
+  if (Array.isArray(item.reasons) && item.reasons.length > 0) {
+    const reasonsWrap = document.createElement('div');
+    reasonsWrap.className = 'card-detail-section';
+    reasonsWrap.appendChild(createTextEl('p', '評価理由', 'card-detail-section-label'));
+    const ul = document.createElement('ul');
+    ul.className = 'card-detail-reasons';
+    for (const r of item.reasons) {
+      ul.appendChild(createTextEl('li', String(r), 'card-detail-reason-item'));
+    }
+    reasonsWrap.appendChild(ul);
+    panel.appendChild(reasonsWrap);
+  }
+
+  // 全 tags
+  if (Array.isArray(item.tags) && item.tags.length > 0) {
+    const tagsWrap = document.createElement('div');
+    tagsWrap.className = 'card-detail-section';
+    tagsWrap.appendChild(createTextEl('p', 'タグ', 'card-detail-section-label'));
+    const tagsRow = document.createElement('div');
+    tagsRow.className = 'card-detail-tags';
+    for (const t of item.tags) {
+      if (t) tagsRow.appendChild(createBadge(String(t), 'badge-tag'));
+    }
+    tagsWrap.appendChild(tagsRow);
+    panel.appendChild(tagsWrap);
+  }
+
+  // リンク行 (chart + pdf)
+  const linksRow = document.createElement('div');
+  linksRow.className = 'card-detail-links';
+
+  if (code4) {
+    const chartLink = document.createElement('a');
+    chartLink.className = 'detail-link detail-link--chart';
+    chartLink.href    = `https://kabutan.jp/stock/?code=${encodeURIComponent(code4)}`;
+    chartLink.target  = '_blank';
+    chartLink.rel     = 'noopener noreferrer';
+    chartLink.setAttribute('aria-label', `${item.company ?? code4} の株探チャートを開く`);
+    chartLink.addEventListener('click', (e) => e.stopPropagation());
+    chartLink.textContent = '📈 チャート';
+    linksRow.appendChild(chartLink);
+  }
+
+  if (pdfUrl) {
+    const pdfLink = document.createElement('a');
+    pdfLink.className = 'detail-link detail-link--pdf';
+    pdfLink.href    = pdfUrl;
+    pdfLink.target  = '_blank';
+    pdfLink.rel     = 'noopener noreferrer';
+    pdfLink.setAttribute('aria-label', 'PDFを開く');
+    pdfLink.addEventListener('click', (e) => e.stopPropagation());
+    pdfLink.textContent = '📄 PDF';
+    linksRow.appendChild(pdfLink);
+  }
+
+  // 共有ボタン
+  const shareBtn = document.createElement('button');
+  shareBtn.type = 'button';
+  shareBtn.className = 'detail-link detail-link--share';
+  shareBtn.setAttribute('aria-label', 'この開示を共有する');
+  shareBtn.textContent = '🔗 共有';
+  shareBtn.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    const shareData = {
+      title: `${item.company ?? ''} — ${item.title ?? ''}`,
+      text:  `${item.company ?? ''} (${item.code ?? ''}) の適時開示: ${item.title ?? ''}`,
+      url:   window.location.href,
+    };
+    if (navigator.share) {
+      try { await navigator.share(shareData); } catch { /* cancelled */ }
+    } else {
+      try {
+        await navigator.clipboard.writeText(`${shareData.title}\n${shareData.url}`);
+        showToast('クリップボードにコピーしました');
+      } catch {
+        showToast('コピーできませんでした');
+      }
+    }
+  });
+  linksRow.appendChild(shareBtn);
+
+  if (linksRow.children.length > 0) panel.appendChild(linksRow);
+
+  return panel;
+}
+
 /* ===== カード生成 ===== */
 
-function createCard(item) {
+function createCard(item, index) {
   const card = document.createElement('article');
   card.className = 'card';
   card.dataset.impact = item.impact || 'low';
+  // スタガーアニメーション用インデックス
+  card.style.setProperty('--card-index', String(Math.min(index, 19)));
 
   const code = String(item.code ?? '');
+  const code4 = normalizeCode4(code);
   if (code && state.watchlist.has(code)) {
     card.classList.add('is-watchlisted');
   }
+
+  // カード展開状態
+  let isExpanded = false;
 
   /* --- カードトップ --- */
   const cardTop = document.createElement('div');
@@ -547,6 +900,7 @@ function createCard(item) {
   dateSpan.textContent = date;
   const relSpan = document.createElement('span');
   relSpan.className = 'time-rel';
+  relSpan.setAttribute('data-ts', String(ts));
   relSpan.textContent = relativeTime(ts);
   relSpan.setAttribute('title', formatUpdatedAt(item.time));
   timeDiv.appendChild(hhmmSpan);
@@ -580,7 +934,8 @@ function createCard(item) {
   const nameSpan = createTextEl('span', item.company ?? '（不明）', 'company-name');
   nameSpan.title = item.company ?? '';
   nameBtn.appendChild(nameSpan);
-  nameBtn.addEventListener('click', () => {
+  nameBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (code) onStockFilter(code, item.company ?? code);
   });
   companyDiv.appendChild(nameBtn);
@@ -612,7 +967,6 @@ function createCard(item) {
   btnStar.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleWatchlist(code);
-    // カードとボタンのスター状態を更新
     const starred = state.watchlist.has(code);
     btnStar.classList.toggle('starred', starred);
     btnStar.setAttribute('aria-pressed', String(starred));
@@ -623,7 +977,6 @@ function createCard(item) {
       starSvg.setAttribute('fill', 'none');
       card.classList.remove('is-watchlisted');
     }
-    // お気に入りフィルタ中は再描画
     if (state.filterWatchlist) renderCards();
   });
   if (code && state.watchlist.has(code)) {
@@ -672,17 +1025,13 @@ function createCard(item) {
   const badgesDiv = document.createElement('div');
   badgesDiv.className = 'card-badges';
 
-  // urgent
   if (item.urgent === true) {
     badgesDiv.appendChild(createBadge('⚡ 緊急', 'badge-urgent'));
   }
-
-  // is_correction (任意)
   if (item.is_correction === true) {
     badgesDiv.appendChild(createBadge('訂正/続報', 'badge-correction'));
   }
 
-  // impact
   const impactLabels = { high: '高', medium: '中', low: '低' };
   const impactKey = item.impact || 'low';
   badgesDiv.appendChild(createBadge(
@@ -690,19 +1039,18 @@ function createCard(item) {
     `badge-impact-${impactKey}`
   ));
 
-  // direction
   const dirLabels = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立', unknown: '? 不明' };
   const dirKey    = item.direction || 'neutral';
   badgesDiv.appendChild(createBadge(dirLabels[dirKey] ?? dirKey, `badge-direction-${dirKey}`));
 
-  // category
   if (item.category) {
     badgesDiv.appendChild(createBadge(item.category, 'badge-category'));
   }
 
-  // tags (任意)
+  // tags (任意: 展開時に全表示なので折り畳みは不要だが、最初の2件だけ表示)
   if (Array.isArray(item.tags) && item.tags.length > 0) {
-    for (const tag of item.tags.slice(0, 4)) {
+    const maxTagsPreview = isExpanded ? item.tags.length : 2;
+    for (const tag of item.tags.slice(0, maxTagsPreview)) {
       if (tag) badgesDiv.appendChild(createBadge(String(tag), 'badge-tag'));
     }
   }
@@ -714,15 +1062,19 @@ function createCard(item) {
     card.appendChild(createEarningsSummary(item.earnings));
   }
 
-  /* --- フッター: reasons / PDF --- */
+  /* --- フッター: reasons(1件) / PDF / Chart --- */
   const footer = document.createElement('div');
   footer.className = 'card-footer';
 
   if (item.reasons && item.reasons.length > 0) {
-    footer.appendChild(createTextEl('span', `理由: ${item.reasons.join(' / ')}`, 'card-reasons'));
+    footer.appendChild(createTextEl('span', `理由: ${item.reasons[0]}`, 'card-reasons'));
   } else {
     footer.appendChild(document.createElement('span'));
   }
+
+  // フッターリンク群
+  const footerLinks = document.createElement('div');
+  footerLinks.className = 'card-footer-links';
 
   const pdfUrl = safePdfUrl(item.pdf_url);
   if (pdfUrl) {
@@ -731,7 +1083,6 @@ function createCard(item) {
     a.href      = pdfUrl;
     a.target    = '_blank';
     a.rel       = 'noopener noreferrer';
-    // PDF link内容をSVGとtextで構成
     const pdfSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     pdfSvg.setAttribute('width', '12');
     pdfSvg.setAttribute('height', '12');
@@ -750,10 +1101,43 @@ function createCard(item) {
     pdfSvg.appendChild(polyEl);
     a.appendChild(pdfSvg);
     a.appendChild(document.createTextNode(' PDF'));
-    footer.appendChild(a);
+    a.addEventListener('click', (e) => e.stopPropagation());
+    footerLinks.appendChild(a);
   }
 
+  // チャートリンク (コード既知時)
+  if (code4) {
+    const chartA = document.createElement('a');
+    chartA.className = 'pdf-link chart-link';
+    chartA.href    = `https://kabutan.jp/stock/?code=${encodeURIComponent(code4)}`;
+    chartA.target  = '_blank';
+    chartA.rel     = 'noopener noreferrer';
+    chartA.setAttribute('aria-label', `${item.company ?? code4} の株探チャート`);
+    chartA.addEventListener('click', (e) => e.stopPropagation());
+    chartA.textContent = '📈 チャート';
+    footerLinks.appendChild(chartA);
+  }
+
+  footer.appendChild(footerLinks);
   card.appendChild(footer);
+
+  /* --- 詳細展開パネル --- */
+  const detailPanel = createDetailPanel(item, pdfUrl, code4);
+  detailPanel.hidden = true;
+  card.appendChild(detailPanel);
+
+  /* --- カードクリックで展開/折りたたみ --- */
+  card.setAttribute('aria-expanded', 'false');
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', (e) => {
+    // ボタン/リンク/select/input のクリックは伝播させない
+    if (e.target.closest('button, a, select, input, details, summary, label')) return;
+    isExpanded = !isExpanded;
+    card.setAttribute('aria-expanded', String(isExpanded));
+    detailPanel.hidden = !isExpanded;
+    card.classList.toggle('card--expanded', isExpanded);
+  });
+
   return card;
 }
 
@@ -801,7 +1185,6 @@ function showEmptyState(title, sub, isError = false) {
   iconWrap.className = 'empty-icon';
   iconWrap.setAttribute('aria-hidden', 'true');
 
-  // SVG icon
   const iconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   iconSvg.setAttribute('width', '24');
   iconSvg.setAttribute('height', '24');
@@ -858,18 +1241,15 @@ function renderCards() {
   const list = el.cardList;
   while (list.firstChild) list.removeChild(list.firstChild);
   const frag = document.createDocumentFragment();
-  for (const item of filtered) {
-    frag.appendChild(createCard(item));
-  }
+  filtered.forEach((item, i) => frag.appendChild(createCard(item, i)));
   list.appendChild(frag);
 }
 
 function renderHeader() {
-  el.updatedAt.textContent  = state.updatedAt ? formatUpdatedAt(state.updatedAt) : '—';
+  el.updatedAt.textContent = state.updatedAt ? formatUpdatedAt(state.updatedAt) : '—';
 }
 
 function updateSummaryStrip() {
-  // サマリーはフィルタ前の全件で計算
   renderSummary(state.items);
 }
 
@@ -882,7 +1262,6 @@ function setStatus(msg, type) {
 
 function onStockFilter(code, name) {
   if (state.filterStockCode === code) {
-    // 再クリックで解除
     clearStockFilter();
     return;
   }
@@ -891,6 +1270,7 @@ function onStockFilter(code, name) {
   if (bar) bar.hidden = false;
   const nameEl = document.getElementById('stock-filter-name');
   if (nameEl) nameEl.textContent = `${name} (${code})`;
+  showToast(`${name} (${code}) で絞り込み中`);
   renderCards();
 }
 
@@ -898,6 +1278,7 @@ function clearStockFilter() {
   state.filterStockCode = null;
   const bar = document.getElementById('stock-filter-bar');
   if (bar) bar.hidden = true;
+  showToast('銘柄フィルタを解除しました');
   renderCards();
 }
 
@@ -909,7 +1290,6 @@ async function fetchData({ silent = false } = {}) {
   el.refreshBtn.disabled = true;
 
   if (!silent) {
-    // スピナーをボタンに追加
     const spin = document.createElement('span');
     spin.className = 'spinner';
     spin.id = 'refresh-spinner';
@@ -933,13 +1313,13 @@ async function fetchData({ silent = false } = {}) {
     state.totalCount = typeof json.count === 'number' ? json.count : state.items.length;
     state.error      = null;
 
-    // 新規 urgent チェック（前回になかったアイテムのみ）
     if (silent) {
       const newItems = state.items.filter((i) => !prevIds.has(String(i.id ?? '')));
       checkNewUrgent(newItems);
     }
 
     buildCategoryOptions();
+    restoreCategoryFilter();
     renderHeader();
     updateSummaryStrip();
     renderCards();
@@ -978,7 +1358,7 @@ async function buildDateSelector() {
 
     for (const entry of sorted) {
       if (!entry.date) continue;
-      const opt    = document.createElement('option');
+      const opt = document.createElement('option');
       opt.value    = String(entry.date);
       const cnt    = typeof entry.count === 'number' ? ` (${entry.count}件)` : '';
       opt.textContent = `${entry.date}${cnt}`;
@@ -1013,16 +1393,19 @@ function onImpactToggle(e) {
     b.classList.toggle('active', b.dataset.impact === state.filterImpact);
     b.setAttribute('aria-pressed', String(b.dataset.impact === state.filterImpact));
   });
+  saveFilters();
   renderCards();
 }
 
 function onCategoryChange() {
   state.filterCategory = el.categorySelect.value;
+  saveFilters();
   renderCards();
 }
 
 function onUrgentToggle() {
   state.filterUrgent = el.urgentCheck.checked;
+  saveFilters();
   renderCards();
 }
 
@@ -1038,6 +1421,7 @@ function onSortChange(e) {
     b.classList.toggle('active', b.dataset.sort === state.sortOrder);
     b.setAttribute('aria-pressed', String(b.dataset.sort === state.sortOrder));
   });
+  saveFilters();
   renderCards();
 }
 
@@ -1045,6 +1429,16 @@ function onWatchlistToggle() {
   state.filterWatchlist = !state.filterWatchlist;
   el.btnWatchlist.classList.toggle('active', state.filterWatchlist);
   el.btnWatchlist.setAttribute('aria-pressed', String(state.filterWatchlist));
+  saveFilters();
+  renderCards();
+}
+
+function onNewOnlyToggle() {
+  state.filterNewOnly = !state.filterNewOnly;
+  if (el.btnNewOnly) {
+    el.btnNewOnly.classList.toggle('active', state.filterNewOnly);
+    el.btnNewOnly.setAttribute('aria-pressed', String(state.filterNewOnly));
+  }
   renderCards();
 }
 
@@ -1056,21 +1450,73 @@ function onWindowScroll() {
   el.scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
 }
 
+/* ===== サマリーストリップ クリックハンドラ ===== */
+
+function onStatHighClick() {
+  // 高インパクトフィルタをトグル
+  state.filterImpact = state.filterImpact === 'high' ? 'all' : 'high';
+  el.impactBtns.forEach((b) => {
+    b.classList.toggle('active', b.dataset.impact === state.filterImpact);
+    b.setAttribute('aria-pressed', String(b.dataset.impact === state.filterImpact));
+  });
+  saveFilters();
+  updateSummaryActiveStates();
+  renderCards();
+}
+
+function onStatUrgentClick() {
+  state.filterUrgent = !state.filterUrgent;
+  if (el.urgentCheck) el.urgentCheck.checked = state.filterUrgent;
+  saveFilters();
+  updateSummaryActiveStates();
+  renderCards();
+}
+
+function onStatCategoryClick() {
+  const catEl = document.getElementById('stat-category');
+  if (!catEl) return;
+  const topCat = catEl.textContent;
+  if (!topCat || topCat === '—') return;
+  if (state.filterCategory === topCat) {
+    state.filterCategory = 'all';
+    if (el.categorySelect) el.categorySelect.value = 'all';
+  } else {
+    state.filterCategory = topCat;
+    if (el.categorySelect) el.categorySelect.value = topCat;
+  }
+  saveFilters();
+  updateSummaryActiveStates();
+  renderCards();
+}
+
 /* ===== キーボードショートカット ===== */
 
 function onKeyDown(e) {
-  // '/' キーで検索フォーカス (入力中は無視)
+  // ESC でヘルプ/モーダル以外の処理
+  if (e.key === 'Escape' && document.activeElement === el.searchInput) {
+    el.searchInput.value = '';
+    state.filterKeyword = '';
+    renderCards();
+    return;
+  }
+  // '/' キーで検索フォーカス
   if (e.key === '/' && document.activeElement !== el.searchInput) {
     e.preventDefault();
     el.searchInput.focus();
     el.searchInput.select();
   }
-  // Escape で検索クリア
-  if (e.key === 'Escape' && document.activeElement === el.searchInput) {
-    el.searchInput.value = '';
-    state.filterKeyword = '';
-    renderCards();
-  }
+}
+
+/* ===== Service Worker 登録 ===== */
+
+function registerSW() {
+  if (!('serviceWorker' in navigator)) return;
+  navigator.serviceWorker.register('./sw.js').then((reg) => {
+    console.log('[開示レーダー] SW registered:', reg.scope);
+  }).catch((err) => {
+    // SW 未対応 or 失敗でも本体は動作
+    console.warn('[開示レーダー] SW registration failed:', err);
+  });
 }
 
 /* ===== 初期化 ===== */
@@ -1092,6 +1538,8 @@ function initDOM() {
   el.btnTheme       = document.getElementById('btn-theme');
   el.btnWatchlist   = document.getElementById('btn-watchlist');
   el.btnNotify      = document.getElementById('btn-notify');
+  el.btnHelp        = document.getElementById('btn-help');
+  el.btnNewOnly     = document.getElementById('btn-new-only');
 }
 
 function initEvents() {
@@ -1109,10 +1557,20 @@ function initEvents() {
   el.btnTheme.addEventListener('click', toggleTheme);
   if (el.btnWatchlist) el.btnWatchlist.addEventListener('click', onWatchlistToggle);
   if (el.btnNotify)    el.btnNotify.addEventListener('click', toggleNotify);
+  if (el.btnHelp)      el.btnHelp.addEventListener('click', openHelp);
+  if (el.btnNewOnly)   el.btnNewOnly.addEventListener('click', onNewOnlyToggle);
   document.addEventListener('keydown', onKeyDown);
 
   const stockClearBtn = document.getElementById('stock-filter-clear');
-  if (stockClearBtn) stockClearBtn.addEventListener('click', clearStockFilter);
+  if (stockClearBtn) stockClearBtn.addEventListener('click', () => clearStockFilter());
+
+  // サマリーストリップのクリック
+  const statBtnHigh     = document.getElementById('stat-btn-high');
+  const statBtnUrgent   = document.getElementById('stat-btn-urgent');
+  const statBtnCategory = document.getElementById('stat-btn-category');
+  if (statBtnHigh)     statBtnHigh.addEventListener('click',     onStatHighClick);
+  if (statBtnUrgent)   statBtnUrgent.addEventListener('click',   onStatUrgentClick);
+  if (statBtnCategory) statBtnCategory.addEventListener('click', onStatCategoryClick);
 }
 
 async function init() {
@@ -1120,12 +1578,19 @@ async function init() {
   initTheme();
 
   initDOM();
+
+  // フィルタ永続化読み込み
+  loadFilters();
+
   initEvents();
 
   // 永続データ読み込み
   loadWatchlist();
   loadLastSeen();
   loadNotifyPref();
+
+  // フィルタUI同期(永続化から復元した状態を反映)
+  syncFilterUI();
 
   // アーカイブセレクタ構築
   await buildDateSelector();
@@ -1140,6 +1605,9 @@ async function init() {
 
   // 初回表示完了後に lastSeen を更新
   saveLastSeen();
+
+  // Service Worker 登録
+  registerSW();
 }
 
 if (document.readyState === 'loading') {

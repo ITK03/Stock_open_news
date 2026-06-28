@@ -86,8 +86,14 @@ def archive_items(items: list[dict], base_dir: str = DEFAULT_DIR) -> dict:
         existing = _load_day(path)
         merged: dict[str, dict] = {x.get("id"): x for x in existing if x.get("id")}
         for it in day_items:
-            if it.get("id"):
-                merged[it["id"]] = it
+            iid = it.get("id")
+            if not iid:
+                continue
+            # 再書き込み(バックフィル等)で既存の決算要約を失わないよう保持
+            prev = merged.get(iid)
+            if prev and prev.get("earnings") and not it.get("earnings"):
+                it = {**it, "earnings": prev["earnings"]}
+            merged[iid] = it
         ordered = sorted(merged.values(), key=lambda x: (x.get("time") or ""), reverse=True)
         _write_json(path, {
             "updated_at": datetime.now(JST).isoformat(timespec="seconds"),

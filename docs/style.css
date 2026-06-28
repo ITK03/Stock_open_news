@@ -619,6 +619,24 @@ body {
   color: var(--text-muted);
 }
 
+.backfill-link {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.78rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+.backfill-link:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
 /* ===== Loading spinner ===== */
 @keyframes spin {
   to { transform: rotate(360deg); }

@@ -63,6 +63,16 @@
 
       <!-- Appbar actions -->
       <div class="appbar-actions">
+        <!-- Help button -->
+        <button class="icon-btn" id="btn-help" type="button"
+                aria-label="スコアリング凡例を表示" title="ヘルプ・凡例">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+
         <!-- Notification toggle -->
         <button class="icon-btn" id="btn-notify" type="button"
                 aria-label="ブラウザ通知を有効にする" title="ブラウザ通知">
@@ -109,27 +119,30 @@
   <!-- ===== MAIN ===== -->
   <main class="main-container" id="main">
 
-    <!-- Summary strip -->
+    <!-- Summary strip: buttons for clickable filters -->
     <section class="summary-strip" id="summary-strip" aria-label="本日のサマリー">
       <div class="summary-item">
         <span class="summary-value" id="stat-total">—</span>
         <span class="summary-label">総件数</span>
       </div>
       <div class="summary-divider" aria-hidden="true"></div>
-      <div class="summary-item summary-item--high">
+      <button class="summary-item summary-item--high summary-item--btn" id="stat-btn-high"
+              type="button" aria-pressed="false" title="高インパクトでフィルタ">
         <span class="summary-value" id="stat-high">—</span>
         <span class="summary-label">高インパクト</span>
-      </div>
+      </button>
       <div class="summary-divider" aria-hidden="true"></div>
-      <div class="summary-item summary-item--urgent">
+      <button class="summary-item summary-item--urgent summary-item--btn" id="stat-btn-urgent"
+              type="button" aria-pressed="false" title="緊急のみフィルタ">
         <span class="summary-value" id="stat-urgent">—</span>
         <span class="summary-label">緊急</span>
-      </div>
+      </button>
       <div class="summary-divider" aria-hidden="true"></div>
-      <div class="summary-item">
+      <button class="summary-item summary-item--btn" id="stat-btn-category"
+              type="button" aria-pressed="false" title="上位カテゴリでフィルタ">
         <span class="summary-value summary-value--category" id="stat-category">—</span>
         <span class="summary-label">上位カテゴリ</span>
-      </div>
+      </button>
     </section>
 
     <!-- Stock filter chip (active when filtering by company) -->
@@ -147,7 +160,7 @@
     <!-- Filter panel -->
     <section class="filter-panel" aria-label="フィルタ">
 
-      <!-- Row 1: Impact + Watchlist -->
+      <!-- Row 1: Impact + Watchlist + New-only -->
       <div class="filter-row">
         <span class="filter-label">重要度</span>
         <div class="toggle-group" role="group" aria-label="重要度フィルタ">
@@ -159,6 +172,12 @@
         <button class="toggle-btn watchlist-toggle-btn" id="btn-watchlist" type="button" aria-pressed="false">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           お気に入り
+        </button>
+
+        <!-- New-only toggle -->
+        <button class="toggle-btn new-only-btn" id="btn-new-only" type="button" aria-pressed="false" title="前回訪問より新しい開示のみ表示">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          新着のみ
         </button>
       </div>
 

@@ -34,6 +34,10 @@ RawDisclosure に以下を付与:
   "analyzed_by": "rules",            // "rules" | "gemini" | "groq" | "claude" | "openai"
   "analyzed_at": "2026-06-27T15:01:00+09:00",
 
+  "confidence": 83,                  // 確信度 0-100(ルールのマッチ確度)
+  "is_correction": false,            // 訂正/続報/進捗の開示か
+  "tags": ["上方修正", "増配"],       // 細かなシグナルのタグ
+
   // 決算(category=="決算")にのみ付くことがある決算要約(任意)
   "earnings": {
     "period": "2026年3月期 第1四半期",

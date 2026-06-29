@@ -915,7 +915,7 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  padding: var(--space-4);
+  padding: 11px 13px;
   box-shadow: var(--shadow-xs);
   transition:
     box-shadow var(--t-base) var(--ease),
@@ -926,7 +926,7 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 5px;
   /* Stagger animation */
   animation: card-enter var(--t-slow) var(--ease) both;
   animation-delay: calc(var(--card-index, 0) * 35ms);
@@ -1168,18 +1168,18 @@ body {
 
 /* ===== CARD — TITLE ===== */
 .card-title {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.5;
+  line-height: 1.4;
   letter-spacing: -0.01em;
 }
 
 /* ===== CARD — SUMMARY ===== */
 .card-summary {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 /* ===== CARD — BADGES ROW ===== */
@@ -1255,8 +1255,8 @@ body {
   gap: var(--space-2);
   flex-wrap: wrap;
   border-top: 1px solid var(--border);
-  padding-top: var(--space-2);
-  margin-top: auto;
+  padding-top: 6px;
+  margin-top: 1px;
 }
 
 .card-reasons {
@@ -1765,24 +1765,38 @@ body {
   line-height: 1.6;
 }
 
+/* date-selector を フィルタパネル内で他の select と揃える(appbar用の固定幅/高さを解除) */
+.filter-row .date-selector {
+  max-width: 240px;
+  width: auto;
+  height: auto;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 560px) {
-  .appbar-inner { height: 52px; gap: var(--space-2); }
+  .appbar-inner { height: 50px; gap: var(--space-2); padding: 0 var(--space-3); }
   .brand-sub    { display: none; }
   .live-indicator { display: none; }
+  .brand-logo   { width: 32px; height: 32px; }
+  .brand-name   { font-size: 0.95rem; }
+
+  .appbar-actions { gap: 6px; }
+  .icon-btn     { width: 34px; height: 34px; }
 
   .btn-refresh span { display: none; }
-  .btn-refresh { padding: 0 10px; }
+  .btn-refresh { padding: 0 9px; height: 34px; }
 
-  .date-selector { max-width: 130px; font-size: 0.75rem; }
-
-  .summary-strip { border-radius: var(--r-md); }
+  .summary-strip { border-radius: var(--r-md); padding: 10px var(--space-3); }
   .summary-value { font-size: 1.1rem; }
 
   .filter-row { flex-wrap: wrap; }
   .filter-label { min-width: 44px; }
+  .filter-row .date-selector { max-width: 100%; flex: 1; }
 
   .watchlist-toggle-btn { margin-left: 0; }
+
+  .main-container { padding: var(--space-3); }
+  .card-list { gap: 8px; }
 
   .kaiji-toast { bottom: 16px; }
 }

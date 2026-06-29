@@ -87,6 +87,23 @@ def test_yanoshin_malformed_items(monkeypatch):
     assert yanoshin.fetch() == []
 
 
+def test_alphanumeric_codes_preserved(monkeypatch):
+    """英数字の新形式コード(例 546A/130A)を壊さない(5460等に化けない)。"""
+    # yanoshin: 5文字(末尾0)→4文字、英字保持
+    assert yanoshin._normalize_code("546A0") == "546A"
+    assert yanoshin._normalize_code("130A0") == "130A"
+    assert yanoshin._normalize_code("546A") == "546A"
+    assert yanoshin._normalize_code("72030") == "7203"
+    # scraper: コード列から数字以外を消して英字まで落とさない
+    assert scraper._normalize_code("546A0") == "546A"
+    rows = scraper._parse_html(
+        '<table><tr><td>15:00</td><td>546A</td><td>テスト社</td>'
+        '<td><a href="/inbs/abc.pdf">開示</a></td></tr></table>',
+        "20260629",
+    )
+    assert rows and rows[0]["code"] == "546A"
+
+
 def test_scraper_resilient_to_garbage():
     # 想定外HTMLでもクラッシュせず空を返す
     assert scraper._parse_html("<html><body>no table</body></html>", "20260627") == []

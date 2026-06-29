@@ -97,12 +97,6 @@
           </svg>
         </button>
 
-        <!-- Date selector -->
-        <select class="date-selector" id="date-selector"
-                aria-label="表示する日付を選択" title="閲覧する日付を選択">
-          <option value="live">最新（ライブ）</option>
-        </select>
-
         <!-- Refresh button -->
         <button class="btn-refresh" id="btn-refresh" type="button" aria-label="データを手動更新">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -159,6 +153,15 @@
 
     <!-- Filter panel -->
     <section class="filter-panel" aria-label="フィルタ">
+
+      <!-- Row 0: Date selector -->
+      <div class="filter-row">
+        <span class="filter-label">表示日</span>
+        <select class="filter-select date-selector" id="date-selector"
+                aria-label="表示する日付を選択" title="閲覧する日付を選択">
+          <option value="live">最新（ライブ）</option>
+        </select>
+      </div>
 
       <!-- Row 1: Impact + Watchlist + New-only -->
       <div class="filter-row">

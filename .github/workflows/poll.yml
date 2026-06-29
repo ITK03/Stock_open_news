@@ -1,33 +1,31 @@
 name: poll-tdnet
 
-# 適時開示を定期取得→分析→docs/data/disclosures.json を更新してコミット。
-# GitHub Pages(docs/) が同ファイルを読み、スマホから閲覧できる。
+# 適時開示を取得→分析→docs/data を更新してコミット。GitHub Pages がそれを配信。
 #
-# 注意:
-# - スケジュールはデフォルトブランチ(通常 main)の本ファイルのみ有効。
-#   このブランチを main にマージして初めて cron が動き出す。
-# - private リポジトリは Actions 無料枠 2000分/月。間隔は下の cron で調整可。
-#   public にすると Actions は無制限無料 → */5 などに上げられる。
-# - GitHub の cron は実行が数分遅延・スキップされることがある(準リアルタイム)。
+# 重要: GitHub の高頻度 cron(*/5 等)は負荷時に大量に間引かれ、実質停止することがある。
+# そこで「1回起動したら一定時間ループして数分おきに取得し続ける常駐ジョブ」方式にする。
+# cron は1時間ごとに起動するだけ(間引かれても次の起動・長めのループで穴埋め)。
+# public リポジトリは Actions 無制限無料なので常時稼働でもコスト0。
 
 on:
-  workflow_dispatch: {}        # 手動実行
+  workflow_dispatch: {}
   schedule:
-    # UTC基準。public 前提で 5分間隔。平日 JST 08:00-18:59 をカバー(場中〜大引け後の開示ラッシュ)。
-    # private に戻す場合は無料枠(2000分/月)節約のため間隔を広げること。
-    - cron: "*/5 23 * * 0-4"   # JST 08:00-08:59 (月-金)
-    - cron: "*/5 0-9 * * 1-5"  # JST 09:00-18:59 (月-金)
+    # 1時間ごとに起動(JST 08:00-19:59 の平日)。各ジョブは約110分ループするので
+    # ある時間の起動が間引かれても次がカバーし、cancel-in-progress で常に最新が走る。
+    - cron: "0 23 * * 0-4"    # JST 08:00 (月-金)
+    - cron: "0 0-10 * * 1-5"  # JST 09:00-19:59 (月-金)
 
 permissions:
   contents: write
 
 concurrency:
   group: poll-tdnet
-  cancel-in-progress: false
+  cancel-in-progress: true   # 新しい起動が走ったら古いループは止めて最新に置き換える
 
 jobs:
   poll:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,7 +39,7 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
-      - name: Fetch + analyze + store
+      - name: Poll loop (約110分・約2.5分間隔)
         env:
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -56,20 +54,24 @@ jobs:
           MAX_ITEMS: ${{ vars.MAX_ITEMS }}
           EARNINGS_ENABLED: ${{ vars.EARNINGS_ENABLED }}
           EARNINGS_PER_RUN: ${{ vars.EARNINGS_PER_RUN }}
-        run: python -m src.main --limit 100
-
-      - name: Commit updated data
+          BRANCH: ${{ github.ref_name }}
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- docs/data/disclosures.json docs/data/archive; then
-            echo "変更なし。スキップ。"
-            exit 0
-          fi
-          git add docs/data/disclosures.json docs/data/archive
-          git commit -m "data: update disclosures [skip ci]"
-          for i in 1 2 3 4; do
-            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
-            echo "push retry $i"; sleep $((2 ** i))
+          end=$(( $(date +%s) + 110*60 ))
+          while [ "$(date +%s)" -lt "$end" ]; do
+            # ラッシュ時の取りこぼし防止のため limit を大きめに
+            python -m src.main --limit 300 || echo "main failed (continue)"
+            if ! git diff --quiet -- docs/data; then
+              git add docs/data
+              git commit -m "data: update disclosures [skip ci]" || true
+              for i in 1 2 3 4; do
+                git pull --rebase origin "$BRANCH" \
+                  && git push origin "HEAD:$BRANCH" && break
+                echo "push retry $i"; sleep $((2 ** i))
+              done
+            else
+              echo "変更なし"
+            fi
+            sleep 150
           done
-          exit 1

@@ -145,12 +145,13 @@ function safePdfUrl(url) {
   } catch { return null; }
 }
 
-/** コードを4桁に正規化(5桁→前4桁、それ以外はそのまま) */
+/** 証券コードを4文字に正規化。英数字コード(例 546A)も保持する。
+ *  5文字(末尾0の旧表記 例 546A0/72030) → 先頭4文字。4文字はそのまま。 */
 function normalizeCode4(code) {
   if (!code) return null;
-  const s = String(code).trim();
-  if (/^\d{5}$/.test(s)) return s.slice(0, 4);
-  if (/^\d{4}$/.test(s)) return s;
+  const s = String(code).trim().toUpperCase();
+  if (/^[0-9][0-9A-Z]{3}0$/.test(s)) return s.slice(0, 4); // 5文字(末尾0) → 4文字
+  if (/^[0-9][0-9A-Z]{3}$/.test(s))  return s;             // 4文字(英数字可)
   return null;
 }
 
@@ -779,6 +780,23 @@ function createDetailPanel(item, pdfUrl, code4) {
   const titleFull = createTextEl('p', item.title ?? '', 'card-detail-title');
   panel.appendChild(titleFull);
 
+  // 重要度・緊急バッジ(一覧では出さず、ここ=展開時に表示)
+  const metaRow = document.createElement('div');
+  metaRow.className = 'card-detail-badges';
+  if (item.urgent === true) {
+    metaRow.appendChild(createBadge('⚡ 緊急', 'badge-urgent'));
+  }
+  const impLabels = { high: '高', medium: '中', low: '低' };
+  const impKey = item.impact || 'low';
+  metaRow.appendChild(createBadge(`重要度: ${impLabels[impKey] ?? impKey}`, `badge-impact-${impKey}`));
+  const dLabels = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立', unknown: '? 不明' };
+  const dKey = item.direction || 'neutral';
+  metaRow.appendChild(createBadge(dLabels[dKey] ?? dKey, `badge-direction-${dKey} badge-direction-strong`));
+  if (typeof item.confidence === 'number') {
+    metaRow.appendChild(createBadge(`確度 ${item.confidence}%`, 'badge-tag'));
+  }
+  panel.appendChild(metaRow);
+
   // 全 reasons
   if (Array.isArray(item.reasons) && item.reasons.length > 0) {
     const reasonsWrap = document.createElement('div');
@@ -843,17 +861,19 @@ function createDetailPanel(item, pdfUrl, code4) {
   shareBtn.textContent = '🔗 共有';
   shareBtn.addEventListener('click', async (e) => {
     e.stopPropagation();
+    // 共有/コピーするURLは情報の大元(TDnetの開示PDF)。無ければアプリURL。
+    const sourceUrl = safePdfUrl(item.pdf_url) || window.location.href;
     const shareData = {
       title: `${item.company ?? ''} — ${item.title ?? ''}`,
       text:  `${item.company ?? ''} (${item.code ?? ''}) の適時開示: ${item.title ?? ''}`,
-      url:   window.location.href,
+      url:   sourceUrl,
     };
     if (navigator.share) {
       try { await navigator.share(shareData); } catch { /* cancelled */ }
     } else {
       try {
-        await navigator.clipboard.writeText(`${shareData.title}\n${shareData.url}`);
-        showToast('クリップボードにコピーしました');
+        await navigator.clipboard.writeText(`${shareData.title}\n${sourceUrl}`);
+        showToast('リンクをコピーしました');
       } catch {
         showToast('コピーできませんでした');
       }
@@ -923,6 +943,10 @@ function createCard(item, index) {
     );
     codeLineDiv.appendChild(exchSpan);
   }
+  // 確度を時刻・銘柄と同じ行に置く(カードを縦にコンパクトに)
+  if (typeof item.confidence === 'number') {
+    codeLineDiv.appendChild(createTextEl('span', `確度${item.confidence}%`, 'code-confidence'));
+  }
   companyDiv.appendChild(codeLineDiv);
 
   // 会社名ボタン(銘柄絞り込みトリガー)
@@ -989,12 +1013,6 @@ function createCard(item, index) {
   topRight.appendChild(btnStar);
   topRight.appendChild(scoreRing);
 
-  // 確信度
-  if (typeof item.confidence === 'number') {
-    const confEl = createTextEl('span', `確度 ${item.confidence}%`, 'confidence-label');
-    topRight.appendChild(confEl);
-  }
-
   cardTop.appendChild(timeDiv);
   cardTop.appendChild(companyDiv);
   cardTop.appendChild(topRight);
@@ -1003,7 +1021,14 @@ function createCard(item, index) {
   /* --- タイトル --- */
   const titleLine = document.createElement('p');
   titleLine.className = 'card-title';
-  titleLine.textContent = item.title ?? '（タイトルなし）';
+  // 緊急は一覧では ⚡ アイコンで示す(テキストバッジは展開時のみ)
+  if (item.urgent === true) {
+    const flag = createTextEl('span', '⚡', 'urgent-flag');
+    flag.setAttribute('aria-label', '緊急');
+    flag.setAttribute('title', '緊急開示');
+    titleLine.appendChild(flag);
+  }
+  titleLine.appendChild(document.createTextNode(item.title ?? '（タイトルなし）'));
 
   // 新着バッジ
   if (ts && ts > state.lastSeenTs && state.lastSeenTs > 0) {
@@ -1025,23 +1050,16 @@ function createCard(item, index) {
   const badgesDiv = document.createElement('div');
   badgesDiv.className = 'card-badges';
 
-  if (item.urgent === true) {
-    badgesDiv.appendChild(createBadge('⚡ 緊急', 'badge-urgent'));
-  }
+  // 緊急・重要度のテキストバッジは一覧では出さない(展開時に詳細パネルで表示)。
+  // 一覧では 緊急=⚡(タイトル横) / 重要度=左ストライプの色 で表現する。
   if (item.is_correction === true) {
     badgesDiv.appendChild(createBadge('訂正/続報', 'badge-correction'));
   }
 
-  const impactLabels = { high: '高', medium: '中', low: '低' };
-  const impactKey = item.impact || 'low';
-  badgesDiv.appendChild(createBadge(
-    `重要度: ${impactLabels[impactKey] ?? impactKey}`,
-    `badge-impact-${impactKey}`
-  ));
-
+  // 方向(上昇/下落)は色を強調して常に表示
   const dirLabels = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立', unknown: '? 不明' };
   const dirKey    = item.direction || 'neutral';
-  badgesDiv.appendChild(createBadge(dirLabels[dirKey] ?? dirKey, `badge-direction-${dirKey}`));
+  badgesDiv.appendChild(createBadge(dirLabels[dirKey] ?? dirKey, `badge-direction-${dirKey} badge-direction-strong`));
 
   if (item.category) {
     badgesDiv.appendChild(createBadge(item.category, 'badge-category'));

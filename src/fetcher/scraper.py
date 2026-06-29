@@ -136,8 +136,8 @@ def _parse_html(html: str, date: str) -> list[dict]:
                 if not title_text and not pdf_url:
                     continue
 
-                # コードの正規化
-                code = _normalize_code(re.sub(r"[^\d]", "", code_text)[:5])
+                # コードの正規化(英数字コード 例 546A を壊さない: 数字以外を全部消さない)
+                code = _normalize_code(re.sub(r"[^0-9A-Za-z]", "", code_text)[:5])
 
                 # 時刻の正規化（HH:MM 形式を期待）
                 time_match = re.search(r"\d{1,2}:\d{2}", time_text)

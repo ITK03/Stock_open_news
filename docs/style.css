@@ -187,6 +187,8 @@ body {
   -webkit-backdrop-filter: blur(16px);
   /* Subtle brand accent at bottom edge */
   box-shadow: 0 1px 0 var(--border), 0 2px 12px rgba(0,0,0,0.15);
+  /* PWA(ホーム画面起動)でiOSのステータスバー/ノッチに最上段が隠れないように */
+  padding-top: env(safe-area-inset-top);
 }
 
 /* Appbar brand accent line */
@@ -1245,6 +1247,38 @@ body {
   border-color: var(--border);
   font-weight: 400;
   font-size: 0.65rem;
+}
+
+/* 方向(上昇/下落)を塗りつぶしで強調し色で即判別できるように */
+.badge-direction-strong { font-weight: 700; border: none; color: #fff; }
+.badge-direction-positive.badge-direction-strong { background: var(--positive); }
+.badge-direction-negative.badge-direction-strong { background: var(--negative); }
+.badge-direction-neutral.badge-direction-strong,
+.badge-direction-unknown.badge-direction-strong  { background: var(--neutral); }
+
+/* 緊急フラグ(タイトル横の⚡) */
+.urgent-flag {
+  color: var(--urgent);
+  font-weight: 700;
+  margin-right: 4px;
+  font-size: 0.95em;
+  vertical-align: -1px;
+}
+
+/* コード行に並べる確度 */
+.code-confidence {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-left: 2px;
+}
+
+/* 詳細パネル内の重要度・緊急バッジ行 */
+.card-detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: var(--space-3);
 }
 
 /* ===== CARD — FOOTER ===== */

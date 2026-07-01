@@ -1,7 +1,358 @@
 {
-  "updated_at": "2026-07-01T09:49:23+09:00",
-  "count": 29,
+  "updated_at": "2026-07-01T10:10:26+09:00",
+  "count": 42,
   "items": [
+    {
+      "id": "2ddeffc5fc1c6724",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "1329",
+      "company": "Ｅ－ブラックロック",
+      "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info140120260701585422.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "abce4c99cd36b799",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "1671",
+      "company": "Ｅ－シンプレクス",
+      "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info140120260701585408.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "9233427ba15b0028",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "3551",
+      "company": "ダイニック",
+      "title": "自己株式の取得状況（途中経過）に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260625579458.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "a235d7b1f2787949",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "3580",
+      "company": "小松マテーレ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585386.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "cfc9731b4ee547b7",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "4376",
+      "company": "Ｇ－くふうカンパニー",
+      "title": "訴訟（上告及び上告受理申立て）の提起に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585380.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "訴訟・係争",
+      "score": 61,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "訴訟"
+      ],
+      "reasons": [
+        "訴訟"
+      ],
+      "summary": "訴訟・係争。金額と勝敗次第でインパクト。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "780dfb5b250450bf",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "5257",
+      "company": "ノバシステム",
+      "title": "自己株式の取得状況及び取得終了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260630584636.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "4be42c293621d078",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "585A",
+      "company": "Ｅ－ＪＡＭＰＦＭ",
+      "title": "上場ETF（管理会社：JAMPファンド・マネジメント）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info140120260701585351.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "1c1cb80bb879b6e0",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "6768",
+      "company": "タムラ製",
+      "title": "中国連結子会社の持分譲渡完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585385.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "789d949734a02499",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "6929",
+      "company": "日セラミック",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260630584213.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "14f4d100a22bc28e",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "7746",
+      "company": "岡本硝子",
+      "title": "行使価額修正条項付新株予約権の月間行使状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585429.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "増資・希薄化",
+      "score": 57,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "新株予約権"
+      ],
+      "reasons": [
+        "行使価額修正",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "7090db43b5bcb9b2",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "7938",
+      "company": "リーガル",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260630584457.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "6b5b2b7df04a49f9",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "8255",
+      "company": "アクシアル",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260624578641.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
+    {
+      "id": "1e4814438b61e445",
+      "time": "2026-07-01T10:00:00+09:00",
+      "code": "9759",
+      "company": "ＮＳＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260630585285.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
+    },
     {
       "id": "fd459248d58a0856",
       "time": "2026-07-01T09:30:00+09:00",
@@ -29,7 +380,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "7d5ac14a3eda2375",
@@ -57,7 +408,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "2fd1cba66a84f994",
@@ -85,7 +436,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "1263015",
@@ -264,7 +615,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "1e0695a7540fa5e3",
@@ -289,7 +640,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "b0cdcfca8c389dc5",
@@ -314,7 +665,7 @@
       ],
       "summary": "上場廃止・監理/整理。重大な下落リスク。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "dac1c9f03c8807e7",
@@ -340,7 +691,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "dfc3564e7eb49abb",
@@ -365,7 +716,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "e0b8dcc24ccd7e14",
@@ -393,7 +744,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "1263022",
@@ -504,7 +855,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "85ef60f96d00c274",
@@ -529,7 +880,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "614d68f4ed1b138f",
@@ -557,7 +908,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "1263011",
@@ -663,7 +1014,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "04fd7e93623a0678",
@@ -691,7 +1042,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "e5ccfb2c59449142",
@@ -719,7 +1070,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     },
     {
       "id": "1263010",
@@ -769,7 +1120,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-01T09:31:35+09:00"
+      "analyzed_at": "2026-07-01T10:10:26+09:00"
     }
   ]
 }

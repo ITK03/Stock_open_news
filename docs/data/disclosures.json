@@ -1,7 +1,115 @@
 {
-  "updated_at": "2026-07-02T17:08:48+09:00",
+  "updated_at": "2026-07-02T17:12:01+09:00",
   "count": 500,
   "items": [
+    {
+      "id": "492c04a686aaaa09",
+      "time": "2026-07-02T17:10:00+09:00",
+      "code": "4812",
+      "company": "電通総研",
+      "title": "当社に関する一部報道について",
+      "pdf_url": "https://www.release.tdnet.info140120260702586631.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "5ca2ea1ee52b59eb",
+      "time": "2026-07-02T17:00:00+09:00",
+      "code": "2134",
+      "company": "キタハマキャピタル",
+      "title": "訴訟の判決確定に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587113.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "訴訟・係争",
+      "score": 61,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": true,
+      "tags": [
+        "訴訟"
+      ],
+      "reasons": [
+        "訴訟"
+      ],
+      "summary": "訴訟・係争。金額と勝敗次第でインパクト。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "1a8e4abc0cb400a8",
+      "time": "2026-07-02T17:00:00+09:00",
+      "code": "2477",
+      "company": "手間いらず",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587127.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "bbfe62c072cbab29",
+      "time": "2026-07-02T17:00:00+09:00",
+      "code": "1852",
+      "company": "浅沼組",
+      "title": "自己株式の取得状況及び取得終了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587099.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
     {
       "id": "1263588",
       "time": "2026-07-02T16:35:00+09:00",
@@ -26,6 +134,31 @@
       "summary": "受注・契約締結。規模次第で業績寄与。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "66de34c326352538",
+      "time": "2026-07-02T16:35:00+09:00",
+      "code": "3266",
+      "company": "ファンドクリＧ",
+      "title": "財務上の特約が付された金銭消費貸借契約締結に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587078.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "大型受注・契約",
+      "score": 61,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "契約締結"
+      ],
+      "summary": "受注・契約締結。規模次第で業績寄与。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263589",
@@ -53,6 +186,31 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "c8d33b11ee0b04de",
+      "time": "2026-07-02T16:35:00+09:00",
+      "code": "4324",
+      "company": "電通グループ",
+      "title": "当社および当社グループ会社に関する一部報道について",
+      "pdf_url": "https://www.release.tdnet.info140120260702587106.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263592",
       "time": "2026-07-02T16:30:00+09:00",
       "code": "6993",
@@ -78,6 +236,31 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "c8d1f62661725612",
+      "time": "2026-07-02T16:30:00+09:00",
+      "code": "6993",
+      "company": "大黒屋",
+      "title": "主要株主の異動に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586976.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "大株主異動",
+      "score": 62,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "主要株主の異動"
+      ],
+      "summary": "主要株主・親会社の異動。支配構造の変化。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263593",
       "time": "2026-07-02T16:30:00+09:00",
       "code": "7049",
@@ -101,6 +284,31 @@
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "888653d90e64cacd",
+      "time": "2026-07-02T16:30:00+09:00",
+      "code": "7049",
+      "company": "Ｇ－識学",
+      "title": "連結子会社によるマッハ機器株式会社の株式の取得（孫会社化） に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586591.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 38,
+      "impact": "low",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 45,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263591",
@@ -155,6 +363,58 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "c03903994887073a",
+      "time": "2026-07-02T16:30:00+09:00",
+      "code": "6993",
+      "company": "大黒屋",
+      "title": "第21回新株予約権の行使完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586969.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [
+        "新株予約権"
+      ],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "2dffe67db157639c",
+      "time": "2026-07-02T16:30:00+09:00",
+      "code": "9612",
+      "company": "ラックランド",
+      "title": "連結子会社の異動（株式譲渡）に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586827.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263586",
       "time": "2026-07-02T16:00:00+09:00",
       "code": "9425",
@@ -180,6 +440,33 @@
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "6cda943a44c1a0ba",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "9425",
+      "company": "ＲｅＹｕｕＪａｐａｎ",
+      "title": "株式会社あいプロの株式取得（子会社化）の基本合意書締結に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586640.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "M&A・統合",
+      "score": 83,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "子会社化"
+      ],
+      "reasons": [
+        "子会社化"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263581",
@@ -208,6 +495,34 @@
       "summary": "承認・治験等の進展。将来収益の期待材料。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "08e658bb15a4dd7c",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "504A",
+      "company": "Ｇ－イノバセル",
+      "title": "ICEF15国際共同第III相治験に関する米国FDAのIND審査完了および米国組入れ承認取得のお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586992.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "新薬・開発",
+      "score": 67,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "承認取得",
+        "治験"
+      ],
+      "reasons": [
+        "承認取得"
+      ],
+      "summary": "承認・治験等の進展。将来収益の期待材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263576",
@@ -350,6 +665,146 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "0e9504566039ff48",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "2146",
+      "company": "ＵＴグループ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586559.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "f791b3ae242f6e7a",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "3443",
+      "company": "川田ＴＥＣＨ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586680.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "b7666482de99f16d",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "4046",
+      "company": "大阪ソーダ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586210.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "6a7d66d55885f6f1",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "6013",
+      "company": "タクマ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586887.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "82589a7329ce8d56",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "9628",
+      "company": "燦ＨＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586638.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263585",
       "time": "2026-07-02T16:00:00+09:00",
       "code": "7917",
@@ -378,6 +833,34 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "a265195edd94cf72",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "7917",
+      "company": "ＺＡＣＲＯＳ",
+      "title": "自己株式の取得状況及び取得終了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586557.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263579",
       "time": "2026-07-02T16:00:00+09:00",
       "code": "3566",
@@ -401,6 +884,31 @@
       "summary": "月次・速報。トレンド確認材料。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "a3cf12bbc99cb373",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "3566",
+      "company": "Ｇ－ユニネク",
+      "title": "2026年12月期６月度 月次業績速報",
+      "pdf_url": "https://www.release.tdnet.info140120260702586731.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263577",
@@ -428,6 +936,31 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "accb58acce3cbd6b",
+      "time": "2026-07-02T16:00:00+09:00",
+      "code": "2338",
+      "company": "クオンタムＳ",
+      "title": "ＡＩインフラストラクチャ（ＡＩＤＣ）事業におけるデータセンター容量確保に向けた保証金初回支払い完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587003.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263513",
       "time": "2026-07-02T15:40:00+09:00",
       "code": "4973",
@@ -451,6 +984,31 @@
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "6faa61efe47ada6b",
+      "time": "2026-07-02T15:40:00+09:00",
+      "code": "4973",
+      "company": "高純度化",
+      "title": "主要株主の異動に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587032.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "大株主異動",
+      "score": 62,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "主要株主の異動"
+      ],
+      "summary": "主要株主・親会社の異動。支配構造の変化。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263514",
@@ -478,6 +1036,33 @@
       "summary": "公開買付け(TOB/MBO)。買付価格次第で株価が大きく動く。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "4bfc834209ebf4cc",
+      "time": "2026-07-02T15:35:00+09:00",
+      "code": "4171",
+      "company": "グローバルＩ",
+      "title": "株式会社ユーザベースによる当社株券等に対する公開買付けの結果並びに親会社、主要株主である筆頭株主及び主要株主の異動に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586850.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "TOB・買収",
+      "score": 92,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [
+        "公開買付"
+      ],
+      "reasons": [
+        "公開買付"
+      ],
+      "summary": "公開買付け(TOB/MBO)。買付価格次第で株価が大きく動く。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263542",
@@ -530,6 +1115,56 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "cba954817ef034e1",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "4187",
+      "company": "大有機化",
+      "title": "業績予想及び配当予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260623576875.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想及び配当予想の修正"
+      ],
+      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "54c7299ae5baac8d",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "6136",
+      "company": "ＯＳＧ",
+      "title": "業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260629583702.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正"
+      ],
+      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263549",
       "time": "2026-07-02T15:30:00+09:00",
       "code": "5133",
@@ -553,6 +1188,31 @@
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "4845059fbb0d7780",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "5133",
+      "company": "テリロジーＨＤ",
+      "title": "自己株式取得に係る事項の決定に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260630584461.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "M&A・統合",
+      "score": 83,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "株式取得"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263533",
@@ -607,6 +1267,58 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "00c13b8d01fc31d1",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3549",
+      "company": "クスリのアオキＨＤ",
+      "title": "剰余金の配当(期末配当)に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586908.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "配当",
+      "score": 80,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "剰余金の配当"
+      ],
+      "summary": "配当予想の修正。増減を本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "3b01be559970dec4",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "4206",
+      "company": "アイカ工",
+      "title": "非連結子会社の吸収合併（簡易合併・略式合併）に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586957.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "M&A・統合",
+      "score": 80,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [
+        "合併"
+      ],
+      "reasons": [
+        "合併"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263571",
       "time": "2026-07-02T15:30:00+09:00",
       "code": "9468",
@@ -632,6 +1344,33 @@
       "summary": "特別損失・減損計上。業績下振れ要因。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "d7bfecda3f7fc9c7",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9468",
+      "company": "ＫＡＤＯＫＡＷＡ",
+      "title": "早期退職特別募集施策の実施結果及び特別損失の計上に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586686.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "特損・減損",
+      "score": 78,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "特別損失"
+      ],
+      "reasons": [
+        "特別損失"
+      ],
+      "summary": "特別損失・減損計上。業績下振れ要因。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263541",
@@ -662,6 +1401,34 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "311098efd76fe0b7",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "4179",
+      "company": "Ｇ－ジーネクスト",
+      "title": "第７回新株予約権の行使期間満了及び新株予約権戻入益(特別利益)の計上に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586422.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "特別利益",
+      "score": 68,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "特別利益",
+        "新株予約権"
+      ],
+      "reasons": [
+        "特別利益"
+      ],
+      "summary": "特別利益の計上。一時的な利益押し上げ要因。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263547",
       "time": "2026-07-02T15:30:00+09:00",
       "code": "4890",
@@ -685,6 +1452,31 @@
       "summary": "受注・契約締結。規模次第で業績寄与。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "b62856b8f26873b0",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "4890",
+      "company": "Ｇ－坪田ラボ",
+      "title": "海外製薬企業とのライセンス契約に基づく最終マイルストーン達成および収益計上に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586763.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "大型受注・契約",
+      "score": 61,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "ライセンス契約"
+      ],
+      "summary": "受注・契約締結。規模次第で業績寄与。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263537",
@@ -714,6 +1506,33 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "c258a358d593aa14",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3815",
+      "company": "Ｇ－メディア",
+      "title": "株主優待制度に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586794.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "株主還元・優待",
+      "score": 58,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "株主優待"
+      ],
+      "reasons": [
+        "株主優待"
+      ],
+      "summary": "株主優待の新設・変更。個人投資家の関心材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263535",
       "time": "2026-07-02T15:30:00+09:00",
       "code": "3719",
@@ -741,6 +1560,35 @@
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "19b80f07b0d323e0",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "第三者割当により発行された行使価額修正条項付第10回新株予約権の月間行使状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586997.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "増資・希薄化",
+      "score": 57,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "第三者割当",
+        "新株予約権"
+      ],
+      "reasons": [
+        "第三者割当",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263515",
@@ -1615,6 +2463,837 @@
       }
     },
     {
+      "id": "5d182d5a0f49db3c",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2206",
+      "company": "グリコ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585417.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "d5998c6918abb377",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2207",
+      "company": "ｍｅｉｔｏ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586551.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "5663672bdd2fc1ea",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2493",
+      "company": "イーサポート",
+      "title": "2026年11月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info140120260702586621.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "c497ff997b2d7dbf",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2579",
+      "company": "コカ・コーラＢＪＨ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586732.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "fd1d5c02b0d17728",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2778",
+      "company": "パレモ・ＨＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586571.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "e25015341dbedb13",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2802",
+      "company": "味の素",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586701.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "d42933fd8b1c3d52",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3092",
+      "company": "ＺＯＺＯ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586471.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "caaaea0324087a36",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3360",
+      "company": "シップＨＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586814.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "a59a7b5ed74da545",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3549",
+      "company": "クスリのアオキＨＤ",
+      "title": "2026年5月期 決算短信〔日本基準〕(連結)",
+      "pdf_url": "https://www.release.tdnet.info140120260702586782.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "d3cd801ecd112b9b",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3549",
+      "company": "クスリのアオキＨＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586880.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "d4113ec08f750b01",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3793",
+      "company": "Ｇ－ドリコム",
+      "title": "自己株式の取得状況に関するお知らせ（2026年６月度）",
+      "pdf_url": "https://www.release.tdnet.info140120260702586874.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "817a0a26dfd83b1d",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3984",
+      "company": "ユーザーローカル",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586807.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "971b5e9f4f871123",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "4021",
+      "company": "日産化",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586648.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "a2a2feee8869d899",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "4496",
+      "company": "Ｇ－コマースワン",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586637.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "13e946dea9164134",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "5108",
+      "company": "ブリヂス",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586385.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "df7890f1af9114a3",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "6090",
+      "company": "ＨＭＴ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586740.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "b0049714a4fd4b3c",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "6465",
+      "company": "ホシザキ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586906.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "6fab4f09399faa1c",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "6501",
+      "company": "日立",
+      "title": "自己株式の取得状況に関するお知らせ(会社法第459条第1項の規定による定款の定めに基づく自己株式の取得)",
+      "pdf_url": "https://www.release.tdnet.info140120260702586854.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "6bba329e9823be75",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "6857",
+      "company": "アドバンテス",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586710.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "3687e1d37fbea207",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "6869",
+      "company": "シスメックス",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586721.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "4855622a0445fefc",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "8018",
+      "company": "三共生興",
+      "title": "自己株式の取得状況に関するお知らせ（会社法165条第２項の規定による定款の定めに基づく自己株式の取得）",
+      "pdf_url": "https://www.release.tdnet.info140120260701586456.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "fee2c6edf4b3f175",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "8336",
+      "company": "武蔵野銀",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586841.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "9100772bc5e533a6",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "8725",
+      "company": "ＭＳ＆ＡＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586881.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "6d65d36c0617c96d",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "8729",
+      "company": "ソニーＦＧ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586863.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "0f037e1a491475dd",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9065",
+      "company": "山九",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585474.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "67a07888fd882290",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9147",
+      "company": "ＮＸＨＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585685.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "461e9d929a42aaca",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9301",
+      "company": "三菱倉",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586575.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "d67d82370ccd0011",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9405",
+      "company": "朝日放送グループＨＤ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586401.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "6475d22baab8b503",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9692",
+      "company": "シーイーシー",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586588.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "ffbdc43022157135",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9793",
+      "company": "ダイセキ",
+      "title": "2027年２月期第１四半期決算短信〔日本基準〕(連結)",
+      "pdf_url": "https://www.release.tdnet.info140120260629582962.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263521",
       "time": "2026-07-02T15:30:00+09:00",
       "code": "2685",
@@ -1815,6 +3494,206 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "5231bd72c7beae8e",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2685",
+      "company": "アンドエスティＨＤ",
+      "title": "月次売上高前年比に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586909.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "4e6bef37a6e1742d",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3415",
+      "company": "トウキョウベース",
+      "title": "【2027年1月期】2026年6月度月次売上速報",
+      "pdf_url": "https://www.release.tdnet.info140120260702586716.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "480620a93cefab4e",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3549",
+      "company": "クスリのアオキＨＤ",
+      "title": "2026年6月度 月次営業速報に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586871.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "ec9ecc5b96d11095",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "7606",
+      "company": "Ｕアローズ",
+      "title": "2026年6月度月次売上概況（速報）",
+      "pdf_url": "https://www.release.tdnet.info140120260702586651.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "6296db022ed24c2c",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "7625",
+      "company": "Ｇダイニング",
+      "title": "月次売上速報（2026年6月度）",
+      "pdf_url": "https://www.release.tdnet.info140120260702586964.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "d5477b999ff8c81b",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "7640",
+      "company": "トップカルチャ",
+      "title": "2026年10月期6月度月次売上動向",
+      "pdf_url": "https://www.release.tdnet.info140120260702586657.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "b32c99ce79ffa429",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9399",
+      "company": "ビート",
+      "title": "ビットコインETFの月次報告に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586889.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "21c98ea0a2560bab",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "9990",
+      "company": "サックスバーＨＤ",
+      "title": "(株)東京デリカの月次売上情報等のお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586805.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263520",
       "time": "2026-07-02T15:30:00+09:00",
       "code": "2670",
@@ -1990,6 +3869,181 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "7b1f854b59207b39",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2670",
+      "company": "ＡＢＣマート",
+      "title": "2027年2月期　6月度概況について　[国内]",
+      "pdf_url": "https://www.release.tdnet.info140120260702586922.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "be378ac28068ed3b",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3350",
+      "company": "メタプラネット",
+      "title": "ビットコインの追加購入に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587026.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "e4b8a758b990c80b",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3350",
+      "company": "メタプラネット",
+      "title": "ビットコイン・インカム事業の2026年12月期第２四半期業績に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702587028.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "de35c986a8395cbf",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "3691",
+      "company": "Ｇ－デジタルプラス",
+      "title": "2026年9月期第３四半期 流通総額速報値に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586828.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "bf0e17974d02c9ff",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "4596",
+      "company": "Ｇ－窪田製薬ＨＤ",
+      "title": "エミクススタト塩酸塩の製造に係るマイルストーン対価受領のお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260507517556.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "167b420b4637be91",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "6571",
+      "company": "キュービーネットＨＤ",
+      "title": "国内店舗売上高前年比（2026年6月）についてのお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701585943.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "f433e2dd9218353b",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "7047",
+      "company": "Ｇ－ポート",
+      "title": "投資家Q&A（2026年６月）",
+      "pdf_url": "https://www.release.tdnet.info140120260701586264.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263517",
       "time": "2026-07-02T15:30:00+09:00",
       "code": "2370",
@@ -2014,6 +4068,32 @@
       "summary": "承認・治験等の進展。将来収益の期待材料。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "9000ecaf139f44b6",
+      "time": "2026-07-02T15:30:00+09:00",
+      "code": "2370",
+      "company": "Ｇ－ＭＤＮＴ",
+      "title": "（開示事項の経過）インドで製造販売承認を取得した再生医療等製品の日本における独占的開発・商業化に向けたオプション権を行使",
+      "pdf_url": "https://www.release.tdnet.info140120260702586705.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "新薬・開発",
+      "score": 32,
+      "impact": "low",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 58,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "製造販売承認",
+        "減衰:開示事項の経過"
+      ],
+      "summary": "承認・治験等の進展。将来収益の期待材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263512",
@@ -2044,6 +4124,34 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "e0602f167195e20f",
+      "time": "2026-07-02T15:00:00+09:00",
+      "code": "5273",
+      "company": "三谷セキサン",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586587.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263509",
       "time": "2026-07-02T14:30:00+09:00",
       "code": "5233",
@@ -2067,6 +4175,31 @@
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "b93dbd2025996c28",
+      "time": "2026-07-02T14:30:00+09:00",
+      "code": "5233",
+      "company": "太平洋セメ",
+      "title": "コミットメント型自己株式取得（FCSR）における事後調整完了のお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586682.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "M&A・統合",
+      "score": 83,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "株式取得"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263507",
@@ -2125,6 +4258,62 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "aa8563f0dd282b66",
+      "time": "2026-07-02T14:30:00+09:00",
+      "code": "2810",
+      "company": "ハウス食Ｇ",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260702586822.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
+      "id": "e00dbbd6f543376a",
+      "time": "2026-07-02T14:30:00+09:00",
+      "code": "4008",
+      "company": "住友精化",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586491.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263510",
       "time": "2026-07-02T14:30:00+09:00",
       "code": "9936",
@@ -2148,6 +4337,31 @@
       "summary": "月次・速報。トレンド確認材料。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "e6c97d979bc704a0",
+      "time": "2026-07-02T14:30:00+09:00",
+      "code": "9936",
+      "company": "王将フード",
+      "title": "2026年6月　月次売上高（速報版）",
+      "pdf_url": "https://www.release.tdnet.info140120260702586642.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263500",
@@ -2262,6 +4476,34 @@
       "analyzed_at": "2026-07-02T17:08:48+09:00"
     },
     {
+      "id": "9f6de686c7fc95f9",
+      "time": "2026-07-02T14:00:00+09:00",
+      "code": "6574",
+      "company": "Ｇ－コンヴァノ",
+      "title": "（開示事項の経過）アクセルマーク株式会社（証券コード3624）の株式の取得（連結子会社化）の完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586305.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "M&A・統合",
+      "score": 48,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "子会社化"
+      ],
+      "reasons": [
+        "子会社化",
+        "減衰:開示事項の経過"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
+    },
+    {
       "id": "1263497",
       "time": "2026-07-02T14:00:00+09:00",
       "code": "3624",
@@ -2288,6 +4530,34 @@
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T17:08:48+09:00"
+    },
+    {
+      "id": "27adcde3d8aeb1d3",
+      "time": "2026-07-02T14:00:00+09:00",
+      "code": "3624",
+      "company": "Ｇ－アクセルＭ",
+      "title": "第三者割当による新株式の発行に係る払込完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info140120260701586465.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "増資・希薄化",
+      "score": 47,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "第三者割当"
+      ],
+      "reasons": [
+        "第三者割当",
+        "減衰:払込完了"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-02T17:12:01+09:00"
     },
     {
       "id": "1263501",
@@ -11227,2323 +13497,6 @@
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263247",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5290",
-      "company": "ベルテクス",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585325.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263248",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5334",
-      "company": "日特殊陶",
-      "title": "自己株式の取得状況に関するお知らせ（会社法第459条第１項の規定による定款の定めに基づく自己株式の取得）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585391.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263249",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5393",
-      "company": "ニチアス",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585663.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263253",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5929",
-      "company": "三和ＨＤ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585647.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263254",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5933",
-      "company": "アルインコ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586054.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263256",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6027",
-      "company": "弁護士ドットコム",
-      "title": "自己株式の取得状況に関するお知らせ （会社法第459条第１項の規定による定款の定めに基づく自己株式の取得）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585175.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263257",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6031",
-      "company": "Ｇ－ＺＥＴＡ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585669.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263258",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6037",
-      "company": "楽待",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586070.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263261",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6316",
-      "company": "丸山製",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584338.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263262",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6328",
-      "company": "荏原実業",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585444.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263263",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6337",
-      "company": "テセック",
-      "title": "自己株式の取得状況に関するお知らせ（会社法第459条第1項の規定による定款の定めに基づく自己株式の取得）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585832.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263264",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6361",
-      "company": "荏原製",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260629583847.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263270",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6370",
-      "company": "栗田工",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260626581499.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263271",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6371",
-      "company": "椿本チエイン",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585794.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263272",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6454",
-      "company": "マックス",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585280.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263273",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6525",
-      "company": "ＫＯＫＵＳＡＩ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585767.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263275",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6678",
-      "company": "テクノメディカ",
-      "title": "株式報酬としての自己株式の処分に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585051.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自己株処分",
-      "score": 53,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "自己株式の処分"
-      ],
-      "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263278",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6778",
-      "company": "アルチザ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586025.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263280",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6835",
-      "company": "アライドＨＤ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584833.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263281",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6845",
-      "company": "アズビル",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585908.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263282",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6853",
-      "company": "共和電",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585939.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263283",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6862",
-      "company": "ミナトＨＤ",
-      "title": "自己株式の取得状況に関するお知らせ（会社法第165条第２項の規定による定款の定めに基づく自己株式の取得）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585532.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263284",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6866",
-      "company": "日置電",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586190.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263285",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6952",
-      "company": "カシオ計",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585420.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263286",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6965",
-      "company": "浜松ホトニク",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585187.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263292",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7199",
-      "company": "プレミアグループ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585949.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263294",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7245",
-      "company": "大同メタル",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586115.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263295",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7270",
-      "company": "ＳＵＢＡＲＵ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585834.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263298",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7367",
-      "company": "セルム",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585379.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:17:38+09:00"
-    },
-    {
-      "id": "1263301",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7447",
-      "company": "ナガイレーベ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585539.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:17:38+09:00"
-    },
-    {
-      "id": "1263307",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7911",
-      "company": "ＴＯＰＰＡＮ　ＨＤ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586000.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T13:15:41+09:00"
-    },
-    {
-      "id": "1263308",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7912",
-      "company": "大日印",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585698.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T13:15:41+09:00"
-    },
-    {
-      "id": "1263310",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7981",
-      "company": "タカラスタン",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585455.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263311",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8093",
-      "company": "極東貿易",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585238.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263312",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8242",
-      "company": "Ｈ２Ｏリテイル",
-      "title": "自己株式の取得状況に関するお知らせ（会社法第459条第1項の規定による定款の定めに基づく自己株式の取得）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585356.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263313",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8344",
-      "company": "山形銀",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584913.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263314",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8358",
-      "company": "スルガ銀",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586003.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263315",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8377",
-      "company": "ほくほく",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586100.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263316",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8418",
-      "company": "山口ＦＧ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586241.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263319",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8715",
-      "company": "アニコム　ＨＤ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260626582397.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263320",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8742",
-      "company": "小林洋行",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585407.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263322",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8795",
-      "company": "Ｔ＆ＤＨＤ",
-      "title": "自己株式の取得状況に関するお知らせ（会社法第459条第１項の規定による定款の定めに基づく自己株式の取得）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586023.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263323",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8802",
-      "company": "三菱地所",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585381.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263326",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8920",
-      "company": "東祥",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584681.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263329",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9007",
-      "company": "小田急",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585290.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263330",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9107",
-      "company": "川崎船",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260629583339.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263332",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9404",
-      "company": "日テレＨＤ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585267.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263333",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9436",
-      "company": "沖縄セルラー",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585827.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:20:49+09:00"
-    },
-    {
-      "id": "1263336",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9682",
-      "company": "ＤＴＳ",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586121.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:20:49+09:00"
-    },
-    {
-      "id": "1263337",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9735",
-      "company": "セコム",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586107.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:20:49+09:00"
-    },
-    {
-      "id": "1263340",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9880",
-      "company": "イノテック",
-      "title": "自己株式の取得状況に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584980.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 53,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:状況に関するお知らせ"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T09:11:41+09:00"
-    },
-    {
-      "id": "1263266",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6363",
-      "company": "酉島製",
-      "title": "(開示事項の経過)新日本造機株式会社の株式の取得(子会社)および通期連結業績予想の修正に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630583928.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "業績修正",
-      "score": 52,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [],
-      "reasons": [
-        "業績予想の修正",
-        "減衰:開示事項の経過"
-      ],
-      "summary": "業績予想の上方修正。想定比のサプライズ次第で買い材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263189",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "3099",
-      "company": "ミツコシイセタン",
-      "title": "自己株式の取得状況（途中経過）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584342.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T17:08:48+09:00"
-    },
-    {
-      "id": "1263239",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5020",
-      "company": "ＥＮＥＯＳ",
-      "title": "自己株式の取得状況（途中経過）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585700.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263255",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5943",
-      "company": "ノーリツ",
-      "title": "自己株式の取得状況（途中経過）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585835.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263260",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6098",
-      "company": "リクルートＨＤ",
-      "title": "自己株式の取得状況について",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585578.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263274",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6535",
-      "company": "アイモバイル",
-      "title": "自己株式の取得状況及び取得終了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630585154.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263293",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7213",
-      "company": "レシップＨＤ",
-      "title": "自己株式の取得状況（途中経過）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584420.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263300",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7378",
-      "company": "Ｇ－アシロ",
-      "title": "自己株式の取得状況及び取得終了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585736.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:17:38+09:00"
-    },
-    {
-      "id": "1263335",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "9678",
-      "company": "カナモト",
-      "title": "自己株式の取得状況（途中経過）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585784.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:20:49+09:00"
-    },
-    {
-      "id": "1263303",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7564",
-      "company": "ワークマン",
-      "title": "2027年３月期　月次前年比速報に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585861.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次"
-      ],
-      "summary": "月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:17:38+09:00"
-    },
-    {
-      "id": "1263304",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7683",
-      "company": "ダブルエー",
-      "title": "2027年１月期６月度単体月次概況（速報）のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585975.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次"
-      ],
-      "summary": "月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:17:38+09:00"
-    },
-    {
-      "id": "1263191",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "3113",
-      "company": "ＵＮＩＶＡ・Ｏａｋ",
-      "title": "（開示事項の経過）株式会社ユニヴァ・ペイキャストの株式取得（子会社化）完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586250.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 48,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "子会社化"
-      ],
-      "reasons": [
-        "子会社化",
-        "減衰:開示事項の経過"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T17:08:48+09:00"
-    },
-    {
-      "id": "1263200",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "3358",
-      "company": "Ｔｒａｉｌｈｅａｄ",
-      "title": "（開示事項の経過）株式会社食べるの株式取得（子会社化）完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585969.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 48,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "子会社化"
-      ],
-      "reasons": [
-        "子会社化",
-        "減衰:開示事項の経過"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T17:08:48+09:00"
-    },
-    {
-      "id": "1263218",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "4264",
-      "company": "Ｇ－セキュア",
-      "title": "子会社の異動（株式取得）完了に関するお知らせ（開示事項の経過）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260626581308.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 48,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [],
-      "reasons": [
-        "株式取得",
-        "減衰:開示事項の経過"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263291",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7198",
-      "company": "ＳＢＩアルヒ",
-      "title": "（開示事項の経過）リサＲＴ債権回収株式会社の株式取得手続き完了および商号変更のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585983.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 48,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [],
-      "reasons": [
-        "株式取得",
-        "減衰:開示事項の経過"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263306",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7902",
-      "company": "ソノコム",
-      "title": "(開示事項の経過)マクセル株式会社分割子会社の株式取得（子会社化）完了及び当該子会社の商号変更に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586276.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 48,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "子会社化"
-      ],
-      "reasons": [
-        "子会社化",
-        "減衰:開示事項の経過"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T13:15:41+09:00"
-    },
-    {
-      "id": "1263325",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8892",
-      "company": "エスコン",
-      "title": "(開示事項の経過)株式会社モンテディオ山形の株式取得(連結子会社化)完了のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585577.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 48,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "子会社化"
-      ],
-      "reasons": [
-        "子会社化",
-        "減衰:開示事項の経過"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263317",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8425",
-      "company": "みずほリース",
-      "title": "第三者割当による種類株式発行の払込完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260624578460.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "増資・希薄化",
-      "score": 47,
-      "impact": "medium",
-      "direction": "negative",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "第三者割当"
-      ],
-      "reasons": [
-        "第三者割当",
-        "減衰:払込完了"
-      ],
-      "summary": "新株発行・希薄化は短期的に売られやすい。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263327",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "8955",
-      "company": "Ｒ－Ｊプライム",
-      "title": "資金の借入れ（グリーンローン）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585746.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "資金調達",
-      "score": 45,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "資金の借入"
-      ],
-      "summary": "社債発行・借入等の資金調達。財務面の動き。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T10:46:48+09:00"
-    },
-    {
-      "id": "1263234",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "4845",
-      "company": "スカラ",
-      "title": "当社子会社による株式会社HATOの株式の取得（孫会社化）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585477.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 38,
-      "impact": "low",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 45,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263173",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "1450",
-      "company": "ＴＡＮＡＫＥＮ",
-      "title": "当社取締役会の実効性の分析・評価結果の概要",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586058.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T17:08:48+09:00"
-    },
-    {
-      "id": "1263176",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "212A",
-      "company": "フィットイージー",
-      "title": "2026年10月期　６月度　主要KPI（会員数及び店舗数）についてのお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585926.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T17:08:48+09:00"
-    },
-    {
-      "id": "1263187",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "276A",
-      "company": "Ｇ－ククレブ",
-      "title": "販売用不動産の売却完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585953.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T17:08:48+09:00"
-    },
-    {
-      "id": "1263217",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "4208",
-      "company": "ＵＢＥ",
-      "title": "ＵＢＥ三菱セメント株式会社の東京証券取引所への株式上場申請について",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586082.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263222",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "4446",
-      "company": "Ｌｉｎｋ－Ｕグループ",
-      "title": "当社主要株主による当社株式売却及び大量保有報告書の変更報告書の受領に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585793.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263223",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "4464",
-      "company": "ソフト９９",
-      "title": "非上場の親会社等の決算情報に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586072.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263238",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "4985",
-      "company": "アース製薬",
-      "title": "Haleonジャパン株式会社との日本における独占的流通・販売契約の解消に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585377.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263240",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5027",
-      "company": "Ｇ－ＡｎｙＭｉｎｄ",
-      "title": "よくお問い合わせ頂くご質問への回答（2026年第2四半期に頂いた質問）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585757.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263246",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5280",
-      "company": "ヨシコン",
-      "title": "自己株式の市場買付けに関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586055.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263250",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "5711",
-      "company": "三菱マ",
-      "title": "ＵＢＥ三菱セメント株式会社の東京証券取引所への株式上場申請について",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585597.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263259",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6071",
-      "company": "ＩＢＪ",
-      "title": "株式会社 IBJ（結婚相談所事業）2026年6月KPIについて",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701585992.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263268",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6363",
-      "company": "酉島製",
-      "title": "2026年度(2027年3月期)連結業績予想修正",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630583927.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263279",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "6810",
-      "company": "マクセル",
-      "title": "株式譲渡によるEF2（Electro Fine Forming）事業の譲渡完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260624579001.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:40:29+09:00"
-    },
-    {
-      "id": "1263296",
-      "time": "2026-07-01T15:30:00+09:00",
-      "code": "7287",
-      "company": "日本精機",
-      "title": "国内グループの組織再編（簡易吸収分割）および子会社の商号変更に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260701586117.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-07-02T14:17:38+09:00"
     }
   ]
 }

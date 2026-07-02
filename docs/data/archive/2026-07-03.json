@@ -1,0 +1,46 @@
+{
+  "updated_at": "2026-07-03T08:57:00+09:00",
+  "count": 1,
+  "items": [
+    {
+      "id": "1263612",
+      "time": "2026-07-03T08:00:00+09:00",
+      "code": "556A",
+      "company": "Ｇ－犬猫生活",
+      "title": "2026年４月期 通期決算発表における質疑応答（要旨）について",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260630584921.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "通期決算"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-03T08:56:59+09:00",
+      "earnings": {
+        "period": null,
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "20百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "5百万円",
+            "yoy": "+6%"
+          }
+        ],
+        "source": "regex"
+      }
+    }
+  ]
+}

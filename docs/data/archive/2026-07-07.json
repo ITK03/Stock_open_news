@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-07T10:13:18+09:00",
-  "count": 11,
+  "updated_at": "2026-07-07T10:15:54+09:00",
+  "count": 14,
   "items": [
     {
       "id": "68c47cce1211a029",
@@ -78,6 +78,91 @@
       "analyzed_at": "2026-07-07T10:13:18+09:00"
     },
     {
+      "id": "1263987",
+      "time": "2026-07-07T10:00:00+09:00",
+      "code": "1329",
+      "company": "Ｅ－ブラックロック",
+      "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260707588721.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-07T10:15:52+09:00"
+    },
+    {
+      "id": "1263988",
+      "time": "2026-07-07T10:00:00+09:00",
+      "code": "1671",
+      "company": "Ｅ－シンプレクス",
+      "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260707588682.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-07T10:15:52+09:00"
+    },
+    {
+      "id": "1263989",
+      "time": "2026-07-07T10:00:00+09:00",
+      "code": "8306",
+      "company": "三菱ＵＦＪ",
+      "title": "2026年3月期 決算短信（連結）＜米国会計基準＞",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260707588680.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-07T10:15:52+09:00",
+      "earnings": {
+        "period": "2026年3月期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "1百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
       "id": "d71b8ebacd627abf",
       "time": "2026-07-07T09:10:00+09:00",
       "code": "2288",
@@ -131,7 +216,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-07T09:48:01+09:00"
+      "analyzed_at": "2026-07-07T10:15:52+09:00"
     },
     {
       "id": "89f24773cf0c79fd",
@@ -185,7 +270,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-07T09:48:01+09:00"
+      "analyzed_at": "2026-07-07T10:15:52+09:00"
     },
     {
       "id": "85ce60ff33387566",
@@ -260,7 +345,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-07T09:48:01+09:00"
+      "analyzed_at": "2026-07-07T10:15:52+09:00"
     },
     {
       "id": "1263985",
@@ -285,7 +370,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-07T09:48:01+09:00"
+      "analyzed_at": "2026-07-07T10:15:52+09:00"
     }
   ]
 }

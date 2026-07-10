@@ -10,12 +10,26 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 from datetime import datetime, timezone, timedelta
 
 log = logging.getLogger(__name__)
 
 JST = timezone(timedelta(hours=9))
 DEFAULT_PATH = os.path.join("docs", "data", "disclosures.json")
+_PDF_FILENAME_RE = re.compile(r"/inbs/(.+?)\.pdf", re.I)
+
+
+def _pdf_filename(pdf_url: str | None) -> str | None:
+    """pdf_url から inbs 配下のファイル名を取り出す(無ければ None)。
+
+    正規ID(fetcher.canonical_id)の切替(旧yanoshin数値ID -> 新pdfファイル名ID)で
+    同一開示が別IDの行として二重登録されるのを防ぐためのフォールバック照合に使う。
+    """
+    if not pdf_url:
+        return None
+    m = _PDF_FILENAME_RE.search(pdf_url)
+    return m.group(1) if m else None
 
 
 def load(path: str = DEFAULT_PATH) -> list[dict]:
@@ -46,14 +60,42 @@ def merge_and_save(
 
     by_id: dict[str, dict] = {it.get("id"): it for it in existing if it.get("id")}
 
+    # pdf_url のファイル名 -> 現在の id。ID方式が変わっても(例: 旧yanoshin数値ID
+    # から新しい正規ID=pdfファイル名へ)同一開示を検出して置換できるようにする。
+    by_pdf: dict[str, str] = {}
+    for iid, it in by_id.items():
+        fname = _pdf_filename(it.get("pdf_url"))
+        if fname:
+            by_pdf[fname] = iid
+
     fresh: list[dict] = []
     for it in new_items:
         iid = it.get("id")
         if not iid:
             continue
-        if iid not in by_id:
-            fresh.append(it)
-        by_id[iid] = it  # 既存も最新分析で更新
+
+        if iid in by_id:
+            by_id[iid] = it  # 既存も最新分析で更新
+            fname = _pdf_filename(it.get("pdf_url"))
+            if fname:
+                by_pdf[fname] = iid
+            continue
+
+        fname = _pdf_filename(it.get("pdf_url"))
+        old_id = by_pdf.get(fname) if fname else None
+        if old_id and old_id != iid:
+            # pdf_url のファイル名が同じ既存行 = 同一開示とみなし、旧IDの行を
+            # 新IDへ置換する(二重登録防止。新着扱いにはしない)。
+            del by_id[old_id]
+            by_id[iid] = it
+            by_pdf[fname] = iid
+            continue
+
+        # 本当に新規の開示
+        fresh.append(it)
+        by_id[iid] = it
+        if fname:
+            by_pdf[fname] = iid
 
     merged = sorted(by_id.values(), key=_sort_key, reverse=True)[:max_items]
 

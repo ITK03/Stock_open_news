@@ -10,13 +10,18 @@ from src.store import jsonstore
 
 
 def _raw(title, code="1234", company="テスト株式会社"):
+    iid = title[:12] + code
     return {
-        "id": title[:12] + code,
+        "id": iid,
         "time": "2026-06-27T15:00:00+09:00",
         "code": code,
         "company": company,
         "title": title,
-        "pdf_url": "https://www.release.tdnet.info/inbs/x.pdf",
+        # 実際のTDnetでは開示ごとにpdf_urlが一意になる。id(title+code由来)を
+        # ファイル名に使うことでテスト内の各開示を一意なpdf_urlにする
+        # (固定の "x.pdf" だと store のpdfファイル名フォールバック照合で
+        # 別開示同士が誤って同一開示とみなされてしまうため)。
+        "pdf_url": f"https://www.release.tdnet.info/inbs/{iid}.pdf",
         "exchange": "東",
         "markets": "プライム",
         "source": "test",
@@ -161,6 +166,29 @@ def test_store_merge_and_fresh(tmp_path):
 
     loaded = jsonstore.load(path)
     assert len(loaded) == 2
+
+
+def test_store_replaces_old_id_row_with_same_pdf_filename(tmp_path):
+    # ID方式の切替(旧yanoshin数値ID -> 新しい正規ID=pdfファイル名)で
+    # 同一開示が二重登録されないことを検証する。
+    path = str(tmp_path / "disclosures.json")
+
+    old = _raw("業績予想の上方修正に関するお知らせ", code="1111")
+    old["id"] = "140120260627500001"  # 旧方式のID
+    old["pdf_url"] = "https://www.release.tdnet.info/inbs/081234560.pdf"
+    jsonstore.merge_and_save([old], path=path)
+    assert len(jsonstore.load(path)) == 1
+
+    # 同じ開示(同じpdf)を新ID(正規ID=pdfファイル名)で再投入
+    new = _raw("業績予想の上方修正に関するお知らせ", code="1111")
+    new["id"] = "081234560"
+    new["pdf_url"] = "https://www.release.tdnet.info/inbs/081234560.pdf"
+    fresh = jsonstore.merge_and_save([new], path=path)
+
+    loaded = jsonstore.load(path)
+    assert len(loaded) == 1                      # 二重登録されない
+    assert loaded[0]["id"] == "081234560"         # 新IDへ置換されている
+    assert fresh == []                            # 同一開示のため新着扱いにはしない
 
 
 def test_store_evicts_demo_on_real_data(tmp_path):

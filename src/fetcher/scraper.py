@@ -1,7 +1,12 @@
 """
 東証適時開示閲覧サービス HTML フォールバックスクレイパー
 
-URL パターン: https://www.release.tdnet.info/inbs/I_list_001_YYYYMMDD.html
+URL パターン: https://www.release.tdnet.info/inbs/I_list_XXX_YYYYMMDD.html
+(XXX は 001, 002, ... の100件/ページのページ番号)。
+
+yanoshin の日付指定API (list/YYYYMMDD.json?limit=N) は limit を無視し一部しか
+返さないことが実測で確認されている(1日1000件超のところ数十件など)ため、
+本モジュールは 001 ページのみでなく全ページを巡回して当日分を漏れなく取得する。
 """
 
 import hashlib
@@ -16,10 +21,12 @@ from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
-_BASE_URL = "https://www.release.tdnet.info/inbs/I_list_001_{date}.html"
+_PAGE_URL = "https://www.release.tdnet.info/inbs/I_list_{page:03d}_{date}.html"
 _JST = timezone(timedelta(hours=9))
 _TIMEOUT = 10
 _MAX_RETRIES = 3
+_MAX_PAGES = 30       # 安全弁。100件/ページなので3000件相当まで巡回可能
+_PAGE_SLEEP = 0.4     # ページ間ウェイト(サーバ負荷配慮)
 
 _HEADERS = {
     "User-Agent": (
@@ -170,17 +177,51 @@ def _parse_html(html: str, date: str) -> list[dict]:
 
 def fetch(date: str, limit: int = 300) -> list[dict]:
     """
-    東証適時開示閲覧サービスの HTML をスクレイピングして
-    RawDisclosure リストを返す。失敗時は空リストを返す。
+    東証適時開示閲覧サービスの HTML を全ページ巡回してスクレイピングし、
+    RawDisclosure リストを返す。
+
+    ページ 001 から順に取得し、以下のいずれかで停止する:
+    - パース結果が0行のページに到達(そのページ以降は空と判断)
+    - ページ取得が失敗(404等でHTML取得不能)
+    - 上限ページ数(_MAX_PAGES)に到達
+    - 取得済み件数が limit に到達
+
+    1ページ目の取得がネットワーク的に失敗した場合は、fetch_recent 等の
+    呼び出し元がフォールバック判断できるよう従来通り空リストを返す。
     """
-    url = _BASE_URL.format(date=date)
-    logger.info("Fetching scraper: url=%s", url)
+    all_results: list[dict] = []
+    for page in range(1, _MAX_PAGES + 1):
+        url = _PAGE_URL.format(page=page, date=date)
+        logger.info("Fetching scraper: url=%s (page %d)", url, page)
 
-    html = _get_with_retry(url)
-    if html is None:
-        logger.warning("scraper: failed to fetch HTML from %s", url)
-        return []
+        html = _get_with_retry(url)
+        if html is None:
+            if page == 1:
+                logger.warning("scraper: failed to fetch HTML from %s", url)
+                return []
+            logger.info(
+                "scraper: page %d unreachable, stopping pagination (%d件取得済み)",
+                page, len(all_results),
+            )
+            break
 
-    results = _parse_html(html, date)
+        page_results = _parse_html(html, date)
+        if not page_results:
+            logger.info(
+                "scraper: page %d has 0 rows, stopping pagination (%d件取得済み)",
+                page, len(all_results),
+            )
+            break
+
+        all_results.extend(page_results)
+
+        if len(all_results) >= limit:
+            break
+        if page >= _MAX_PAGES:
+            logger.warning("scraper: reached max pages (%d) for date=%s", _MAX_PAGES, date)
+            break
+
+        time.sleep(_PAGE_SLEEP)
+
     # limit を適用
-    return results[:limit]
+    return all_results[:limit]

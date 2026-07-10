@@ -61,6 +61,25 @@ def test_archive_preserves_earnings_on_rewrite(tmp_path):
     assert d27["items"][0].get("earnings", {}).get("source") == "llm"
 
 
+def test_archive_replaces_old_id_row_with_same_pdf_filename(tmp_path):
+    # ID方式の切替(旧yanoshin数値ID -> 新しい正規ID=pdfファイル名)で
+    # 同一開示が二重登録されないことを検証する。
+    base = str(tmp_path / "archive")
+
+    old = _item("140120260627500001", "2026-06-27T15:00:00+09:00")
+    old["pdf_url"] = "https://www.release.tdnet.info/inbs/081234560.pdf"
+    archive.archive_items([old], base_dir=base)
+
+    new = _item("081234560", "2026-06-27T15:00:00+09:00", score=90)
+    new["pdf_url"] = "https://www.release.tdnet.info/inbs/081234560.pdf"
+    archive.archive_items([new], base_dir=base)
+
+    d27 = json.load(open(os.path.join(base, "2026-06-27.json"), encoding="utf-8"))
+    assert d27["count"] == 1                     # 二重登録されない
+    assert d27["items"][0]["id"] == "081234560"   # 新IDへ置換されている
+    assert d27["items"][0]["score"] == 90
+
+
 def test_archive_ignores_bad_time(tmp_path):
     base = str(tmp_path / "archive")
     res = archive.archive_items([_item("a", "")], base_dir=base)

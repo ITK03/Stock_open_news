@@ -10,22 +10,33 @@ name: poll-tdnet
 # まるごと(limit指定なし=既定3000件/日)取得するため、間引きで空いた空白期間の
 # 取りこぼしも次回起動時に自己修復される。
 # public リポジトリは Actions 無制限無料なので常時稼働でもコスト0。
+#
+# 自己連鎖(self-chaining)について: cron の間引きに更新の空白を依存させない
+# ため、330分ループの最後に `gh workflow run poll.yml` で自分自身を
+# workflow_dispatch 起動する。workflow_dispatch は GITHUB_TOKEN からの呼び出し
+# でも連鎖起動できる公式の例外に該当するため、これにより cron を待たず常時
+# 稼働が継続する。cron は連鎖が何らかの理由で途切れた場合の再点火役として
+# 残す(cancel-in-progress のオーバーラップ置換により、cron 起動が来ても
+# 実行中のループを安全に置き換えて連鎖を継続できる)。
 
 on:
   workflow_dispatch: {}
   schedule:
     # 1時間ごとに起動を試みる(JST 08:00-19:59 の平日)。実際は間引かれて
     # 3〜4時間おきの起動になることがあるが、330分ループのオーバーラップと
-    # 当日+前日の全件取得により空白期間は自己修復される。
+    # 当日+前日の全件取得により空白期間は自己修復される。自己連鎖が動いて
+    # いる限りこの cron は主な起動源ではなく、連鎖切れ時の保険として働く。
     - cron: "0 23 * * 0-4"    # JST 08:00 (月-金)
     - cron: "0 0-10 * * 1-5"  # JST 09:00-19:59 (月-金)
 
 permissions:
   contents: write
+  actions: write   # 自己連鎖(gh workflow run poll.yml)に必要
 
 concurrency:
   group: poll-tdnet
   cancel-in-progress: true   # 新しい起動が走ったら古いループは止めて最新に置き換える
+                              # (cron や自己連鎖の新起動が置換した側として連鎖を継続するため途切れない)
 
 jobs:
   poll:
@@ -44,7 +55,7 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
-      - name: Poll loop (約330分・約2分間隔・当日+前日を全件取得)
+      - name: Poll loop (約330分・約90秒間隔・当日+前日を全件取得・終了時に自己連鎖)
         env:
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -60,6 +71,7 @@ jobs:
           EARNINGS_ENABLED: ${{ vars.EARNINGS_ENABLED }}
           EARNINGS_PER_RUN: ${{ vars.EARNINGS_PER_RUN }}
           BRANCH: ${{ github.ref_name }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -78,5 +90,11 @@ jobs:
             else
               echo "変更なし"
             fi
-            sleep 120
+            sleep 90
           done
+
+          # 自己連鎖: cron の間引きを待たずに次の330分ループを即座に起動する。
+          # workflow_dispatch は GITHUB_TOKEN からの呼び出しでも連鎖起動できる
+          # 公式の例外のため、これで常時稼働に近い状態を維持できる。
+          # cron はこの連鎖が途切れた場合の再点火役として残す。
+          gh workflow run poll.yml --ref "$BRANCH" || echo "self-dispatch failed"

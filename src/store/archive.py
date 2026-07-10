@@ -22,12 +22,25 @@ log = logging.getLogger(__name__)
 JST = timezone(timedelta(hours=9))
 DEFAULT_DIR = os.path.join("docs", "data", "archive")
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_PDF_FILENAME_RE = re.compile(r"/inbs/(.+?)\.pdf", re.I)
 
 
 def _date_of(item: dict) -> str | None:
     t = item.get("time") or ""
     d = t[:10]
     return d if _DATE_RE.match(d) else None
+
+
+def _pdf_filename(pdf_url: str | None) -> str | None:
+    """pdf_url から inbs 配下のファイル名を取り出す(無ければ None)。
+
+    正規ID(fetcher.canonical_id)の切替(旧yanoshin数値ID -> 新pdfファイル名ID)で
+    同一開示が別IDの行として二重登録されるのを防ぐためのフォールバック照合に使う。
+    """
+    if not pdf_url:
+        return None
+    m = _PDF_FILENAME_RE.search(pdf_url)
+    return m.group(1) if m else None
 
 
 def _load_day(path: str) -> list[dict]:
@@ -85,15 +98,35 @@ def archive_items(items: list[dict], base_dir: str = DEFAULT_DIR) -> dict:
         path = os.path.join(base_dir, f"{date}.json")
         existing = _load_day(path)
         merged: dict[str, dict] = {x.get("id"): x for x in existing if x.get("id")}
+
+        # pdf_url のファイル名 -> 現在の id。ID方式が変わっても(例: 旧yanoshin
+        # 数値ID -> 新しい正規ID=pdfファイル名)同一開示を検出して置換できるようにする。
+        by_pdf: dict[str, str] = {}
+        for iid, x in merged.items():
+            fname = _pdf_filename(x.get("pdf_url"))
+            if fname:
+                by_pdf[fname] = iid
+
         for it in day_items:
             iid = it.get("id")
             if not iid:
                 continue
-            # 再書き込み(バックフィル等)で既存の決算要約を失わないよう保持
+
             prev = merged.get(iid)
+            fname = _pdf_filename(it.get("pdf_url"))
+            if prev is None and fname:
+                old_id = by_pdf.get(fname)
+                if old_id and old_id != iid:
+                    # pdf_url のファイル名が同じ既存行 = 同一開示とみなし、
+                    # 旧IDの行を新IDへ置換する(二重登録防止)。
+                    prev = merged.pop(old_id)
+
+            # 再書き込み(バックフィル等)で既存の決算要約を失わないよう保持
             if prev and prev.get("earnings") and not it.get("earnings"):
                 it = {**it, "earnings": prev["earnings"]}
             merged[iid] = it
+            if fname:
+                by_pdf[fname] = iid
         ordered = sorted(merged.values(), key=lambda x: (x.get("time") or ""), reverse=True)
         _write_json(path, {
             "updated_at": datetime.now(JST).isoformat(timespec="seconds"),

@@ -863,7 +863,7 @@ body {
 .card-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-3);
+  gap: 6px;
 }
 
 /* Two-column layout on wider screens */
@@ -914,21 +914,21 @@ body {
 
 /* ===== DISCLOSURE CARD ===== */
 .card {
-  background: var(--bg-card);
+  background-color: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: 11px 13px;
+  border-radius: var(--r-md);
+  padding: 8px 10px 8px 12px;
   box-shadow: var(--shadow-xs);
   transition:
     box-shadow var(--t-base) var(--ease),
     border-color var(--t-base),
-    background var(--t-base),
+    background-color var(--t-base),
     transform var(--t-base) var(--ease);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 3px;
   /* Stagger animation */
   animation: card-enter var(--t-slow) var(--ease) both;
   animation-delay: calc(var(--card-index, 0) * 35ms);
@@ -942,7 +942,7 @@ body {
 .card:hover {
   box-shadow: var(--shadow-md);
   border-color: var(--border-mid);
-  background: var(--bg-card-hover);
+  background-color: var(--bg-card-hover);
   transform: translateY(-2px);
 }
 
@@ -962,104 +962,77 @@ body {
   box-shadow: var(--shadow-xs), inset 3px 0 0 var(--medium);
 }
 
-/* Impact accent stripe */
+/* 方向(上昇/下落)アクセントストライプ — 最重要シグナルとして色分け。重要度はスコア数値の色で表現する */
 .card::before {
   content: '';
   position: absolute;
   inset: 0 auto 0 0;
-  width: 3px;
-  border-radius: var(--r-lg) 0 0 var(--r-lg);
+  width: 4px;
+  border-radius: var(--r-md) 0 0 var(--r-md);
   pointer-events: none;
 }
 
-.card[data-impact="high"]::before   { background: var(--high); }
-.card[data-impact="medium"]::before { background: var(--medium); }
-.card[data-impact="low"]::before    { background: var(--low); }
+.card[data-direction="positive"]::before { background: var(--positive); }
+.card[data-direction="negative"]::before { background: var(--negative); }
+.card[data-direction="neutral"]::before,
+.card[data-direction="unknown"]::before  { background: var(--neutral); }
 
-/* ===== CARD — TOP ROW ===== */
-.card-top {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
+/* 強い上昇/下落(score>=80): カード全体にごく薄い方向色ティントを重ねる */
+.card[data-strong="1"] {
+  background-image: linear-gradient(var(--card-tint), var(--card-tint));
 }
+.card[data-strong="1"][data-direction="positive"] { --card-tint: rgba(63,185,80,0.045); }
+.card[data-strong="1"][data-direction="negative"] { --card-tint: rgba(248,81,73,0.045); }
 
-/* Time block */
-.card-time {
+/* ===== CARD — ROW 1: 時刻 + コード + 会社名 + NEW + ⚡ + スコア + ★ ===== */
+.card-row1 {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1px;
-  flex-shrink: 0;
-  min-width: 42px;
+  gap: 6px;
+  min-width: 0;
 }
 
-.time-hhmm {
-  font-size: 1rem;
+.row1-time {
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
 }
 
-.time-date {
-  font-size: 0.65rem;
+/* 過去日付(アーカイブ)表示時のみ表示する M/D */
+.row1-date {
+  font-size: 0.6rem;
   color: var(--text-muted);
-  line-height: 1;
+  flex-shrink: 0;
   font-variant-numeric: tabular-nums;
 }
 
-/* Relative time */
-.time-rel {
-  font-size: 0.62rem;
-  color: var(--text-muted);
-  line-height: 1;
-  white-space: nowrap;
-  margin-top: 2px;
+.row1-code {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--brand);
+  letter-spacing: 0.03em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
 }
 
-/* Company info */
-.card-company {
+.row1-company {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
   flex: 1;
   min-width: 0;
 }
 
-.company-code-line {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  flex-wrap: wrap;
-  margin-bottom: 2px;
-}
-
-.company-code {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--brand);
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-}
-
-.company-exchange {
-  font-size: 0.62rem;
-  color: var(--text-muted);
-  border: 1px solid var(--border-mid);
-  border-radius: var(--r-full);
-  padding: 0 5px;
-}
-
-.company-name-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: inherit;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-}
-
-.company-name {
-  font-size: 0.95rem;
+.row1-company-text {
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--text-primary);
   white-space: nowrap;
@@ -1070,23 +1043,56 @@ body {
   line-height: 1.3;
 }
 
-.company-name-btn:hover .company-name {
+.row1-company:hover .row1-company-text {
   color: var(--brand);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-/* Card top right cluster */
-.card-top-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-1);
+/* NEW バッジ(行1) */
+.new-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--brand);
+  color: #fff;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 1px 5px;
+  border-radius: var(--r-full);
   flex-shrink: 0;
+  animation: pop-in 0.3s var(--ease);
 }
 
-/* Watchlist star */
-.btn-star {
+@keyframes pop-in {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* 緊急フラグ(行1の⚡) */
+.urgent-flag {
+  color: var(--urgent);
+  font-weight: 700;
+  font-size: 0.92em;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* スコア数値: リング廃止・impact 色の太字数値のみ */
+.score-num {
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-num[data-impact="high"]   { color: var(--high); }
+.score-num[data-impact="medium"] { color: var(--medium); }
+.score-num[data-impact="low"]    { color: var(--low); }
+
+/* Watchlist star(行1) */
+.row1-star {
   background: none;
   border: none;
   cursor: pointer;
@@ -1097,101 +1103,68 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.btn-star:hover { color: var(--medium); transform: scale(1.2); }
-
-.btn-star.starred { color: var(--medium); }
-.btn-star.starred svg { fill: var(--medium); }
-
-/* Score ring */
-.score-ring {
-  width: 44px;
-  height: 44px;
   flex-shrink: 0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.score-ring svg {
-  position: absolute;
-  top: 0; left: 0;
-  transform: rotate(-90deg);
-}
+.row1-star:hover { color: var(--medium); transform: scale(1.2); }
+.row1-star.starred { color: var(--medium); }
+.row1-star.starred svg { fill: var(--medium); }
 
-.score-track { stroke: var(--border-mid); fill: none; }
-.score-fill  {
-  fill: none;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.6s var(--ease);
-}
-
-/* gradient stroke is set inline via url(#id) */
-
-.score-value {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  position: relative;
-  z-index: 1;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Confidence */
-.confidence-label {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-  letter-spacing: 0.02em;
-}
-
-/* ===== CARD — BADGES ===== */
-.new-badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--brand);
-  color: #fff;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 1px 6px;
-  border-radius: var(--r-full);
-  vertical-align: middle;
-  margin-left: 4px;
-  animation: pop-in 0.3s var(--ease);
-}
-
-@keyframes pop-in {
-  from { transform: scale(0.7); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
-}
-
-/* ===== CARD — TITLE ===== */
-.card-title {
-  font-size: 0.86rem;
+/* ===== CARD — ROW 2: タイトル(1行省略) ===== */
+.card-row2 {
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.35;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* ===== CARD — SUMMARY ===== */
-.card-summary {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* ===== CARD — BADGES ROW ===== */
-.card-badges {
+/* ===== CARD — ROW 3: 方向バッジ + カテゴリ + タグ + 相対時刻 + アイコン ===== */
+.card-row3 {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   align-items: center;
-  margin-top: 2px;
 }
+
+.row3-rel {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.row3-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* PDF / チャートの小アイコンリンク(タップ領域32px) */
+.action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast);
+  flex-shrink: 0;
+}
+
+.action-icon:hover {
+  background: var(--bg-card-hover);
+  color: var(--brand);
+}
+
+.action-icon--chart:hover { color: var(--low); }
 
 .badge {
   display: inline-flex;
@@ -1199,7 +1172,7 @@ body {
   gap: 3px;
   border-radius: var(--r-full);
   padding: 2px 8px;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 600;
   white-space: nowrap;
   border: 1px solid transparent;
@@ -1216,6 +1189,12 @@ body {
 .badge-direction-unknown  { background: var(--neutral-bg);  color: var(--neutral);  border-color: rgba(139,148,158,0.2); }
 
 .badge-category {
+  background: var(--brand-dim);
+  color: var(--brand);
+  border-color: rgba(59,130,246,0.3);
+}
+
+.badge-earnings {
   background: var(--brand-dim);
   color: var(--brand);
   border-color: rgba(59,130,246,0.3);
@@ -1246,7 +1225,7 @@ body {
   color: var(--text-muted);
   border-color: var(--border);
   font-weight: 400;
-  font-size: 0.65rem;
+  font-size: 0.64rem;
 }
 
 /* 方向(上昇/下落)を塗りつぶしで強調し色で即判別できるように */
@@ -1256,21 +1235,14 @@ body {
 .badge-direction-neutral.badge-direction-strong,
 .badge-direction-unknown.badge-direction-strong  { background: var(--neutral); }
 
-/* 緊急フラグ(タイトル横の⚡) */
-.urgent-flag {
-  color: var(--urgent);
-  font-weight: 700;
-  margin-right: 4px;
-  font-size: 0.95em;
-  vertical-align: -1px;
+/* 強い上昇/下落(positive/negative かつ score>=80): 彩度高め塗り+白字+軽いグロー */
+.badge-direction-hot.badge-direction-positive {
+  background: #16a34a;
+  box-shadow: 0 0 0 1px rgba(22,163,74,0.45), 0 0 8px rgba(22,163,74,0.55);
 }
-
-/* コード行に並べる確度 */
-.code-confidence {
-  font-size: 0.62rem;
-  color: var(--text-muted);
-  font-variant-numeric: tabular-nums;
-  margin-left: 2px;
+.badge-direction-hot.badge-direction-negative {
+  background: #dc2626;
+  box-shadow: 0 0 0 1px rgba(220,38,38,0.45), 0 0 8px rgba(220,38,38,0.55);
 }
 
 /* 詳細パネル内の重要度・緊急バッジ行 */
@@ -1281,66 +1253,16 @@ body {
   margin-bottom: var(--space-3);
 }
 
-/* ===== CARD — FOOTER ===== */
-.card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
-  flex-wrap: wrap;
-  border-top: 1px solid var(--border);
-  padding-top: 6px;
-  margin-top: 1px;
-}
-
-.card-reasons {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.card-footer-links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.pdf-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+/* 詳細パネル内: 公開日時/市場情報・要約 */
+.card-detail-date {
   font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--brand);
-  text-decoration: none;
-  border: 1px solid var(--border-mid);
-  border-radius: var(--r-sm);
-  padding: 3px 9px;
-  transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
-  white-space: nowrap;
-  flex-shrink: 0;
+  color: var(--text-muted);
 }
 
-.pdf-link:hover {
-  background: var(--brand);
-  color: #fff;
-  border-color: var(--brand);
-}
-
-.chart-link {
-  color: var(--low);
-  border-color: var(--low-border);
-}
-
-.chart-link:hover {
-  background: var(--low);
-  color: #fff;
-  border-color: var(--low);
+.card-detail-summary {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
 }
 
 /* ===== CARD — DETAIL PANEL ===== */
@@ -1830,7 +1752,13 @@ body {
   .watchlist-toggle-btn { margin-left: 0; }
 
   .main-container { padding: var(--space-3); }
-  .card-list { gap: 8px; }
+  .card-list { gap: 6px; }
+
+  /* 並び順が4ボタンになるため狭幅で崩れないよう縮小・折り返し許可 */
+  .toggle-group { flex-wrap: wrap; }
+  .toggle-btn { padding: 5px 9px; font-size: 0.72rem; }
+
+  .card { padding: 8px 9px 8px 11px; }
 
   .kaiji-toast { bottom: 16px; }
 }
@@ -1839,10 +1767,6 @@ body {
   .main-container { padding: var(--space-5) var(--space-6); }
 
   .filter-row { flex-wrap: nowrap; }
-}
-
-@media (min-width: 768px) {
-  .card { padding: var(--space-5); }
 }
 
 @media (min-width: 1200px) {

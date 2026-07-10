@@ -255,7 +255,7 @@ function loadFilters() {
     if (wl) state.filterWatchlist = wl === '1';
 
     const sort = localStorage.getItem(LS_SORT_ORDER);
-    if (sort && ['time','score'].includes(sort)) state.sortOrder = sort;
+    if (sort && ['time','score','up','down'].includes(sort)) state.sortOrder = sort;
     // category は buildCategoryOptions 後に復元するため別途対応
   } catch { /* ok */ }
 }
@@ -603,6 +603,15 @@ function applyFilters() {
 
   if (state.sortOrder === 'score') {
     result.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+  } else if (state.sortOrder === 'up' || state.sortOrder === 'down') {
+    // signed = positive? +score : negative? -score : 0
+    const signed = (i) => {
+      const s = Number(i.score) || 0;
+      if (i.direction === 'positive') return s;
+      if (i.direction === 'negative') return -s;
+      return 0;
+    };
+    result.sort((a, b) => state.sortOrder === 'up' ? signed(b) - signed(a) : signed(a) - signed(b));
   } else {
     result.sort((a, b) => {
       const ta = a.time ? new Date(a.time).getTime() : 0;
@@ -623,81 +632,67 @@ function createBadge(text, className) {
   return span;
 }
 
-/* ===== スコアリング SVG サークル (グラデーション対応) ===== */
+/* ===== 方向バッジ生成(強い上昇/下落は「急騰期待/急落警戒」で強調) ===== */
 
-function createScoreRing(score, impact) {
-  const safeScore = Math.max(0, Math.min(100, Number(score) || 0));
-  const r    = 18;
-  const circ = 2 * Math.PI * r;
-  const offset = circ - (safeScore / 100) * circ;
+const DIR_LABELS = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立', unknown: '? 不明' };
 
-  const wrapper = document.createElement('div');
-  wrapper.className = 'score-ring';
-  wrapper.dataset.impact = impact || 'low';
-  wrapper.setAttribute('title', `スコア: ${safeScore}`);
-  wrapper.setAttribute('aria-label', `スコア ${safeScore}`);
+function isHotDirection(item) {
+  const dirKey = item.direction || 'neutral';
+  const score  = Number(item.score) || 0;
+  return (dirKey === 'positive' || dirKey === 'negative') && score >= 80;
+}
 
+function createDirectionBadge(item) {
+  const dirKey = item.direction || 'neutral';
+  if (isHotDirection(item)) {
+    const text = dirKey === 'positive' ? '▲▲ 急騰期待' : '▼▼ 急落警戒';
+    return createBadge(text, `badge-direction-${dirKey} badge-direction-strong badge-direction-hot`);
+  }
+  return createBadge(DIR_LABELS[dirKey] ?? dirKey, `badge-direction-${dirKey} badge-direction-strong`);
+}
+
+/* ===== 行3用の小型アイコンリンク (PDF / チャート) ===== */
+
+function createActionIconSvg(kind) {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('width', '44');
-  svg.setAttribute('height', '44');
-  svg.setAttribute('viewBox', '0 0 44 44');
+  svg.setAttribute('width', '14');
+  svg.setAttribute('height', '14');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '2');
+  svg.setAttribute('stroke-linecap', 'round');
+  svg.setAttribute('stroke-linejoin', 'round');
   svg.setAttribute('aria-hidden', 'true');
+  if (kind === 'pdf') {
+    const p1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p1.setAttribute('d', 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z');
+    const p2 = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    p2.setAttribute('points', '14 2 14 8 20 8');
+    svg.appendChild(p1);
+    svg.appendChild(p2);
+  } else {
+    const p1 = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    p1.setAttribute('points', '23 6 13.5 15.5 8.5 10.5 1 18');
+    const p2 = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    p2.setAttribute('points', '17 6 23 6 23 12');
+    svg.appendChild(p1);
+    svg.appendChild(p2);
+  }
+  return svg;
+}
 
-  // linearGradient for stroke
-  const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-  const gradId = `score-grad-${impact}-${safeScore}-${Math.random().toString(36).slice(2,7)}`;
-  const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-  grad.setAttribute('id', gradId);
-  grad.setAttribute('x1', '0%');
-  grad.setAttribute('y1', '0%');
-  grad.setAttribute('x2', '100%');
-  grad.setAttribute('y2', '100%');
+/* ===== スコア数値 (impact 色の太字数値のみ・リング廃止) ===== */
 
-  // gradient colours by impact
-  const gradColors = {
-    high:   ['#ff6b6b', '#f85149'],
-    medium: ['#fbbf24', '#d29922'],
-    low:    ['#6ee7a3', '#3fb950'],
-  };
-  const [c1, c2] = gradColors[impact] || gradColors.low;
-  const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-  stop1.setAttribute('offset', '0%');
-  stop1.setAttribute('stop-color', c1);
-  const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-  stop2.setAttribute('offset', '100%');
-  stop2.setAttribute('stop-color', c2);
-  grad.appendChild(stop1);
-  grad.appendChild(stop2);
-  defs.appendChild(grad);
-  svg.appendChild(defs);
-
-  const track = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  track.setAttribute('class', 'score-track');
-  track.setAttribute('cx', '22');
-  track.setAttribute('cy', '22');
-  track.setAttribute('r', String(r));
-  track.setAttribute('stroke-width', '3');
-
-  const fill = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  fill.setAttribute('class', 'score-fill');
-  fill.setAttribute('cx', '22');
-  fill.setAttribute('cy', '22');
-  fill.setAttribute('r', String(r));
-  fill.setAttribute('stroke-width', '3');
-  fill.setAttribute('stroke-dasharray', String(circ));
-  fill.setAttribute('stroke-dashoffset', String(offset));
-  fill.setAttribute('stroke', `url(#${gradId})`);
-
-  svg.appendChild(track);
-  svg.appendChild(fill);
-
-  const scoreText = document.createElement('span');
-  scoreText.className = 'score-value';
-  scoreText.textContent = String(safeScore);
-
-  wrapper.appendChild(svg);
-  wrapper.appendChild(scoreText);
-  return wrapper;
+function createScoreNumber(score, impact) {
+  const safeScore = Math.max(0, Math.min(100, Number(score) || 0));
+  const span = document.createElement('span');
+  span.className = 'score-num';
+  span.dataset.impact = impact || 'low';
+  span.setAttribute('title', `スコア: ${safeScore}`);
+  span.setAttribute('aria-label', `スコア ${safeScore}`);
+  span.textContent = String(safeScore);
+  return span;
 }
 
 /* ===== 決算サマリー ===== */
@@ -780,22 +775,44 @@ function createDetailPanel(item, pdfUrl, code4) {
   const titleFull = createTextEl('p', item.title ?? '', 'card-detail-title');
   panel.appendChild(titleFull);
 
+  // 公開日時 + 市場情報(全文)
+  {
+    const metaParts = [];
+    if (item.time) metaParts.push(`公開: ${formatUpdatedAt(item.time)}`);
+    const exch = [item.exchange, item.markets].filter(Boolean).join(' ');
+    if (exch) metaParts.push(exch);
+    if (metaParts.length > 0) {
+      panel.appendChild(createTextEl('p', metaParts.join(' ・ '), 'card-detail-date'));
+    }
+  }
+
+  // 要約
+  if (item.summary) {
+    panel.appendChild(createTextEl('p', item.summary, 'card-detail-summary'));
+  }
+
   // 重要度・緊急バッジ(一覧では出さず、ここ=展開時に表示)
   const metaRow = document.createElement('div');
   metaRow.className = 'card-detail-badges';
   if (item.urgent === true) {
     metaRow.appendChild(createBadge('⚡ 緊急', 'badge-urgent'));
   }
+  if (item.is_correction === true) {
+    metaRow.appendChild(createBadge('訂正/続報', 'badge-correction'));
+  }
   const impLabels = { high: '高', medium: '中', low: '低' };
   const impKey = item.impact || 'low';
   metaRow.appendChild(createBadge(`重要度: ${impLabels[impKey] ?? impKey}`, `badge-impact-${impKey}`));
-  const dLabels = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立', unknown: '? 不明' };
-  const dKey = item.direction || 'neutral';
-  metaRow.appendChild(createBadge(dLabels[dKey] ?? dKey, `badge-direction-${dKey} badge-direction-strong`));
+  metaRow.appendChild(createDirectionBadge(item));
   if (typeof item.confidence === 'number') {
     metaRow.appendChild(createBadge(`確度 ${item.confidence}%`, 'badge-tag'));
   }
   panel.appendChild(metaRow);
+
+  // 決算サマリー(全文)
+  if (item.earnings && typeof item.earnings === 'object') {
+    panel.appendChild(createEarningsSummary(item.earnings));
+  }
 
   // 全 reasons
   if (Array.isArray(item.reasons) && item.reasons.length > 0) {
@@ -892,6 +909,8 @@ function createCard(item, index) {
   const card = document.createElement('article');
   card.className = 'card';
   card.dataset.impact = item.impact || 'low';
+  card.dataset.direction = item.direction || 'neutral';
+  card.dataset.strong = isHotDirection(item) ? '1' : '0';
   // スタガーアニメーション用インデックス
   card.style.setProperty('--card-index', String(Math.min(index, 19)));
 
@@ -904,74 +923,59 @@ function createCard(item, index) {
   // カード展開状態
   let isExpanded = false;
 
-  /* --- カードトップ --- */
-  const cardTop = document.createElement('div');
-  cardTop.className = 'card-top';
-
-  // 時刻
   const { hhmm, date, ts } = parseTime(item.time);
-  const timeDiv = document.createElement('div');
-  timeDiv.className = 'card-time';
-  const hhmmSpan = document.createElement('span');
-  hhmmSpan.className = 'time-hhmm';
-  hhmmSpan.textContent = hhmm;
-  const dateSpan = document.createElement('span');
-  dateSpan.className = 'time-date';
-  dateSpan.textContent = date;
-  const relSpan = document.createElement('span');
-  relSpan.className = 'time-rel';
-  relSpan.setAttribute('data-ts', String(ts));
-  relSpan.textContent = relativeTime(ts);
-  relSpan.setAttribute('title', formatUpdatedAt(item.time));
-  timeDiv.appendChild(hhmmSpan);
-  timeDiv.appendChild(dateSpan);
-  timeDiv.appendChild(relSpan);
 
-  // 会社情報
-  const companyDiv = document.createElement('div');
-  companyDiv.className = 'card-company';
+  /* --- 行1: 時刻 + コード + 会社名 + NEW + ⚡ + スコア + ★ --- */
+  const row1 = document.createElement('div');
+  row1.className = 'card-row1';
 
-  const codeLineDiv = document.createElement('div');
-  codeLineDiv.className = 'company-code-line';
-  const codeSpan = createTextEl('span', code, 'company-code');
-  codeLineDiv.appendChild(codeSpan);
+  const hhmmSpan = createTextEl('span', hhmm, 'row1-time');
+  hhmmSpan.setAttribute('title', formatUpdatedAt(item.time));
+  row1.appendChild(hhmmSpan);
 
-  if (item.exchange || item.markets) {
-    const exchSpan = createTextEl('span',
-      [item.exchange, item.markets].filter(Boolean).join(' '),
-      'company-exchange'
-    );
-    codeLineDiv.appendChild(exchSpan);
+  // 過去日付(アーカイブ)表示時のみ M/D を行1に出す。ライブ当日表示では省略(詳細パネルに全文表示)。
+  if (state.selectedDate && date) {
+    row1.appendChild(createTextEl('span', date, 'row1-date'));
   }
-  // 確度を時刻・銘柄と同じ行に置く(カードを縦にコンパクトに)
-  if (typeof item.confidence === 'number') {
-    codeLineDiv.appendChild(createTextEl('span', `確度${item.confidence}%`, 'code-confidence'));
-  }
-  companyDiv.appendChild(codeLineDiv);
 
-  // 会社名ボタン(銘柄絞り込みトリガー)
+  row1.appendChild(createTextEl('span', code, 'row1-code'));
+
+  // 会社名ボタン(銘柄絞り込みトリガー) — 1行省略
   const nameBtn = document.createElement('button');
-  nameBtn.className = 'company-name-btn';
+  nameBtn.className = 'row1-company';
   nameBtn.type = 'button';
   nameBtn.setAttribute('aria-label', `${item.company ?? ''} のみ表示`);
-
-  const nameSpan = createTextEl('span', item.company ?? '（不明）', 'company-name');
+  const nameSpan = createTextEl('span', item.company ?? '（不明）', 'row1-company-text');
   nameSpan.title = item.company ?? '';
   nameBtn.appendChild(nameSpan);
   nameBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     if (code) onStockFilter(code, item.company ?? code);
   });
-  companyDiv.appendChild(nameBtn);
+  row1.appendChild(nameBtn);
 
-  // 右クラスター（★ + スコアリング）
-  const topRight = document.createElement('div');
-  topRight.className = 'card-top-right';
+  // 新着バッジ
+  if (ts && ts > state.lastSeenTs && state.lastSeenTs > 0) {
+    const newBadge = createTextEl('span', 'NEW', 'new-badge');
+    newBadge.setAttribute('aria-label', '新着');
+    row1.appendChild(newBadge);
+  }
+
+  // 緊急フラグ(⚡)
+  if (item.urgent === true) {
+    const flag = createTextEl('span', '⚡', 'urgent-flag');
+    flag.setAttribute('aria-label', '緊急');
+    flag.setAttribute('title', '緊急開示');
+    row1.appendChild(flag);
+  }
+
+  // スコア数値(impact 色の太字数値)
+  row1.appendChild(createScoreNumber(item.score, item.impact));
 
   // ★ ウォッチリストトグル
   const btnStar = document.createElement('button');
   btnStar.type = 'button';
-  btnStar.className = 'btn-star' + (code && state.watchlist.has(code) ? ' starred' : '');
+  btnStar.className = 'row1-star' + (code && state.watchlist.has(code) ? ' starred' : '');
   btnStar.setAttribute('aria-label', `${item.company ?? code} をウォッチリストに追加`);
   btnStar.setAttribute('aria-pressed', String(code && state.watchlist.has(code)));
   const starSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -1006,140 +1010,76 @@ function createCard(item, index) {
   if (code && state.watchlist.has(code)) {
     starSvg.setAttribute('fill', 'currentColor');
   }
+  row1.appendChild(btnStar);
 
-  // スコアリング
-  const scoreRing = createScoreRing(item.score, item.impact);
+  card.appendChild(row1);
 
-  topRight.appendChild(btnStar);
-  topRight.appendChild(scoreRing);
+  /* --- 行2: タイトル(1行省略) --- */
+  const row2 = createTextEl('p', item.title ?? '（タイトルなし）', 'card-row2');
+  row2.title = item.title ?? '';
+  card.appendChild(row2);
 
-  cardTop.appendChild(timeDiv);
-  cardTop.appendChild(companyDiv);
-  cardTop.appendChild(topRight);
-  card.appendChild(cardTop);
+  /* --- 行3: 方向バッジ + カテゴリ + タグ(最大2) + 相対時刻 + PDF/チャートアイコン --- */
+  const row3 = document.createElement('div');
+  row3.className = 'card-row3';
 
-  /* --- タイトル --- */
-  const titleLine = document.createElement('p');
-  titleLine.className = 'card-title';
-  // 緊急は一覧では ⚡ アイコンで示す(テキストバッジは展開時のみ)
-  if (item.urgent === true) {
-    const flag = createTextEl('span', '⚡', 'urgent-flag');
-    flag.setAttribute('aria-label', '緊急');
-    flag.setAttribute('title', '緊急開示');
-    titleLine.appendChild(flag);
-  }
-  titleLine.appendChild(document.createTextNode(item.title ?? '（タイトルなし）'));
-
-  // 新着バッジ
-  if (ts && ts > state.lastSeenTs && state.lastSeenTs > 0) {
-    const newBadge = document.createElement('span');
-    newBadge.className = 'new-badge';
-    newBadge.textContent = 'NEW';
-    newBadge.setAttribute('aria-label', '新着');
-    titleLine.appendChild(newBadge);
-  }
-
-  card.appendChild(titleLine);
-
-  /* --- 要約 --- */
-  if (item.summary) {
-    card.appendChild(createTextEl('p', item.summary, 'card-summary'));
-  }
-
-  /* --- バッジ群 --- */
-  const badgesDiv = document.createElement('div');
-  badgesDiv.className = 'card-badges';
-
-  // 緊急・重要度のテキストバッジは一覧では出さない(展開時に詳細パネルで表示)。
-  // 一覧では 緊急=⚡(タイトル横) / 重要度=左ストライプの色 で表現する。
-  if (item.is_correction === true) {
-    badgesDiv.appendChild(createBadge('訂正/続報', 'badge-correction'));
-  }
-
-  // 方向(上昇/下落)は色を強調して常に表示
-  const dirLabels = { positive: '▲ 上昇', negative: '▼ 下落', neutral: '─ 中立', unknown: '? 不明' };
-  const dirKey    = item.direction || 'neutral';
-  badgesDiv.appendChild(createBadge(dirLabels[dirKey] ?? dirKey, `badge-direction-${dirKey} badge-direction-strong`));
+  row3.appendChild(createDirectionBadge(item));
 
   if (item.category) {
-    badgesDiv.appendChild(createBadge(item.category, 'badge-category'));
+    row3.appendChild(createBadge(item.category, 'badge-category'));
   }
 
-  // tags (任意: 展開時に全表示なので折り畳みは不要だが、最初の2件だけ表示)
+  if (item.earnings && typeof item.earnings === 'object') {
+    row3.appendChild(createBadge('📊 決算', 'badge-earnings'));
+  }
+
   if (Array.isArray(item.tags) && item.tags.length > 0) {
-    const maxTagsPreview = isExpanded ? item.tags.length : 2;
-    for (const tag of item.tags.slice(0, maxTagsPreview)) {
-      if (tag) badgesDiv.appendChild(createBadge(String(tag), 'badge-tag'));
+    for (const tag of item.tags.slice(0, 2)) {
+      if (tag) row3.appendChild(createBadge(String(tag), 'badge-tag'));
     }
   }
 
-  card.appendChild(badgesDiv);
+  const relSpan = createTextEl('span', relativeTime(ts), 'row3-rel time-rel');
+  relSpan.setAttribute('data-ts', String(ts));
+  relSpan.setAttribute('title', formatUpdatedAt(item.time));
+  row3.appendChild(relSpan);
 
-  /* --- 決算サマリー --- */
-  if (item.earnings && typeof item.earnings === 'object') {
-    card.appendChild(createEarningsSummary(item.earnings));
-  }
-
-  /* --- フッター: reasons(1件) / PDF / Chart --- */
-  const footer = document.createElement('div');
-  footer.className = 'card-footer';
-
-  if (item.reasons && item.reasons.length > 0) {
-    footer.appendChild(createTextEl('span', `理由: ${item.reasons[0]}`, 'card-reasons'));
-  } else {
-    footer.appendChild(document.createElement('span'));
-  }
-
-  // フッターリンク群
-  const footerLinks = document.createElement('div');
-  footerLinks.className = 'card-footer-links';
+  // 右端: PDF / チャートの小アイコンリンク(タップ領域32px)
+  const actions = document.createElement('div');
+  actions.className = 'row3-actions';
 
   const pdfUrl = safePdfUrl(item.pdf_url);
   if (pdfUrl) {
-    const a = document.createElement('a');
-    a.className = 'pdf-link';
-    a.href      = pdfUrl;
-    a.target    = '_blank';
-    a.rel       = 'noopener noreferrer';
-    const pdfSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    pdfSvg.setAttribute('width', '12');
-    pdfSvg.setAttribute('height', '12');
-    pdfSvg.setAttribute('viewBox', '0 0 24 24');
-    pdfSvg.setAttribute('fill', 'none');
-    pdfSvg.setAttribute('stroke', 'currentColor');
-    pdfSvg.setAttribute('stroke-width', '2');
-    pdfSvg.setAttribute('stroke-linecap', 'round');
-    pdfSvg.setAttribute('stroke-linejoin', 'round');
-    pdfSvg.setAttribute('aria-hidden', 'true');
-    const pathEl1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    pathEl1.setAttribute('d', 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z');
-    const polyEl = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
-    polyEl.setAttribute('points', '14 2 14 8 20 8');
-    pdfSvg.appendChild(pathEl1);
-    pdfSvg.appendChild(polyEl);
-    a.appendChild(pdfSvg);
-    a.appendChild(document.createTextNode(' PDF'));
-    a.addEventListener('click', (e) => e.stopPropagation());
-    footerLinks.appendChild(a);
+    const pdfA = document.createElement('a');
+    pdfA.className = 'action-icon action-icon--pdf';
+    pdfA.href    = pdfUrl;
+    pdfA.target  = '_blank';
+    pdfA.rel     = 'noopener noreferrer';
+    pdfA.setAttribute('aria-label', 'PDFを開く');
+    pdfA.title = 'PDF';
+    pdfA.appendChild(createActionIconSvg('pdf'));
+    pdfA.addEventListener('click', (e) => e.stopPropagation());
+    actions.appendChild(pdfA);
   }
 
-  // チャートリンク (コード既知時)
   if (code4) {
     const chartA = document.createElement('a');
-    chartA.className = 'pdf-link chart-link';
+    chartA.className = 'action-icon action-icon--chart';
     chartA.href    = `https://kabutan.jp/stock/?code=${encodeURIComponent(code4)}`;
     chartA.target  = '_blank';
     chartA.rel     = 'noopener noreferrer';
     chartA.setAttribute('aria-label', `${item.company ?? code4} の株探チャート`);
+    chartA.title = 'チャート';
+    chartA.appendChild(createActionIconSvg('chart'));
     chartA.addEventListener('click', (e) => e.stopPropagation());
-    chartA.textContent = '📈 チャート';
-    footerLinks.appendChild(chartA);
+    actions.appendChild(chartA);
   }
 
-  footer.appendChild(footerLinks);
-  card.appendChild(footer);
+  if (actions.children.length > 0) row3.appendChild(actions);
 
-  /* --- 詳細展開パネル --- */
+  card.appendChild(row3);
+
+  /* --- 詳細展開パネル(全情報) --- */
   const detailPanel = createDetailPanel(item, pdfUrl, code4);
   detailPanel.hidden = true;
   card.appendChild(detailPanel);

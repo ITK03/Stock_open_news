@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.fetcher import yanoshin, scraper, fetch_recent
+from src.fetcher import yanoshin, scraper, fetch_recent, fetch_full
 
 
 # yanoshin WebAPI recent.json の代表的な形(キーの揺れも混在)
@@ -132,3 +132,52 @@ def test_fetch_recent_uses_yanoshin_when_ok(monkeypatch):
                         lambda limit, date: [{"id": "y", "source": "yanoshin"}])
     rows = fetch_recent(limit=5)
     assert rows == [{"id": "y", "source": "yanoshin"}]
+
+
+def test_fetch_full_combines_multiple_days(monkeypatch):
+    # 日付ごとに異なる結果を返す yanoshin をモンキーパッチし、結合されることを検証
+    def fake_fetch(limit, date):
+        return [{"id": f"{date}-1", "source": "yanoshin"},
+                {"id": f"{date}-2", "source": "yanoshin"}]
+
+    monkeypatch.setattr("src.fetcher.yanoshin.fetch", fake_fetch)
+    rows = fetch_full(["20260709", "20260708"], limit_per_day=100)
+    assert len(rows) == 4
+    ids = {r["id"] for r in rows}
+    assert ids == {"20260709-1", "20260709-2", "20260708-1", "20260708-2"}
+
+
+def test_fetch_full_continues_when_one_day_fails(monkeypatch):
+    # 1日分の取得が例外を投げても他の日付の取得は継続すること
+    def flaky_fetch(limit, date):
+        if date == "20260709":
+            raise RuntimeError("network error")
+        return [{"id": f"{date}-1", "source": "yanoshin"}]
+
+    monkeypatch.setattr("src.fetcher.yanoshin.fetch", flaky_fetch)
+    rows = fetch_full(["20260709", "20260708"], limit_per_day=100)
+    assert len(rows) == 1
+    assert rows[0]["id"] == "20260708-1"
+
+
+def test_fetch_full_falls_back_to_scraper_per_day(monkeypatch):
+    # yanoshin が None(失敗)を返した日だけ scraper にフォールバックし、
+    # 他の日は yanoshin の結果をそのまま使うこと
+    def fake_yanoshin(limit, date):
+        if date == "20260709":
+            return None
+        return [{"id": f"{date}-y", "source": "yanoshin"}]
+
+    scraper_calls = []
+
+    def fake_scraper(date, limit):
+        scraper_calls.append(date)
+        return [{"id": f"{date}-s", "source": "scraper"}]
+
+    monkeypatch.setattr("src.fetcher.yanoshin.fetch", fake_yanoshin)
+    monkeypatch.setattr("src.fetcher.scraper.fetch", fake_scraper)
+
+    rows = fetch_full(["20260709", "20260708"], limit_per_day=100)
+    ids = {r["id"] for r in rows}
+    assert ids == {"20260709-s", "20260708-y"}
+    assert scraper_calls == ["20260709"]   # scraper は失敗した日にのみ呼ばれる

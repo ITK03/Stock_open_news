@@ -29,7 +29,11 @@ def test_run_wires_earnings_and_archive(tmp_path, monkeypatch):
     live = str(tmp_path / "disclosures.json")
     archive_dir = str(tmp_path / "archive")
 
-    monkeypatch.setattr(main_mod, "fetch_recent", lambda limit, date=None: list(RAWS))
+    # run() は fetch_full 経由で取得する(取りこぼし解消のため全件取得方式)。
+    # date引数の内容(既定=当日+前日のリスト)は問わずRAWSを返す。
+    monkeypatch.setattr(main_mod, "fetch_full", lambda dates, limit_per_day=3000: list(RAWS))
+    # 除外検証のため MIN_SCORE を明示指定(新既定は0=全件保持のため)
+    monkeypatch.setenv("MIN_SCORE", "30")
     # 決算PDF解析は擬似化
     monkeypatch.setattr("src.analyzer.earnings._download_pdf", lambda url: b"%PDF")
     _txt = ("2026年3月期 第1四半期決算短信〔日本基準〕(連結)\n経営成績\n"
@@ -58,3 +62,36 @@ def test_run_wires_earnings_and_archive(tmp_path, monkeypatch):
     assert day["count"] == 2
     idx = json.load(open(os.path.join(archive_dir, "index.json"), encoding="utf-8"))
     assert idx["dates"][0]["date"] == "2026-06-27"
+
+
+def test_run_default_min_score_keeps_low_score_items(tmp_path, monkeypatch):
+    """MIN_SCORE 既定値が 0 になったことで、役員異動などの低スコア開示も
+    保存対象から除外されず取りこぼされないことを検証する。"""
+    live = str(tmp_path / "disclosures.json")
+    archive_dir = str(tmp_path / "archive")
+
+    captured_dates = {}
+
+    def fake_fetch_full(dates, limit_per_day=3000):
+        captured_dates["dates"] = dates
+        return list(RAWS)
+
+    monkeypatch.setattr(main_mod, "fetch_full", fake_fetch_full)
+    monkeypatch.delenv("MIN_SCORE", raising=False)   # 既定値(0)を使わせる
+    monkeypatch.setattr("src.analyzer.earnings._download_pdf", lambda url: b"%PDF")
+    monkeypatch.setattr("src.analyzer.earnings._extract_text",
+                        lambda b, max_pages=3: "")  # 決算要約の中身は今回不要
+    orig_archive = main_mod.archive.archive_items
+    monkeypatch.setattr(main_mod.archive, "archive_items",
+                        lambda items, base_dir=archive_dir: orig_archive(items, base_dir=archive_dir))
+
+    summary = main_mod.run(limit=10, path=live)
+
+    # MIN_SCORE=0 既定なので3件すべて(決算・TOB・役員異動)が保存される
+    assert summary["stored"] == 3
+    items = jsonstore.load(live)
+    by_id = {i["id"]: i for i in items}
+    assert "r-jinji" in by_id                          # 低スコアでも取りこぼされない
+
+    # fetch_full には日付リストが渡されていること(run() が fetch_full 経由で動く)
+    assert isinstance(captured_dates["dates"], list) and len(captured_dates["dates"]) >= 1

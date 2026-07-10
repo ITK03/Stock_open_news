@@ -1465,12 +1465,45 @@ function onKeyDown(e) {
   }
 }
 
-/* ===== Service Worker 登録 ===== */
+/* ===== Service Worker 登録・自動更新 ===== */
+
+let swRegistration  = null;
+let swUpdateTimer   = null;
+const SW_UPDATE_MS  = 60_000; // 60秒毎に更新チェック
+
+/** 新しいSWが見つかったら即座に有効化を試みる(将来の手動制御用) */
+function triggerSWUpdate() {
+  if (swRegistration) swRegistration.update().catch(() => { /* ok */ });
+}
 
 function registerSW() {
   if (!('serviceWorker' in navigator)) return;
+
+  // controllerchange: 新版SWが制御を奪ったら自動リロードして新版へ切替。
+  // ただし「初回訪問でSWが初めて制御を持つ」場合は不要なリロードを起こさない。
+  let hasControllerAtLoad = !!navigator.serviceWorker.controller;
+  let swReloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!hasControllerAtLoad) {
+      hasControllerAtLoad = true;
+      return;
+    }
+    if (swReloading) return;
+    swReloading = true;
+    location.reload();
+  });
+
   navigator.serviceWorker.register('./sw.js').then((reg) => {
     console.log('[開示レーダー] SW registered:', reg.scope);
+    swRegistration = reg;
+
+    // 登録直後に一度更新確認
+    triggerSWUpdate();
+
+    // 60秒毎に更新確認(自動更新タイミングに合わせる)
+    if (swUpdateTimer === null) {
+      swUpdateTimer = setInterval(triggerSWUpdate, SW_UPDATE_MS);
+    }
   }).catch((err) => {
     // SW 未対応 or 失敗でも本体は動作
     console.warn('[開示レーダー] SW registration failed:', err);
@@ -1501,7 +1534,7 @@ function initDOM() {
 }
 
 function initEvents() {
-  el.refreshBtn.addEventListener('click', () => fetchData());
+  el.refreshBtn.addEventListener('click', () => { triggerSWUpdate(); fetchData(); });
   el.impactBtns.forEach((btn) => {
     if (btn.dataset.impact) btn.addEventListener('click', onImpactToggle);
   });

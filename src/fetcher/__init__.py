@@ -3,6 +3,7 @@ src/fetcher — 日本の適時開示(TDnet)取得モジュール
 
 公開インターフェース:
     fetch_recent(limit, date) -> list[dict]
+    fetch_full(dates, limit_per_day) -> list[dict]
 
 各 dict は RawDisclosure スキーマ:
     id, time, code, company, title, pdf_url, exchange, markets, source
@@ -67,4 +68,46 @@ def fetch_recent(limit: int = 100, date: Optional[str] = None) -> list[dict]:
         return []
 
 
-__all__ = ["fetch_recent"]
+def fetch_full(dates: list[str], limit_per_day: int = 3000) -> list[dict]:
+    """
+    指定した日付それぞれについて「その日の全開示」を取得して結合したリストを返す。
+
+    `fetch_recent` の `recent.json?limit=N` は直近 N 件しか返さないため、取得の
+    間隔が空くと空白期間の開示が永久に欠落する問題がある。本関数は日付指定API
+    (list/YYYYMMDD.json) を使うことで、指定日1日分を limit_per_day を上限に
+    まるごと取得する。
+
+    Parameters
+    ----------
+    dates : list[str]
+        YYYYMMDD 形式の日付リスト(例: ["20260709", "20260708"])。
+    limit_per_day : int
+        1日あたりの取得件数上限 (デフォルト 3000。1日の全開示件数を十分に
+        カバーできる大きさ)。
+
+    Returns
+    -------
+    list[dict]
+        全日付分の RawDisclosure 辞書リストを結合したもの。
+        ある日付の取得に失敗しても他の日付には影響しない(その日は0件として続行)。
+    """
+    all_results: list[dict] = []
+    for d in dates:
+        try:
+            results = yanoshin.fetch(limit=limit_per_day, date=d)
+            if results is None:
+                # 主経路(yanoshin)が失敗した日だけ HTML スクレイパーへ fallback
+                logger.info("yanoshin API failed for date=%s, falling back to HTML scraper", d)
+                results = scraper.fetch(date=d, limit=limit_per_day)
+            logger.info("fetch_full: date=%s -> %d件", d, len(results))
+            all_results.extend(results)
+        except Exception as exc:
+            # 1日分の失敗が他の日付の取得を止めないようにする
+            logger.error("fetch_full: unexpected error for date=%s: %s", d, exc, exc_info=True)
+            continue
+
+    logger.info("fetch_full: 合計 %d件 (dates=%s)", len(all_results), dates)
+    return all_results
+
+
+__all__ = ["fetch_recent", "fetch_full"]

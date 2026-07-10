@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.analyzer import analyze, analyze_many
+from src.analyzer import analyze, analyze_many, refine_direction_with_earnings
 from src.analyzer.rules import analyze_title
 from src.store import jsonstore
 
@@ -179,6 +179,97 @@ def test_store_evicts_demo_on_real_data(tmp_path):
     loaded = jsonstore.load(path)
     assert len(loaded) == 1
     assert loaded[0]["source"] == "yanoshin"
+
+
+def test_expanded_lexicon_direction():
+    cases = [
+        ("業績予想の修正（増収増益）に関するお知らせ", "positive"),
+        ("通期連結業績予想の修正（営業赤字）に関するお知らせ", "negative"),
+        ("過去最高益の更新に関するお知らせ", "positive"),
+        ("業績予想の修正（純損失計上）に関するお知らせ", "negative"),
+        ("業績予想の修正（監理銘柄指定）に関するお知らせ", "negative"),
+    ]
+    for title, direction in cases:
+        a = analyze_title(title)
+        assert a.direction == direction, f"{title}: {a.direction} != {direction} (score={a.score})"
+
+
+def test_tob_direction_by_response():
+    # 意見表明(買収される側の応答)はプレミアム期待でポジティブ
+    agree = analyze_title("株式会社○○の普通株式に対する公開買付けに関する意見表明のお知らせ")
+    assert agree.category == "TOB・買収"
+    assert agree.direction == "positive"
+
+    sanse = analyze_title("株式会社○○の公開買付けに対する賛同の意見表明に関するお知らせ")
+    assert sanse.category == "TOB・買収"
+    assert sanse.direction == "positive"
+
+    # 開始のお知らせ(買収する側からの単なる開始通知)は方向不明のまま
+    start = analyze_title("株式会社○○に対する公開買付けの開始に関するお知らせ")
+    assert start.category == "TOB・買収"
+    assert start.direction == "unknown"
+
+
+def test_monthly_direction():
+    up = analyze_title("月次売上高が前年同月を上回ったことに関するお知らせ")
+    assert up.category == "月次"
+    assert up.direction == "positive"
+
+    down = analyze_title("月次売上高が前年同月を下回ったことに関するお知らせ")
+    assert down.category == "月次"
+    assert down.direction == "negative"
+
+
+def _earnings_item(figures, summary=""):
+    return {
+        "category": "決算",
+        "direction": "unknown",
+        "summary": summary,
+        "earnings": {"period": "2026年3月期", "figures": figures, "source": "regex"},
+    }
+
+
+def test_refine_direction_with_earnings_positive():
+    item = _earnings_item([{"label": "営業利益", "value": "1,000百万円", "yoy": "+12.3%"}])
+    refine_direction_with_earnings(item)
+    assert item["direction"] == "positive"
+    assert item["summary"].startswith("営業増益(+12.3%)。")
+
+
+def test_refine_direction_with_earnings_negative():
+    item = _earnings_item([{"label": "営業利益", "value": "-1,000百万円", "yoy": "-5.0%"}])
+    refine_direction_with_earnings(item)
+    assert item["direction"] == "negative"
+    assert item["summary"].startswith("営業減益(-5.0%)。")
+
+
+def test_refine_direction_with_earnings_no_yoy_unchanged():
+    item = _earnings_item([{"label": "営業利益", "value": "1,000百万円"}], summary="既存要約")
+    refine_direction_with_earnings(item)
+    assert item["direction"] == "unknown"
+    assert item["summary"] == "既存要約"
+
+
+def test_refine_direction_with_earnings_priority_fallback():
+    # 営業利益に yoy が無ければ経常利益、それも無ければ純利益を見る
+    item = _earnings_item([
+        {"label": "営業利益", "value": "1,000百万円"},
+        {"label": "経常利益", "value": "900百万円"},
+        {"label": "純利益", "value": "800百万円", "yoy": "+3.0%"},
+    ])
+    refine_direction_with_earnings(item)
+    assert item["direction"] == "positive"
+    assert item["summary"].startswith("純利益増(+3.0%)。")
+
+
+def test_refine_direction_with_earnings_avoids_duplicate_summary():
+    item = _earnings_item(
+        [{"label": "営業利益", "value": "1,000百万円", "yoy": "+12.3%"}],
+        summary="前期比+12.3%の増益。",
+    )
+    refine_direction_with_earnings(item)
+    assert item["direction"] == "positive"
+    assert item["summary"] == "前期比+12.3%の増益。"
 
 
 if __name__ == "__main__":

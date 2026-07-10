@@ -2,16 +2,21 @@ name: poll-tdnet
 
 # 適時開示を取得→分析→docs/data を更新してコミット。GitHub Pages がそれを配信。
 #
-# 重要: GitHub の高頻度 cron(*/5 等)は負荷時に大量に間引かれ、実質停止することがある。
-# そこで「1回起動したら一定時間ループして数分おきに取得し続ける常駐ジョブ」方式にする。
-# cron は1時間ごとに起動するだけ(間引かれても次の起動・長めのループで穴埋め)。
+# 重要: GitHub の毎時 cron は宣言通りには起動せず、実測では3〜4時間おきにしか
+# 走らないことがある(高頻度 cron はさらに間引かれる)。そこで「1回起動したら
+# 長時間ループして数分おきに取得し続ける常駐ジョブ」方式にし、ループ時間を
+# cron 間隔の実測値より長い330分にすることで、起動同士がオーバーラップして
+# 常時稼働に近い状態を作る。加えて毎回 src.main が当日+前日の開示を
+# まるごと(limit指定なし=既定3000件/日)取得するため、間引きで空いた空白期間の
+# 取りこぼしも次回起動時に自己修復される。
 # public リポジトリは Actions 無制限無料なので常時稼働でもコスト0。
 
 on:
   workflow_dispatch: {}
   schedule:
-    # 1時間ごとに起動(JST 08:00-19:59 の平日)。各ジョブは約110分ループするので
-    # ある時間の起動が間引かれても次がカバーし、cancel-in-progress で常に最新が走る。
+    # 1時間ごとに起動を試みる(JST 08:00-19:59 の平日)。実際は間引かれて
+    # 3〜4時間おきの起動になることがあるが、330分ループのオーバーラップと
+    # 当日+前日の全件取得により空白期間は自己修復される。
     - cron: "0 23 * * 0-4"    # JST 08:00 (月-金)
     - cron: "0 0-10 * * 1-5"  # JST 09:00-19:59 (月-金)
 
@@ -25,7 +30,7 @@ concurrency:
 jobs:
   poll:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
         with:
@@ -39,7 +44,7 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
-      - name: Poll loop (約110分・約2.5分間隔)
+      - name: Poll loop (約330分・約2分間隔・当日+前日を全件取得)
         env:
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -58,10 +63,10 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          end=$(( $(date +%s) + 110*60 ))
+          end=$(( $(date +%s) + 330*60 ))
           while [ "$(date +%s)" -lt "$end" ]; do
-            # ラッシュ時の取りこぼし防止のため limit を大きめに
-            python -m src.main --limit 300 || echo "main failed (continue)"
+            # limit は指定しない(src.main の既定 = 当日+前日を1日あたり3000件まで丸ごと取得)
+            python -m src.main || echo "main failed (continue)"
             if ! git diff --quiet -- docs/data; then
               git add docs/data
               git commit -m "data: update disclosures [skip ci]" || true
@@ -73,5 +78,5 @@ jobs:
             else
               echo "変更なし"
             fi
-            sleep 150
+            sleep 120
           done

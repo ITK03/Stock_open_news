@@ -9,9 +9,11 @@ import argparse
 import logging
 import os
 import sys
+from datetime import datetime, timedelta, timezone
 
-from .fetcher import fetch_recent
+from .fetcher import fetch_full
 from .analyzer import analyze_many
+from .analyzer import refine_direction_with_earnings
 from .analyzer.llm import get_provider
 from .analyzer.earnings import extract_earnings
 from .store import jsonstore, archive
@@ -80,14 +82,32 @@ def _load_dotenv() -> None:
         pass  # python-dotenv 未導入でも環境変数だけで動く
 
 
-def run(limit: int = 100, date: str | None = None, path: str = jsonstore.DEFAULT_PATH) -> dict:
+_JST = timezone(timedelta(hours=9))
+
+
+def _target_dates(date: str | None) -> list[str]:
+    """fetch_full に渡す取得対象日付リストを返す。
+
+    --date 指定時はその日のみ。未指定時(既定動作)は JST の「今日」と「前日」の
+    2日分を毎回まるごと取得する。取得間隔が空いても前回分の取りこぼしが翌回の
+    実行で自己修復されるようにするための冗長化。"""
+    if date:
+        return [date]
+    now = datetime.now(_JST)
+    today = now.strftime("%Y%m%d")
+    yesterday = (now - timedelta(days=1)).strftime("%Y%m%d")
+    return [today, yesterday]
+
+
+def run(limit: int = 3000, date: str | None = None, path: str = jsonstore.DEFAULT_PATH) -> dict:
     _load_dotenv()
     llm_min_score = _env_int("LLM_MIN_SCORE", 50)
-    max_items = _env_int("MAX_ITEMS", 500)
-    min_score = _env_int("MIN_SCORE", 30)  # これ未満は重要度低として保存対象から除外
+    max_items = _env_int("MAX_ITEMS", 2000)
+    min_score = _env_int("MIN_SCORE", 0)  # これ未満は重要度低として保存対象から除外(既定0=全件保持)
 
-    log.info("適時開示を取得中 (limit=%s, date=%s)...", limit, date)
-    raws = fetch_recent(limit=limit, date=date)
+    dates = _target_dates(date)
+    log.info("適時開示を取得中 (dates=%s, limit_per_day=%s)...", dates, limit)
+    raws = fetch_full(dates, limit_per_day=limit)
     log.info("取得: %d件", len(raws))
 
     provider = get_provider()
@@ -105,6 +125,9 @@ def run(limit: int = 100, date: str | None = None, path: str = jsonstore.DEFAULT
     n_earnings = _enrich_earnings(curated, provider, existing, earnings_enabled, earnings_cap)
     if n_earnings:
         log.info("決算要約: 新規 %d件を解析", n_earnings)
+    for d in curated:
+        if d.get("earnings"):
+            refine_direction_with_earnings(d)
 
     fresh = jsonstore.merge_and_save(curated, path=path, max_items=max_items)
 
@@ -130,8 +153,9 @@ def run(limit: int = 100, date: str | None = None, path: str = jsonstore.DEFAULT
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="TDnet 適時開示 リアルタイム分析")
-    p.add_argument("--limit", type=int, default=100, help="取得件数")
-    p.add_argument("--date", default=None, help="日付指定 YYYYMMDD(省略時は直近)")
+    p.add_argument("--limit", type=int, default=3000, help="1日あたりの取得件数上限")
+    p.add_argument("--date", default=None,
+                    help="日付指定 YYYYMMDD(省略時は当日+前日をまるごと取得)")
     p.add_argument("--out", default=jsonstore.DEFAULT_PATH, help="出力JSONパス")
     args = p.parse_args(argv)
     run(limit=args.limit, date=args.date, path=args.out)

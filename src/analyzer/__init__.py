@@ -6,9 +6,10 @@ Disclosure(分析後 dict) を返す。
 from __future__ import annotations
 
 import logging
+import re
 from datetime import datetime, timezone, timedelta
 
-from .rules import analyze_title, interpret, _impact_of
+from .rules import analyze_title, interpret, _impact_of, POSITIVE, NEGATIVE
 from .llm import Provider, NoneProvider
 
 log = logging.getLogger(__name__)
@@ -18,6 +19,55 @@ JST = timezone(timedelta(hours=9))
 
 def _now_jst_iso() -> str:
     return datetime.now(JST).isoformat(timespec="seconds")
+
+
+# 決算数値(figures)から方向を補正する際に優先して参照する項目(この順)。
+_EARNINGS_LABEL_PRIORITY = ["営業利益", "経常利益", "純利益"]
+# 補正時に summary 先頭へ挿入する見出し語(項目 -> (増益時, 減益時))。
+_EARNINGS_LABEL_TERMS = {
+    "営業利益": ("営業増益", "営業減益"),
+    "経常利益": ("経常増益", "経常減益"),
+    "純利益": ("純利益増", "純利益減"),
+}
+_YOY_RE = re.compile(r"([+\-＋－△▲])?\s*(\d+(?:\.\d+)?)\s*[%％]")
+
+
+def refine_direction_with_earnings(item: dict) -> None:
+    """決算開示の direction を earnings.figures の前年比(yoy)で補正する。
+
+    営業利益→経常利益→純利益の優先順で yoy を読み、+なら positive / -なら
+    negative に item['direction'] を上書きする。summary の先頭に
+    「営業増益(+12.3%)。」等を付与する(同じ%表記が既に summary にあれば付けない)。
+    yoy が読めない場合は何もしない。"""
+    earnings = item.get("earnings") or {}
+    figures = earnings.get("figures") or []
+    if not isinstance(figures, list):
+        return
+    by_label = {f.get("label"): f for f in figures if isinstance(f, dict)}
+
+    for label in _EARNINGS_LABEL_PRIORITY:
+        fig = by_label.get(label)
+        if not fig:
+            continue
+        yoy = fig.get("yoy")
+        if not yoy or not isinstance(yoy, str):
+            continue
+        m = _YOY_RE.search(yoy)
+        if not m:
+            continue
+        sign = m.group(1)
+        pct = m.group(2)
+        is_positive = sign not in ("-", "－", "△", "▲")
+
+        item["direction"] = POSITIVE if is_positive else NEGATIVE
+
+        pos_term, neg_term = _EARNINGS_LABEL_TERMS.get(label, (f"{label}増", f"{label}減"))
+        term = pos_term if is_positive else neg_term
+        pct_text = f"{'+' if is_positive else '-'}{pct}%"
+        summary = item.get("summary") or ""
+        if pct_text not in summary:
+            item["summary"] = f"{term}({pct_text})。{summary}"
+        return
 
 
 def analyze(raw: dict, provider: Provider | None = None, llm_min_score: int = 50) -> dict:

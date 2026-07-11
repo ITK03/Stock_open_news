@@ -104,6 +104,27 @@ def test_alphanumeric_codes_preserved(monkeypatch):
     assert rows and rows[0]["code"] == "546A"
 
 
+def test_five_digit_preferred_code_preserved():
+    """末尾0以外の5桁コード(優先株式等 例 25935=伊藤園優先)を4桁に切り詰めない
+    (切ると普通株 2593 と混同する。SCHEMA: code は4-5桁文字列)。"""
+    assert yanoshin._normalize_code("25935") == "25935"
+    assert scraper._normalize_code("25935") == "25935"
+    # 普通株(末尾0)は従来どおり4桁化
+    assert yanoshin._normalize_code("25930") == "2593"
+    # 4桁はそのまま
+    assert yanoshin._normalize_code("2593") == "2593"
+
+
+def test_time_to_iso_fallback_keeps_iso_date():
+    """時刻パース失敗時のフォールバックも ISO8601(YYYY-MM-DD)形式を守る
+    (崩れると archive の日付判定に落ちてアーカイブから欠落する)。"""
+    got = scraper._time_to_iso("20260627", "99:99")  # 不正時刻でstrptime失敗
+    assert got.startswith("2026-06-27T")
+    assert got.endswith("+09:00")
+    # 正常系は従来どおり
+    assert scraper._time_to_iso("20260627", "15:00") == "2026-06-27T15:00:00+09:00"
+
+
 def test_scraper_resilient_to_garbage():
     # 想定外HTMLでもクラッシュせず空を返す
     assert scraper._parse_html("<html><body>no table</body></html>", "20260627") == []

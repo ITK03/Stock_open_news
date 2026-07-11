@@ -75,7 +75,13 @@ def merge_and_save(
             continue
 
         if iid in by_id:
-            by_id[iid] = it  # 既存も最新分析で更新
+            # 既存も最新分析で更新。ただし既存の決算要約(earnings)は、新データに
+            # 無ければ引き継ぐ(EARNINGS_ENABLED=0 での実行等で消失しないように。
+            # archive.py と同じ保持ルール)。
+            prev = by_id[iid]
+            if prev.get("earnings") and not it.get("earnings"):
+                it = {**it, "earnings": prev["earnings"]}
+            by_id[iid] = it
             fname = _pdf_filename(it.get("pdf_url"))
             if fname:
                 by_pdf[fname] = iid
@@ -86,7 +92,9 @@ def merge_and_save(
         if old_id and old_id != iid:
             # pdf_url のファイル名が同じ既存行 = 同一開示とみなし、旧IDの行を
             # 新IDへ置換する(二重登録防止。新着扱いにはしない)。
-            del by_id[old_id]
+            prev = by_id.pop(old_id)
+            if prev.get("earnings") and not it.get("earnings"):
+                it = {**it, "earnings": prev["earnings"]}
             by_id[iid] = it
             by_pdf[fname] = iid
             continue

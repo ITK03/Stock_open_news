@@ -29,7 +29,7 @@ _EARNINGS_LABEL_TERMS = {
     "経常利益": ("経常増益", "経常減益"),
     "純利益": ("純利益増", "純利益減"),
 }
-_YOY_RE = re.compile(r"([+\-＋－△▲])?\s*(\d+(?:\.\d+)?)\s*[%％]")
+_YOY_RE = re.compile(r"([+\-＋－△▲−])?\s*(\d+(?:\.\d+)?)\s*[%％]")  # − は全角マイナス(U+2212)
 
 
 def refine_direction_with_earnings(item: dict) -> None:
@@ -57,7 +57,7 @@ def refine_direction_with_earnings(item: dict) -> None:
             continue
         sign = m.group(1)
         pct = m.group(2)
-        is_positive = sign not in ("-", "－", "△", "▲")
+        is_positive = sign not in ("-", "－", "△", "▲", "−")  # − = U+2212(LLM出力に混入しうる)
 
         item["direction"] = POSITIVE if is_positive else NEGATIVE
 

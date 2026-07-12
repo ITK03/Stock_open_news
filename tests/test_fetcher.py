@@ -104,6 +104,25 @@ def test_alphanumeric_codes_preserved(monkeypatch):
     assert rows and rows[0]["code"] == "546A"
 
 
+def test_scraper_relative_pdf_href_resolved_under_inbs():
+    """一覧ページ(/inbs/ 配下)の相対hrefは /inbs/ 基準で絶対URL化する。
+    崩れると 'https://www.release.tdnet.info140120....pdf' のような壊れリンクになり、
+    canonical_id の /inbs/ 抽出も失敗して yanoshin との重複IDずれの原因になる。"""
+    html = (
+        '<table>'
+        '<tr><td>15:00</td><td>7203</td><td>A社</td>'
+        '<td><a href="140120260710591707.pdf">相対</a></td></tr>'
+        '<tr><td>15:01</td><td>7203</td><td>A社</td>'
+        '<td><a href="/inbs/140120260710591708.pdf">ルート相対</a></td></tr>'
+        '</table>'
+    )
+    rows = scraper._parse_html(html, "20260710")
+    assert rows[0]["pdf_url"] == "https://www.release.tdnet.info/inbs/140120260710591707.pdf"
+    assert rows[1]["pdf_url"] == "https://www.release.tdnet.info/inbs/140120260710591708.pdf"
+    # 修正後は canonical_id が pdf ファイル名ベースになり yanoshin 側と一致する
+    assert canonical_id(rows[0]["pdf_url"], "7203", "相対", "") == "140120260710591707"
+
+
 def test_five_digit_preferred_code_preserved():
     """末尾0以外の5桁コード(優先株式等 例 25935=伊藤園優先)を4桁に切り詰めない
     (切ると普通株 2593 と混同する。SCHEMA: code は4-5桁文字列)。"""

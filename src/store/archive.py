@@ -6,6 +6,13 @@
 - 各 item の JST 日付は time(ISO8601 +09:00)の先頭10文字。
 - 日次ファイルは {updated_at,count,items:[...]} 形式(ライブフィードと同形)。
 - index.json は利用可能な日付と件数の一覧(新しい順)。
+
+ソース横断の重複排除(id/pdfファイル名一致に加えた内容照合フォールバック)は
+jsonstore と同じロジックを共有する(詳細は jsonstore モジュールdocstring参照)。
+main.run() は毎回 [今日, 前日] の2日分しか archive_items() に渡さないため、
+ここでの重複統合は常にその2日分のファイルにしか影響しない
+(それより過去の日付ファイルは読み込みも書き込みもされない = 過去分の一括
+書き換えにはならない)。
 """
 from __future__ import annotations
 
@@ -17,30 +24,19 @@ import re
 from collections import defaultdict
 from datetime import datetime, timezone, timedelta
 
+from .jsonstore import _ContentIndex, _upsert
+
 log = logging.getLogger(__name__)
 
 JST = timezone(timedelta(hours=9))
 DEFAULT_DIR = os.path.join("docs", "data", "archive")
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
-_PDF_FILENAME_RE = re.compile(r"/inbs/(.+?)\.pdf", re.I)
 
 
 def _date_of(item: dict) -> str | None:
     t = item.get("time") or ""
     d = t[:10]
     return d if _DATE_RE.match(d) else None
-
-
-def _pdf_filename(pdf_url: str | None) -> str | None:
-    """pdf_url から inbs 配下のファイル名を取り出す(無ければ None)。
-
-    正規ID(fetcher.canonical_id)の切替(旧yanoshin数値ID -> 新pdfファイル名ID)で
-    同一開示が別IDの行として二重登録されるのを防ぐためのフォールバック照合に使う。
-    """
-    if not pdf_url:
-        return None
-    m = _PDF_FILENAME_RE.search(pdf_url)
-    return m.group(1) if m else None
 
 
 def _load_day(path: str) -> list[dict]:
@@ -97,36 +93,23 @@ def archive_items(items: list[dict], base_dir: str = DEFAULT_DIR) -> dict:
     for date, day_items in by_date.items():
         path = os.path.join(base_dir, f"{date}.json")
         existing = _load_day(path)
-        merged: dict[str, dict] = {x.get("id"): x for x in existing if x.get("id")}
 
-        # pdf_url のファイル名 -> 現在の id。ID方式が変わっても(例: 旧yanoshin
-        # 数値ID -> 新しい正規ID=pdfファイル名)同一開示を検出して置換できるようにする。
+        merged: dict[str, dict] = {}
         by_pdf: dict[str, str] = {}
-        for iid, x in merged.items():
-            fname = _pdf_filename(x.get("pdf_url"))
-            if fname:
-                by_pdf[fname] = iid
+        content_index = _ContentIndex()
+
+        # 既存(この日付ファイルのみ)を id/pdf/内容照合で統合し直す。main.run() は
+        # 常に [今日, 前日] の2日分しか呼ばないため、ここで触れるのはその2日分の
+        # ファイルのみ(それより過去のファイルはそもそも by_date に現れないため
+        # 一切読み書きされない)。
+        for x in existing:
+            _upsert(x, merged, by_pdf, content_index)
 
         for it in day_items:
-            iid = it.get("id")
-            if not iid:
+            if not it.get("id"):
                 continue
+            _upsert(it, merged, by_pdf, content_index)
 
-            prev = merged.get(iid)
-            fname = _pdf_filename(it.get("pdf_url"))
-            if prev is None and fname:
-                old_id = by_pdf.get(fname)
-                if old_id and old_id != iid:
-                    # pdf_url のファイル名が同じ既存行 = 同一開示とみなし、
-                    # 旧IDの行を新IDへ置換する(二重登録防止)。
-                    prev = merged.pop(old_id)
-
-            # 再書き込み(バックフィル等)で既存の決算要約を失わないよう保持
-            if prev and prev.get("earnings") and not it.get("earnings"):
-                it = {**it, "earnings": prev["earnings"]}
-            merged[iid] = it
-            if fname:
-                by_pdf[fname] = iid
         ordered = sorted(merged.values(), key=lambda x: (x.get("time") or ""), reverse=True)
         _write_json(path, {
             "updated_at": datetime.now(JST).isoformat(timespec="seconds"),

@@ -84,3 +84,39 @@ def test_archive_ignores_bad_time(tmp_path):
     base = str(tmp_path / "archive")
     res = archive.archive_items([_item("a", "")], base_dir=base)
     assert res["days_touched"] == 0
+
+
+def test_archive_content_fallback_merges_cross_source_duplicate(tmp_path):
+    """pdf_url が壊れて(scraperのバグ再現)id/pdfどちらの照合も素通りする
+    ケースでも、証券コード+正規化タイトル+時刻近接の内容照合で統合されること
+    を検証する(jsonstore と同じロジックを archive でも共有している)。"""
+    base = str(tmp_path / "archive")
+
+    yanoshin_row = _item("140120260710591707", "2026-07-10T18:50:00+09:00")
+    yanoshin_row["title"] = "基準価額と市場価格の重要な乖離に関するお知らせ"
+    yanoshin_row["pdf_url"] = "https://www.release.tdnet.info/inbs/140120260710591707.pdf"
+
+    scraper_row = _item("6f3e1a1e4dda29a9", "2026-07-10T18:50:00+09:00", score=35)
+    scraper_row["title"] = "基準価額と市場価格の重要な乖離に関するお知らせ"
+    # scraper のバグを再現: "/inbs/" が欠落した壊れた pdf_url
+    scraper_row["pdf_url"] = "https://www.release.tdnet.info140120260710591707.pdf"
+
+    archive.archive_items([yanoshin_row, scraper_row], base_dir=base)
+
+    d = json.load(open(os.path.join(base, "2026-07-10.json"), encoding="utf-8"))
+    assert d["count"] == 1
+
+
+def test_archive_does_not_touch_files_outside_current_batch_dates(tmp_path):
+    """今回の実行対象日(items に含まれる日付)以外のファイルは一切読み書き
+    されないこと(過去分の一括書き換え禁止の裏付け)。"""
+    base = str(tmp_path / "archive")
+    other_day_path = os.path.join(base, "2020-01-01.json")
+    os.makedirs(base, exist_ok=True)
+    with open(other_day_path, "w", encoding="utf-8") as f:
+        f.write("not valid json - should never be touched")
+
+    archive.archive_items([_item("a", "2026-06-27T15:00:00+09:00")], base_dir=base)
+
+    with open(other_day_path, encoding="utf-8") as f:
+        assert f.read() == "not valid json - should never be touched"

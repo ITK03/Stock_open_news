@@ -290,6 +290,55 @@ def test_refine_direction_with_earnings_priority_fallback():
     assert item["summary"].startswith("純利益増(+3.0%)。")
 
 
+def test_refine_direction_with_earnings_u2212_minus():
+    """全角マイナス U+2212(−)の yoy を負と解釈する(LLM出力に混入しうる)。
+    従来は正号扱いになり「営業増益(+12.3%)」と真逆の補正をしていた回帰。"""
+    item = _earnings_item([{"label": "営業利益", "value": "1,000百万円", "yoy": "−12.3%"}])
+    refine_direction_with_earnings(item)
+    assert item["direction"] == "negative"
+    assert item["summary"].startswith("営業減益(-12.3%)。")
+
+
+def test_store_preserves_earnings_on_update(tmp_path):
+    """同一IDの再投入で earnings 無しのデータが来ても、既存の決算要約を失わない
+    (EARNINGS_ENABLED=0 での実行等で消えない。archive と同じ保持ルール)。"""
+    path = str(tmp_path / "disclosures.json")
+    first = analyze_many([_raw("2026年3月期 決算短信〔日本基準〕", code="3333")])
+    first[0]["earnings"] = {"period": "2026年3月期", "figures": [], "source": "regex"}
+    jsonstore.merge_and_save(first, path=path)
+
+    again = analyze_many([_raw("2026年3月期 決算短信〔日本基準〕", code="3333")])
+    assert "earnings" not in again[0]
+    jsonstore.merge_and_save(again, path=path)
+    loaded = jsonstore.load(path)
+    assert loaded[0].get("earnings", {}).get("period") == "2026年3月期"
+
+    # 新データが earnings を持つ場合はそちらで更新される
+    newer = analyze_many([_raw("2026年3月期 決算短信〔日本基準〕", code="3333")])
+    newer[0]["earnings"] = {"period": "new", "figures": [], "source": "llm"}
+    jsonstore.merge_and_save(newer, path=path)
+    assert jsonstore.load(path)[0]["earnings"]["period"] == "new"
+
+
+def test_store_preserves_earnings_on_id_migration(tmp_path):
+    """pdfファイル名照合による旧ID→新ID置換時も既存の決算要約を引き継ぐ。"""
+    path = str(tmp_path / "disclosures.json")
+    old = analyze_many([_raw("2026年3月期 決算短信〔日本基準〕", code="4444")])[0]
+    old["id"] = "140120260627500001"
+    old["pdf_url"] = "https://www.release.tdnet.info/inbs/091234560.pdf"
+    old["earnings"] = {"period": "2026年3月期", "figures": [], "source": "regex"}
+    jsonstore.merge_and_save([old], path=path)
+
+    new = analyze_many([_raw("2026年3月期 決算短信〔日本基準〕", code="4444")])[0]
+    new["id"] = "091234560"
+    new["pdf_url"] = "https://www.release.tdnet.info/inbs/091234560.pdf"
+    jsonstore.merge_and_save([new], path=path)
+    loaded = jsonstore.load(path)
+    assert len(loaded) == 1
+    assert loaded[0]["id"] == "091234560"
+    assert loaded[0].get("earnings", {}).get("period") == "2026年3月期"
+
+
 def test_refine_direction_with_earnings_avoids_duplicate_summary():
     item = _earnings_item(
         [{"label": "営業利益", "value": "1,000百万円", "yoy": "+12.3%"}],

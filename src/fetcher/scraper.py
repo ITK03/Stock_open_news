@@ -61,12 +61,14 @@ def _get_with_retry(url: str) -> Optional[str]:
 
 
 def _normalize_code(raw: str) -> str:
+    # 5桁末尾0(普通株) → 先頭4桁。末尾0以外の5桁(優先株式等)は5桁のまま保持
+    # (SCHEMA: code は「4-5桁文字列」。yanoshin._normalize_code と同一規則)。
     if not raw:
         return ""
     raw = raw.strip()
-    if len(raw) == 5 and raw.endswith("0"):
-        return raw[:4]
-    return raw[:4] if len(raw) >= 4 else raw
+    if len(raw) == 5:
+        return raw[:4] if raw.endswith("0") else raw
+    return raw[:4] if len(raw) > 5 else raw
 
 
 def _time_to_iso(date_str: str, time_str: str) -> str:
@@ -80,6 +82,11 @@ def _time_to_iso(date_str: str, time_str: str) -> str:
         return dt.isoformat()
     except (ValueError, AttributeError):
         logger.debug("time parse failed: date=%r time=%r", date_str, time_str)
+        # フォールバックも ISO8601(YYYY-MM-DD...) 形式を守る。
+        # "20260627T..." のままだと archive の日付判定(time先頭10文字)に落ちて
+        # アーカイブから欠落してしまうため。
+        if re.fullmatch(r"\d{8}", date_str or ""):
+            return f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}T{time_str}:00+09:00"
         return f"{date_str}T{time_str}:00+09:00"
 
 

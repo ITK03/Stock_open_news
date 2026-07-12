@@ -50,6 +50,22 @@ def test_regex_path_extracts_period_and_figures(monkeypatch):
     assert op["yoy"].startswith("-")
 
 
+def test_regex_negative_value_sign_preserved(monkeypatch):
+    """値そのものが負(△1,234 等=赤字)のとき、負号を落とさない
+    (ラベルと値の間のギャップが △ を食うと赤字が黒字表記になる回帰)。"""
+    text = ("2026年3月期 第1四半期決算短信\n"
+            "売上高 12,345 百万円 12.3 %\n"
+            "営業利益 △1,234 百万円 △5.0 %\n")
+    monkeypatch.setattr(earnings, "_download_pdf", lambda url: b"%PDF-fake")
+    monkeypatch.setattr(earnings, "_extract_text", lambda b, max_pages=3: text)
+    e = earnings.extract_earnings(_disc(), provider=None)
+    op = next(f for f in e["figures"] if f["label"] == "営業利益")
+    assert op["value"] == "-1,234百万円"      # 負号が保持される
+    assert op["yoy"] == "-5.0%"
+    sales = next(f for f in e["figures"] if f["label"] == "売上高")
+    assert sales["value"] == "12,345百万円"   # 正の値は従来どおり
+
+
 class _FakeProvider:
     name = "gemini"
 

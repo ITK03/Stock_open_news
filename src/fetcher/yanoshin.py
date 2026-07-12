@@ -50,15 +50,16 @@ def _get_with_retry(url: str, params: dict) -> Optional[dict]:
 
 def _normalize_code(raw: str) -> str:
     """
-    5桁末尾0 → 先頭4桁。それ以外はそのまま先頭4桁。
+    5桁末尾0(普通株) → 先頭4桁。末尾0以外の5桁(優先株式等 例 25935)は
+    5桁のまま保持する(SCHEMA: code は「4-5桁文字列」。先頭4桁に切ると
+    普通株(2593)と混同してしまう)。6桁以上は安全策として先頭4桁。
     """
     if not raw:
         return ""
     raw = raw.strip()
-    if len(raw) == 5 and raw.endswith("0"):
-        return raw[:4]
-    # 4桁以上でも先頭4桁を返す（実用上の安全策）
-    return raw[:4] if len(raw) >= 4 else raw
+    if len(raw) == 5:
+        return raw[:4] if raw.endswith("0") else raw
+    return raw[:4] if len(raw) > 5 else raw
 
 
 def _pubdate_to_iso(pubdate: str) -> str:

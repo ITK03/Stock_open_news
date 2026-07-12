@@ -89,9 +89,10 @@ def _regex_figures(text: str) -> list[dict]:
     flat = re.sub(r"\s+", " ", text)
     for canonical, variants in _FIGURE_LABELS:
         for label in variants:
-            # 値とパーセントの間のギャップは符号文字(△▲-−)を含めない(前年比の符号を保持するため)
+            # ラベル→値、値→パーセントいずれのギャップも符号文字(△▲-−)を含めない
+            # (ギャップが貪欲に符号を食うと「△1,234」の負号が落ち、赤字が黒字表記になる)
             m = re.search(
-                re.escape(label) + r"[^\d]{0,8}(" + _NUM + r")\s*(?:百万円|千円|円)?"
+                re.escape(label) + r"[^\d△▲\-−]{0,8}(" + _NUM + r")\s*(?:百万円|千円|円)?"
                 + r"[^\d△▲\-−]{0,12}(" + _PCT + r")?\s*[%％]?", flat)
             if m and m.group(1):
                 value = _norm_sign(m.group(1))

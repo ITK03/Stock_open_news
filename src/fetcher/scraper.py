@@ -138,7 +138,11 @@ def _parse_html(html: str, date: str) -> list[dict]:
                         text = a_tag.get_text(strip=True) or cell.get_text(strip=True)
                         if href.endswith(".pdf") or "inbs" in href:
                             if not href.startswith("http"):
-                                href = _TDNET_RELEASE_BASE + href
+                                # 一覧ページは /inbs/ 配下にあるため、相対hrefは /inbs/ 基準で解決する
+                                if href.startswith("/"):
+                                    href = _TDNET_RELEASE_BASE + href
+                                else:
+                                    href = _TDNET_RELEASE_BASE + "/inbs/" + href
                             pdf_url = href
                             title_text = text
                             break

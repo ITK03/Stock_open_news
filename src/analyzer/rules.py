@@ -38,12 +38,14 @@ RULES: list[Rule] = [
     Rule("上場廃止・整理", ["上場廃止", "監理銘柄", "整理銘柄", "特設注意市場", "上場契約違反"], 90, NEGATIVE, True),
     Rule("会計・不正", ["不適切な", "不適切な会計", "不正会計", "架空", "粉飾", "課徴金", "虚偽記載", "過年度", "決算の訂正", "会計監査人の異動", "意見不表明", "限定付適正"], 85, NEGATIVE, True),
     Rule("不祥事・処分", ["行政処分", "業務改善命令", "業務停止命令", "リコール", "製品回収", "不祥事", "情報漏洩", "個人情報の漏", "立入検査", "強制捜査"], 72, NEGATIVE, True),
+    # 自社株買いは M&A より先に評価する: 「自己株式取得に係る事項の決定」等の
+    # 表記が M&A の「株式取得」に部分一致して誤分類される(実測19/27件)ため。
+    Rule("自社株買い", ["自己株式の取得", "自己株式取得", "自社株買", "立会外買付", "ＴｏＳＴＮｅＴ", "ToSTNeT"], 78, POSITIVE, True),
     Rule("M&A・統合", ["経営統合", "合併", "株式交換", "株式移転", "子会社化", "完全子会社", "事業譲渡", "会社分割", "株式取得", "連結子会社化"], 80, UNKNOWN, True),
 
     # --- 業績・配当・資本政策 ---
     Rule("業績修正", ["業績予想の修正", "業績予想の上方修正", "業績予想の下方修正", "通期業績予想", "個別業績予想の修正", "通期連結業績予想", "業績予想及び配当予想の修正", "実績値との差異", "業績予想と実績", "予想と実績との差異"], 84, UNKNOWN, True),
     Rule("配当", ["配当予想の修正", "増配", "減配", "復配", "無配", "記念配当", "特別配当", "配当方針", "剰余金の配当"], 80, UNKNOWN, True),
-    Rule("自社株買い", ["自己株式の取得", "自己株式取得", "自社株買", "立会外買付", "ＴｏＳＴＮｅＴ", "ToSTNeT"], 78, POSITIVE, True),
     Rule("自社株消却", ["自己株式の消却"], 64, POSITIVE, False),
     Rule("自己株処分", ["自己株式の処分"], 58, NEGATIVE, False),
     Rule("増資・希薄化", ["第三者割当", "公募増資", "新株式発行", "募集株式", "行使価額修正", "ＭＳワラント", "新株予約権の発行", "転換社債", "ライツ・オファリング", "ＭＳＣＢ", "新株予約権付社債"], 82, NEGATIVE, True),
@@ -144,6 +146,13 @@ TAG_SIGNS = [
 # タイトル中の変化率(%)を拾う(例: 「（前期比＋32.5％）」)
 _PCT_RE = re.compile(r"[＋+\-△▲]?\s*(\d{2,3}(?:\.\d+)?)\s*[%％]")
 
+# 自社株買い: 「割合」の後に現れる取得規模(％)を拾う(例:「割合3.42%」)
+_BUYBACK_RATIO_RE = re.compile(r"割合.{0,30}?(\d+(?:\.\d+)?)\s*[%％]")
+# 増資・希薄化: 「希薄化」の前後にある希薄化率(％)を拾う
+_DILUTION_RATIO_RE = re.compile(r"(\d+(?:\.\d+)?)\s*[%％]")
+# 自社株買い: ToSTNeT・立会外による特定株主からのブロック取得(需給インパクト小)
+_BUYBACK_BLOCK_SIGNS = ["ToSTNeT", "ＴｏＳＴＮｅＴ", "立会外"]
+
 
 def _normalize(title: str) -> str:
     return title or ""
@@ -171,6 +180,10 @@ def infer_direction(title: str, default: str) -> str:
 def _refine_category_direction(category: str, t: str, direction: str) -> str:
     """カテゴリ固有の文脈から方向を補正する(汎用サインだけでは判定できないもの)。"""
     if category == "TOB・買収":
+        # タイトル自体に「当社株式(株券等)に対する公開買付」とあれば、当社が
+        # 買付け対象=プレミアム期待と確定できる(PDF取得を待たずに判定)。
+        if "当社株式に対する公開買付" in t or "当社株券等に対する公開買付" in t:
+            return POSITIVE
         # 「意見表明」「賛同」は買収される側の応答(プレミアム期待でポジティブ)。
         if "意見表明" in t or "賛同" in t:
             return POSITIVE
@@ -191,6 +204,62 @@ def _collect_tags(title: str) -> list[str]:
         if s in t and s not in out:
             out.append(s)
     return out[:5]
+
+
+def _buyback_scale_adjustment(t: str) -> tuple[int, str | None]:
+    """自社株買いタイトルの取得規模(「割合X.XX%」)からスコア調整幅を求める。
+
+    5%以上は需給インパクト大として加点、0.5%未満は軽微として減点する。
+    割合が読めない場合は調整なし(0, None)を返す。
+    """
+    m = _BUYBACK_RATIO_RE.search(t)
+    if not m:
+        return 0, None
+    try:
+        pct = float(m.group(1))
+    except ValueError:
+        return 0, None
+    if pct >= 5:
+        delta = 10
+    elif pct >= 3:
+        delta = 6
+    elif pct >= 1:
+        delta = 2
+    elif pct < 0.5:
+        delta = -8
+    else:
+        delta = 0
+    if delta == 0:
+        return 0, None
+    return delta, f"規模:{m.group(1)}%"
+
+
+def _dilution_scale_adjustment(t: str) -> tuple[int, str | None]:
+    """増資・希薄化タイトルの「希薄化」前後60文字にある希薄化率(%)から
+    スコア調整幅を求める。割合が読めない場合は調整なし(0, None)。
+    """
+    idx = t.find("希薄化")
+    if idx < 0:
+        return 0, None
+    window = t[max(0, idx - 60): idx + len("希薄化") + 60]
+    m = _DILUTION_RATIO_RE.search(window)
+    if not m:
+        return 0, None
+    try:
+        pct = float(m.group(1))
+    except ValueError:
+        return 0, None
+    if pct >= 25:
+        delta = 10
+    elif pct >= 15:
+        delta = 6
+    elif pct >= 5:
+        delta = 2
+    else:
+        delta = 0
+    if delta == 0:
+        return 0, None
+    return delta, f"希薄化:{m.group(1)}%"
 
 
 def _magnitude_bonus(title: str) -> int:
@@ -311,6 +380,21 @@ def analyze_title(title: str) -> Analysis:
     direction = _refine_category_direction(matched.category, t, direction)
     urgent = matched.urgent
     tags = _collect_tags(t)
+
+    # 規模調整(自社株買い・増資希薄化はタイトルに規模の数値が入ることが多い)
+    if matched.category == "自社株買い":
+        delta, label = _buyback_scale_adjustment(t)
+        if delta:
+            score += delta
+            reasons.append(label)
+        if any(s in t for s in _BUYBACK_BLOCK_SIGNS):
+            score -= 6
+            reasons.append("立会外")
+    elif matched.category == "増資・希薄化":
+        delta, label = _dilution_scale_adjustment(t)
+        if delta:
+            score += delta
+            reasons.append(label)
 
     # 変化率(%)による微調整
     mag = _magnitude_bonus(t)

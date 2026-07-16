@@ -4,8 +4,11 @@
 文字列でパーサ(純粋関数)を検証する。
 """
 from src.analyzer.content import (
+    TARGET_CATEGORIES,
     apply_content,
     parse_dividend,
+    parse_ma,
+    parse_monthly,
     parse_revision,
     parse_tob,
     should_refine,
@@ -69,6 +72,54 @@ def test_tob_opposition_negative():
     assert parse_tob(text)["direction"] == "negative"
 
 
+# --- M&A・統合 ---
+
+def test_ma_target_side_positive():
+    text = "株式交換に関するお知らせ 当社を完全子会社とする株式交換を実施いたします。"
+    r = parse_ma(text)
+    assert r["direction"] == "positive"
+    assert r["note"] == "当社が被統合側"
+
+
+def test_ma_divestiture_loss_negative():
+    text = "事業譲渡に関するお知らせ 本件事業譲渡に伴い特別損失を計上する見込みです。"
+    r = parse_ma(text)
+    assert r["direction"] == "negative"
+    assert r["note"] == "譲渡に伴う損失"
+
+
+def test_ma_acquirer_side_returns_none():
+    # 買収する側の開示(相手を子会社化する)は方向を断定しない
+    assert parse_ma("株式会社○○を子会社化することを決定いたしました。") is None
+
+
+# --- 月次 ---
+
+def test_monthly_ratio_format_positive():
+    text = "月次売上高について、前年同月比105.2%となりました。"
+    r = parse_monthly(text)
+    assert r["direction"] == "positive"
+    assert "+5.2" in r["note"]
+
+
+def test_monthly_signed_format_negative():
+    text = "月次売上高は前年比△5.2%となりました。"
+    r = parse_monthly(text)
+    assert r["direction"] == "negative"
+    assert "-5.2" in r["note"]
+
+
+def test_monthly_large_change_bonus():
+    text = "月次売上高は前年比+25.0%となりました。"
+    r = parse_monthly(text)
+    assert r["direction"] == "positive"
+    assert r["score_bonus"] == 4
+
+
+def test_monthly_no_signal_returns_none():
+    assert parse_monthly("月次のご案内") is None
+
+
 # --- 適用・対象判定 ---
 
 def test_should_refine_only_unknown_high_impact_categories():
@@ -77,6 +128,10 @@ def test_should_refine_only_unknown_high_impact_categories():
     assert not should_refine({**base, "direction": "positive"})   # 方向確定済み
     assert not should_refine({**base, "category": "その他開示"})  # 対象外カテゴリ
     assert not should_refine({**base, "pdf_url": ""})             # PDF無し
+
+
+def test_target_categories_expanded():
+    assert {"M&A・統合", "月次"} <= TARGET_CATEGORIES
 
 
 def test_apply_content_updates_fields_idempotently():

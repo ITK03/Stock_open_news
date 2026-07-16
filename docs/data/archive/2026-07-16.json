@@ -1,7 +1,212 @@
 {
-  "updated_at": "2026-07-16T09:58:55+09:00",
-  "count": 4,
+  "updated_at": "2026-07-16T10:00:49+09:00",
+  "count": 12,
   "items": [
+    {
+      "id": "140120260716594933",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "13294",
+      "company": "Ｅ－ブラックロック",
+      "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260716594933.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
+    {
+      "id": "140120260716594952",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "16714",
+      "company": "Ｅ－シンプレクス",
+      "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260716594952.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
+    {
+      "id": "140120260709590263",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "2683",
+      "company": "魚喜",
+      "title": "事業譲受に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590263.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
+    {
+      "id": "140120260716594911",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "3036",
+      "company": "アルコニックス",
+      "title": "（訂正）「譲渡制限付株式報酬としての新株式の発行に関するお知らせ」の一部訂正について",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260716594911.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:譲渡制限付株式報酬"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
+    {
+      "id": "140120260714592690",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "5013",
+      "company": "ユシロ",
+      "title": "自己株式の取得状況および取得終了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260714592690.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
+    {
+      "id": "140120260715594827",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "5598",
+      "company": "Ｐ－Ｙｏｔｔａｖｉａ",
+      "title": "自己株式立会外買付取引（ＴｏＳＴＮｅＴ－３）による自己株式の取得結果及び取得終了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260715594827.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 81,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
+    {
+      "id": "140120260716594895",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "585A4",
+      "company": "Ｅ－ＪＡＭＰＦＭ",
+      "title": "上場ETF（管理会社：JAMPファンド・マネジメント）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260716594895.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
+    {
+      "id": "140120260715594832",
+      "time": "2026-07-16T10:00:00+09:00",
+      "code": "9424",
+      "company": "日本通信",
+      "title": "譲渡制限付株式報酬としての新株発行に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260715594832.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:譲渡制限付株式報酬"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
+    },
     {
       "id": "140120260716594919",
       "time": "2026-07-16T09:05:00+09:00",
@@ -25,7 +230,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-16T09:58:47+09:00"
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
     },
     {
       "id": "140120260715594876",
@@ -50,7 +255,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-16T09:58:47+09:00"
+      "analyzed_at": "2026-07-16T10:00:41+09:00"
     },
     {
       "id": "9753869c8d441b89",

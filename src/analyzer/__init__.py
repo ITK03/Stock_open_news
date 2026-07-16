@@ -11,6 +11,7 @@ from datetime import datetime, timezone, timedelta
 
 from .rules import analyze_title, interpret, _impact_of, POSITIVE, NEGATIVE
 from .llm import Provider, NoneProvider
+from .calibration import calibrated_confidence
 
 log = logging.getLogger(__name__)
 
@@ -84,7 +85,7 @@ def analyze(raw: dict, provider: Provider | None = None, llm_min_score: int = 50
             "impact": ra.impact,
             "direction": ra.direction,
             "urgent": ra.urgent,
-            "confidence": ra.confidence,
+            "confidence": calibrated_confidence(ra.category, ra.direction, ra.confidence),
             "is_correction": ra.is_correction,
             "tags": ra.tags,
             "reasons": ra.reasons,

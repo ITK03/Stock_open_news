@@ -1,0 +1,67 @@
+name: backtest-calibration
+
+# 開示→翌営業日の値動きイベントスタディ。過去の開示を大量にバックフィルし、
+# Yahoo日足と突き合わせて「どの材料判定に実際の予測力があるか」を実測、
+# calibration.json(analyzer が確信度補正に使用)とレポートを生成・コミットする。
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "検証用にさかのぼる日数(例: 90)"
+        required: true
+        default: "90"
+  schedule:
+    # 毎週日曜 JST 10:00(市場休場)に直近データで再キャリブレーション
+    - cron: "0 1 * * 0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: poll-tdnet      # 通常ポーリング・バックフィルと直列化し push 競合を防ぐ
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Backfill archive (LLM無し・ルールのみで高速に)
+        env:
+          LLM_PROVIDER: none
+          MIN_SCORE: "30"
+        run: |
+          # スケジュール実行時は直近30日の穴埋めのみ(日次backfillと重複しても安全)
+          python -m src.backfill --days "${{ github.event.inputs.days || '30' }}" --limit 2000
+
+      - name: Run event study
+        run: python -m src.backtest
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/archive docs/data/calibration.json docs/data/backtest_report.md
+          if git diff --cached --quiet; then
+            echo "変更なし。スキップ。"
+            exit 0
+          fi
+          git commit -m "data: backtest calibration [skip ci]"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
+            echo "push retry $i"; sleep $((2 ** i))
+          done
+          exit 1

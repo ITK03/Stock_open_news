@@ -144,6 +144,13 @@ TAG_SIGNS = [
 # タイトル中の変化率(%)を拾う(例: 「（前期比＋32.5％）」)
 _PCT_RE = re.compile(r"[＋+\-△▲]?\s*(\d{2,3}(?:\.\d+)?)\s*[%％]")
 
+# 自社株買い: 「割合」の後に現れる取得規模(％)を拾う(例:「割合3.42%」)
+_BUYBACK_RATIO_RE = re.compile(r"割合.{0,30}?(\d+(?:\.\d+)?)\s*[%％]")
+# 増資・希薄化: 「希薄化」の前後にある希薄化率(％)を拾う
+_DILUTION_RATIO_RE = re.compile(r"(\d+(?:\.\d+)?)\s*[%％]")
+# 自社株買い: ToSTNeT・立会外による特定株主からのブロック取得(需給インパクト小)
+_BUYBACK_BLOCK_SIGNS = ["ToSTNeT", "ＴｏＳＴＮｅＴ", "立会外"]
+
 
 def _normalize(title: str) -> str:
     return title or ""
@@ -171,6 +178,10 @@ def infer_direction(title: str, default: str) -> str:
 def _refine_category_direction(category: str, t: str, direction: str) -> str:
     """カテゴリ固有の文脈から方向を補正する(汎用サインだけでは判定できないもの)。"""
     if category == "TOB・買収":
+        # タイトル自体に「当社株式(株券等)に対する公開買付」とあれば、当社が
+        # 買付け対象=プレミアム期待と確定できる(PDF取得を待たずに判定)。
+        if "当社株式に対する公開買付" in t or "当社株券等に対する公開買付" in t:
+            return POSITIVE
         # 「意見表明」「賛同」は買収される側の応答(プレミアム期待でポジティブ)。
         if "意見表明" in t or "賛同" in t:
             return POSITIVE
@@ -191,6 +202,62 @@ def _collect_tags(title: str) -> list[str]:
         if s in t and s not in out:
             out.append(s)
     return out[:5]
+
+
+def _buyback_scale_adjustment(t: str) -> tuple[int, str | None]:
+    """自社株買いタイトルの取得規模(「割合X.XX%」)からスコア調整幅を求める。
+
+    5%以上は需給インパクト大として加点、0.5%未満は軽微として減点する。
+    割合が読めない場合は調整なし(0, None)を返す。
+    """
+    m = _BUYBACK_RATIO_RE.search(t)
+    if not m:
+        return 0, None
+    try:
+        pct = float(m.group(1))
+    except ValueError:
+        return 0, None
+    if pct >= 5:
+        delta = 10
+    elif pct >= 3:
+        delta = 6
+    elif pct >= 1:
+        delta = 2
+    elif pct < 0.5:
+        delta = -8
+    else:
+        delta = 0
+    if delta == 0:
+        return 0, None
+    return delta, f"規模:{m.group(1)}%"
+
+
+def _dilution_scale_adjustment(t: str) -> tuple[int, str | None]:
+    """増資・希薄化タイトルの「希薄化」前後60文字にある希薄化率(%)から
+    スコア調整幅を求める。割合が読めない場合は調整なし(0, None)。
+    """
+    idx = t.find("希薄化")
+    if idx < 0:
+        return 0, None
+    window = t[max(0, idx - 60): idx + len("希薄化") + 60]
+    m = _DILUTION_RATIO_RE.search(window)
+    if not m:
+        return 0, None
+    try:
+        pct = float(m.group(1))
+    except ValueError:
+        return 0, None
+    if pct >= 25:
+        delta = 10
+    elif pct >= 15:
+        delta = 6
+    elif pct >= 5:
+        delta = 2
+    else:
+        delta = 0
+    if delta == 0:
+        return 0, None
+    return delta, f"希薄化:{m.group(1)}%"
 
 
 def _magnitude_bonus(title: str) -> int:
@@ -311,6 +378,21 @@ def analyze_title(title: str) -> Analysis:
     direction = _refine_category_direction(matched.category, t, direction)
     urgent = matched.urgent
     tags = _collect_tags(t)
+
+    # 規模調整(自社株買い・増資希薄化はタイトルに規模の数値が入ることが多い)
+    if matched.category == "自社株買い":
+        delta, label = _buyback_scale_adjustment(t)
+        if delta:
+            score += delta
+            reasons.append(label)
+        if any(s in t for s in _BUYBACK_BLOCK_SIGNS):
+            score -= 6
+            reasons.append("立会外")
+    elif matched.category == "増資・希薄化":
+        delta, label = _dilution_scale_adjustment(t)
+        if delta:
+            score += delta
+            reasons.append(label)
 
     # 変化率(%)による微調整
     mag = _magnitude_bonus(t)

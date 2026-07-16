@@ -9,6 +9,10 @@
 - 配当:     本文の「増配/減配/無配/復配」語と1株配当の前回予想/今回予想の比較。
 - TOB・買収: 「当社株式に対する公開買付け」(=被買収側→プレミアム期待)や
   「賛同の意見」等から方向を推定。
+- M&A・統合: 「当社を完全子会社とする」等(=被統合側→プレミアム期待)や、
+  特別損失・減損を伴う事業譲渡(=譲渡損失)から方向を推定。
+- 月次:     「前年同月比/前年比」の後の数値(比率表記・増減表記の両方)から
+  方向と増減幅(%)を抽出。
 
 結果は item["content_analysis"] にキャッシュされ、次回実行では同じ id の
 PDF を再ダウンロードせず再適用する(GitHub Actions の毎回のcron実行でも
@@ -25,7 +29,7 @@ from .rules import POSITIVE, NEGATIVE, _impact_of
 log = logging.getLogger(__name__)
 
 # 精査対象カテゴリ(タイトルだけでは方向が出にくい高インパクト系)。
-TARGET_CATEGORIES = {"業績修正", "配当", "TOB・買収"}
+TARGET_CATEGORIES = {"業績修正", "配当", "TOB・買収", "M&A・統合", "月次"}
 
 # PDF先頭ページ数(修正テーブル・配当テーブルはほぼ1〜2ページ目にある)。
 _MAX_PAGES = 3
@@ -151,10 +155,68 @@ def parse_tob(text: str) -> dict | None:
     return None
 
 
+def parse_ma(text: str) -> dict | None:
+    """M&A・統合PDF本文から、開示会社にとっての方向を推定する。
+
+    - 「当社を完全子会社とする」「当社が完全子会社となる」「当社株式を対象と
+      する株式交換」= 当社が被統合側→プレミアム期待→positive
+    - 特別損失・減損を伴う事業譲渡 = 譲渡に伴う損失→negative
+    買収する側の開示(相手を子会社化する等)は方向を断定しない。
+    """
+    t = re.sub(r"\s+", "", text)
+    if any(s in t for s in ["当社を完全子会社とする", "当社が完全子会社となる", "当社株式を対象とする株式交換"]):
+        return {"direction": POSITIVE, "score_bonus": 4, "note": "当社が被統合側", "confidence": 82}
+    if "事業譲渡" in t and any(s in t for s in ["特別損失", "減損"]):
+        return {"direction": NEGATIVE, "score_bonus": 0, "note": "譲渡に伴う損失", "confidence": 78}
+    return None
+
+
+# 月次: 「前年同月比/前年比」直後の符号付き数値(増減表記)または符号なし
+# 数値(比率表記)を拾う。
+_MONTHLY_MARKER_RE = re.compile(r"前年同月比|前年比")
+_MONTHLY_SIGNED_RE = re.compile(r"([△▲\-−+＋]?)\s*(\d{1,3}(?:\.\d+)?)\s*[%％]")
+
+
+def parse_monthly(text: str) -> dict | None:
+    """月次売上高等PDF本文から前年(同月)比の方向・増減幅を抽出する。
+
+    「前年同月比」「前年比」の後60文字以内にある最初の数値を読む:
+    - 「105.2%」のような比率表記(符号なし) → 100超で増加(positive)/
+      100未満で減少(negative)。
+    - 「+5.2%」「△5.2%」のような増減表記(符号あり) → 符号で判定。
+    どちらも読めなければ None。
+    """
+    t = re.sub(r"\s+", "", text)
+    marker = _MONTHLY_MARKER_RE.search(t)
+    if not marker:
+        return None
+    window = t[marker.end(): marker.end() + 60]
+    nm = _MONTHLY_SIGNED_RE.search(window)
+    if not nm:
+        return None
+    sign, num_s = nm.group(1), nm.group(2)
+    value = float(num_s)
+    if _neg(sign):
+        pct_change = -value
+    elif sign in ("+", "＋"):
+        pct_change = value
+    else:
+        # 符号なし: 比率表記(105.2%)とみなし100を基準とした増減に変換する。
+        pct_change = value - 100
+    if pct_change == 0:
+        return None
+    direction = POSITIVE if pct_change > 0 else NEGATIVE
+    bonus = 4 if abs(pct_change) >= 20 else 0
+    note = f"前年比{'+' if pct_change >= 0 else ''}{pct_change:.1f}%"
+    return {"direction": direction, "score_bonus": bonus, "note": note, "confidence": 80}
+
+
 _PARSERS = {
     "業績修正": parse_revision,
     "配当": parse_dividend,
     "TOB・買収": parse_tob,
+    "M&A・統合": parse_ma,
+    "月次": parse_monthly,
 }
 
 

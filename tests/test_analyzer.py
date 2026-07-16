@@ -238,6 +238,46 @@ def test_tob_direction_by_response():
     assert start.direction == "unknown"
 
 
+def test_buyback_scale_scoring():
+    big = analyze_title(
+        "自己株式の取得に係る事項の決定に関するお知らせ"
+        "(発行済株式総数(自己株式を除く)に対する割合5.1%)"
+    )
+    assert big.category == "自社株買い"
+    assert "規模:5.1%" in big.reasons
+    assert big.score >= 78 + 10  # 基礎78+規模+10(+方向ボーナス)
+
+    small = analyze_title(
+        "自己株式の取得に係る事項の決定に関するお知らせ"
+        "(発行済株式総数(自己株式を除く)に対する割合0.3%)"
+    )
+    assert small.category == "自社株買い"
+    assert "規模:0.3%" in small.reasons
+    assert small.score < 78  # 0.5%未満は減点
+
+    block = analyze_title(
+        "自己株式の取得(ＴｏＳＴＮｅＴ－３による自己株式の取得)に関するお知らせ"
+    )
+    assert block.category == "自社株買い"
+    assert "立会外" in block.reasons
+
+
+def test_dilution_scale_scoring():
+    big = analyze_title("第三者割当による新株式発行に関するお知らせ(希薄化率28.5%)")
+    assert "希薄化:28.5%" in big.reasons
+
+    small = analyze_title("第三者割当による新株式発行に関するお知らせ(希薄化率12.0%)")
+    assert "希薄化:12.0%" in small.reasons
+
+    assert big.score > small.score
+
+
+def test_tob_target_title_direction_immediate():
+    a = analyze_title("当社株式に対する公開買付けの開始に関するお知らせ")
+    assert a.category == "TOB・買収"
+    assert a.direction == "positive"
+
+
 def test_monthly_direction():
     up = analyze_title("月次売上高が前年同月を上回ったことに関するお知らせ")
     assert up.category == "月次"

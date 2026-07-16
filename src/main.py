@@ -16,6 +16,7 @@ from .analyzer import analyze_many
 from .analyzer import refine_direction_with_earnings
 from .analyzer.llm import get_provider
 from .analyzer.earnings import extract_earnings
+from .analyzer.content import should_refine, refine_from_pdf, apply_content
 from .store import jsonstore, archive
 from .notify import discord
 
@@ -73,6 +74,36 @@ def _enrich_earnings(curated: list[dict], provider, existing: list[dict],
     return n_new
 
 
+def _refine_content(curated: list[dict], existing: list[dict],
+                    enabled: bool, cap: int) -> int:
+    """方向不明の高インパクト開示をPDF本文で精査する(無料・鍵不要)。
+
+    既存アイテムに content_analysis キャッシュがあれば再ダウンロードせず
+    再適用し、新規のみ上限 cap 件まで PDF を取得する。取得した新規件数を返す。
+    """
+    if not enabled:
+        return 0
+    prev = {it.get("id"): it.get("content_analysis")
+            for it in existing if it.get("content_analysis")}
+    n_new = 0
+    for d in curated:
+        cached = prev.get(d.get("id"))
+        if cached:
+            apply_content(d, cached)
+            continue
+        if not should_refine(d) or n_new >= cap:
+            continue
+        n_new += 1
+        try:
+            cache = refine_from_pdf(d)
+        except Exception as ex:            # 1件の失敗で全体を止めない
+            log.warning("本文精査失敗 (%s): %s", d.get("id"), ex)
+            cache = None
+        if cache:
+            apply_content(d, cache)
+    return n_new
+
+
 def _load_dotenv() -> None:
     try:
         from dotenv import load_dotenv
@@ -122,6 +153,13 @@ def run(limit: int = 3000, date: str | None = None, path: str = jsonstore.DEFAUL
     earnings_enabled = _env_flag("EARNINGS_ENABLED", True)
     earnings_cap = _env_int("EARNINGS_PER_RUN", 8)
     existing = jsonstore.load(path)
+
+    # 方向不明の高インパクト開示(業績修正/配当/TOB)はPDF本文で方向・規模を確定
+    content_enabled = _env_flag("CONTENT_ENABLED", True)
+    content_cap = _env_int("CONTENT_PER_RUN", 25)
+    n_content = _refine_content(curated, existing, content_enabled, content_cap)
+    if n_content:
+        log.info("本文精査: 新規 %d件のPDFを解析", n_content)
     n_earnings = _enrich_earnings(curated, provider, existing, earnings_enabled, earnings_cap)
     if n_earnings:
         log.info("決算要約: 新規 %d件を解析", n_earnings)
@@ -145,6 +183,7 @@ def run(limit: int = 3000, date: str | None = None, path: str = jsonstore.DEFAUL
         "fresh": len(fresh),
         "high_impact": high,
         "earnings_new": n_earnings,
+        "content_new": n_content,
         "urgent_notified": sent,
     }
     log.info("完了: %s", summary)

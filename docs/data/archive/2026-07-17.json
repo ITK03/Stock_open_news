@@ -1,7 +1,171 @@
 {
-  "updated_at": "2026-07-17T10:59:08+09:00",
-  "count": 26,
+  "updated_at": "2026-07-17T11:00:57+09:00",
+  "count": 32,
   "items": [
+    {
+      "id": "140120260717595731",
+      "time": "2026-07-17T11:00:00+09:00",
+      "code": "210A",
+      "company": "ｉＦ日経高リート",
+      "title": "2026年6月期（2025年12月5日～2026年6月4日）決算短信",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260717595731.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
+      "earnings": {
+        "period": "2026年6月期",
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "174,163,734百万円",
+            "yoy": "+323%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260715593761",
+      "time": "2026-07-17T11:00:00+09:00",
+      "code": "4299",
+      "company": "ハイマックス",
+      "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260715593761.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自己株処分",
+      "score": 11,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 58,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "自己株式の処分",
+        "減衰:譲渡制限付株式報酬"
+      ],
+      "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
+    },
+    {
+      "id": "140120260717595743",
+      "time": "2026-07-17T11:00:00+09:00",
+      "code": "5695",
+      "company": "パウダテック",
+      "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260717595743.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自己株処分",
+      "score": 11,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 58,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "自己株式の処分",
+        "減衰:譲渡制限付株式報酬"
+      ],
+      "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
+    },
+    {
+      "id": "140120260709590221",
+      "time": "2026-07-17T11:00:00+09:00",
+      "code": "8167",
+      "company": "リテールパートナーズ",
+      "title": "譲渡制限付株式報酬としての自己株式処分の割当完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590221.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:譲渡制限付株式報酬"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
+    },
+    {
+      "id": "140120260716595253",
+      "time": "2026-07-17T11:00:00+09:00",
+      "code": "9003",
+      "company": "相鉄ＨＤ",
+      "title": "無担保社債発行に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260716595253.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
+    },
+    {
+      "id": "140120260716595329",
+      "time": "2026-07-17T11:00:00+09:00",
+      "code": "9412",
+      "company": "スカパーＪＳＡＴ",
+      "title": "当社取締役、執行役員及び理事に対する株式報酬としての自己株式の処分の払込完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260716595329.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自己株処分",
+      "score": 23,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 58,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "自己株式の処分",
+        "減衰:払込完了"
+      ],
+      "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
+    },
     {
       "id": "140120260717595726",
       "time": "2026-07-17T10:50:00+09:00",
@@ -25,7 +189,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -61,7 +225,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -97,7 +261,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -133,7 +297,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -169,7 +333,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -205,7 +369,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -241,7 +405,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -277,7 +441,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -313,7 +477,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00",
+      "analyzed_at": "2026-07-17T11:00:50+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -352,7 +516,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260717595556",
@@ -377,7 +541,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260717595567",
@@ -402,7 +566,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260715594574",
@@ -427,7 +591,7 @@
       ],
       "summary": "受注・契約締結。規模次第で業績寄与。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260717595533",
@@ -452,7 +616,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260714593504",
@@ -478,7 +642,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260716595452",
@@ -504,7 +668,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260717595569",
@@ -532,7 +696,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260713592018",
@@ -558,7 +722,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260717595525",
@@ -583,7 +747,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260701585456",
@@ -609,7 +773,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260716595430",
@@ -634,7 +798,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260717595521",
@@ -659,7 +823,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260717595522",
@@ -684,7 +848,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "140120260716595474",
@@ -709,7 +873,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-17T10:59:02+09:00"
+      "analyzed_at": "2026-07-17T11:00:50+09:00"
     },
     {
       "id": "9753869c8d441b89",

@@ -24,13 +24,13 @@ Yahoo Finance の日足を突き合わせ、「この材料は実際に株価を
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import glob
 import json
 import logging
 import os
 import statistics
 import sys
-import time
 from datetime import datetime
 
 import requests
@@ -48,6 +48,12 @@ _UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 
 # 統計を信頼するための最小サンプル数(これ未満の区分はレポートのみ・補正に不使用)。
 MIN_N = 20
+
+# 価格取得の並列数。CACHE_DIR はCIランナー間で永続化されない(.gitignore対象・
+# 使い捨て環境)ため、アーカイブが積み上がるほど毎回全銘柄を再取得することになり、
+# 直列(1銘柄ずつ)では実測で2時間45分のタイムアウトを起こした。並列化で短縮する
+# (yfinance側の同種処理と同水準の並列度に揃え、無償APIへの配慮は維持)。
+_FETCH_WORKERS = 8
 
 
 # ---------------------------------------------------------------------------
@@ -231,11 +237,19 @@ def run(max_codes: int | None = None) -> dict:
         return {}
 
     closes_by_code: dict[str, dict] = {}
-    for i, c in enumerate(codes):
-        closes_by_code[c] = fetch_closes(c) or {}
-        if i % 50 == 49:
-            log.info("価格取得 %d/%d", i + 1, len(codes))
-            time.sleep(1)  # 无償APIへの礼儀(レート抑制)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=_FETCH_WORKERS) as ex:
+        futures = {ex.submit(fetch_closes, c): c for c in codes}
+        done = 0
+        for fut in concurrent.futures.as_completed(futures):
+            c = futures[fut]
+            try:
+                closes_by_code[c] = fut.result() or {}
+            except Exception as e:
+                log.debug("価格取得失敗 %s: %s", c, e)
+                closes_by_code[c] = {}
+            done += 1
+            if done % 100 == 0:
+                log.info("価格取得 %d/%d", done, len(codes))
 
     events = []
     for it in raw:

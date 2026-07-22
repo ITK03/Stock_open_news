@@ -39,6 +39,16 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
+      - name: Restore price cache (株価はコード単位でキャッシュし再取得を避ける)
+        uses: actions/cache@v4
+        with:
+          path: .backtest_cache
+          # アーカイブが積み上がるほど対象銘柄が増えるため、週替わりキーで
+          # 直近の週次キャッシュを復元しつつ古すぎる価格は自然に入れ替える。
+          key: backtest-price-cache-${{ github.run_id }}
+          restore-keys: |
+            backtest-price-cache-
+
       - name: Backfill archive (LLM無し・ルールのみで高速に)
         env:
           LLM_PROVIDER: none

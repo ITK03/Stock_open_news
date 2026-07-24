@@ -7,7 +7,9 @@
 'use strict';
 
 /* ===== 定数 ===== */
-const DATA_URL          = './data/disclosures.json';
+// 最新版 disclosures.json は「data」orphanブランチ(force-push配信)から読む。
+// mainには置かない(再コミットによる履歴肥大化を防ぐため)。archive は従来通り main/Pages。
+const DATA_URL          = 'https://raw.githubusercontent.com/ITK03/Stock_open_news/data/disclosures.json';
 const ARCHIVE_INDEX_URL = './data/archive/index.json';
 const ARCHIVE_BASE_URL  = './data/archive/';
 const AUTO_REFRESH_MS   = 60_000; // 60秒

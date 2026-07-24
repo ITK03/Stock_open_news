@@ -1,0 +1,76 @@
+name: Archive Rollover
+
+# ③ 長期運用(数十年)対策: 5年より古い日次アーカイブ(docs/data/archive/YYYY-MM-DD.json)を
+# 年ごとの GitHub Release 資産へ退避し、リポジトリ本体からは削除する。
+# これにより main のワーキングツリー(と将来のスナップショット)が肥大化し続けない。
+#
+# 注意: git rm はワーキングツリーからは消すが、過去コミットの blob は履歴に残るため
+# .git 自体は即座には縮まない。履歴からの完全削除が必要になったときは、後日
+# `git filter-repo --path-glob 'docs/data/archive/*' --invert-paths` 等を一度だけ
+# 手動実行する(破壊的なので別途判断)。本ワークフローは「これ以上増やさない」ための
+# 継続的な退避であり、当面(アプリ稼働から5年間)は該当ファイルが無く no-op。
+on:
+  schedule:
+    - cron: "0 18 1 * *"   # 毎月1日 JST 03:00
+  workflow_dispatch:
+    inputs:
+      years_to_keep:
+        description: "リポジトリ本体に残す年数(これより古いアーカイブをReleasesへ退避)"
+        default: "5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archive-rollover
+  cancel-in-progress: false
+
+jobs:
+  rollover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Roll old archive files into yearly GitHub Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KEEP_YEARS: ${{ github.event.inputs.years_to_keep || '5' }}
+        run: |
+          set -eu
+          cutoff_year=$(( $(date -u +%Y) - KEEP_YEARS ))
+          echo "退避対象: ${cutoff_year}年以前のアーカイブ"
+          moved=0
+          # 年ごとにまとめて Release(tag: archive-YYYY)へアップロードし、mainから削除。
+          for f in docs/data/archive/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].json; do
+            [ -e "$f" ] || continue
+            base=$(basename "$f"); y=${base%%-*}
+            if [ "$y" -le "$cutoff_year" ] 2>/dev/null; then
+              tag="archive-$y"
+              # Release が無ければ作成(冪等)。
+              gh release view "$tag" >/dev/null 2>&1 || \
+                gh release create "$tag" --title "適時開示アーカイブ $y" \
+                  --notes "リポジトリ肥大化防止のため退避した ${y} 年の日次アーカイブ。" || true
+              gh release upload "$tag" "$f" --clobber || { echo "upload失敗: $f"; continue; }
+              git rm -q "$f"
+              moved=$((moved+1))
+            fi
+          done
+          echo "退避件数: $moved"
+          if [ "$moved" -gt 0 ]; then
+            # 退避でファイルが減ったので、残っているファイルだけで索引を再生成する
+            # (既存の _rebuild_index を直接呼ぶ)。退避済みの古い日付は索引から外れる。
+            python -c "from src.store.archive import _rebuild_index, DEFAULT_DIR; print('index dates:', _rebuild_index(DEFAULT_DIR))"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A docs/data/archive
+            git commit -m "chore: ${cutoff_year}年以前のアーカイブをReleasesへ退避 [skip ci]"
+            for i in 1 2 3 4; do
+              git pull --rebase origin "${{ github.ref_name }}" \
+                && git push origin "HEAD:${{ github.ref_name }}" && break
+              sleep $((2 ** i))
+            done
+          fi

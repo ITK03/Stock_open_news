@@ -72,23 +72,59 @@ jobs:
           EARNINGS_PER_RUN: ${{ vars.EARNINGS_PER_RUN }}
           BRANCH: ${{ github.ref_name }}
           GH_TOKEN: ${{ github.token }}
+          REPO_URL: "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 最新版の disclosures.json は「data」orphanブランチに毎回force-pushする
+          # (履歴は常に1コミット=リポジトリが無限に肥大化しない)。マージ継続性の
+          # ため、ループ開始時に data ブランチの現行版を取り込んでおく。
+          # docs/data/archive(追記型・日次1ファイル)だけを main にコミットする。
+          if git ls-remote --exit-code origin data >/dev/null 2>&1; then
+            git show "$(git ls-remote origin data | cut -f1)":disclosures.json 2>/dev/null \
+              > docs/data/disclosures.json || true
+          fi
+
+          # data ブランチへ最新 disclosures.json を単一コミットとしてforce-pushする。
+          push_disclosures() {
+            local tmp; tmp="$(mktemp -d)"
+            cp docs/data/disclosures.json "$tmp/disclosures.json"
+            ( cd "$tmp" \
+              && git init -q -b data \
+              && git config user.name "github-actions[bot]" \
+              && git config user.email "github-actions[bot]@users.noreply.github.com" \
+              && git add disclosures.json \
+              && git commit -q -m "data: update disclosures [skip ci]" \
+              && git push --force -q "$REPO_URL" HEAD:data )
+            local rc=$?; rm -rf "$tmp"; return $rc
+          }
+
+          last_hash=""
           end=$(( $(date +%s) + 330*60 ))
           while [ "$(date +%s)" -lt "$end" ]; do
             # limit は指定しない(src.main の既定 = 当日+前日を1日あたり3000件まで丸ごと取得)
             python -m src.main || echo "main failed (continue)"
-            if ! git diff --quiet -- docs/data; then
-              git add docs/data
-              git commit -m "data: update disclosures [skip ci]" || true
+
+            # ① 追記型アーカイブのみ main にコミット(履歴の増加は日次1ファイル分に限定)
+            if [ -n "$(git status --porcelain docs/data/archive 2>/dev/null)" ]; then
+              git add docs/data/archive
+              git commit -m "data: archive [skip ci]" || true
               for i in 1 2 3 4; do
                 git pull --rebase origin "$BRANCH" \
                   && git push origin "HEAD:$BRANCH" && break
                 echo "push retry $i"; sleep $((2 ** i))
               done
-            else
-              echo "変更なし"
+            fi
+
+            # ② 最新 disclosures.json は変化時のみ data ブランチへforce-push
+            if [ -s docs/data/disclosures.json ]; then
+              h="$(sha1sum docs/data/disclosures.json | cut -d' ' -f1)"
+              if [ "$h" != "$last_hash" ]; then
+                if push_disclosures; then last_hash="$h"; else echo "disclosures push失敗(継続)"; fi
+              else
+                echo "disclosures 変更なし"
+              fi
             fi
             sleep 90
           done

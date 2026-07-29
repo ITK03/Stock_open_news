@@ -73,6 +73,13 @@ jobs:
           BRANCH: ${{ github.ref_name }}
           GH_TOKEN: ${{ github.token }}
           REPO_URL: "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          # 本リポジトリは非公開のため、raw も GitHub Pages もブラウザから読めない。
+          # 統合ダッシュボード(公開リポ Stock_sikin_ryunyu)へ配信データだけを
+          # 同期する。トークンは Stock_sikin_ryunyu への contents:write が必要。
+          CROSS_REPO_TOKEN: ${{ secrets.CROSS_REPO_TOKEN }}
+          PUBLIC_REPO: "ITK03/Stock_sikin_ryunyu"
+          PUBLIC_BRANCH: "data-disclosures"
+          ARCHIVE_SYNC_DAYS: "30"
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -100,6 +107,44 @@ jobs:
             local rc=$?; rm -rf "$tmp"; return $rc
           }
 
+          # 公開リポへ配信データを同期する。disclosures.json(最新)と直近の
+          # アーカイブだけを orphan ブランチへ force-push する
+          # (履歴は常に1コミット。全期間のアーカイブを送ると年々肥大化するため
+          #  直近 ARCHIVE_SYNC_DAYS 日ぶんに絞る)。
+          sync_public() {
+            [ -n "${CROSS_REPO_TOKEN:-}" ] || return 9
+            local tmp; tmp="$(mktemp -d)"
+            mkdir -p "$tmp/archive"
+            cp docs/data/disclosures.json "$tmp/disclosures.json" 2>/dev/null || { rm -rf "$tmp"; return 1; }
+            # 直近ぶんのアーカイブと索引
+            if [ -d docs/data/archive ]; then
+              cp docs/data/archive/index.json "$tmp/archive/" 2>/dev/null || true
+              ls -1 docs/data/archive/[0-9]*.json 2>/dev/null | sort | tail -n "$ARCHIVE_SYNC_DAYS" \
+                | while read -r f; do cp "$f" "$tmp/archive/"; done
+            fi
+            ( cd "$tmp" \
+              && git init -q -b "$PUBLIC_BRANCH" \
+              && git config user.name "github-actions[bot]" \
+              && git config user.email "github-actions[bot]@users.noreply.github.com" \
+              && git add -A \
+              && git commit -q -m "data: 開示データを公開リポへ同期 [skip ci]" \
+              && git push --force -q \
+                 "https://x-access-token:${CROSS_REPO_TOKEN}@github.com/${PUBLIC_REPO}.git" \
+                 "HEAD:${PUBLIC_BRANCH}" )
+            local rc=$?; rm -rf "$tmp"; return $rc
+          }
+
+          # トークン未設定を黙って握りつぶすと、配信が止まっていることに
+          # 気づけない(セクター同期が2週間止まっていた原因がこれ)。
+          # 起動時に1度だけ、はっきり分かる形で警告する。
+          if [ -z "${CROSS_REPO_TOKEN:-}" ]; then
+            echo "::error::CROSS_REPO_TOKEN が未設定です。本リポジトリは非公開のため、"\
+                 "このままでは統合ダッシュボードの開示タブにデータが届きません。"
+            echo "## ⚠ 開示データが配信されていません" >> "$GITHUB_STEP_SUMMARY"
+            echo "CROSS_REPO_TOKEN シークレットを設定してください（${PUBLIC_REPO} への contents:write）。" \
+              >> "$GITHUB_STEP_SUMMARY"
+          fi
+
           last_hash=""
           end=$(( $(date +%s) + 330*60 ))
           while [ "$(date +%s)" -lt "$end" ]; do
@@ -122,6 +167,13 @@ jobs:
               h="$(sha1sum docs/data/disclosures.json | cut -d' ' -f1)"
               if [ "$h" != "$last_hash" ]; then
                 if push_disclosures; then last_hash="$h"; else echo "disclosures push失敗(継続)"; fi
+                # 公開リポへも同期する(統合ダッシュボードの配信元)
+                sync_public
+                case $? in
+                  0) echo "公開リポへ同期 完了" ;;
+                  9) echo "CROSS_REPO_TOKEN 未設定のため公開リポ同期をスキップ" ;;
+                  *) echo "::warning::公開リポへの同期に失敗しました(継続)" ;;
+                esac
               else
                 echo "disclosures 変更なし"
               fi

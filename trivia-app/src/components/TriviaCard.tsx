@@ -8,6 +8,7 @@ import Animated, {
   type SharedValue,
 } from 'react-native-reanimated';
 import { FG } from '../theme';
+import { FONT_BLACK, FONT_BODY } from '../fonts';
 import type { Trivia } from '../data/trivia';
 
 const PUNCH_MAX = 82;
@@ -83,14 +84,15 @@ const styles = StyleSheet.create({
   setup: {
     color: FG,
     fontSize: 20,
-    fontWeight: '600',
+    // fontFamily とウェイトを併用しない（iOS で合成ボールドが二重にかかる）
+    fontFamily: FONT_BODY,
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: 18,
   },
   punch: {
     color: FG,
-    fontWeight: '900',
+    fontFamily: FONT_BLACK,
     // 特大フォントは字間を詰めた方が「塊」として強く見える
     letterSpacing: -1,
     textAlign: 'center',

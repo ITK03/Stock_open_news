@@ -28,5 +28,8 @@ export const REACTION_LEVELS = [
   { particles: 64, spread: 460, size: 20, duration: 900, ring: 1.6 },
 ] as const;
 
-/** 上スワイプ何回ごとにインタースティシャルを挟むか。 */
-export const INTERSTITIAL_EVERY = 15;
+/**
+ * 上スワイプ何回ごとにインタースティシャルを挟むか。
+ * 15回だと体感30〜75秒ごとに全画面広告が出て離脱するため 30 に緩めている。
+ */
+export const INTERSTITIAL_EVERY = 30;

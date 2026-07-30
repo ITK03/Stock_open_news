@@ -23,6 +23,7 @@ npm run typecheck  # tsc --noEmit
 | --- | --- |
 | 上スワイプ | 次の雑学へ。80px 以上、または上向き速度 650 以上で確定 |
 | ダブルタップ | リアクション。**1件につき最大5回**、回数ごとに演出と振動が増幅、5回目は全画面演出 |
+| （下スワイプ・単純タップ） | 未割り当て。アクションの割り当ては再検討中 |
 | 長押し（350ms） | お気に入り保存。重い振動 + 「保存しました」を一瞬表示 |
 
 単純タップには何も割り当てていない（完全ボタンレス）。
@@ -30,8 +31,9 @@ npm run typecheck  # tsc --noEmit
 ## 構成
 
 ```
-App.tsx                       GestureHandlerRootView / SafeAreaProvider
+App.tsx                       フォント読み込み / GestureHandlerRootView / SafeAreaProvider
 src/theme.ts                  配色・演出強度・広告頻度の調整つまみ
+src/fonts.ts                  同梱フォント（Noto Sans JP の2ウェイト）
 src/haptics.ts                振動の5段はしご（撃ちっぱなし、await しない）
 src/data/trivia.json          雑学52件
 src/data/trivia.ts            型付け + セッションごとのシャッフル
@@ -52,7 +54,9 @@ src/components/
 - `NEON` — 演出に使う色のプール。**通常時の画面には一切出さない**
 - `REACTION_LEVELS` — 1〜5回目の粒の数・飛距離・サイズ・時間・衝撃波の大きさ
 - `MAX_REACTIONS` — リアクション上限（既定 5）
-- `INTERSTITIAL_EVERY` — 全面広告を挟む切り替え回数（既定 15）
+- `INTERSTITIAL_EVERY` — 全面広告を挟む切り替え回数（既定 30）
+
+フォントは `src/fonts.ts`。
 
 ## 実装上の判断メモ
 
@@ -68,6 +72,13 @@ src/components/
 
 **触覚は 4回目以降 `setTimeout` で連打している** — `ImpactFeedbackStyle` は `Heavy` が上限で、
 単発では 4回目と5回目の差が作れないため、パルス数で「重さ」を表現している。
+
+**フォントを同梱している理由** — `fontWeight: '900'` は日本語グリフだと Android の
+フォールバックに Black ウェイトが無く、iOS ほど太くならない。iOS/Android で見た目を揃えるには
+同梱するしかないため、Noto Sans JP（SIL OFL）の Medium と Black を入れている。
+**ルートから import してはいけない** — 9ウェイト全部（約48MB）がバンドルされる。必ず
+`@expo-google-fonts/noto-sans-jp/900Black` のようにサブパスで読む。
+また `fontFamily` を指定した要素に `fontWeight` を併用しない（iOS で合成ボールドが二重にかかる）。
 
 **全画面演出は広告枠に重ねていない** — `MaxFlash` はコンテンツ領域の中だけで完結させ、
 上下バナーの上には乗らないようにしている（実広告SDKは自社UIの重ね合わせを規約で禁じているため、
@@ -91,6 +102,8 @@ src/components/
 - **保存済みの表示は残らない**。「通常時ノイズゼロ」を優先し、保存済みマークを常時出していない。
   再度長押しすると「保存済み」と出るのが唯一の確認手段で、保存一覧画面も未実装。
 - **全面広告のカウントはセッション単位**。アプリ再起動でリセットされる。
-- **極太フォントは OS 依存**。`fontWeight: '900'` は日本語グリフだと Android の
-  フォールバックに Black ウェイトが無く、iOS ほど太くならない。
-  見た目を揃えるなら `expo-font` で重量級の日本語フォントを同梱する必要がある。
+- **アプリサイズが約13MB**。うち約11MB が日本語フォント2ウェイト。
+  削るならサブセット化（使用グリフだけ残す）で1ウェイト数百KBまで落とせるが、
+  雑学データを後から増やす前提だとサブセットを作り直す運用が必要になる。
+- **スプラッシュの黒背景は開発ビルドが必要**。`expo-splash-screen` の設定は
+  config plugin なので Expo Go では反映されない（フォント自体は Expo Go でも効く）。

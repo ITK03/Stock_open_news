@@ -9,6 +9,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { BG, NEON } from '../theme';
+import { FONT_BLACK } from '../fonts';
 
 const ACCENT = NEON[0];
 
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   text: {
     color: ACCENT,
     fontSize: 30,
-    fontWeight: '900',
+    fontFamily: FONT_BLACK,
     letterSpacing: 2,
   },
 });

@@ -62,7 +62,7 @@ export function FeedScreen() {
     setArea((prev) => (prev.width === width && prev.height === height ? prev : { width, height }));
   }, []);
 
-  /** 上スワイプ確定。要件どおり遅延ゼロで差し替え、15回ごとに全面広告を挟む。 */
+  /** 上スワイプ確定。遅延ゼロで差し替え、INTERSTITIAL_EVERY 回ごとに全面広告を挟む。 */
   const advance = useCallback(() => {
     const next = (indexRef.current + 1) % deck.length;
     indexRef.current = next;

@@ -4,18 +4,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MAX_REACTIONS } from '../theme';
 
 export type Entry = {
-  /** ダブルタップ回数（0〜MAX_REACTIONS） */
+  /** タップ回数（0〜MAX_REACTIONS） */
   reactions: number;
-  /** 長押しで保存済みか */
-  saved: boolean;
+  /** 長押しで BAD 評価を付けたか */
+  bad: boolean;
+  /** 詳細画面でブックマークしたか */
+  bookmarked: boolean;
 };
 
 export type ProgressMap = Record<string, Entry>;
 
-const STORAGE_KEY = 'trivia:progress:v1';
+// v2: saved(お気に入り) を bad(ネガティブ評価) + bookmarked に分離した
+const STORAGE_KEY = 'trivia:progress:v2';
 const WRITE_DEBOUNCE_MS = 500;
 
-const EMPTY: Entry = { reactions: 0, saved: false };
+const EMPTY: Entry = { reactions: 0, bad: false, bookmarked: false };
 
 function sanitize(raw: unknown): ProgressMap {
   if (!raw || typeof raw !== 'object') return {};
@@ -26,14 +29,15 @@ function sanitize(raw: unknown): ProgressMap {
     const reactions = typeof v.reactions === 'number' && Number.isFinite(v.reactions) ? v.reactions : 0;
     out[id] = {
       reactions: Math.min(Math.max(Math.trunc(reactions), 0), MAX_REACTIONS),
-      saved: v.saved === true,
+      bad: v.bad === true,
+      bookmarked: v.bookmarked === true,
     };
   }
   return out;
 }
 
 /**
- * 進捗はローカルのみ。ref を正にしているのは、ダブルタップ直後に
+ * 進捗はローカルのみ。ref を正にしているのは、タップ直後に
  * 「今何回目か」を同期で知らないと演出強度が1タップ遅れるため。
  */
 export function useProgress() {
@@ -110,19 +114,36 @@ export function useProgress() {
     [schedule]
   );
 
-  /** 保存フラグを立てる。既に保存済みなら false を返す（演出の出し分け用）。 */
-  const markSaved = useCallback(
+  /**
+   * BAD を付ける。**トグルにしてある**のは、全ジェスチャーが即実行で誤爆が避けられず、
+   * 誤った BAD がコンテンツに恒久的な烙印を残すため。戻り値は適用後の状態。
+   */
+  const toggleBad = useCallback(
     (id: number | string): boolean => {
       const key = String(id);
       const current = mapRef.current[key] ?? EMPTY;
-      if (current.saved) return false;
-      mapRef.current = { ...mapRef.current, [key]: { ...current, saved: true } };
+      const next = !current.bad;
+      mapRef.current = { ...mapRef.current, [key]: { ...current, bad: next } };
       schedule();
       rerender();
-      return true;
+      return next;
     },
     [schedule]
   );
 
-  return { get, bumpReaction, markSaved };
+  /** ブックマークを切り替える。戻り値は適用後の状態。 */
+  const toggleBookmark = useCallback(
+    (id: number | string): boolean => {
+      const key = String(id);
+      const current = mapRef.current[key] ?? EMPTY;
+      const next = !current.bookmarked;
+      mapRef.current = { ...mapRef.current, [key]: { ...current, bookmarked: next } };
+      schedule();
+      rerender();
+      return next;
+    },
+    [schedule]
+  );
+
+  return { get, bumpReaction, toggleBad, toggleBookmark };
 }

@@ -19,33 +19,47 @@ const PUNCH_MAX_LINES = 3;
  * 日本語は全角前提で「1文字 ≒ fontSize」として行数を見積もり、
  * PUNCH_MAX_LINES に収まる最大サイズを選ぶ。端数は adjustsFontSizeToFit に任せる。
  */
-function punchFontSize(text: string, width: number) {
+export function punchFontSize(text: string, width: number) {
   if (!text.length || width <= 0) return PUNCH_MIN;
   const fit = (width * PUNCH_MAX_LINES) / text.length;
   return Math.max(PUNCH_MIN, Math.min(PUNCH_MAX, Math.floor(fit)));
 }
 
+/** 入場方向。切り替わったことを一目で分からせるために使う。 */
+export type EnterFrom = 'next' | 'prev' | 'none';
+
+/** 入場の移動量。小さいと切り替わりが読み取れないので大きめに取る。 */
+const ENTER_OFFSET = 72;
+
 export const TriviaCard = memo(function TriviaCard({
   item,
   width,
   kick,
+  from = 'none',
 }: {
   item: Trivia;
   width: number;
   /** リアクション時に親から叩かれる 0..1 のパルス。オチだけを弾ませる。 */
   kick: SharedValue<number>;
+  from?: EnterFrom;
 }) {
   // 切り替えは「遅延ゼロ」が要件なので、入場は最短で抜ける
   const enter = useSharedValue(0);
+  // 送り出しアニメを入れない代わりに、入場の向きで「次へ進んだ / 前へ戻った」を示す
+  const offset = useSharedValue(0);
 
   useEffect(() => {
     enter.value = 0;
-    enter.value = withTiming(1, { duration: 130, easing: Easing.out(Easing.cubic) });
+    offset.value = from === 'next' ? ENTER_OFFSET : from === 'prev' ? -ENTER_OFFSET : 0;
+    enter.value = withTiming(1, { duration: 160, easing: Easing.out(Easing.cubic) });
   }, [item.id]);
 
   const enterStyle = useAnimatedStyle(() => ({
     opacity: enter.value,
-    transform: [{ scale: 0.94 + enter.value * 0.06 }],
+    transform: [
+      { translateY: offset.value * (1 - enter.value) },
+      { scale: 0.94 + enter.value * 0.06 },
+    ],
   }));
 
   const punchStyle = useAnimatedStyle(() => ({

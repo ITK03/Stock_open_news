@@ -39,10 +39,34 @@ DEFAULT_OUT = os.path.join("dist", "trivia")
 DEFAULT_SHARD_SIZE = 500
 
 SHARD_DIR = "shards"
+DETAIL_DIR = "details"
+
+# 詳細を分散させるディレクトリ数。100万件を1ディレクトリに置くと
+# オブジェクト一覧や同期が破綻するため。**クライアント側と同じ値**であること。
+DETAIL_BUCKETS = 4096
 
 
 def _shard_path(out_dir: str, index: int) -> str:
     return os.path.join(out_dir, SHARD_DIR, f"{index:06d}.json")
+
+
+def detail_bucket(iid) -> str:
+    """詳細ファイルの配置先。FNV-1a の 32bit。
+
+    アプリ側 `src/data/remote.ts` の detailBucket と**同じ結果**を返す必要がある。
+    片方だけ変えると詳細が404になる(tests/test_trivia_build.py で照合している)。
+
+    JS の `charCodeAt` は UTF-16 のコードユニットを返すので、こちらも
+    UTF-16 で数える。バイト単位で数えると非ASCIIのIDだけ結果がズレる。
+    """
+    text = str(iid)
+    h = 0x811C9DC5
+    # utf-16-le で並べると JS の charCodeAt と同じ並び(サロゲートペアも一致)になる
+    raw = text.encode("utf-16-le")
+    for i in range(0, len(raw), 2):
+        h ^= raw[i] | (raw[i + 1] << 8)
+        h = (h * 0x01000193) & 0xFFFFFFFF
+    return format(h % DETAIL_BUCKETS, "03x")
 
 
 def iter_source(path: str):
@@ -84,7 +108,13 @@ def _normalize(obj: object) -> dict | None:
     iid = obj.get("id", obj.get("i"))
     if not isinstance(iid, (int, str)):
         return None
-    return {"i": iid, "s": setup, "p": punch}
+    item = {"i": iid, "s": setup, "p": punch}
+    # 詳細は本文シャードに入れない(シャードが数倍に膨らみ「1リクエストで500件」の
+    # 軽さが崩れる)。別ファイルに出すのでここでは横に持たせておく。
+    detail = obj.get("detail") or obj.get("detail_text") or ""
+    if isinstance(detail, str) and detail.strip():
+        item["_d"] = detail.strip()
+    return item
 
 
 def _write_if_changed(path: str, payload: object) -> bool:
@@ -138,6 +168,7 @@ def build(
     total = 0
     rewritten = 0
     duplicates = 0
+    details = 0
 
     def flush() -> None:
         nonlocal shard_count, rewritten
@@ -154,6 +185,15 @@ def build(
             duplicates += 1
             continue
         seen.add(item["i"])
+
+        detail = item.pop("_d", None)
+        if detail:
+            path = os.path.join(
+                out_dir, DETAIL_DIR, detail_bucket(item["i"]), f'{item["i"]}.json'
+            )
+            _write_if_changed(path, {"i": item["i"], "d": detail})
+            details += 1
+
         buf.append(item)
         total += 1
         if len(buf) == shard_size:
@@ -175,12 +215,13 @@ def build(
     _write_if_changed(os.path.join(out_dir, "manifest.json"), manifest)
 
     log.info(
-        "trivia: %d件 → %dシャード (書き換え%d, 重複除去%d, version=%d)",
-        total, shard_count, rewritten, duplicates, version,
+        "trivia: %d件 → %dシャード + 詳細%d件 (書き換え%d, 重複除去%d, version=%d)",
+        total, shard_count, details, rewritten, duplicates, version,
     )
     return {
         "total": total,
         "shard_count": shard_count,
+        "details": details,
         "rewritten": rewritten,
         "duplicates": duplicates,
         "version": version,

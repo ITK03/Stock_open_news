@@ -17,35 +17,44 @@ import { ConnectionGate, type GateMode } from '../components/ConnectionGate';
 import { InterstitialAd } from '../components/InterstitialAd';
 import { MaxFlash } from '../components/MaxFlash';
 import { ParticleBurst, type Burst } from '../components/ParticleBurst';
-import { SavedToast } from '../components/SavedToast';
-import { TriviaCard } from '../components/TriviaCard';
-import { reactionCappedHaptic, reactionHaptic, saveHaptic, swipeHaptic } from '../haptics';
+import { ShatterText } from '../components/ShatterText';
+import { TriviaCard, punchFontSize, type EnterFrom } from '../components/TriviaCard';
+import { DetailScreen } from './DetailScreen';
+import { badHaptic, reactionCappedHaptic, reactionHaptic, swipeHaptic } from '../haptics';
 import { useProgress } from '../hooks/useProgress';
 import { useTriviaFeed } from '../hooks/useTriviaFeed';
-import { BG, INTERSTITIAL_EVERY, MAX_REACTIONS } from '../theme';
+import {
+  ADVANCE_DELAY_MS,
+  BG,
+  INPUT_LOCK_MS,
+  INTERSTITIAL_EVERY,
+  MAX_REACTIONS,
+  isMaxReaction,
+  reactionLevel,
+} from '../theme';
 
 /** バナーと本文の間隔。ここを詰めると誤タップで広告を踏むので削らない。 */
 const CONTENT_GAP = 24;
 
-/** この距離ぶん上に振れたら次へ送る。velocity 判定と OR。 */
+/** スワイプ確定のしきい値。距離か速度のどちらかを満たせば成立。 */
 const SWIPE_DISTANCE = 80;
-const SWIPE_VELOCITY = -650;
+const SWIPE_VELOCITY = 650;
 
 /** 同時に走らせるバーストの上限。連打で積み上がって落ちるのを防ぐ。 */
 const MAX_CONCURRENT_BURSTS = 6;
 
 export function FeedScreen() {
   const insets = useSafeAreaInsets();
-  const { get, bumpReaction, markSaved } = useProgress();
+  const { get, bumpReaction, toggleBad, toggleBookmark } = useProgress();
 
   // 雑学はサーバー配信のみ。端末には残さない（オフラインで遊ばせない）
-  const { status, current, advance: advanceFeed, retry } = useTriviaFeed();
+  const { status, current, advance: advanceFeed, goBack, canGoBack, retry, version } =
+    useTriviaFeed();
 
   // 通信が切れたら手持ちがあっても止める。広告なしで遊ばれる隙を作らないため。
   const net = useNetworkState();
   const online = net.isInternetReachable !== false && net.isConnected !== false;
 
-  // 現在の雑学を非同期処理から参照する（setState の反映を待たない）
   const currentRef = useRef(current);
   currentRef.current = current;
 
@@ -53,16 +62,40 @@ export function FeedScreen() {
   const burstKeyRef = useRef(0);
 
   const [maxTrigger, setMaxTrigger] = useState(0);
-  const [savedTrigger, setSavedTrigger] = useState(0);
-  const [savedLabel, setSavedLabel] = useState('保存しました');
+  const [enterFrom, setEnterFrom] = useState<EnterFrom>('none');
 
+  /** BAD で破壊中の雑学。破壊しきるまでカードの代わりに破片を出す。 */
+  const [shattering, setShattering] = useState<string | null>(null);
+
+  const [detailOpen, setDetailOpen] = useState(false);
   const [adVisible, setAdVisible] = useState(false);
-  const swipeCountRef = useRef(0);
+  const advanceCountRef = useRef(0);
 
   const [area, setArea] = useState({ width: 0, height: 0 });
 
-  const drag = useSharedValue(0);
+  const drag = useSharedValue({ x: 0, y: 0 });
   const kick = useSharedValue(0);
+
+  /**
+   * 評価系（タップ・長押し）を受け付けない期限。
+   * 自動送り直後に連打の余りが次の雑学へ流れ込むのを防ぐ。
+   * **スワイプはここで止めない**（止めると壊れて見える）。
+   */
+  const lockUntilRef = useRef(0);
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const later = useCallback((fn: () => void, ms: number) => {
+    const id = setTimeout(fn, ms);
+    timersRef.current.push(id);
+  }, []);
+
+  useEffect(
+    () => () => {
+      timersRef.current.forEach(clearTimeout);
+      timersRef.current = [];
+    },
+    []
+  );
 
   const onContentLayout = useCallback((e: LayoutChangeEvent) => {
     const { width, height } = e.nativeEvent.layout;
@@ -74,22 +107,36 @@ export function FeedScreen() {
     if (online && status === 'error') retry();
   }, [online, status, retry]);
 
-  /** 上スワイプ確定。遅延ゼロで差し替え、INTERSTITIAL_EVERY 回ごとに全面広告を挟む。 */
-  const advance = useCallback(() => {
+  /** 次の雑学へ。広告の頻度は「前に進んだ回数」で数える（消費量＝広告露出のため）。 */
+  const goNext = useCallback(() => {
     advanceFeed();
+    setEnterFrom('next');
     setBursts([]);
-    swipeHaptic();
+    setShattering(null);
 
-    swipeCountRef.current += 1;
-    if (swipeCountRef.current % INTERSTITIAL_EVERY === 0) {
-      setAdVisible(true);
-    }
+    advanceCountRef.current += 1;
+    if (advanceCountRef.current % INTERSTITIAL_EVERY === 0) setAdVisible(true);
   }, [advanceFeed]);
+
+  const goPrev = useCallback(() => {
+    if (!canGoBack) return;
+    goBack();
+    setEnterFrom('prev');
+    setBursts([]);
+    setShattering(null);
+    swipeHaptic();
+  }, [goBack, canGoBack]);
+
+  const onSwipeNext = useCallback(() => {
+    swipeHaptic();
+    goNext();
+  }, [goNext]);
 
   const onReaction = useCallback(
     (x: number, y: number) => {
+      if (Date.now() < lockUntilRef.current) return;
       const item = currentRef.current;
-      if (!item) return;
+      if (!item || shattering) return;
 
       if (get(item.id).reactions >= MAX_REACTIONS) {
         // 上限。無音だと故障に見えるので最弱の触覚だけ返す。
@@ -97,7 +144,8 @@ export function FeedScreen() {
         return;
       }
 
-      const level = bumpReaction(item.id);
+      const count = bumpReaction(item.id);
+      const level = reactionLevel(count);
       reactionHaptic(level);
 
       const key = burstKeyRef.current++;
@@ -108,28 +156,46 @@ export function FeedScreen() {
         withTiming(0, { duration: 260, easing: Easing.out(Easing.quad) })
       );
 
-      if (level === MAX_REACTIONS) setMaxTrigger((t) => t + 1);
+      // 5回目で天井。以降は毎回 MAX 演出を撃って「増えない3回」を作らない。
+      if (isMaxReaction(count)) setMaxTrigger((t) => t + 1);
+
+      if (count >= MAX_REACTIONS) {
+        // 即送りすると一番大きい快感を自分で潰すので、演出を見せる間を取ってから送る
+        lockUntilRef.current = Date.now() + ADVANCE_DELAY_MS + INPUT_LOCK_MS;
+        later(goNext, ADVANCE_DELAY_MS);
+      }
     },
-    [get, bumpReaction]
+    [get, bumpReaction, goNext, later, shattering]
   );
 
-  const onSave = useCallback(() => {
+  /** BAD。破壊しきってから次へ送る。取り消し（2回目の長押し）は破壊しない。 */
+  const onBad = useCallback(() => {
+    if (Date.now() < lockUntilRef.current) return;
     const item = currentRef.current;
-    if (!item) return;
-    const isNew = markSaved(item.id);
-    saveHaptic();
-    setSavedLabel(isNew ? '保存しました' : '保存済み');
-    setSavedTrigger((t) => t + 1);
-  }, [markSaved]);
+    if (!item || shattering) return;
+
+    const nowBad = toggleBad(item.id);
+    if (!nowBad) {
+      // 誤爆の取り消し。壊した演出は出さず、軽い手応えだけ返す。
+      reactionCappedHaptic();
+      return;
+    }
+
+    badHaptic();
+    setShattering(item.punchline_text);
+    lockUntilRef.current = Date.now() + INPUT_LOCK_MS;
+  }, [toggleBad, shattering]);
+
+  /** 破壊が終わったら即座に次へ。嫌だと言われたものを見せ続けない。 */
+  const onShatterDone = useCallback(() => {
+    lockUntilRef.current = Date.now() + INPUT_LOCK_MS;
+    goNext();
+  }, [goNext]);
 
   const dropBurst = useCallback((key: number) => {
     setBursts((prev) => prev.filter((b) => b.key !== key));
   }, []);
 
-  /**
-   * 遊べない理由。オフラインを最優先で見るのは、手持ちの雑学が残っていても
-   * 通信が無い間は遊ばせない（=広告なしで遊ばれない）ようにするため。
-   */
   const gateMode: GateMode | null = !online
     ? 'offline'
     : status === 'error'
@@ -140,15 +206,14 @@ export function FeedScreen() {
   const blocked = gateMode !== null;
 
   const gesture = useMemo(() => {
-    // 全面広告中と、通信が無い／読み込み中は操作させない
-    const live = !adVisible && !blocked;
+    const live = !adVisible && !blocked && !detailOpen;
 
-    const doubleTap = Gesture.Tap()
+    // 単一タップ。ダブルタップにすると2回目を待つ遅延が必ず入る。
+    // maxDuration を長押しの minDuration(350) より短くして、判定が重なる帯を作らない。
+    const tap = Gesture.Tap()
       .enabled(live)
-      .numberOfTaps(2)
-      .maxDuration(280)
-      .maxDelay(220)
-      .maxDistance(40)
+      .maxDuration(300)
+      .maxDistance(20)
       .onEnd((e, success) => {
         if (success) runOnJS(onReaction)(e.x, e.y);
       });
@@ -158,35 +223,43 @@ export function FeedScreen() {
       .minDuration(350)
       .maxDistance(20)
       .onStart(() => {
-        runOnJS(onSave)();
+        runOnJS(onBad)();
       });
 
     const pan = Gesture.Pan()
       .enabled(live)
-      .activeOffsetY([-12, 12])
-      .failOffsetX([-60, 60])
+      .minDistance(12)
       .onUpdate((e) => {
-        // 上は指に追従、下は戻り先が無いので抵抗をかける
-        drag.value = e.translationY < 0 ? e.translationY : e.translationY * 0.22;
+        // 縦横どちらの操作かは、その時点で優勢な軸で決める
+        if (Math.abs(e.translationY) >= Math.abs(e.translationX)) {
+          drag.value = { x: 0, y: e.translationY };
+        } else {
+          // 右方向には行き先が無いので抵抗をかける
+          drag.value = { x: e.translationX < 0 ? e.translationX : e.translationX * 0.2, y: 0 };
+        }
       })
       .onEnd((e) => {
-        const committed = e.translationY < -SWIPE_DISTANCE || e.velocityY < SWIPE_VELOCITY;
-        if (committed) {
-          // アニメーションで送り出さない。差し替え直後の入場演出で繋ぐ方が速く見える。
-          drag.value = 0;
-          runOnJS(advance)();
-        } else {
-          drag.value = withTiming(0, { duration: 140, easing: Easing.out(Easing.cubic) });
+        const vertical = Math.abs(e.translationY) >= Math.abs(e.translationX);
+        drag.value = { x: 0, y: 0 };
+
+        if (vertical) {
+          if (e.translationY < -SWIPE_DISTANCE || e.velocityY < -SWIPE_VELOCITY) {
+            runOnJS(onSwipeNext)();
+          } else if (e.translationY > SWIPE_DISTANCE || e.velocityY > SWIPE_VELOCITY) {
+            runOnJS(goPrev)();
+          }
+        } else if (e.translationX < -SWIPE_DISTANCE || e.velocityX < -SWIPE_VELOCITY) {
+          runOnJS(setDetailOpen)(true);
         }
       });
 
-    // タップ系はどちらか片方だけ、スワイプとは独立に競わせる
-    return Gesture.Race(pan, Gesture.Exclusive(doubleTap, longPress));
-  }, [onReaction, onSave, advance, adVisible, blocked]);
+    // タップ系はどちらか片方だけ。スワイプとは独立に競わせる。
+    return Gesture.Race(pan, Gesture.Exclusive(tap, longPress));
+  }, [onReaction, onBad, onSwipeNext, goPrev, adVisible, blocked, detailOpen]);
 
   const cardStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: drag.value }],
-    opacity: 1 - Math.min(Math.abs(drag.value) / 420, 0.55),
+    transform: [{ translateX: drag.value.x }, { translateY: drag.value.y }],
+    opacity: 1 - Math.min((Math.abs(drag.value.x) + Math.abs(drag.value.y)) / 420, 0.55),
   }));
 
   return (
@@ -199,10 +272,18 @@ export function FeedScreen() {
           <GestureDetector gesture={gesture}>
             {/* collapsable={false}: Android でこの View が畳まれるとタッチを拾えない */}
             <View style={styles.gestureArea} collapsable={false}>
-              {current ? (
+              {current && !shattering ? (
                 <Animated.View style={[styles.cardLayer, cardStyle]}>
-                  <TriviaCard item={current} width={area.width} kick={kick} />
+                  <TriviaCard item={current} width={area.width} kick={kick} from={enterFrom} />
                 </Animated.View>
+              ) : null}
+
+              {shattering ? (
+                <ShatterText
+                  text={shattering}
+                  fontSize={punchFontSize(shattering, area.width)}
+                  onDone={onShatterDone}
+                />
               ) : null}
 
               {bursts.map((burst) => (
@@ -211,9 +292,7 @@ export function FeedScreen() {
 
               {/* 広告枠には重ねない。演出はコンテンツ領域内で完結させる。 */}
               <MaxFlash trigger={maxTrigger} />
-              <SavedToast trigger={savedTrigger} label={savedLabel} />
 
-              {/* バナーは塞がない（広告は出し続ける）。本文だけを塞ぐ。 */}
               {gateMode ? <ConnectionGate mode={gateMode} onRetry={retry} /> : null}
             </View>
           </GestureDetector>
@@ -221,6 +300,26 @@ export function FeedScreen() {
 
         <AdBanner slot="bottom" />
       </View>
+
+      {detailOpen && current ? (
+        <DetailScreen
+          item={current}
+          entry={get(current.id)}
+          version={version}
+          onClose={() => setDetailOpen(false)}
+          onReaction={onReaction}
+          onBad={onBad}
+          onBookmark={() => toggleBookmark(current.id)}
+          onNext={() => {
+            setDetailOpen(false);
+            onSwipeNext();
+          }}
+          onPrev={() => {
+            setDetailOpen(false);
+            goPrev();
+          }}
+        />
+      ) : null}
 
       {adVisible ? <InterstitialAd onClose={() => setAdVisible(false)} /> : null}
     </View>

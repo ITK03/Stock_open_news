@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { PREFETCH_THRESHOLD } from '../config';
+import { HISTORY_LIMIT } from '../theme';
 import {
   fetchManifest,
   fetchShard,
@@ -52,7 +53,7 @@ export function useTriviaFeed() {
 
   /**
    * シャードを1つ取り込む。`append` が false なら初回ロード扱い。
-   * 取り込み時に消費済みの雑学を捨てて、長時間プレイでメモリが膨らむのを防ぐ。
+   * 取り込み時に古い履歴を切り詰めて、長時間プレイでメモリが膨らむのを防ぐ。
    */
   const loadShard = useCallback(
     async (append: boolean) => {
@@ -84,9 +85,10 @@ export function useTriviaFeed() {
         setFeed((prev) => {
           const fresh = shuffle(items);
           if (!append) return { queue: fresh, pos: 0 };
-          // 消費済みを切り捨てるので pos は 0 に戻る（現在の1件は先頭に残す）
-          const kept = prev.queue.slice(prev.pos);
-          return { queue: [...kept, ...fresh], pos: 0 };
+          // 下スワイプで戻れるよう、消費済みも直近 HISTORY_LIMIT 件までは残す。
+          // 全部捨てると「前へ戻る」が成立せず、全部残すとメモリが際限なく伸びる。
+          const drop = Math.max(0, prev.pos - HISTORY_LIMIT);
+          return { queue: [...prev.queue.slice(drop), ...fresh], pos: prev.pos - drop };
         });
         setStatus('ready');
         setError(null);
@@ -128,7 +130,23 @@ export function useTriviaFeed() {
     if (remaining <= PREFETCH_THRESHOLD) void loadShard(true);
   }, [loadShard]);
 
-  const current = feed.queue[feed.pos] ?? null;
+  /** 前の雑学へ戻る。履歴の先頭に居るときは何もしない。 */
+  const goBack = useCallback(() => {
+    setFeed((f) => (f.pos > 0 ? { ...f, pos: f.pos - 1 } : f));
+  }, []);
 
-  return { status, error, current, advance, retry, total: manifestRef.current?.total ?? 0 };
+  const current = feed.queue[feed.pos] ?? null;
+  const canGoBack = feed.pos > 0;
+
+  return {
+    status,
+    error,
+    current,
+    advance,
+    goBack,
+    canGoBack,
+    retry,
+    // 詳細取得のキャッシュ無効化に使う
+    version: manifestRef.current?.version ?? 1,
+  };
 }

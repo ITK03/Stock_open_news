@@ -145,3 +145,58 @@ def test_rejects_invalid_shard_size(tmp_path):
     _write_source(src, [_item(1)])
     with pytest.raises(ValueError):
         tb.build(src, str(tmp_path / "out"), shard_size=0)
+
+
+# アプリ側 src/data/remote.ts の detailBucket を実際に実行して得た値。
+# 片方だけ実装を変えると詳細が全件404になるので、ここで固定しておく。
+JS_DETAIL_BUCKETS = {
+    "1": "71c",
+    "2": "bd5",
+    "52": "3c6",
+    "0": "8af",
+    "999999": "a0b",
+    "1000000": "39c",
+    "abc": "90b",
+    "x-1": "47d",
+    "日本語ID": "653",
+    "絵文字🎉": "805",
+    "ﾊﾝｶｸ": "40e",
+}
+
+
+def test_detail_bucket_matches_client_implementation():
+    """UTF-16 で数える。バイト単位にすると非ASCIIのIDだけ結果がズレる。"""
+    for iid, expected in JS_DETAIL_BUCKETS.items():
+        assert tb.detail_bucket(iid) == expected, iid
+
+
+def test_detail_bucket_is_within_range():
+    for i in range(500):
+        b = tb.detail_bucket(i)
+        assert len(b) == 3
+        assert 0 <= int(b, 16) < tb.DETAIL_BUCKETS
+
+
+def test_writes_detail_files_outside_shards(tmp_path):
+    """詳細は本文シャードに同梱しない（シャードの軽さが崩れるため）。"""
+    src = str(tmp_path / "s.jsonl")
+    out = str(tmp_path / "out")
+    _write_source(src, [
+        {"id": 1, "setup": "実は…", "punchline": "オチ", "detail": "詳しい説明"},
+        {"id": 2, "setup": "実は…", "punchline": "詳細なし"},
+    ])
+
+    res = tb.build(src, out, shard_size=10)
+
+    assert res["details"] == 1
+    shard = _read(os.path.join(out, "shards", "000000.json"))
+    # シャード側に詳細が混ざっていないこと
+    assert shard == [
+        {"i": 1, "s": "実は…", "p": "オチ"},
+        {"i": 2, "s": "実は…", "p": "詳細なし"},
+    ]
+
+    detail_path = os.path.join(out, "details", tb.detail_bucket(1), "1.json")
+    assert _read(detail_path) == {"i": 1, "d": "詳しい説明"}
+    # 詳細を持たない雑学のファイルは作らない
+    assert not os.path.exists(os.path.join(out, "details", tb.detail_bucket(2), "2.json"))

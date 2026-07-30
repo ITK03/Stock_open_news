@@ -127,6 +127,45 @@ export async function fetchShard(
   return items;
 }
 
+/**
+ * 詳細ファイルの配置先を決めるハッシュ（FNV-1a）。
+ * 100万件を1ディレクトリに置くとオブジェクト一覧や同期が破綻するので、
+ * 4096個のディレクトリに分散させる。**サーバー側の生成器と同じ実装**であること。
+ */
+export function detailBucket(id: number | string): string {
+  const s = String(id);
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    // FNV prime を 32bit で掛ける（Math.imul でオーバーフローを揃える）
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return (h % 4096).toString(16).padStart(3, '0');
+}
+
+/**
+ * 詳細説明を取得する。本文シャードには同梱しない（同梱するとシャードが
+ * 数倍に膨らみ「1リクエストで500件」の軽さが崩れる）。
+ * 詳細を読むのは左スワイプされた一部の雑学だけなので個別取得が最も軽い。
+ */
+export async function fetchDetail(
+  id: number | string,
+  version: number,
+  signal?: AbortSignal
+): Promise<string> {
+  const url = `${TRIVIA_BASE_URL}/details/${detailBucket(id)}/${encodeURIComponent(String(id))}.json?v=${version}`;
+  const raw = await fetchJson(url, signal);
+
+  if (!raw || typeof raw !== 'object') {
+    throw new TriviaFetchError('詳細が壊れている', 'format');
+  }
+  const text = (raw as Record<string, unknown>).d;
+  if (typeof text !== 'string' || !text) {
+    throw new TriviaFetchError('詳細が空', 'format');
+  }
+  return text;
+}
+
 /** Fisher-Yates。シャード内の並びをそのまま出すと毎回同じ順になるため。 */
 export function shuffle<T>(list: T[]): T[] {
   const out = [...list];

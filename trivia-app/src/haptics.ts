@@ -43,10 +43,23 @@ export function reactionCappedHaptic() {
   impact(Haptics.ImpactFeedbackStyle.Soft);
 }
 
-/** 長押し保存。仕様どおり「重め」。 */
-export function saveHaptic() {
+/**
+ * BAD（長押し）。**達成パターンを使わない。**
+ * 重い一撃で叩き割り、崩落の微振動を尾に引く。
+ * ここで Success を鳴らすと BAD が快感になり、娯楽として連打される。
+ */
+export function badHaptic() {
   impact(Haptics.ImpactFeedbackStyle.Heavy);
-  setTimeout(() => fire(Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)), 90);
+  setTimeout(() => impact(Haptics.ImpactFeedbackStyle.Rigid), 70);
+  // 崩れ落ちる尾。だんだん弱くして「壊れて散った」感を作る
+  setTimeout(() => impact(Haptics.ImpactFeedbackStyle.Medium), 150);
+  setTimeout(() => impact(Haptics.ImpactFeedbackStyle.Light), 240);
+  setTimeout(() => impact(Haptics.ImpactFeedbackStyle.Soft), 330);
+}
+
+/** ブックマーク（詳細画面）。控えめな確定の手応え。 */
+export function bookmarkHaptic() {
+  impact(Haptics.ImpactFeedbackStyle.Medium);
 }
 
 /** 次の雑学へ。切り替えの手応えだけ欲しいので軽く。 */

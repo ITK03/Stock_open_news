@@ -1,5 +1,6 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { LayoutChangeEvent, StyleSheet, View } from 'react-native';
+import { useNetworkState } from 'expo-network';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   Easing,
@@ -12,14 +13,15 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdBanner } from '../components/AdBanner';
+import { ConnectionGate, type GateMode } from '../components/ConnectionGate';
 import { InterstitialAd } from '../components/InterstitialAd';
 import { MaxFlash } from '../components/MaxFlash';
 import { ParticleBurst, type Burst } from '../components/ParticleBurst';
 import { SavedToast } from '../components/SavedToast';
 import { TriviaCard } from '../components/TriviaCard';
-import { shuffledDeck } from '../data/trivia';
 import { reactionCappedHaptic, reactionHaptic, saveHaptic, swipeHaptic } from '../haptics';
 import { useProgress } from '../hooks/useProgress';
+import { useTriviaFeed } from '../hooks/useTriviaFeed';
 import { BG, INTERSTITIAL_EVERY, MAX_REACTIONS } from '../theme';
 
 /** バナーと本文の間隔。ここを詰めると誤タップで広告を踏むので削らない。 */
@@ -34,11 +36,18 @@ const MAX_CONCURRENT_BURSTS = 6;
 
 export function FeedScreen() {
   const insets = useSafeAreaInsets();
-  const deck = useMemo(shuffledDeck, []);
   const { get, bumpReaction, markSaved } = useProgress();
 
-  const [index, setIndex] = useState(0);
-  const indexRef = useRef(0);
+  // 雑学はサーバー配信のみ。端末には残さない（オフラインで遊ばせない）
+  const { status, current, advance: advanceFeed, retry } = useTriviaFeed();
+
+  // 通信が切れたら手持ちがあっても止める。広告なしで遊ばれる隙を作らないため。
+  const net = useNetworkState();
+  const online = net.isInternetReachable !== false && net.isConnected !== false;
+
+  // 現在の雑学を非同期処理から参照する（setState の反映を待たない）
+  const currentRef = useRef(current);
+  currentRef.current = current;
 
   const [bursts, setBursts] = useState<Burst[]>([]);
   const burstKeyRef = useRef(0);
@@ -55,18 +64,19 @@ export function FeedScreen() {
   const drag = useSharedValue(0);
   const kick = useSharedValue(0);
 
-  const current = deck[index];
-
   const onContentLayout = useCallback((e: LayoutChangeEvent) => {
     const { width, height } = e.nativeEvent.layout;
     setArea((prev) => (prev.width === width && prev.height === height ? prev : { width, height }));
   }, []);
 
+  // 通信が戻ったら黙って取り直す（ユーザーに再試行させない）
+  useEffect(() => {
+    if (online && status === 'error') retry();
+  }, [online, status, retry]);
+
   /** 上スワイプ確定。遅延ゼロで差し替え、INTERSTITIAL_EVERY 回ごとに全面広告を挟む。 */
   const advance = useCallback(() => {
-    const next = (indexRef.current + 1) % deck.length;
-    indexRef.current = next;
-    setIndex(next);
+    advanceFeed();
     setBursts([]);
     swipeHaptic();
 
@@ -74,11 +84,13 @@ export function FeedScreen() {
     if (swipeCountRef.current % INTERSTITIAL_EVERY === 0) {
       setAdVisible(true);
     }
-  }, [deck.length]);
+  }, [advanceFeed]);
 
   const onReaction = useCallback(
     (x: number, y: number) => {
-      const item = deck[indexRef.current];
+      const item = currentRef.current;
+      if (!item) return;
+
       if (get(item.id).reactions >= MAX_REACTIONS) {
         // 上限。無音だと故障に見えるので最弱の触覚だけ返す。
         reactionCappedHaptic();
@@ -98,24 +110,38 @@ export function FeedScreen() {
 
       if (level === MAX_REACTIONS) setMaxTrigger((t) => t + 1);
     },
-    [deck, get, bumpReaction]
+    [get, bumpReaction]
   );
 
   const onSave = useCallback(() => {
-    const item = deck[indexRef.current];
+    const item = currentRef.current;
+    if (!item) return;
     const isNew = markSaved(item.id);
     saveHaptic();
     setSavedLabel(isNew ? '保存しました' : '保存済み');
     setSavedTrigger((t) => t + 1);
-  }, [deck, markSaved]);
+  }, [markSaved]);
 
   const dropBurst = useCallback((key: number) => {
     setBursts((prev) => prev.filter((b) => b.key !== key));
   }, []);
 
+  /**
+   * 遊べない理由。オフラインを最優先で見るのは、手持ちの雑学が残っていても
+   * 通信が無い間は遊ばせない（=広告なしで遊ばれない）ようにするため。
+   */
+  const gateMode: GateMode | null = !online
+    ? 'offline'
+    : status === 'error'
+      ? 'error'
+      : status === 'loading' || !current
+        ? 'loading'
+        : null;
+  const blocked = gateMode !== null;
+
   const gesture = useMemo(() => {
-    // 全面広告が出ている間は下のフィードを操作させない
-    const live = !adVisible;
+    // 全面広告中と、通信が無い／読み込み中は操作させない
+    const live = !adVisible && !blocked;
 
     const doubleTap = Gesture.Tap()
       .enabled(live)
@@ -156,7 +182,7 @@ export function FeedScreen() {
 
     // タップ系はどちらか片方だけ、スワイプとは独立に競わせる
     return Gesture.Race(pan, Gesture.Exclusive(doubleTap, longPress));
-  }, [onReaction, onSave, advance, adVisible]);
+  }, [onReaction, onSave, advance, adVisible, blocked]);
 
   const cardStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: drag.value }],
@@ -173,9 +199,11 @@ export function FeedScreen() {
           <GestureDetector gesture={gesture}>
             {/* collapsable={false}: Android でこの View が畳まれるとタッチを拾えない */}
             <View style={styles.gestureArea} collapsable={false}>
-              <Animated.View style={[styles.cardLayer, cardStyle]}>
-                <TriviaCard item={current} width={area.width} kick={kick} />
-              </Animated.View>
+              {current ? (
+                <Animated.View style={[styles.cardLayer, cardStyle]}>
+                  <TriviaCard item={current} width={area.width} kick={kick} />
+                </Animated.View>
+              ) : null}
 
               {bursts.map((burst) => (
                 <ParticleBurst key={burst.key} burst={burst} onDone={dropBurst} />
@@ -184,6 +212,9 @@ export function FeedScreen() {
               {/* 広告枠には重ねない。演出はコンテンツ領域内で完結させる。 */}
               <MaxFlash trigger={maxTrigger} />
               <SavedToast trigger={savedTrigger} label={savedLabel} />
+
+              {/* バナーは塞がない（広告は出し続ける）。本文だけを塞ぐ。 */}
+              {gateMode ? <ConnectionGate mode={gateMode} onRetry={retry} /> : null}
             </View>
           </GestureDetector>
         </View>

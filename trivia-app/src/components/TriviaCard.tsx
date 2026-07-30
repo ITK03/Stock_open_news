@@ -9,7 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { FG } from '../theme';
 import { FONT_BLACK, FONT_BODY } from '../fonts';
-import type { Trivia } from '../data/trivia';
+import type { Trivia } from '../data/remote';
 
 const PUNCH_MAX = 82;
 const PUNCH_MIN = 28;

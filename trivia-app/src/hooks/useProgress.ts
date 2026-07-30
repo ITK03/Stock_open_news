@@ -93,11 +93,11 @@ export function useProgress() {
     };
   }, [flush]);
 
-  const get = useCallback((id: number): Entry => mapRef.current[String(id)] ?? EMPTY, []);
+  const get = useCallback((id: number | string): Entry => mapRef.current[String(id)] ?? EMPTY, []);
 
   /** リアクションを1つ加算し、加算後の回数を返す。上限に達していたら据え置きで返す。 */
   const bumpReaction = useCallback(
-    (id: number): number => {
+    (id: number | string): number => {
       const key = String(id);
       const current = mapRef.current[key] ?? EMPTY;
       if (current.reactions >= MAX_REACTIONS) return current.reactions;
@@ -112,7 +112,7 @@ export function useProgress() {
 
   /** 保存フラグを立てる。既に保存済みなら false を返す（演出の出し分け用）。 */
   const markSaved = useCallback(
-    (id: number): boolean => {
+    (id: number | string): boolean => {
       const key = String(id);
       const current = mapRef.current[key] ?? EMPTY;
       if (current.saved) return false;

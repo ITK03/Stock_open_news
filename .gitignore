@@ -11,6 +11,3 @@ docs/data/disclosures.json.tmp
 # 最新版 disclosures.json は data ブランチ(force-push)で配信し、mainでは追跡しない
 # (毎回の再コミットで履歴が無限肥大化するのを防ぐ)。
 docs/data/disclosures.json
-
-# 雑学の配信ファイル(生成物)。100万件規模になるためリポジトリでは追跡しない。
-dist/

@@ -1,7 +1,175 @@
 {
-  "updated_at": "2026-07-31T09:58:25+09:00",
-  "count": 10,
+  "updated_at": "2026-07-31T10:00:29+09:00",
+  "count": 16,
   "items": [
+    {
+      "id": "140120260731504413",
+      "time": "2026-07-31T10:00:00+09:00",
+      "code": "13294",
+      "company": "Ｅ－ブラックロック",
+      "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504413.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
+    },
+    {
+      "id": "140120260731504402",
+      "time": "2026-07-31T10:00:00+09:00",
+      "code": "16714",
+      "company": "Ｅ－シンプレクス",
+      "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504402.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
+    },
+    {
+      "id": "140120260731504328",
+      "time": "2026-07-31T10:00:00+09:00",
+      "code": "585A4",
+      "company": "Ｅ－ＪＡＭＰＦＭ",
+      "title": "上場ETF（管理会社：JAMPファンド・マネジメント）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504328.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
+    },
+    {
+      "id": "140120260728500481",
+      "time": "2026-07-31T10:00:00+09:00",
+      "code": "8303",
+      "company": "ＳＢＩ新生銀行",
+      "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260728500481.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-31T10:00:16+09:00",
+      "earnings": {
+        "period": "2027年３月期  第１四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260730504093",
+      "time": "2026-07-31T10:00:00+09:00",
+      "code": "8303",
+      "company": "ＳＢＩ新生銀行",
+      "title": "中間配当の導入に伴う配当予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504093.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "配当",
+      "score": 84,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 85,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "配当予想の修正",
+        "本文:減配(42円→10円)"
+      ],
+      "summary": "減配(42円→10円)。配当予想の修正。増減を本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-07-31T10:00:16+09:00",
+      "content_analysis": {
+        "direction": "negative",
+        "score_bonus": 4,
+        "note": "減配(42円→10円)",
+        "confidence": 85,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120260727500102",
+      "time": "2026-07-31T10:00:00+09:00",
+      "code": "8368",
+      "company": "百五銀",
+      "title": "取締役に対する株式報酬型ストック・オプションの発行内容確定に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260727500102.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:ストック・オプション"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
+    },
     {
       "id": "140120260730503539",
       "time": "2026-07-31T09:45:00+09:00",
@@ -25,7 +193,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00",
+      "analyzed_at": "2026-07-31T10:00:16+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -64,7 +232,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00"
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
     },
     {
       "id": "140120260731504385",
@@ -89,7 +257,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00"
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
     },
     {
       "id": "140120260731504320",
@@ -115,7 +283,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00"
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
     },
     {
       "id": "140120260731504422",
@@ -141,7 +309,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00"
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
     },
     {
       "id": "140120260730504056",
@@ -166,7 +334,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00"
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
     },
     {
       "id": "140120260730504057",
@@ -191,7 +359,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00"
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
     },
     {
       "id": "140120260730504058",
@@ -216,7 +384,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T09:58:11+09:00"
+      "analyzed_at": "2026-07-31T10:00:16+09:00"
     },
     {
       "id": "9753869c8d441b89",

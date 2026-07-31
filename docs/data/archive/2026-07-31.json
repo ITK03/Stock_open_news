@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-07-31T13:19:19+09:00",
-  "count": 154,
+  "updated_at": "2026-07-31T13:21:22+09:00",
+  "count": 156,
   "items": [
     {
-      "id": "140120260730503391",
-      "time": "2026-07-31T13:00:00+09:00",
-      "code": "1777",
-      "company": "川崎設備",
-      "title": "2027年３月期第１四半期決算短信〔日本基準〕(非連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503391.pdf",
+      "id": "140120260731504646",
+      "time": "2026-07-31T13:20:00+09:00",
+      "code": "4202",
+      "company": "ダイセル",
+      "title": "2027年3月期 第1四半期決算短信〔日本基準〕(連結)",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504646.pdf",
       "exchange": "東証",
       "markets": "",
       "source": "scraper",
@@ -25,7 +25,89 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
+      "earnings": {
+        "period": "2027年3月期\n第1四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "1百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260731504696",
+      "time": "2026-07-31T13:20:00+09:00",
+      "code": "4202",
+      "company": "ダイセル",
+      "title": "2027年3月期 第1四半期決算説明資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504696.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 18,
+      "impact": "low",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "四半期決算",
+        "減衰:説明資料"
+      ],
+      "summary": "営業増益(+7.7%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
+      "earnings": {
+        "period": "2027年3月期第1四半期",
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "1,524百万円",
+            "yoy": "+9.4%"
+          },
+          {
+            "label": "営業利益",
+            "value": "140百万円",
+            "yoy": "+7.7%"
+          },
+          {
+            "label": "純利益",
+            "value": "94百万円",
+            "yoy": "-2.7%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260730503391",
+      "time": "2026-07-31T13:00:00+09:00",
+      "code": "1777",
+      "company": "川崎設備",
+      "title": "2027年３月期第１四半期決算短信〔日本基準〕(非連結)",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503391.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -47,10 +129,10 @@
       "code": "1777",
       "company": "川崎設備",
       "title": "2027年３月期 第１四半期決算参考資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503499.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503499.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -64,7 +146,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [],
@@ -77,10 +159,10 @@
       "code": "1942",
       "company": "関電工",
       "title": "2027年3月期 第1四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504345.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504345.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -94,7 +176,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期  第1四半期",
         "figures": [
@@ -116,10 +198,10 @@
       "code": "2806",
       "company": "ユタカフーズ",
       "title": "2027年3月期　第1四半期決算短信〔日本基準〕(非連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260723598386.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260723598386.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -133,7 +215,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [
@@ -155,10 +237,10 @@
       "code": "3153",
       "company": "八洲電機",
       "title": "2027年3月期　第1四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503207.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503207.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -172,7 +254,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -190,10 +272,10 @@
       "code": "3946",
       "company": "トーモク",
       "title": "自己株式取得に係る事項の決定に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260727500284.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260727500284.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "自社株買い",
       "score": 81,
       "impact": "high",
@@ -207,7 +289,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260717596226",
@@ -215,10 +297,10 @@
       "code": "3946",
       "company": "トーモク",
       "title": "2027年3月期 第1四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260717596226.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260717596226.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -232,7 +314,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -250,10 +332,10 @@
       "code": "4410",
       "company": "ハリマ化成Ｇ",
       "title": "2027年3月期第1四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260727599928.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260727599928.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -267,7 +349,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [
@@ -285,10 +367,10 @@
       "code": "4410",
       "company": "ハリマ化成Ｇ",
       "title": "2027年3月期第1四半期決算補足説明資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260727599949.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260727599949.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 18,
       "impact": "low",
@@ -303,7 +385,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730504176",
@@ -311,10 +393,10 @@
       "code": "4568",
       "company": "第一三共",
       "title": "（訂正・数値データ訂正）「2026年３月期 決算短信〔IFRS基準〕(連結)」の一部訂正について",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504176.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730504176.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 23,
       "impact": "low",
@@ -329,7 +411,7 @@
       ],
       "summary": "営業増益(+28%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2026年３月期",
         "figures": [
@@ -348,10 +430,10 @@
       "code": "4568",
       "company": "第一三共",
       "title": "2027年3月期 第1四半期決算短信〔IFRS〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504099.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730504099.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -365,7 +447,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [],
@@ -378,10 +460,10 @@
       "code": "4568",
       "company": "第一三共",
       "title": "2027年3月期 第1四半期決算補足資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504168.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730504168.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -395,7 +477,7 @@
       ],
       "summary": "営業増益(+3%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -414,10 +496,10 @@
       "code": "4568",
       "company": "第一三共",
       "title": "2026年度 第1四半期決算説明会資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504173.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730504173.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 23,
       "impact": "low",
@@ -432,7 +514,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260729502008",
@@ -440,10 +522,10 @@
       "code": "5204",
       "company": "石塚硝",
       "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260729502008.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260729502008.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -457,7 +539,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期",
         "figures": [
@@ -475,10 +557,10 @@
       "code": "5257",
       "company": "ノバシステム",
       "title": "自己株式取得に係る事項の決定に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504318.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504318.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "自社株買い",
       "score": 81,
       "impact": "high",
@@ -492,7 +574,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504316",
@@ -500,10 +582,10 @@
       "code": "5257",
       "company": "ノバシステム",
       "title": "2026年12月期 第２四半期決算説明資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504316.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504316.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 18,
       "impact": "low",
@@ -518,7 +600,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504313",
@@ -526,10 +608,10 @@
       "code": "5257",
       "company": "ノバシステム",
       "title": "第２四半期（中間期）業績予想と実績値の差異に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504313.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504313.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "業績修正",
       "score": 96,
       "impact": "high",
@@ -544,7 +626,7 @@
       ],
       "summary": "上方修正(+262.6%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -559,10 +641,10 @@
       "code": "5257",
       "company": "ノバシステム",
       "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（非連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504310.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504310.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -576,7 +658,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2026年12月期  第２四半期",
         "figures": [
@@ -598,10 +680,10 @@
       "code": "5440",
       "company": "共英製鋼",
       "title": "2027年３月期 第１四半期決算短信 〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503937.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503937.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -615,7 +697,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -633,10 +715,10 @@
       "code": "5440",
       "company": "共英製鋼",
       "title": "（開示事項の経過）米国拠点における設備投資計画の再変更に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504881.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504881.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 0,
       "impact": "low",
@@ -650,7 +732,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730502919",
@@ -658,10 +740,10 @@
       "code": "5444",
       "company": "大和工",
       "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730502919.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730502919.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -675,7 +757,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -693,10 +775,10 @@
       "code": "5444",
       "company": "大和工",
       "title": "業績予想の修正に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730502960.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730502960.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "業績修正",
       "score": 92,
       "impact": "high",
@@ -711,7 +793,7 @@
       ],
       "summary": "上方修正(+30.0%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 8,
@@ -726,10 +808,10 @@
       "code": "5444",
       "company": "大和工",
       "title": "営業外収益(持分法による投資利益)の計上に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730502965.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730502965.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -743,7 +825,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730502737",
@@ -751,10 +833,10 @@
       "code": "5464",
       "company": "モリ工業",
       "title": "2027年３月期　第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730502737.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730502737.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -768,7 +850,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -786,10 +868,10 @@
       "code": "5938",
       "company": "ＬＩＸＩＬ",
       "title": "2027年3月期 第1四半期決算短信〔IFRS〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503441.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503441.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -803,7 +885,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [],
@@ -816,10 +898,10 @@
       "code": "5938",
       "company": "ＬＩＸＩＬ",
       "title": "2027年3月期 第1四半期 決算説明資料 [IFRS]（2026年4月－2026年6月）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503452.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503452.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 0,
       "impact": "low",
@@ -833,7 +915,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503801",
@@ -841,10 +923,10 @@
       "code": "6035",
       "company": "ＩＲＪａｐａｎ　ＨＤ",
       "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503801.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503801.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -858,7 +940,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -876,10 +958,10 @@
       "code": "6325",
       "company": "タカキタ",
       "title": "2027年３月期 第１四半期決算短信〔日本基準〕（非連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730502893.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730502893.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -893,7 +975,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -915,10 +997,10 @@
       "code": "6356",
       "company": "日ギア",
       "title": "2027年３月期　第１四半期決算短信［日本基準］（非連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504891.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504891.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -932,7 +1014,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期　第１四半期",
         "figures": [
@@ -954,10 +1036,10 @@
       "code": "6832",
       "company": "アオイ電子",
       "title": "第三者割当による自己株式の処分に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504943.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504943.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "自己株処分",
       "score": 61,
       "impact": "medium",
@@ -973,7 +1055,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504922",
@@ -981,10 +1063,10 @@
       "code": "6832",
       "company": "アオイ電子",
       "title": "2027年３月期　第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504922.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504922.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -998,7 +1080,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1016,10 +1098,10 @@
       "code": "7259",
       "company": "アイシン",
       "title": "2027年3月期 第1四半期決算短信〔IFRS〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504134.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730504134.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1033,7 +1115,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [],
@@ -1046,10 +1128,10 @@
       "code": "7539",
       "company": "アイナボＨＤ",
       "title": "2026年９月期第３四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260729502207.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260729502207.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1063,7 +1145,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2026年９月期\n第３四半期",
         "figures": [
@@ -1081,10 +1163,10 @@
       "code": "7988",
       "company": "ニフコ",
       "title": "2027年３月期  第１四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504789.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504789.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1098,7 +1180,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1116,10 +1198,10 @@
       "code": "7988",
       "company": "ニフコ",
       "title": "役員向け株式報酬制度の継続に伴う自己株式処分に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504839.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504839.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -1133,7 +1215,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731505087",
@@ -1141,10 +1223,10 @@
       "code": "7991",
       "company": "マミヤオーピー",
       "title": "ストックオプション（新株予約権）の発行に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731505087.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731505087.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 0,
       "impact": "low",
@@ -1160,7 +1242,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730502807",
@@ -1168,10 +1250,10 @@
       "code": "8046",
       "company": "丸藤パイル",
       "title": "2027年3月期 第1四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730502807.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730502807.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1185,7 +1267,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1203,10 +1285,10 @@
       "code": "8053",
       "company": "住友商",
       "title": "2027年3月期第1四半期決算短信〔IFRS〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504102.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730504102.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1220,7 +1302,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期\n第1四半期",
         "figures": [],
@@ -1233,10 +1315,10 @@
       "code": "8133",
       "company": "エネクス",
       "title": "2027年3月期　第1四半期決算短信〔IFRS〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503253.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503253.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1250,7 +1332,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1268,10 +1350,10 @@
       "code": "8337",
       "company": "千葉興銀",
       "title": "2027年３月期第１四半期末の有価証券含み損に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503653.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503653.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -1285,7 +1367,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504713",
@@ -1293,10 +1375,10 @@
       "code": "8362",
       "company": "福井銀",
       "title": "2027年３月期第１四半期末の有価証券含み損に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504713.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504713.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -1310,7 +1392,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503299",
@@ -1318,10 +1400,10 @@
       "code": "8381",
       "company": "山陰合銀",
       "title": "2027年3月期 第1四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503299.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503299.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1335,7 +1417,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期\n第1四半期",
         "figures": [
@@ -1353,10 +1435,10 @@
       "code": "8877",
       "company": "エスリード",
       "title": "2027年3月期 第1四半期決算短信[日本基準](連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260723598580.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260723598580.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1370,7 +1452,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1388,10 +1470,10 @@
       "code": "9359",
       "company": "伊勢湾海",
       "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504337.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504337.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "自己株処分",
       "score": 11,
       "impact": "low",
@@ -1406,7 +1488,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260729502342",
@@ -1414,10 +1496,10 @@
       "code": "9511",
       "company": "沖縄電力",
       "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260729502342.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260729502342.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1431,7 +1513,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -1449,10 +1531,10 @@
       "code": "9511",
       "company": "沖縄電力",
       "title": "2026年度　第１四半期決算の概要",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260729502408.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260729502408.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1466,7 +1548,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260728501255",
@@ -1474,10 +1556,10 @@
       "code": "9511",
       "company": "沖縄電力",
       "title": "業績予想および配当予想の修正に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260728501255.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260728501255.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "配当",
       "score": 80,
       "impact": "high",
@@ -1491,7 +1573,7 @@
       ],
       "summary": "配当予想の修正。増減を本文で要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504610",
@@ -1499,10 +1581,10 @@
       "code": "9511",
       "company": "沖縄電力",
       "title": "「おきでんグループ経営ビジョン・中期経営計画」の策定について",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504610.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504610.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -1516,7 +1598,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503972",
@@ -1524,10 +1606,10 @@
       "code": "9763",
       "company": "丸建リース",
       "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503972.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503972.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1541,7 +1623,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -1559,10 +1641,10 @@
       "code": "9857",
       "company": "英和",
       "title": "令和８年熊本地震の影響に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503587.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503587.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -1576,7 +1658,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504723",
@@ -1584,10 +1666,10 @@
       "code": "9902",
       "company": "日伝",
       "title": "2027年３月期  第１四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504723.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504723.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1601,7 +1683,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1619,10 +1701,10 @@
       "code": "9902",
       "company": "日伝",
       "title": "2027年３月期第２四半期（中間期）および通期連結業績予想ならびに配当予想の修正に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504781.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504781.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "業績修正",
       "score": 96,
       "impact": "high",
@@ -1637,7 +1719,7 @@
       ],
       "summary": "上方修正(+331.6%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -1652,10 +1734,10 @@
       "code": "2768",
       "company": "双日",
       "title": "2027年3月期 第1四半期決算短信[IFRS会計基準](連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260702586991.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260702586991.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1669,7 +1751,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期",
         "figures": [],
@@ -1682,10 +1764,10 @@
       "code": "2768",
       "company": "双日",
       "title": "2027年3月期 第1四半期決算資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260702587024.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260702587024.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1699,7 +1781,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504342",
@@ -1707,10 +1789,10 @@
       "code": "2875",
       "company": "東洋水産",
       "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504342.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504342.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1724,7 +1806,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1742,10 +1824,10 @@
       "code": "2875",
       "company": "東洋水産",
       "title": "2027年３月期　第１四半期決算参考資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504379.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504379.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1759,7 +1841,7 @@
       ],
       "summary": "営業増益(+226%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期 \n第1四半期",
         "figures": [
@@ -1793,10 +1875,10 @@
       "code": "2892",
       "company": "日食化",
       "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260728500472.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260728500472.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1810,7 +1892,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -1828,10 +1910,10 @@
       "code": "3245",
       "company": "ディア・ライフ",
       "title": "収益不動産の取得に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504296.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504296.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 38,
       "impact": "low",
@@ -1845,7 +1927,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503530",
@@ -1853,10 +1935,10 @@
       "code": "3407",
       "company": "旭化成",
       "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503530.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503530.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1870,7 +1952,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -1888,10 +1970,10 @@
       "code": "3407",
       "company": "旭化成",
       "title": "2026年度第１四半期決算説明資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730504036.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730504036.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 18,
       "impact": "low",
@@ -1906,7 +1988,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504948",
@@ -1914,10 +1996,10 @@
       "code": "4169",
       "company": "Ｇ－エネチェンジ",
       "title": "株式会社Flight PILOTとの資本業務提携等に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504948.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504948.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "提携・出資",
       "score": 71,
       "impact": "high",
@@ -1933,7 +2015,7 @@
       ],
       "summary": "資本・業務提携。事業拡大の期待。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504960",
@@ -1941,10 +2023,10 @@
       "code": "4169",
       "company": "Ｇ－エネチェンジ",
       "title": "（補足説明資料）株式会社Flight PILOTとの資本業務提携等に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504960.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504960.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "提携・出資",
       "score": 36,
       "impact": "low",
@@ -1961,7 +2043,7 @@
       ],
       "summary": "資本・業務提携。事業拡大の期待。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504629",
@@ -1969,10 +2051,10 @@
       "code": "549A",
       "company": "ヒトトヒトＨＤ",
       "title": "株式取得（子会社化）完了に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504629.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504629.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "M&A・統合",
       "score": 83,
       "impact": "high",
@@ -1988,7 +2070,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504650",
@@ -1996,10 +2078,10 @@
       "code": "549A",
       "company": "ヒトトヒトＨＤ",
       "title": "株式取得（子会社化）完了に関するお知らせ　補足説明資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504650.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504650.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "M&A・統合",
       "score": 48,
       "impact": "medium",
@@ -2016,7 +2098,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504654",
@@ -2024,10 +2106,10 @@
       "code": "549A",
       "company": "ヒトトヒトＨＤ",
       "title": "株式取得（子会社化）資金の借入完了に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504654.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504654.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "M&A・統合",
       "score": 83,
       "impact": "high",
@@ -2043,7 +2125,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731505077",
@@ -2051,10 +2133,10 @@
       "code": "6194",
       "company": "アトラエ",
       "title": "2026年9月期通期業績予想の修正及び配当予想の修正（増配）に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731505077.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731505077.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "業績修正",
       "score": 87,
       "impact": "high",
@@ -2070,7 +2152,7 @@
       ],
       "summary": "業績予想の上方修正。想定比のサプライズ次第で買い材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731505117",
@@ -2078,10 +2160,10 @@
       "code": "6194",
       "company": "アトラエ",
       "title": "資本コストや株価を意識した経営の実現に向けた対応について（アップデート）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731505117.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731505117.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "ガバナンス定例",
       "score": 25,
       "impact": "low",
@@ -2095,7 +2177,7 @@
       ],
       "summary": "ガバナンス・IR方針系の定例開示。影響は限定的。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503939",
@@ -2103,10 +2185,10 @@
       "code": "6625",
       "company": "ＪＡＬＣＯ　ＨＤ",
       "title": "通期連結業績予想の修正（上方修正）に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260730503939.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260730503939.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "業績修正",
       "score": 87,
       "impact": "high",
@@ -2122,7 +2204,7 @@
       ],
       "summary": "業績予想の上方修正。想定比のサプライズ次第で買い材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731505026",
@@ -2130,10 +2212,10 @@
       "code": "6625",
       "company": "ＪＡＬＣＯ　ＨＤ",
       "title": "需給調整市場取引開始済みの高圧系統用蓄電所の取得に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731505026.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731505026.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 38,
       "impact": "low",
@@ -2147,7 +2229,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504375",
@@ -2155,10 +2237,10 @@
       "code": "8157",
       "company": "都築電気",
       "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504375.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504375.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -2172,7 +2254,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -2190,10 +2272,10 @@
       "code": "8157",
       "company": "都築電気",
       "title": "2027年３月期 第１四半期 決算補足資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120260731504410.pdf",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260731504410.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -2207,7 +2289,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731505005",
@@ -2232,7 +2314,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260729502390",
@@ -2257,7 +2339,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -2295,7 +2377,7 @@
       ],
       "summary": "特別損失・減損計上。業績下振れ要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260727500291",
@@ -2320,7 +2402,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [],
@@ -2350,7 +2432,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260728501197",
@@ -2375,7 +2457,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期  第1四半期",
         "figures": [
@@ -2411,7 +2493,7 @@
       ],
       "summary": "上方修正(+517.8%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -2444,7 +2526,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [
@@ -2479,7 +2561,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504332",
@@ -2504,7 +2586,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504287",
@@ -2532,7 +2614,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730502874",
@@ -2557,7 +2639,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -2592,7 +2674,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503148",
@@ -2617,7 +2699,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730504252",
@@ -2642,7 +2724,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -2677,7 +2759,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504865",
@@ -2705,7 +2787,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504371",
@@ -2731,7 +2813,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260709590363",
@@ -2756,7 +2838,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [
@@ -2795,7 +2877,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2026年12月期  第２四半期",
         "figures": [
@@ -2832,7 +2914,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504962",
@@ -2860,7 +2942,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503970",
@@ -2885,7 +2967,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -2922,7 +3004,7 @@
       ],
       "summary": "公開買付け(TOB/MBO)。買付価格次第で株価が大きく動く。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731505016",
@@ -2949,7 +3031,7 @@
       ],
       "summary": "資本・業務提携。事業拡大の期待。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504871",
@@ -2974,7 +3056,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504857",
@@ -2999,7 +3081,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504841",
@@ -3024,7 +3106,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260729502441",
@@ -3051,7 +3133,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503593",
@@ -3076,7 +3158,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -3111,7 +3193,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504805",
@@ -3138,7 +3220,7 @@
       ],
       "summary": "特別利益の計上。一時的な利益押し上げ要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504771",
@@ -3163,7 +3245,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730504037",
@@ -3188,7 +3270,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503717",
@@ -3213,7 +3295,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -3249,7 +3331,7 @@
       ],
       "summary": "上方修正(+7.9%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 0,
@@ -3282,7 +3364,7 @@
       ],
       "summary": "資本金の減少。欠損填補や税務目的が多く影響は限定的なことも。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503371",
@@ -3307,7 +3389,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -3345,7 +3427,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504453",
@@ -3370,7 +3452,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260722597313",
@@ -3395,7 +3477,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [
@@ -3431,7 +3513,7 @@
       ],
       "summary": "営業増益(+2%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [
@@ -3482,7 +3564,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -3517,7 +3599,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504378",
@@ -3542,7 +3624,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730502947",
@@ -3567,7 +3649,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -3602,7 +3684,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -3638,7 +3720,7 @@
       ],
       "summary": "営業増益(+20.9%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期\n第1四半期",
         "figures": [
@@ -3681,7 +3763,7 @@
       ],
       "summary": "増配・株主還元の強化でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730504224",
@@ -3706,7 +3788,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503142",
@@ -3731,7 +3813,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -3766,7 +3848,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [],
@@ -3797,7 +3879,7 @@
       ],
       "summary": "上方修正(+0.0%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 0,
@@ -3829,7 +3911,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -3868,7 +3950,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2026年12月期\n第２四半期",
         "figures": [
@@ -3907,7 +3989,7 @@
       ],
       "summary": "営業増益(+39%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2026年12月期第2四半期",
         "figures": [
@@ -3949,7 +4031,7 @@
       ],
       "summary": "上方修正(+20.6%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 4,
@@ -3981,7 +4063,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504364",
@@ -4006,7 +4088,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -4045,7 +4127,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期",
         "figures": [
@@ -4080,7 +4162,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期第1四半期",
         "figures": [],
@@ -4110,7 +4192,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -4149,7 +4231,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -4188,7 +4270,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504753",
@@ -4214,7 +4296,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年3月期 第1四半期",
         "figures": [
@@ -4249,7 +4331,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [],
@@ -4279,7 +4361,7 @@
       ],
       "summary": "配当予想の修正。増減を本文で要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504413",
@@ -4304,7 +4386,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504402",
@@ -4329,7 +4411,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504328",
@@ -4354,7 +4436,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260728500481",
@@ -4379,7 +4461,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期  第１四半期",
         "figures": [
@@ -4415,7 +4497,7 @@
       ],
       "summary": "減配(42円→10円)。配当予想の修正。増減を本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "content_analysis": {
         "direction": "negative",
         "score_bonus": 4,
@@ -4447,7 +4529,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730503539",
@@ -4472,7 +4554,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00",
+      "analyzed_at": "2026-07-31T13:21:07+09:00",
       "earnings": {
         "period": "2027年３月期\n第１四半期",
         "figures": [
@@ -4511,7 +4593,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504385",
@@ -4536,7 +4618,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504320",
@@ -4562,7 +4644,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260731504422",
@@ -4588,7 +4670,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730504056",
@@ -4613,7 +4695,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730504057",
@@ -4638,7 +4720,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "140120260730504058",
@@ -4663,7 +4745,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-07-31T13:19:08+09:00"
+      "analyzed_at": "2026-07-31T13:21:07+09:00"
     },
     {
       "id": "9753869c8d441b89",

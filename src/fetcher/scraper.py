@@ -128,25 +128,34 @@ def _parse_html(html: str, date: str) -> list[dict]:
                 code_text = cells[1].get_text(strip=True)
                 company_text = cells[2].get_text(strip=True)
 
-                # タイトルとPDFリンクはセル3以降から探す
+                # タイトル・PDF・XBRL(zip)のリンクをセル3以降から探す。
+                # XBRL は決算短信の会社予想・進捗率の算出に使う。URLの規則は
+                # 公開仕様として保証されておらず(実測で 81_<id>.zip も
+                # <id>.zip も 0812… への差し替えもすべて HTTP404 だった)、
+                # 一覧ページに出ているリンクをそのまま拾うのが唯一確実な方法。
                 title_text = ""
                 pdf_url = ""
+                xbrl_url = ""
+
+                def _abs(href: str) -> str:
+                    if href.startswith("http"):
+                        return href
+                    # 一覧ページは /inbs/ 配下にあるため、相対hrefは /inbs/ 基準で解決する
+                    if href.startswith("/"):
+                        return _TDNET_RELEASE_BASE + href
+                    return _TDNET_RELEASE_BASE + "/inbs/" + href
+
                 for cell in cells[3:]:
-                    a_tag = cell.find("a", href=True)
-                    if a_tag:
+                    for a_tag in cell.find_all("a", href=True):
                         href = a_tag["href"]
                         text = a_tag.get_text(strip=True) or cell.get_text(strip=True)
-                        if href.endswith(".pdf") or "inbs" in href:
-                            if not href.startswith("http"):
-                                # 一覧ページは /inbs/ 配下にあるため、相対hrefは /inbs/ 基準で解決する
-                                if href.startswith("/"):
-                                    href = _TDNET_RELEASE_BASE + href
-                                else:
-                                    href = _TDNET_RELEASE_BASE + "/inbs/" + href
-                            pdf_url = href
+                        if href.lower().endswith(".zip"):
+                            if not xbrl_url:
+                                xbrl_url = _abs(href)
+                        elif not pdf_url and (href.endswith(".pdf") or "inbs" in href):
+                            pdf_url = _abs(href)
                             title_text = text
-                            break
-                    elif not title_text:
+                    if not title_text and not cell.find("a", href=True):
                         t = cell.get_text(strip=True)
                         if t:
                             title_text = t
@@ -168,6 +177,8 @@ def _parse_html(html: str, date: str) -> list[dict]:
                     "company": company_text,
                     "title": title_text,
                     "pdf_url": pdf_url,
+                    # 決算短信XBRL。無い開示(PDFのみ)では空文字。
+                    "xbrl_url": xbrl_url,
                     "exchange": "東証",
                     "markets": "",
                     "source": "scraper",

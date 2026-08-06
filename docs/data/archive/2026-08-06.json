@@ -1,7 +1,94 @@
 {
-  "updated_at": "2026-08-06T08:59:27+09:00",
-  "count": 19,
+  "updated_at": "2026-08-06T09:01:44+09:00",
+  "count": 22,
   "items": [
+    {
+      "id": "140120260803507472",
+      "time": "2026-08-06T09:00:00+09:00",
+      "code": "3241",
+      "company": "ウィル",
+      "title": "業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260803507472.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220260803507472.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 96,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "本文:上方修正(+662.5%)"
+      ],
+      "summary": "上方修正(+662.5%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-08-06T09:01:16+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 12,
+        "note": "上方修正(+662.5%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120260806511096",
+      "time": "2026-08-06T09:00:00+09:00",
+      "code": "5301",
+      "company": "東海カーボン",
+      "title": "2026年12月期第2四半期決算説明会資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260806511096.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 23,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "四半期決算",
+        "減衰:説明会"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
+    },
+    {
+      "id": "140120260805509309",
+      "time": "2026-08-06T08:59:00+09:00",
+      "code": "489A",
+      "company": "物流フォーカス",
+      "title": "ETFの約款変更に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260805509309.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
+    },
     {
       "id": "140120260806511108",
       "time": "2026-08-06T08:55:00+09:00",
@@ -26,7 +113,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260806511109",
@@ -52,7 +139,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260806511110",
@@ -78,7 +165,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260806511111",
@@ -104,7 +191,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260806511112",
@@ -130,7 +217,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260806511113",
@@ -156,7 +243,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510856",
@@ -182,7 +269,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510791",
@@ -208,7 +295,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510792",
@@ -234,7 +321,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510793",
@@ -260,7 +347,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510794",
@@ -286,7 +373,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510795",
@@ -312,7 +399,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510857",
@@ -338,7 +425,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510858",
@@ -364,7 +451,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510796",
@@ -390,7 +477,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260805510797",
@@ -416,7 +503,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "140120260806511059",
@@ -443,7 +530,7 @@
       ],
       "summary": "承認・治験等の進展。将来収益の期待材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-06T08:58:59+09:00"
+      "analyzed_at": "2026-08-06T09:01:16+09:00"
     },
     {
       "id": "9753869c8d441b89",

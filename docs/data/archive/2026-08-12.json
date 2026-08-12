@@ -1,7 +1,98 @@
 {
-  "updated_at": "2026-08-12T08:59:21+09:00",
-  "count": 8,
+  "updated_at": "2026-08-12T09:01:06+09:00",
+  "count": 11,
   "items": [
+    {
+      "id": "140120260812517575",
+      "time": "2026-08-12T09:00:00+09:00",
+      "code": "2164",
+      "company": "地域新聞社",
+      "title": "当社新株予約権の（一部）取得に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260812517575.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 38,
+      "impact": "low",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 45,
+      "is_correction": false,
+      "tags": [
+        "新株予約権"
+      ],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-12T09:01:06+09:00"
+    },
+    {
+      "id": "140120260810517355",
+      "time": "2026-08-12T09:00:00+09:00",
+      "code": "268A",
+      "company": "リガク",
+      "title": "（開示事項の経過）主要株主である筆頭株主の異動及びその他の関係会社の異動に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260810517355.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "大株主異動",
+      "score": 27,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "筆頭株主の異動",
+        "減衰:開示事項の経過"
+      ],
+      "summary": "主要株主・親会社の異動。支配構造の変化。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-12T09:01:06+09:00"
+    },
+    {
+      "id": "140120260721596798",
+      "time": "2026-08-12T09:00:00+09:00",
+      "code": "3241",
+      "company": "ウィル",
+      "title": "2026年12月期 第2四半期（中間期）決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260721596798.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220260721596798.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-12T09:01:06+09:00",
+      "earnings": {
+        "period": "2026年12月期第2四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "1百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
     {
       "id": "140120260810516384",
       "time": "2026-08-12T08:45:00+09:00",
@@ -25,7 +116,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-12T08:59:21+09:00"
+      "analyzed_at": "2026-08-12T09:01:06+09:00"
     },
     {
       "id": "140120260807515417",
@@ -50,7 +141,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-12T08:59:21+09:00"
+      "analyzed_at": "2026-08-12T09:01:06+09:00"
     },
     {
       "id": "140120260810517390",
@@ -75,7 +166,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-12T08:59:21+09:00"
+      "analyzed_at": "2026-08-12T09:01:06+09:00"
     },
     {
       "id": "140120260812517520",
@@ -100,7 +191,7 @@
       ],
       "summary": "承認・治験等の進展。将来収益の期待材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-12T08:59:21+09:00"
+      "analyzed_at": "2026-08-12T09:01:06+09:00"
     },
     {
       "id": "140120260810516164",
@@ -125,7 +216,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-12T08:59:21+09:00",
+      "analyzed_at": "2026-08-12T09:01:06+09:00",
       "earnings": {
         "period": "2026年９月期  第３四半期",
         "figures": [
@@ -160,7 +251,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-12T08:59:21+09:00",
+      "analyzed_at": "2026-08-12T09:01:06+09:00",
       "earnings": {
         "period": "2026年9月期第3四半期",
         "figures": [],

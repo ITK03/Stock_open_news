@@ -1,7 +1,125 @@
 {
-  "updated_at": "2026-08-13T08:29:12+09:00",
-  "count": 2,
+  "updated_at": "2026-08-13T08:32:01+09:00",
+  "count": 6,
   "items": [
+    {
+      "id": "140120260813518732",
+      "time": "2026-08-13T08:30:00+09:00",
+      "code": "16724",
+      "company": "Ｅ－ＷｉｓｄｏｍＴｒ",
+      "title": "上場ETF（管理会社：WisdomTree、外国投資法人：MSL）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260813518732.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-13T08:31:29+09:00"
+    },
+    {
+      "id": "140120260813518733",
+      "time": "2026-08-13T08:30:00+09:00",
+      "code": "16724",
+      "company": "Ｅ－ＷｉｓｄｏｍＴｒ",
+      "title": "上場ETF（管理会社：WisdomTree、外国投資法人：CSL）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260813518733.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-13T08:31:29+09:00"
+    },
+    {
+      "id": "140120260812518351",
+      "time": "2026-08-13T08:30:00+09:00",
+      "code": "4578",
+      "company": "大塚ＨＤ",
+      "title": "ジパレルチニブと化学療法併用群、第III相REZILIENT3試験の中間解析で、主要評価項目である無増悪生存期間を達成",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260812518351.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "新薬・開発",
+      "score": 67,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "第III相"
+      ],
+      "summary": "承認・治験等の進展。将来収益の期待材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-13T08:31:29+09:00"
+    },
+    {
+      "id": "140120260812517813",
+      "time": "2026-08-13T08:30:00+09:00",
+      "code": "4896",
+      "company": "Ｇ－ケイファーマ",
+      "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(非連結)",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260812517813.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220260812517813.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-13T08:31:29+09:00",
+      "earnings": {
+        "period": "2026年12月期\n第２四半期",
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "１百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
     {
       "id": "9753869c8d441b89",
       "time": "2026-08-13T00:00:00+09:00",

@@ -1,7 +1,43 @@
 {
-  "updated_at": "2026-08-13T08:58:15+09:00",
-  "count": 6,
+  "updated_at": "2026-08-13T09:00:26+09:00",
+  "count": 7,
   "items": [
+    {
+      "id": "140120260727500253",
+      "time": "2026-08-13T08:59:00+09:00",
+      "code": "8912",
+      "company": "エリアクエスト",
+      "title": "2026年6月期　決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260727500253.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220260727500253.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-13T09:00:04+09:00",
+      "earnings": {
+        "period": "2026年6月期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "1百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
     {
       "id": "140120260813518732",
       "time": "2026-08-13T08:30:00+09:00",
@@ -26,7 +62,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-13T08:57:54+09:00"
+      "analyzed_at": "2026-08-13T09:00:04+09:00"
     },
     {
       "id": "140120260813518733",
@@ -52,7 +88,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-13T08:57:54+09:00"
+      "analyzed_at": "2026-08-13T09:00:04+09:00"
     },
     {
       "id": "140120260812518351",
@@ -78,7 +114,7 @@
       ],
       "summary": "承認・治験等の進展。将来収益の期待材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-13T08:57:54+09:00"
+      "analyzed_at": "2026-08-13T09:00:04+09:00"
     },
     {
       "id": "140120260812517813",
@@ -104,7 +140,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-13T08:57:54+09:00",
+      "analyzed_at": "2026-08-13T09:00:04+09:00",
       "earnings": {
         "period": "2026年12月期\n第２四半期",
         "figures": [

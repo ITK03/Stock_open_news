@@ -1,7 +1,208 @@
 {
-  "updated_at": "2026-08-20T10:59:36+09:00",
-  "count": 26,
+  "updated_at": "2026-08-20T11:01:29+09:00",
+  "count": 32,
   "items": [
+    {
+      "id": "140120260820523516",
+      "time": "2026-08-20T11:00:00+09:00",
+      "code": "1369",
+      "company": "Ｏｎｅ・日経２２５",
+      "title": "2026年7月期（2026年1月9日～2026年7月8日)決算短信",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260820523516.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-20T11:01:21+09:00",
+      "earnings": {
+        "period": null,
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "3,542,339,805百万円",
+            "yoy": "+4%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260820523526",
+      "time": "2026-08-20T11:00:00+09:00",
+      "code": "1473",
+      "company": "Ｏｎｅ・トピックス",
+      "title": "2026年7月期（2026年1月9日～2026年7月8日)決算短信",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260820523526.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-20T11:01:21+09:00",
+      "earnings": {
+        "period": null,
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "6,399,743,431百万円",
+            "yoy": "+7%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260820523518",
+      "time": "2026-08-20T11:00:00+09:00",
+      "code": "2780",
+      "company": "コメ兵ＨＤ",
+      "title": "ブランド・ファッション事業の2027年３月期７月度月次に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260820523518.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 54,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 80,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次",
+        "本文:前年比+51.5%"
+      ],
+      "summary": "前年比+51.5%。月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-08-20T11:01:21+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 4,
+        "note": "前年比+51.5%",
+        "confidence": 80,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120260812517815",
+      "time": "2026-08-20T11:00:00+09:00",
+      "code": "4027",
+      "company": "テイカ",
+      "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260812517815.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自己株処分",
+      "score": 11,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 58,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "自己株式の処分",
+        "減衰:譲渡制限付株式報酬"
+      ],
+      "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
+    },
+    {
+      "id": "140120260820523506",
+      "time": "2026-08-20T11:00:00+09:00",
+      "code": "435A",
+      "company": "ｉＦ日本配当ローテ",
+      "title": "2026年7月期（2026年1月8日～2026年7月7日）決算短信",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260820523506.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-20T11:01:21+09:00",
+      "earnings": {
+        "period": "2026年7月期",
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "158,735,200百万円",
+            "yoy": "+1%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260820523481",
+      "time": "2026-08-20T11:00:00+09:00",
+      "code": "7751",
+      "company": "キヤノン",
+      "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260820523481.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 75,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "立会外"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
+    },
     {
       "id": "140120260819523009",
       "time": "2026-08-20T10:30:00+09:00",
@@ -26,7 +227,7 @@
       ],
       "summary": "株式の売出し・分売は短期的な需給悪化要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260820523415",
@@ -52,7 +253,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260820523419",
@@ -78,7 +279,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523055",
@@ -104,7 +305,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260820523370",
@@ -130,7 +331,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523207",
@@ -159,7 +360,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260820523405",
@@ -188,7 +389,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260820523377",
@@ -214,7 +415,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260804507710",
@@ -240,7 +441,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260804507709",
@@ -266,7 +467,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260820523367",
@@ -292,7 +493,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523294",
@@ -318,7 +519,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523295",
@@ -344,7 +545,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523296",
@@ -370,7 +571,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523297",
@@ -396,7 +597,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523298",
@@ -422,7 +623,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523299",
@@ -448,7 +649,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523300",
@@ -474,7 +675,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523301",
@@ -500,7 +701,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523302",
@@ -526,7 +727,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523303",
@@ -552,7 +753,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523304",
@@ -578,7 +779,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523305",
@@ -604,7 +805,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "140120260819523306",
@@ -630,7 +831,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-20T10:59:29+09:00"
+      "analyzed_at": "2026-08-20T11:01:21+09:00"
     },
     {
       "id": "9753869c8d441b89",

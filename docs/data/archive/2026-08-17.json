@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-08-18T23:59:00+09:00",
+  "updated_at": "2026-08-30T14:59:01+09:00",
   "count": 165,
   "items": [
     {
-      "id": "140120260817522088",
+      "id": "1276650",
       "time": "2026-08-17T19:15:00+09:00",
       "code": "482A",
       "company": "Ｆ－セールスＡＣ",
@@ -13,27 +13,19 @@
       "markets": "",
       "source": "yanoshin",
       "category": "業績修正",
-      "score": 96,
+      "score": 84,
       "impact": "high",
-      "direction": "positive",
+      "direction": "unknown",
       "urgent": true,
-      "confidence": 88,
+      "confidence": 83,
       "is_correction": false,
       "tags": [],
       "reasons": [
-        "業績予想の修正",
-        "本文:上方修正(+161.3%)"
+        "業績予想の修正"
       ],
-      "summary": "上方修正(+161.3%)。業績予想の修正。上下いずれかを本文で要確認。",
-      "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
-      "content_analysis": {
-        "direction": "positive",
-        "score_bonus": 12,
-        "note": "上方修正(+161.3%)",
-        "confidence": 88,
-        "source": "pdf"
-      }
+      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521897",
@@ -115,7 +107,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817522004",
+      "id": "1276647",
       "time": "2026-08-17T17:55:00+09:00",
       "code": "4582",
       "company": "Ｇ－シンバイオ製薬",
@@ -140,7 +132,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521556",
@@ -170,7 +162,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817522034",
+      "id": "1276645",
       "time": "2026-08-17T17:40:00+09:00",
       "code": "8979",
       "company": "Ｒ－スターツＰＲ",
@@ -192,7 +184,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817522031",
@@ -245,7 +237,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521715",
+      "id": "1276643",
       "time": "2026-08-17T17:10:00+09:00",
       "code": "4424",
       "company": "Ｇ－Ａｍａｚｉａ",
@@ -267,10 +259,10 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521794",
+      "id": "1276628",
       "time": "2026-08-17T17:01:00+09:00",
       "code": "7035",
       "company": "ａｎｆａｃ",
@@ -294,35 +286,7 @@
       ],
       "summary": "特別利益の計上。一時的な利益押し上げ要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260814521420",
-      "time": "2026-08-17T17:00:00+09:00",
-      "code": "249A",
-      "company": "Ｐ－ヒューマンＡ",
-      "title": "株式分割及び株式分割に伴う定款の一部変更に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521420.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "株式分割",
-      "score": 50,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "株式分割"
-      ],
-      "reasons": [
-        "株式分割",
-        "減衰:定款"
-      ],
-      "summary": "株式分割。流動性向上で個人の買いを呼びやすい。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521910",
@@ -376,117 +340,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521986",
-      "time": "2026-08-17T17:00:00+09:00",
-      "code": "4428",
-      "company": "Ｇ－シノプス",
-      "title": "自己株式の取得状況および取得完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521986.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521628",
-      "time": "2026-08-17T17:00:00+09:00",
-      "code": "482A",
-      "company": "Ｆ－セールスＡＣ",
-      "title": "2026年8月期業績予想の修正に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521628.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "業績修正",
-      "score": 84,
-      "impact": "high",
-      "direction": "unknown",
-      "urgent": true,
-      "confidence": 83,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "業績予想の修正"
-      ],
-      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817522000",
-      "time": "2026-08-17T17:00:00+09:00",
-      "code": "485A",
-      "company": "Ｇ－パワーエックス",
-      "title": "IR に関するよくあるご質問とご回答",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817522000.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521941",
-      "time": "2026-08-17T17:00:00+09:00",
-      "code": "5534",
-      "company": "Ｐ－エンゼルグループ",
-      "title": "通期連結業績予想の修正に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521941.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "業績修正",
-      "score": 96,
-      "impact": "high",
-      "direction": "negative",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "業績予想の修正",
-        "本文:下方修正(-60.6%)"
-      ],
-      "summary": "下方修正(-60.6%)。業績予想の修正。上下いずれかを本文で要確認。",
-      "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
-      "content_analysis": {
-        "direction": "negative",
-        "score_bonus": 12,
-        "note": "下方修正(-60.6%)",
-        "confidence": 88,
-        "source": "pdf"
-      }
-    },
-    {
       "id": "140120260817521996",
       "time": "2026-08-17T17:00:00+09:00",
       "code": "6036",
@@ -537,31 +390,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817522029",
-      "time": "2026-08-17T17:00:00+09:00",
-      "code": "7815",
-      "company": "東京ボード工業",
-      "title": "当座貸越契約の締結に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817522029.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521989",
       "time": "2026-08-17T17:00:00+09:00",
       "code": "8613",
@@ -589,7 +417,163 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521974",
+      "id": "1276629",
+      "time": "2026-08-17T17:00:00+09:00",
+      "code": "249A",
+      "company": "Ｐ－ヒューマンＡ",
+      "title": "株式分割及び株式分割に伴う定款の一部変更に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521420.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "株式分割",
+      "score": 50,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "株式分割"
+      ],
+      "reasons": [
+        "株式分割",
+        "減衰:定款"
+      ],
+      "summary": "株式分割。流動性向上で個人の買いを呼びやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276632",
+      "time": "2026-08-17T17:00:00+09:00",
+      "code": "4428",
+      "company": "Ｇ－シノプス",
+      "title": "自己株式の取得状況および取得完了に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521986.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276633",
+      "time": "2026-08-17T17:00:00+09:00",
+      "code": "482A",
+      "company": "Ｆ－セールスＡＣ",
+      "title": "2026年8月期業績予想の修正に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521628.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正"
+      ],
+      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276634",
+      "time": "2026-08-17T17:00:00+09:00",
+      "code": "485A",
+      "company": "Ｇ－パワーエックス",
+      "title": "IR に関するよくあるご質問とご回答",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817522000.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276635",
+      "time": "2026-08-17T17:00:00+09:00",
+      "code": "5534",
+      "company": "Ｐ－エンゼルグループ",
+      "title": "通期連結業績予想の修正に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521941.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正"
+      ],
+      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276638",
+      "time": "2026-08-17T17:00:00+09:00",
+      "code": "7815",
+      "company": "東京ボード工業",
+      "title": "当座貸越契約の締結に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817522029.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276640",
       "time": "2026-08-17T17:00:00+09:00",
       "code": "9170",
       "company": "成友興業",
@@ -611,10 +595,10 @@
       ],
       "summary": "株式の売出し・分売は短期的な需給悪化要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521954",
+      "id": "1276641",
       "time": "2026-08-17T16:45:00+09:00",
       "code": "3306",
       "company": "日製麻",
@@ -636,114 +620,7 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521951",
-      "time": "2026-08-17T16:30:00+09:00",
-      "code": "2971",
-      "company": "Ｒ－エスコンジャパン",
-      "title": "令和8年8月千葉豪雨による保有資産への影響に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521951.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521959",
-      "time": "2026-08-17T16:30:00+09:00",
-      "code": "4769",
-      "company": "ＩＣ",
-      "title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521959.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 75,
-      "impact": "high",
-      "direction": "positive",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "立会外"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521957",
-      "time": "2026-08-17T16:30:00+09:00",
-      "code": "6721",
-      "company": "ウインテスト",
-      "title": "第三者割当による第13回新株予約権（行使価額修正条項付）の大量行使に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521957.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "増資・希薄化",
-      "score": 85,
-      "impact": "high",
-      "direction": "negative",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [
-        "第三者割当",
-        "新株予約権"
-      ],
-      "reasons": [
-        "第三者割当"
-      ],
-      "summary": "新株発行・希薄化は短期的に売られやすい。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521814",
-      "time": "2026-08-17T16:30:00+09:00",
-      "code": "7716",
-      "company": "ナカニシ",
-      "title": "自己株式立会外買付（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521814.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 75,
-      "impact": "high",
-      "direction": "positive",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "立会外買付",
-        "立会外"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260814521374",
@@ -771,7 +648,114 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521858",
+      "id": "1276622",
+      "time": "2026-08-17T16:30:00+09:00",
+      "code": "2971",
+      "company": "Ｒ－エスコンジャパン",
+      "title": "令和8年8月千葉豪雨による保有資産への影響に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521951.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276623",
+      "time": "2026-08-17T16:30:00+09:00",
+      "code": "4769",
+      "company": "ＩＣ",
+      "title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521959.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株買い",
+      "score": 75,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "立会外"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276624",
+      "time": "2026-08-17T16:30:00+09:00",
+      "code": "6721",
+      "company": "ウインテスト",
+      "title": "第三者割当による第13回新株予約権（行使価額修正条項付）の大量行使に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521957.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "増資・希薄化",
+      "score": 85,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "第三者割当",
+        "新株予約権"
+      ],
+      "reasons": [
+        "第三者割当"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276625",
+      "time": "2026-08-17T16:30:00+09:00",
+      "code": "7716",
+      "company": "ナカニシ",
+      "title": "自己株式立会外買付（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521814.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株買い",
+      "score": 75,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "立会外買付",
+        "立会外"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276627",
       "time": "2026-08-17T16:30:00+09:00",
       "code": "8938",
       "company": "Ｇ－グロームＨＤ",
@@ -793,10 +777,10 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260814521473",
+      "id": "1276592",
       "time": "2026-08-17T16:20:00+09:00",
       "code": "9439",
       "company": "ＭＨグループ",
@@ -808,28 +792,20 @@
       "category": "業績修正",
       "score": 84,
       "impact": "high",
-      "direction": "positive",
+      "direction": "unknown",
       "urgent": true,
-      "confidence": 88,
+      "confidence": 83,
       "is_correction": false,
       "tags": [],
       "reasons": [
-        "通期連結業績予想",
-        "本文:上方修正(+6.0%)"
+        "通期連結業績予想"
       ],
-      "summary": "上方修正(+6.0%)。業績予想の修正。上下いずれかを本文で要確認。",
-      "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
-      "content_analysis": {
-        "direction": "positive",
-        "score_bonus": 0,
-        "note": "上方修正(+6.0%)",
-        "confidence": 88,
-        "source": "pdf"
-      }
+      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260814521471",
+      "id": "1276593",
       "time": "2026-08-17T16:20:00+09:00",
       "code": "9439",
       "company": "ＭＨグループ",
@@ -851,7 +827,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
+      "analyzed_at": "2026-08-30T14:59:01+09:00",
       "earnings": {
         "period": "2026年６月期",
         "figures": [
@@ -864,7 +840,7 @@
       }
     },
     {
-      "id": "140120260817521966",
+      "id": "1276594",
       "time": "2026-08-17T16:20:00+09:00",
       "code": "9439",
       "company": "ＭＨグループ",
@@ -886,10 +862,10 @@
       ],
       "summary": "特別損失・減損計上。業績下振れ要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521968",
+      "id": "1276595",
       "time": "2026-08-17T16:20:00+09:00",
       "code": "9439",
       "company": "ＭＨグループ",
@@ -913,7 +889,7 @@
       ],
       "summary": "減配・無配は売り材料になりやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521934",
@@ -1016,59 +992,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521833",
-      "time": "2026-08-17T16:00:00+09:00",
-      "code": "3173",
-      "company": "Ｃｏｍｉｎｉｘ",
-      "title": "主要株主及び主要株主である筆頭株主の異動の完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521833.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "大株主異動",
-      "score": 62,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "筆頭株主の異動"
-      ],
-      "summary": "主要株主・親会社の異動。支配構造の変化。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521775",
-      "time": "2026-08-17T16:00:00+09:00",
-      "code": "3175",
-      "company": "ＡＰＨＤ",
-      "title": "第三者割当による普通株式及び優先株式の発行の払込完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521775.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "増資・希薄化",
-      "score": 47,
-      "impact": "medium",
-      "direction": "negative",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "第三者割当"
-      ],
-      "reasons": [
-        "第三者割当",
-        "減衰:払込完了"
-      ],
-      "summary": "新株発行・希薄化は短期的に売られやすい。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260814521328",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "3382",
@@ -1123,31 +1046,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521942",
-      "time": "2026-08-17T16:00:00+09:00",
-      "code": "3583",
-      "company": "オーベクス",
-      "title": "令和8年8月千葉豪雨における被害に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521942.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521689",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "3808",
@@ -1167,57 +1065,6 @@
       "tags": [],
       "reasons": [
         "減衰:説明資料"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521684",
-      "time": "2026-08-17T16:00:00+09:00",
-      "code": "4290",
-      "company": "ＰＩ",
-      "title": "譲渡制限付株式報酬としての新株式発行の払込完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521684.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "増資・希薄化",
-      "score": 35,
-      "impact": "low",
-      "direction": "negative",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [],
-      "reasons": [
-        "新株式発行",
-        "減衰:譲渡制限付株式報酬"
-      ],
-      "summary": "新株発行・希薄化は短期的に売られやすい。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521762",
-      "time": "2026-08-17T16:00:00+09:00",
-      "code": "4666",
-      "company": "パーク２４",
-      "title": "2026年10月期　速報数値　7月度",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521762.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
@@ -1306,35 +1153,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521932",
-      "time": "2026-08-17T16:00:00+09:00",
-      "code": "6191",
-      "company": "エアトリ",
-      "title": "自己株式の取得状況及び自己株式立会外買付取引（ToSTNeT-３）による自己株式の買付けに関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521932.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 45,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "立会外",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521889",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "6195",
@@ -1374,33 +1192,6 @@
         ],
         "source": "regex"
       }
-    },
-    {
-      "id": "140120260817521599",
-      "time": "2026-08-17T16:00:00+09:00",
-      "code": "6444",
-      "company": "サンデン",
-      "title": "当社保有不動産の売買契約締結及び特別利益計上に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521599.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "特別利益",
-      "score": 68,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 70,
-      "is_correction": false,
-      "tags": [
-        "特別利益"
-      ],
-      "reasons": [
-        "特別利益"
-      ],
-      "summary": "特別利益の計上。一時的な利益押し上げ要因。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
       "id": "140120260817521642",
@@ -1445,7 +1236,192 @@
       }
     },
     {
-      "id": "140120260817521614",
+      "id": "1276600",
+      "time": "2026-08-17T16:00:00+09:00",
+      "code": "3173",
+      "company": "Ｃｏｍｉｎｉｘ",
+      "title": "主要株主及び主要株主である筆頭株主の異動の完了に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521833.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "大株主異動",
+      "score": 62,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "筆頭株主の異動"
+      ],
+      "summary": "主要株主・親会社の異動。支配構造の変化。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276601",
+      "time": "2026-08-17T16:00:00+09:00",
+      "code": "3175",
+      "company": "ＡＰＨＤ",
+      "title": "第三者割当による普通株式及び優先株式の発行の払込完了に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521775.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "増資・希薄化",
+      "score": 47,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "第三者割当"
+      ],
+      "reasons": [
+        "第三者割当",
+        "減衰:払込完了"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276604",
+      "time": "2026-08-17T16:00:00+09:00",
+      "code": "3583",
+      "company": "オーベクス",
+      "title": "令和8年8月千葉豪雨における被害に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521942.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276606",
+      "time": "2026-08-17T16:00:00+09:00",
+      "code": "4290",
+      "company": "ＰＩ",
+      "title": "譲渡制限付株式報酬としての新株式発行の払込完了に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521684.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "増資・希薄化",
+      "score": 35,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "新株式発行",
+        "減衰:譲渡制限付株式報酬"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276607",
+      "time": "2026-08-17T16:00:00+09:00",
+      "code": "4666",
+      "company": "パーク２４",
+      "title": "2026年10月期　速報数値　7月度",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521762.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276611",
+      "time": "2026-08-17T16:00:00+09:00",
+      "code": "6191",
+      "company": "エアトリ",
+      "title": "自己株式の取得状況及び自己株式立会外買付取引（ToSTNeT-３）による自己株式の買付けに関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521932.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株買い",
+      "score": 45,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "立会外",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276613",
+      "time": "2026-08-17T16:00:00+09:00",
+      "code": "6444",
+      "company": "サンデン",
+      "title": "当社保有不動産の売買契約締結及び特別利益計上に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521599.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "特別利益",
+      "score": 68,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "特別利益"
+      ],
+      "reasons": [
+        "特別利益"
+      ],
+      "summary": "特別利益の計上。一時的な利益押し上げ要因。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276615",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "7162",
       "company": "アストマックス",
@@ -1467,10 +1443,10 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260810517130",
+      "id": "1276616",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "7814",
       "company": "日本創発Ｇ",
@@ -1494,10 +1470,10 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260810517131",
+      "id": "1276617",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "7814",
       "company": "日本創発Ｇ",
@@ -1521,10 +1497,10 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521817",
+      "id": "1276618",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "8061",
       "company": "西華産",
@@ -1546,10 +1522,10 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521717",
+      "id": "1276619",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "8783",
       "company": "ａｂｃ",
@@ -1574,10 +1550,10 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260814521458",
+      "id": "1276620",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "8964",
       "company": "Ｒ－三井不商業",
@@ -1599,7 +1575,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
+      "analyzed_at": "2026-08-30T14:59:01+09:00",
       "earnings": {
         "period": "2026年6月期",
         "figures": [
@@ -1617,7 +1593,7 @@
       }
     },
     {
-      "id": "140120260710591347",
+      "id": "1276621",
       "time": "2026-08-17T16:00:00+09:00",
       "code": "9507",
       "company": "四国電力",
@@ -1639,10 +1615,10 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521823",
+      "id": "1276538",
       "time": "2026-08-17T15:31:00+09:00",
       "code": "7177",
       "company": "ＧＭＯＦＨＤ",
@@ -1664,7 +1640,7 @@
       ],
       "summary": "月次・速報。トレンド確認材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521749",
@@ -1686,31 +1662,6 @@
       "tags": [],
       "reasons": [
         "減衰:人事"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260814520494",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "189A",
-      "company": "Ｇ－Ｄ＆Ｍカンパニー",
-      "title": "投資資産残高（連結）に関するお知らせ（2026年7月）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520494.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
@@ -1739,440 +1690,6 @@
         "減衰:払込完了"
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260727599702",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "2305",
-      "company": "スタジオアリス",
-      "title": "2026年7月の月次売上高等について",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260727599702.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次"
-      ],
-      "summary": "月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521845",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "2643",
-      "company": "日本株セレクトＥＴＦ",
-      "title": "「NEXT FUNDS MSCI ジャパンカントリー指数（セレクト）連動型上場投信」の信託終了にかかる約款変更のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521845.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260814521428",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "271A",
-      "company": "Ｐ－アクセリア",
-      "title": "「上場目的の開示」に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521428.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521854",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "285A",
-      "company": "キオクシアＨＤ",
-      "title": "（訂正）「主要株主である筆頭株主の異動に関するお知らせ」の一部訂正について",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521854.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "大株主異動",
-      "score": 32,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 53,
-      "is_correction": true,
-      "tags": [],
-      "reasons": [
-        "筆頭株主の異動",
-        "減衰:一部訂正"
-      ],
-      "summary": "主要株主・親会社の異動。支配構造の変化。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521753",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3086",
-      "company": "Ｊフロント",
-      "title": "２０２６年７月度　Ｊ．フロントリテイリング　連結売上収益報告（ＩＦＲＳ）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521753.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521679",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3168",
-      "company": "ＭＥＲＦ",
-      "title": "特別配当および期末配当予想の修正に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521679.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "配当",
-      "score": 80,
-      "impact": "high",
-      "direction": "unknown",
-      "urgent": true,
-      "confidence": 83,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "配当予想の修正"
-      ],
-      "summary": "配当予想の修正。増減を本文で要確認。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521682",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3249",
-      "company": "Ｒ－産業ファ",
-      "title": "2027年1月期（第39期）の運用状況及び分配金の予想の修正に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521682.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260815521523",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3249",
-      "company": "Ｒ－産業ファ",
-      "title": "国内不動産信託受益権の取得及び貸借に関するお知らせ【IIF前橋マニュファクチュアリングセンター】",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260815521523.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 38,
-      "impact": "low",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 45,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260815521525",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3249",
-      "company": "Ｒ－産業ファ",
-      "title": "国内不動産の譲渡に関するお知らせ【IIF品川データセンター】",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260815521525.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521644",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3323",
-      "company": "レカム",
-      "title": "株式会社とみやの株式取得（子会社化）及び 簡易株式交換による完全子会社化に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521644.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 83,
-      "impact": "high",
-      "direction": "positive",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [
-        "子会社化"
-      ],
-      "reasons": [
-        "株式交換"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521804",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3407",
-      "company": "旭化成",
-      "title": "自己株式の取得結果および取得終了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521804.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 81,
-      "impact": "high",
-      "direction": "positive",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521868",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3451",
-      "company": "Ｒ－トーセイ・リート",
-      "title": "資産運用会社における取締役の役職変更に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521868.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521645",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "347A",
-      "company": "Ｐ－グロースパワー",
-      "title": "資金の借入に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521645.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "資金調達",
-      "score": 45,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "資金の借入"
-      ],
-      "summary": "社債発行・借入等の資金調達。財務面の動き。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260812517916",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3558",
-      "company": "Ｇ－ジェイドグループ",
-      "title": "完全子会社との吸収合併（簡易合併・略式合併）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260812517916.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 80,
-      "impact": "high",
-      "direction": "unknown",
-      "urgent": true,
-      "confidence": 83,
-      "is_correction": false,
-      "tags": [
-        "合併"
-      ],
-      "reasons": [
-        "合併"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521558",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "367A",
-      "company": "プリモＧＨＤ",
-      "title": "連結子会社からの剰余金の配当受領に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521558.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "配当",
-      "score": 80,
-      "impact": "high",
-      "direction": "unknown",
-      "urgent": true,
-      "confidence": 83,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "剰余金の配当"
-      ],
-      "summary": "配当予想の修正。増減を本文で要確認。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521620",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "3810",
-      "company": "サイバーステップＨＤ",
-      "title": "信華信技術股分有限公司及びDIRECT CHINA株式会社とのAI分野における共同事業に関する基本合意書締結のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521620.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "大型受注・契約",
-      "score": 61,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 70,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "基本合意"
-      ],
-      "summary": "受注・契約締結。規模次第で業績寄与。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521911",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "4014",
-      "company": "Ｇ－カラダノート",
-      "title": "2026年７月末基準日における株主優待の１人当たり優待額確定のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521911.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "株主還元・優待",
-      "score": 58,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 70,
-      "is_correction": false,
-      "tags": [
-        "株主優待"
-      ],
-      "reasons": [
-        "株主優待"
-      ],
-      "summary": "株主優待の新設・変更。個人投資家の関心材料。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
@@ -2252,31 +1769,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521770",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "4343",
-      "company": "イオンファン",
-      "title": "2027年２月期 ７月度の売上概況",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521770.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521907",
       "time": "2026-08-17T15:30:00+09:00",
       "code": "4484",
@@ -2312,41 +1804,6 @@
           {
             "label": "営業利益",
             "value": "4,000百万円"
-          }
-        ],
-        "source": "regex"
-      }
-    },
-    {
-      "id": "140120260817521541",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "4651",
-      "company": "サニックスＨＤ",
-      "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521541.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "決算",
-      "score": 53,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "決算短信"
-      ],
-      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
-      "earnings": {
-        "period": "2027年３月期\n第１四半期",
-        "figures": [
-          {
-            "label": "純利益",
-            "value": "１百万円"
           }
         ],
         "source": "regex"
@@ -2400,33 +1857,6 @@
       }
     },
     {
-      "id": "140120260817521824",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "4840",
-      "company": "トライアイズ",
-      "title": "訴訟の提起に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521824.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "訴訟・係争",
-      "score": 61,
-      "impact": "medium",
-      "direction": "negative",
-      "urgent": false,
-      "confidence": 70,
-      "is_correction": false,
-      "tags": [
-        "訴訟"
-      ],
-      "reasons": [
-        "訴訟"
-      ],
-      "summary": "訴訟・係争。金額と勝敗次第でインパクト。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521700",
       "time": "2026-08-17T15:30:00+09:00",
       "code": "4975",
@@ -2449,31 +1879,6 @@
         "減衰:譲渡制限付株式報酬"
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521626",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "501A",
-      "company": "Ｐ－プレシャスパート",
-      "title": "資金の借入に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521626.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "資金調達",
-      "score": 45,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "資金の借入"
-      ],
-      "summary": "社債発行・借入等の資金調達。財務面の動き。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
@@ -2509,183 +1914,6 @@
       }
     },
     {
-      "id": "140120260810516725",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "556A",
-      "company": "Ｇ－犬猫生活",
-      "title": "従業員持株会の設立に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260810516725.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260810516723",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "556A",
-      "company": "Ｇ－犬猫生活",
-      "title": "2027年４月期　月次売上高及び自社EC定期会員数の対前年同月比に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260810516723.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次"
-      ],
-      "summary": "月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521559",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "5888",
-      "company": "Ｇ－ダイワサイクル",
-      "title": "2027年１月期７月度 売上速報に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521559.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260816521512",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "598A",
-      "company": "Ｇ－チャットプラス",
-      "title": "親会社以外の支配株主の異動に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260816521512.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521900",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "6171",
-      "company": "土木管理総合試験所",
-      "title": "株式会社土木管理総合試験所（証券コード 6171）に対する公開買付けに準ずる行為として政令で定める買集め行為に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521900.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "TOB・買収",
-      "score": 92,
-      "impact": "high",
-      "direction": "unknown",
-      "urgent": true,
-      "confidence": 83,
-      "is_correction": false,
-      "tags": [
-        "公開買付"
-      ],
-      "reasons": [
-        "公開買付"
-      ],
-      "summary": "公開買付け(TOB/MBO)。買付価格次第で株価が大きく動く。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521600",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "6367",
-      "company": "ダイキン工",
-      "title": "コミットメント型自己株式取得（FCSR）における事後調整のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521600.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 81,
-      "impact": "high",
-      "direction": "positive",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "自己株式取得"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521776",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "6627",
-      "company": "テラプローブ",
-      "title": "2026年12月期７月度の月次連結売上高（速報）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521776.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次"
-      ],
-      "summary": "月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521888",
       "time": "2026-08-17T15:30:00+09:00",
       "code": "7069",
@@ -2710,267 +1938,6 @@
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260814520451",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "7085",
-      "company": "カーブスＨＤ",
-      "title": "自己株式の消却に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520451.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株消却",
-      "score": 67,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 70,
-      "is_correction": false,
-      "tags": [
-        "自己株式の消却"
-      ],
-      "reasons": [
-        "自己株式の消却"
-      ],
-      "summary": "自己株式の消却。発行株数の減少で1株価値にプラス。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521727",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "7091",
-      "company": "Ｇ－ＬＰＦ",
-      "title": "連結子会社における事業譲受に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521727.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521557",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "7137",
-      "company": "Ｐ－グラントマト",
-      "title": "資金の借入に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521557.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "資金調達",
-      "score": 45,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "資金の借入"
-      ],
-      "summary": "社債発行・借入等の資金調達。財務面の動き。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521730",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "7447",
-      "company": "ナガイレーベ",
-      "title": "自己株式の取得状況および終了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521730.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "自社株買い",
-      "score": 51,
-      "impact": "medium",
-      "direction": "positive",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [
-        "自己株式の取得"
-      ],
-      "reasons": [
-        "自己株式の取得",
-        "減衰:取得状況"
-      ],
-      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260814521187",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "7675",
-      "company": "セントラルフォレスト",
-      "title": "「株式会社イト商」の株式取得（非連結子会社化）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521187.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "M&A・統合",
-      "score": 83,
-      "impact": "high",
-      "direction": "positive",
-      "urgent": true,
-      "confidence": 88,
-      "is_correction": false,
-      "tags": [
-        "子会社化"
-      ],
-      "reasons": [
-        "子会社化"
-      ],
-      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260807515733",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "8233",
-      "company": "高島屋",
-      "title": "2026年7月度 高島屋営業報告",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260807515733.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260814520929",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "8951",
-      "company": "Ｒ－ビルＦ",
-      "title": "2026年６月期　決算短信（ＲＥＩＴ）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520929.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "決算",
-      "score": 53,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "決算短信"
-      ],
-      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
-      "earnings": {
-        "period": "2026年６月期",
-        "figures": [
-          {
-            "label": "経常利益",
-            "value": "１百万円"
-          },
-          {
-            "label": "純利益",
-            "value": "１百万円"
-          }
-        ],
-        "source": "regex"
-      }
-    },
-    {
-      "id": "140120260814521095",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "8951",
-      "company": "Ｒ－ビルＦ",
-      "title": "2026年６月期_決算概要",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521095.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521648",
-      "time": "2026-08-17T15:30:00+09:00",
-      "code": "8955",
-      "company": "Ｒ－Ｊプライム",
-      "title": "2026年6月期　決算短信（ＲＥＩＴ）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521648.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "決算",
-      "score": 53,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "決算短信"
-      ],
-      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
-      "earnings": {
-        "period": "2026年６月期",
-        "figures": [
-          {
-            "label": "経常利益",
-            "value": "１百万円"
-          },
-          {
-            "label": "純利益",
-            "value": "100百万円",
-            "yoy": "+3%"
-          }
-        ],
-        "source": "regex"
-      }
     },
     {
       "id": "140120260817521650",
@@ -2998,7 +1965,1016 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521818",
+      "id": "1276540",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "189A",
+      "company": "Ｇ－Ｄ＆Ｍカンパニー",
+      "title": "投資資産残高（連結）に関するお知らせ（2026年7月）",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520494.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276542",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "2305",
+      "company": "スタジオアリス",
+      "title": "2026年7月の月次売上高等について",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260727599702.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276543",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "2643",
+      "company": "日本株セレクトＥＴＦ",
+      "title": "「NEXT FUNDS MSCI ジャパンカントリー指数（セレクト）連動型上場投信」の信託終了にかかる約款変更のお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521845.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276544",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "271A",
+      "company": "Ｐ－アクセリア",
+      "title": "「上場目的の開示」に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521428.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276545",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "285A",
+      "company": "キオクシアＨＤ",
+      "title": "（訂正）「主要株主である筆頭株主の異動に関するお知らせ」の一部訂正について",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521854.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "大株主異動",
+      "score": 32,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "筆頭株主の異動",
+        "減衰:一部訂正"
+      ],
+      "summary": "主要株主・親会社の異動。支配構造の変化。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276546",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3086",
+      "company": "Ｊフロント",
+      "title": "２０２６年７月度　Ｊ．フロントリテイリング　連結売上収益報告（ＩＦＲＳ）",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521753.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276547",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3168",
+      "company": "ＭＥＲＦ",
+      "title": "特別配当および期末配当予想の修正に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521679.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "配当",
+      "score": 80,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "配当予想の修正"
+      ],
+      "summary": "配当予想の修正。増減を本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276548",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3249",
+      "company": "Ｒ－産業ファ",
+      "title": "2027年1月期（第39期）の運用状況及び分配金の予想の修正に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521682.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276549",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3249",
+      "company": "Ｒ－産業ファ",
+      "title": "国内不動産信託受益権の取得及び貸借に関するお知らせ【IIF前橋マニュファクチュアリングセンター】",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260815521523.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 38,
+      "impact": "low",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 45,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276550",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3249",
+      "company": "Ｒ－産業ファ",
+      "title": "国内不動産の譲渡に関するお知らせ【IIF品川データセンター】",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260815521525.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276551",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3323",
+      "company": "レカム",
+      "title": "株式会社とみやの株式取得（子会社化）及び 簡易株式交換による完全子会社化に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521644.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "M&A・統合",
+      "score": 83,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "子会社化"
+      ],
+      "reasons": [
+        "株式交換"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276552",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3407",
+      "company": "旭化成",
+      "title": "自己株式の取得結果および取得終了に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521804.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株買い",
+      "score": 81,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276553",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3451",
+      "company": "Ｒ－トーセイ・リート",
+      "title": "資産運用会社における取締役の役職変更に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521868.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276554",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "347A",
+      "company": "Ｐ－グロースパワー",
+      "title": "資金の借入に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521645.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "資金調達",
+      "score": 45,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "資金の借入"
+      ],
+      "summary": "社債発行・借入等の資金調達。財務面の動き。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276555",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3558",
+      "company": "Ｇ－ジェイドグループ",
+      "title": "完全子会社との吸収合併（簡易合併・略式合併）に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260812517916.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "M&A・統合",
+      "score": 80,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [
+        "合併"
+      ],
+      "reasons": [
+        "合併"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276556",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "367A",
+      "company": "プリモＧＨＤ",
+      "title": "連結子会社からの剰余金の配当受領に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521558.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "配当",
+      "score": 80,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "剰余金の配当"
+      ],
+      "summary": "配当予想の修正。増減を本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276557",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "3810",
+      "company": "サイバーステップＨＤ",
+      "title": "信華信技術股分有限公司及びDIRECT CHINA株式会社とのAI分野における共同事業に関する基本合意書締結のお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521620.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "大型受注・契約",
+      "score": 61,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "基本合意"
+      ],
+      "summary": "受注・契約締結。規模次第で業績寄与。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276558",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "4014",
+      "company": "Ｇ－カラダノート",
+      "title": "2026年７月末基準日における株主優待の１人当たり優待額確定のお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521911.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "株主還元・優待",
+      "score": 58,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "株主優待"
+      ],
+      "reasons": [
+        "株主優待"
+      ],
+      "summary": "株主優待の新設・変更。個人投資家の関心材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276562",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "4343",
+      "company": "イオンファン",
+      "title": "2027年２月期 ７月度の売上概況",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521770.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276564",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "4651",
+      "company": "サニックスＨＤ",
+      "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521541.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00",
+      "earnings": {
+        "period": "2027年３月期\n第１四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "1276566",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "4840",
+      "company": "トライアイズ",
+      "title": "訴訟の提起に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521824.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "訴訟・係争",
+      "score": 61,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "訴訟"
+      ],
+      "reasons": [
+        "訴訟"
+      ],
+      "summary": "訴訟・係争。金額と勝敗次第でインパクト。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276568",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "501A",
+      "company": "Ｐ－プレシャスパート",
+      "title": "資金の借入に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521626.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "資金調達",
+      "score": 45,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "資金の借入"
+      ],
+      "summary": "社債発行・借入等の資金調達。財務面の動き。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276570",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "556A",
+      "company": "Ｇ－犬猫生活",
+      "title": "従業員持株会の設立に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260810516725.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276571",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "556A",
+      "company": "Ｇ－犬猫生活",
+      "title": "2027年４月期　月次売上高及び自社EC定期会員数の対前年同月比に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260810516723.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276572",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "5888",
+      "company": "Ｇ－ダイワサイクル",
+      "title": "2027年１月期７月度 売上速報に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521559.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276573",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "598A",
+      "company": "Ｇ－チャットプラス",
+      "title": "親会社以外の支配株主の異動に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260816521512.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276574",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "6171",
+      "company": "土木管理総合試験所",
+      "title": "株式会社土木管理総合試験所（証券コード 6171）に対する公開買付けに準ずる行為として政令で定める買集め行為に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521900.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "TOB・買収",
+      "score": 92,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [
+        "公開買付"
+      ],
+      "reasons": [
+        "公開買付"
+      ],
+      "summary": "公開買付け(TOB/MBO)。買付価格次第で株価が大きく動く。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276575",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "6367",
+      "company": "ダイキン工",
+      "title": "コミットメント型自己株式取得（FCSR）における事後調整のお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521600.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株買い",
+      "score": 81,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "自己株式取得"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276576",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "6627",
+      "company": "テラプローブ",
+      "title": "2026年12月期７月度の月次連結売上高（速報）に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521776.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276578",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "7085",
+      "company": "カーブスＨＤ",
+      "title": "自己株式の消却に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520451.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株消却",
+      "score": 67,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 70,
+      "is_correction": false,
+      "tags": [
+        "自己株式の消却"
+      ],
+      "reasons": [
+        "自己株式の消却"
+      ],
+      "summary": "自己株式の消却。発行株数の減少で1株価値にプラス。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276579",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "7091",
+      "company": "Ｇ－ＬＰＦ",
+      "title": "連結子会社における事業譲受に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521727.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276580",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "7137",
+      "company": "Ｐ－グラントマト",
+      "title": "資金の借入に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521557.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "資金調達",
+      "score": 45,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "資金の借入"
+      ],
+      "summary": "社債発行・借入等の資金調達。財務面の動き。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276581",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "7447",
+      "company": "ナガイレーベ",
+      "title": "自己株式の取得状況および終了に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521730.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276582",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "7675",
+      "company": "セントラルフォレスト",
+      "title": "「株式会社イト商」の株式取得（非連結子会社化）に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521187.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "M&A・統合",
+      "score": 83,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [
+        "子会社化"
+      ],
+      "reasons": [
+        "子会社化"
+      ],
+      "summary": "M&A・経営統合。条件次第で株価インパクト大。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276583",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "8233",
+      "company": "高島屋",
+      "title": "2026年7月度 高島屋営業報告",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260807515733.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276584",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "8951",
+      "company": "Ｒ－ビルＦ",
+      "title": "2026年６月期　決算短信（ＲＥＩＴ）",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520929.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00",
+      "earnings": {
+        "period": "2026年６月期",
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "１百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "1276585",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "8951",
+      "company": "Ｒ－ビルＦ",
+      "title": "2026年６月期_決算概要",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521095.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276586",
+      "time": "2026-08-17T15:30:00+09:00",
+      "code": "8955",
+      "company": "Ｒ－Ｊプライム",
+      "title": "2026年6月期　決算短信（ＲＥＩＴ）",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521648.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00",
+      "earnings": {
+        "period": "2026年６月期",
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "１百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "100百万円",
+            "yoy": "+3%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "1276588",
       "time": "2026-08-17T15:30:00+09:00",
       "code": "9166",
       "company": "Ｇ－ＧＥＮＤＡ",
@@ -3020,10 +2996,10 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521739",
+      "id": "1276589",
       "time": "2026-08-17T15:30:00+09:00",
       "code": "9284",
       "company": "Ｉ－カナディアンソラ",
@@ -3045,7 +3021,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
+      "analyzed_at": "2026-08-30T14:59:01+09:00",
       "earnings": {
         "period": "2026年６月期",
         "figures": [
@@ -3063,7 +3039,7 @@
       }
     },
     {
-      "id": "140120260817521664",
+      "id": "1276590",
       "time": "2026-08-17T15:30:00+09:00",
       "code": "9602",
       "company": "東宝",
@@ -3085,10 +3061,10 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521898",
+      "id": "1276591",
       "time": "2026-08-17T15:15:00+09:00",
       "code": "7357",
       "company": "ジオコード",
@@ -3112,32 +3088,7 @@
       ],
       "summary": "株主優待の新設・変更。個人投資家の関心材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260814521198",
-      "time": "2026-08-17T15:00:00+09:00",
-      "code": "2461",
-      "company": "ファンコミ",
-      "title": "2026年12月期7月度 月次業績速報のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521198.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次"
-      ],
-      "summary": "月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521800",
@@ -3162,107 +3113,6 @@
         "減衰:説明資料"
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521856",
-      "time": "2026-08-17T15:00:00+09:00",
-      "code": "3683",
-      "company": "サイバーリンクス",
-      "title": "従業員持株会向け譲渡制限付株式インセンティブとしての新株式発行の払込完了及び一部失権に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521856.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "増資・希薄化",
-      "score": 35,
-      "impact": "low",
-      "direction": "negative",
-      "urgent": false,
-      "confidence": 76,
-      "is_correction": true,
-      "tags": [],
-      "reasons": [
-        "新株式発行",
-        "減衰:譲渡制限付株式"
-      ],
-      "summary": "新株発行・希薄化は短期的に売られやすい。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521719",
-      "time": "2026-08-17T15:00:00+09:00",
-      "code": "5074",
-      "company": "テスホールディングス",
-      "title": "子会社による財務上の特約が付された金銭消費貸借契約の締結に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521719.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521706",
-      "time": "2026-08-17T15:00:00+09:00",
-      "code": "5632",
-      "company": "三菱製鋼",
-      "title": "連結子会社からの配当金受領に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521706.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
-      "id": "140120260817521746",
-      "time": "2026-08-17T15:00:00+09:00",
-      "code": "6184",
-      "company": "鎌倉新書",
-      "title": "新たな事業の開始に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521746.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
@@ -3293,31 +3143,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260814520711",
-      "time": "2026-08-17T15:00:00+09:00",
-      "code": "7183",
-      "company": "あんしん保証",
-      "title": "資金の借入に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520711.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "資金調達",
-      "score": 45,
-      "impact": "medium",
-      "direction": "neutral",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "資金の借入"
-      ],
-      "summary": "社債発行・借入等の資金調達。財務面の動き。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521890",
       "time": "2026-08-17T15:00:00+09:00",
       "code": "7524",
@@ -3343,7 +3168,158 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521891",
+      "id": "1276527",
+      "time": "2026-08-17T15:00:00+09:00",
+      "code": "2461",
+      "company": "ファンコミ",
+      "title": "2026年12月期7月度 月次業績速報のお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814521198.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276529",
+      "time": "2026-08-17T15:00:00+09:00",
+      "code": "3683",
+      "company": "サイバーリンクス",
+      "title": "従業員持株会向け譲渡制限付株式インセンティブとしての新株式発行の払込完了及び一部失権に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521856.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "増資・希薄化",
+      "score": 35,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 76,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "新株式発行",
+        "減衰:譲渡制限付株式"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276530",
+      "time": "2026-08-17T15:00:00+09:00",
+      "code": "5074",
+      "company": "テスホールディングス",
+      "title": "子会社による財務上の特約が付された金銭消費貸借契約の締結に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521719.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276531",
+      "time": "2026-08-17T15:00:00+09:00",
+      "code": "5632",
+      "company": "三菱製鋼",
+      "title": "連結子会社からの配当金受領に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521706.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276532",
+      "time": "2026-08-17T15:00:00+09:00",
+      "code": "6184",
+      "company": "鎌倉新書",
+      "title": "新たな事業の開始に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521746.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276534",
+      "time": "2026-08-17T15:00:00+09:00",
+      "code": "7183",
+      "company": "あんしん保証",
+      "title": "資金の借入に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260814520711.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "資金調達",
+      "score": 45,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "資金の借入"
+      ],
+      "summary": "社債発行・借入等の資金調達。財務面の動き。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276536",
       "time": "2026-08-17T15:00:00+09:00",
       "code": "7524",
       "company": "マルシェ",
@@ -3365,10 +3341,10 @@
       ],
       "summary": "月次・速報。トレンド確認材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521844",
+      "id": "1276537",
       "time": "2026-08-17T14:54:00+09:00",
       "code": "2927",
       "company": "ＡＦＣ－ＨＤ",
@@ -3392,7 +3368,7 @@
       ],
       "summary": "増配・株主還元の強化でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521570",
@@ -3457,39 +3433,6 @@
       }
     },
     {
-      "id": "140120260817521740",
-      "time": "2026-08-17T14:00:00+09:00",
-      "code": "2991",
-      "company": "ランドネット",
-      "title": "2026年７月度　月次業績速報",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521740.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "negative",
-      "urgent": false,
-      "confidence": 80,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次",
-        "本文:前年比-4.0%"
-      ],
-      "summary": "前年比-4.0%。月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
-      "content_analysis": {
-        "direction": "negative",
-        "score_bonus": 0,
-        "note": "前年比-4.0%",
-        "confidence": 80,
-        "source": "pdf"
-      }
-    },
-    {
       "id": "140120260817521801",
       "time": "2026-08-17T14:00:00+09:00",
       "code": "3825",
@@ -3516,7 +3459,32 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521799",
+      "id": "1276523",
+      "time": "2026-08-17T14:00:00+09:00",
+      "code": "2991",
+      "company": "ランドネット",
+      "title": "2026年７月度　月次業績速報",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260817521740.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276522",
       "time": "2026-08-17T13:30:00+09:00",
       "code": "3195",
       "company": "ジェネパ",
@@ -3538,10 +3506,10 @@
       ],
       "summary": "月次・速報。トレンド確認材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260814521039",
+      "id": "1276520",
       "time": "2026-08-17T13:00:00+09:00",
       "code": "2937",
       "company": "Ｇ－サンクゼール",
@@ -3563,10 +3531,10 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521760",
+      "id": "1276521",
       "time": "2026-08-17T13:00:00+09:00",
       "code": "3905",
       "company": "Ｇ－データセクション",
@@ -3588,7 +3556,7 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521725",
@@ -3616,7 +3584,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260814520753",
+      "id": "1276514",
       "time": "2026-08-17T12:00:00+09:00",
       "code": "3825",
       "company": "ＲＥＭＩＸ",
@@ -3640,10 +3608,10 @@
       ],
       "summary": "資本・業務提携。事業拡大の期待。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260814520820",
+      "id": "1276515",
       "time": "2026-08-17T12:00:00+09:00",
       "code": "3825",
       "company": "ＲＥＭＩＸ",
@@ -3667,10 +3635,10 @@
       ],
       "summary": "資本・業務提携。事業拡大の期待。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260814521206",
+      "id": "1276516",
       "time": "2026-08-17T12:00:00+09:00",
       "code": "3825",
       "company": "ＲＥＭＩＸ",
@@ -3695,10 +3663,10 @@
       ],
       "summary": "資本・業務提携。事業拡大の期待。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260810516704",
+      "id": "1276517",
       "time": "2026-08-17T12:00:00+09:00",
       "code": "4574",
       "company": "大幸薬品",
@@ -3720,10 +3688,10 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521578",
+      "id": "1276518",
       "time": "2026-08-17T12:00:00+09:00",
       "code": "6803",
       "company": "ティアック",
@@ -3747,7 +3715,7 @@
       ],
       "summary": "株主優待の新設・変更。個人投資家の関心材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521703",
@@ -3800,7 +3768,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521708",
+      "id": "1276507",
       "time": "2026-08-17T11:45:00+09:00",
       "code": "208A",
       "company": "構造計画ＨＤ",
@@ -3825,7 +3793,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521675",
@@ -3934,31 +3902,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260806512627",
-      "time": "2026-08-17T11:30:00+09:00",
-      "code": "8705",
-      "company": "日産証券グループ",
-      "title": "2026年７月の月次業績等（速報）に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260806512627.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "月次",
-      "score": 50,
-      "impact": "medium",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 65,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "月次"
-      ],
-      "summary": "月次・速報。トレンド確認材料。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521640",
       "time": "2026-08-17T11:30:00+09:00",
       "code": "8798",
@@ -3995,6 +3938,31 @@
       }
     },
     {
+      "id": "1276512",
+      "time": "2026-08-17T11:30:00+09:00",
+      "code": "8705",
+      "company": "日産証券グループ",
+      "title": "2026年７月の月次業績等（速報）に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260806512627.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
       "id": "140120260817521605",
       "time": "2026-08-17T11:00:00+09:00",
       "code": "4183",
@@ -4020,7 +3988,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521688",
+      "id": "1276503",
       "time": "2026-08-17T11:00:00+09:00",
       "code": "9166",
       "company": "Ｇ－ＧＥＮＤＡ",
@@ -4044,10 +4012,10 @@
       ],
       "summary": "株主優待の新設・変更。個人投資家の関心材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260817521589",
+      "id": "1276504",
       "time": "2026-08-17T11:00:00+09:00",
       "code": "9563",
       "company": "Ｇ－Ａｔｌａｓ",
@@ -4073,7 +4041,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521519",
@@ -4151,31 +4119,6 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260813519947",
-      "time": "2026-08-17T10:00:00+09:00",
-      "code": "2926",
-      "company": "篠崎屋",
-      "title": "福岡証券取引所本則市場への重複上場に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260813519947.pdf",
-      "exchange": "東証",
-      "markets": "",
-      "source": "yanoshin",
-      "category": "その他開示",
-      "score": 35,
-      "impact": "low",
-      "direction": "unknown",
-      "urgent": false,
-      "confidence": 40,
-      "is_correction": false,
-      "tags": [],
-      "reasons": [
-        "その他開示"
-      ],
-      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
-      "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
-    },
-    {
       "id": "140120260817521543",
       "time": "2026-08-17T10:00:00+09:00",
       "code": "585A4",
@@ -4201,7 +4144,32 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260812518628",
+      "id": "1276497",
+      "time": "2026-08-17T10:00:00+09:00",
+      "code": "2926",
+      "company": "篠崎屋",
+      "title": "福岡証券取引所本則市場への重複上場に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120260813519947.pdf",
+      "exchange": "東証",
+      "markets": "",
+      "source": "yanoshin",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
+    },
+    {
+      "id": "1276499",
       "time": "2026-08-17T10:00:00+09:00",
       "code": "7059",
       "company": "コプロＨＤ",
@@ -4223,10 +4191,10 @@
       ],
       "summary": "月次・速報。トレンド確認材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
-      "id": "140120260816521536",
+      "id": "1276500",
       "time": "2026-08-17T09:40:00+09:00",
       "code": "4011",
       "company": "Ｇ－ヘッドウォーター",
@@ -4248,7 +4216,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260814521481",
@@ -4301,7 +4269,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260817521561",
+      "id": "1276489",
       "time": "2026-08-17T08:50:00+09:00",
       "code": "1319",
       "company": "ＮＦ日経３００",
@@ -4323,7 +4291,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00"
+      "analyzed_at": "2026-08-30T14:59:01+09:00"
     },
     {
       "id": "140120260817521515",
@@ -4376,7 +4344,7 @@
       "analyzed_at": "2026-08-18T23:58:30+09:00"
     },
     {
-      "id": "140120260816521539",
+      "id": "1276492",
       "time": "2026-08-17T08:30:00+09:00",
       "code": "319A",
       "company": "Ｇ－技術承継機構",
@@ -4398,7 +4366,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-08-18T23:58:30+09:00",
+      "analyzed_at": "2026-08-30T14:59:01+09:00",
       "earnings": {
         "period": null,
         "figures": [

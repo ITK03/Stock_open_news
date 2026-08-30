@@ -1,0 +1,183 @@
+{
+ "generated_at": "2026-08-30T06:01:26",
+ "events": 15333,
+ "span": "2026-06-23〜2026-08-28",
+ "min_n": 20,
+ "cells": {
+  "増資・希薄化|negative": {
+   "n": 409,
+   "median_excess": -0.14,
+   "mean_abs": 3.33,
+   "hit_rate": 0.517,
+   "judged": 352
+  },
+  "自社株買い|positive": {
+   "n": 1272,
+   "median_excess": 0.18,
+   "mean_abs": 2.49,
+   "hit_rate": 0.545,
+   "judged": 1116
+  },
+  "売出し・分売|negative": {
+   "n": 22,
+   "median_excess": 0.11,
+   "mean_abs": 3.67,
+   "hit_rate": 0.45,
+   "judged": 20
+  },
+  "その他開示|positive": {
+   "n": 167,
+   "median_excess": 0.18,
+   "mean_abs": 3.16,
+   "hit_rate": 0.53,
+   "judged": 151
+  },
+  "大型受注・契約|positive": {
+   "n": 74,
+   "median_excess": -0.52,
+   "mean_abs": 3.34,
+   "hit_rate": 0.403,
+   "judged": 67
+  },
+  "特別利益|positive": {
+   "n": 109,
+   "median_excess": 0.08,
+   "mean_abs": 3.31,
+   "hit_rate": 0.542,
+   "judged": 96
+  },
+  "訴訟・係争|negative": {
+   "n": 49,
+   "median_excess": 0.79,
+   "mean_abs": 3.74,
+   "hit_rate": 0.391,
+   "judged": 46
+  },
+  "M&A・統合|positive": {
+   "n": 243,
+   "median_excess": 0.68,
+   "mean_abs": 3.05,
+   "hit_rate": 0.62,
+   "judged": 221
+  },
+  "その他開示|negative": {
+   "n": 41,
+   "median_excess": 0.08,
+   "mean_abs": 2.33,
+   "hit_rate": 0.541,
+   "judged": 37
+  },
+  "株主還元・優待|positive": {
+   "n": 152,
+   "median_excess": 1.81,
+   "mean_abs": 4.73,
+   "hit_rate": 0.688,
+   "judged": 138
+  },
+  "提携・出資|positive": {
+   "n": 83,
+   "median_excess": 0.94,
+   "mean_abs": 5.6,
+   "hit_rate": 0.582,
+   "judged": 79
+  },
+  "配当|positive": {
+   "n": 91,
+   "median_excess": 2.75,
+   "mean_abs": 5.35,
+   "hit_rate": 0.727,
+   "judged": 88
+  },
+  "新薬・開発|positive": {
+   "n": 37,
+   "median_excess": 2.39,
+   "mean_abs": 5.1,
+   "hit_rate": 0.771,
+   "judged": 35
+  },
+  "会計・不正|negative": {
+   "n": 30,
+   "median_excess": 0.67,
+   "mean_abs": 9.21,
+   "hit_rate": 0.483,
+   "judged": 29
+  },
+  "業績修正|negative": {
+   "n": 46,
+   "median_excess": -2.05,
+   "mean_abs": 5.1,
+   "hit_rate": 0.778,
+   "judged": 45
+  },
+  "業績修正|positive": {
+   "n": 140,
+   "median_excess": 3.78,
+   "mean_abs": 7.11,
+   "hit_rate": 0.726,
+   "judged": 135
+  },
+  "配当|negative": {
+   "n": 24,
+   "median_excess": 3.2,
+   "mean_abs": 7.35,
+   "hit_rate": 0.333,
+   "judged": 24
+  },
+  "特損・減損|negative": {
+   "n": 103,
+   "median_excess": -0.94,
+   "mean_abs": 4.45,
+   "hit_rate": 0.61,
+   "judged": 100
+  },
+  "自社株消却|positive": {
+   "n": 65,
+   "median_excess": -0.33,
+   "mean_abs": 2.9,
+   "hit_rate": 0.468,
+   "judged": 62
+  },
+  "上場廃止・整理|negative": {
+   "n": 21,
+   "median_excess": -0.61,
+   "mean_abs": 7.47,
+   "hit_rate": 0.714,
+   "judged": 21
+  },
+  "自己株処分|negative": {
+   "n": 939,
+   "median_excess": 0.05,
+   "mean_abs": 1.73,
+   "hit_rate": 0.499,
+   "judged": 797
+  },
+  "決算|positive": {
+   "n": 83,
+   "median_excess": 0.21,
+   "mean_abs": 4.29,
+   "hit_rate": 0.519,
+   "judged": 77
+  },
+  "TOB・買収|positive": {
+   "n": 34,
+   "median_excess": -0.39,
+   "mean_abs": 3.3,
+   "hit_rate": 0.387,
+   "judged": 31
+  }
+ },
+ "score_buckets": {
+  "50-64": {
+   "n": 5990,
+   "mean_abs_excess": 3.58
+  },
+  "65-84": {
+   "n": 1945,
+   "mean_abs_excess": 4.76
+  },
+  "85+": {
+   "n": 511,
+   "mean_abs_excess": 5.34
+  }
+ }
+}

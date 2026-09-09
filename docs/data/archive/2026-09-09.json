@@ -1,7 +1,123 @@
 {
-  "updated_at": "2026-09-09T10:58:44+09:00",
-  "count": 11,
+  "updated_at": "2026-09-09T11:00:41+09:00",
+  "count": 15,
   "items": [
+    {
+      "id": "140120260825525973",
+      "time": "2026-09-09T11:00:00+09:00",
+      "code": "2929",
+      "company": "ファーマフーズ",
+      "title": "2026年７月期　通期業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260825525973.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220260825525973.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 92,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "本文:上方修正(+30.0%)"
+      ],
+      "summary": "上方修正(+30.0%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-09-09T11:00:30+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 8,
+        "note": "上方修正(+30.0%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120260908533281",
+      "time": "2026-09-09T11:00:00+09:00",
+      "code": "2929",
+      "company": "ファーマフーズ",
+      "title": "関係会社株式の減損処理による特別損失計上（個別）に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260908533281.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "特損・減損",
+      "score": 78,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 61,
+      "is_correction": false,
+      "tags": [
+        "減損",
+        "特別損失"
+      ],
+      "reasons": [
+        "特別損失"
+      ],
+      "summary": "特別損失・減損計上。業績下振れ要因。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
+    },
+    {
+      "id": "140120260908532690",
+      "time": "2026-09-09T11:00:00+09:00",
+      "code": "3921",
+      "company": "ネオジャパン",
+      "title": "（訂正）「2027年１月期第１四半期決算説明資料」の一部訂正について",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260908532690.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 18,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "四半期決算",
+        "減衰:説明資料"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
+    },
+    {
+      "id": "140120260908533073",
+      "time": "2026-09-09T11:00:00+09:00",
+      "code": "7170",
+      "company": "Ｐ－中央グループ",
+      "title": "株主割当による新株式発行に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260908533073.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "増資・希薄化",
+      "score": 85,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 52,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "新株式発行"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
+    },
     {
       "id": "140120260909533336",
       "time": "2026-09-09T10:00:00+09:00",
@@ -25,7 +141,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533326",
@@ -50,7 +166,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533303",
@@ -75,7 +191,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533305",
@@ -100,7 +216,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533332",
@@ -125,7 +241,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533335",
@@ -150,7 +266,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533160",
@@ -175,7 +291,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533148",
@@ -200,7 +316,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "140120260909533149",
@@ -225,7 +341,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-09T10:58:34+09:00"
+      "analyzed_at": "2026-09-09T11:00:30+09:00"
     },
     {
       "id": "9753869c8d441b89",

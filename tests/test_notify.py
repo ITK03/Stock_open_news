@@ -70,14 +70,13 @@ class TestNtfy:
         monkeypatch.delenv("NTFY_TOPIC", raising=False)
         assert ntfy.notify([d()]) == 0
 
-    def test_payload_has_code_first_in_title(self):
+    def test_payload_carries_topic_and_priority(self):
         p = ntfy._payload(d(code="4385", company="メルカリ"), "t", 5)
-        assert p["title"].startswith("📈 4385 メルカリ")
+        assert "4385 メルカリ" in p["title"]
         assert p["topic"] == "t" and p["priority"] == 5
 
-    def test_negative_direction_uses_down_marks(self):
+    def test_negative_direction_uses_down_tag(self):
         p = ntfy._payload(d(direction="negative"), "t", 5)
-        assert p["title"].startswith("📉")
         assert "chart_with_downwards_trend" in p["tags"]
 
     def test_body_keeps_both_title_and_summary(self):
@@ -158,3 +157,106 @@ class TestDiscord:
                             lambda url, json=None, timeout=None: calls.append(json) or Resp())
         assert discord.notify([d(urgent=False)], webhook_url="https://x.test/w") == 1
         assert len(calls) == 1
+
+
+class TestMarkCount:
+    """絵文字の個数が信頼度を表すこと。
+
+    閾値は実データ174件の分布から決めた(70未満52% / 70〜84が28% / 85以上21%)。
+    常に3個出るような刻み方では「多いほど確度が高い」という情報にならない。
+    """
+
+    def test_low_confidence_is_one(self):
+        assert ntfy.mark_count(52) == 1
+        assert ntfy.mark_count(69) == 1
+
+    def test_middle_is_two(self):
+        assert ntfy.mark_count(70) == 2
+        assert ntfy.mark_count(84) == 2
+
+    def test_high_is_three(self):
+        assert ntfy.mark_count(85) == 3
+        assert ntfy.mark_count(100) == 3
+
+    def test_never_exceeds_three(self):
+        assert ntfy.mark_count(999) == 3
+
+    def test_missing_confidence_is_one(self):
+        """値が無いのに3個出すと、確度が高いと誤読される。"""
+        assert ntfy.mark_count(None) == 1
+        assert ntfy.mark_count("88") == 1
+
+
+class TestHhmm:
+    def test_extracts_clock(self):
+        assert ntfy.hhmm("2026-09-11T15:30") == "15:30"
+
+    def test_handles_offset_and_seconds(self):
+        assert ntfy.hhmm("2026-09-11T09:05:00+09:00") == "09:05"
+
+    def test_empty_when_unparsable(self):
+        for v in ("2026-09-11", "", None, 123):
+            assert ntfy.hhmm(v) == ""
+
+
+class TestTitleFormat:
+    """赤=好材料 / 緑=悪材料。日本のチャートの慣習に合わせている。"""
+
+    def test_positive_is_red(self):
+        t = ntfy._payload(d(direction="positive", confidence=88), "t", 5)["title"]
+        assert t.startswith("🔴🔴🔴")
+
+    def test_negative_is_green(self):
+        t = ntfy._payload(d(direction="negative", confidence=88), "t", 5)["title"]
+        assert t.startswith("🟢🟢🟢")
+
+    def test_order_is_mark_time_code_name(self):
+        t = ntfy._payload(d(code="4385", company="メルカリ", confidence=52,
+                            time="2026-09-11T15:30"), "t", 5)["title"]
+        assert t == "🔴 15:30 4385 メルカリ"
+
+    def test_title_survives_missing_time(self):
+        t = ntfy._payload(d(code="4385", company="メルカリ", confidence=52, time=""), "t", 5)["title"]
+        assert t == "🔴 4385 メルカリ"
+
+
+class TestLedger:
+    def test_unseen_then_recorded(self, tmp_path):
+        from src.notify import ledger
+        p = str(tmp_path / "n.json")
+        items = [d(code="1"), d(code="2")]
+        assert len(ledger.unseen(items, path=p)) == 2
+        ledger.record(items, path=p)
+        assert ledger.unseen(items, path=p) == []
+
+    def test_records_only_new_ids(self, tmp_path):
+        from src.notify import ledger
+        p = str(tmp_path / "n.json")
+        ledger.record([d(code="1")], path=p)
+        ledger.record([d(code="1"), d(code="2")], path=p)
+        assert len(ledger.load(path=p)) == 2
+
+    def test_missing_file_is_empty(self, tmp_path):
+        from src.notify import ledger
+        assert ledger.load(path=str(tmp_path / "nope.json")) == []
+
+    def test_broken_file_is_empty(self, tmp_path):
+        from src.notify import ledger
+        p = tmp_path / "n.json"
+        p.write_text("これはJSONではない", encoding="utf-8")
+        assert ledger.load(path=str(p)) == []
+
+    def test_trims_to_cap(self, tmp_path):
+        from src.notify import ledger
+        p = str(tmp_path / "n.json")
+        ledger.save([str(i) for i in range(ledger.MAX_IDS + 500)], path=p)
+        kept = ledger.load(path=p)
+        assert len(kept) == ledger.MAX_IDS
+        # 捨てるのは古いほう
+        assert kept[-1] == str(ledger.MAX_IDS + 499)
+
+    def test_items_without_id_are_ignored(self, tmp_path):
+        from src.notify import ledger
+        p = str(tmp_path / "n.json")
+        ledger.record([{"code": "1"}], path=p)
+        assert ledger.load(path=p) == []

@@ -18,7 +18,7 @@ from .analyzer.llm import get_provider
 from .analyzer.earnings import extract_earnings
 from .analyzer.content import should_refine, refine_from_pdf, apply_content
 from .store import jsonstore, archive
-from .notify import discord, ntfy
+from .notify import discord, ledger, ntfy
 from .notify import select as notify_select
 
 logging.basicConfig(
@@ -176,11 +176,15 @@ def run(limit: int = 3000, date: str | None = None, path: str = jsonstore.DEFAUL
     # 新着のうち特大材料(画面の「特大」と同じ定義)を通知する。
     # 送り先が未設定のものは no-op。ntfy と Discord の両方に同じ集合を送る。
     picked, dropped = notify_select.select(fresh)
+    # 高速検知(src.fastlane)が保存より先に送った分を除く。台帳を通さないと
+    # 同じ開示が2回飛ぶ。
+    picked = ledger.unseen(picked)
     if dropped:
         # 上限に当たるのは、ストアの取り込み失敗で全件が「新着」になった疑いが
         # 濃い。黙って切らずに残す。
         log.warning("通知を上限で打ち切り: %d件送信 / %d件破棄", len(picked), dropped)
     sent = ntfy.notify(picked) + discord.notify(picked)
+    ledger.record(picked)
 
     high = sum(1 for d in curated if d.get("impact") == "high")
     summary = {

@@ -25,26 +25,62 @@ DEFAULT_SERVER = "https://ntfy.sh"
 # 鳴り方がきつい場合は NTFY_PRIORITY=4 に落とす。
 DEFAULT_PRIORITY = 5
 
-# 方向を絵文字タグで出す。ntfy は既知の絵文字名をアイコンに変換する。
+# 方向の色。日本株の慣習に合わせ、赤=好材料 / 緑=悪材料。
+# (欧米の慣習とは逆だが、日本のチャートは上昇が赤なのでこちらに合わせる)
+MARK = {"positive": "\U0001F534", "negative": "\U0001F7E2"}
+
+# 信頼度→絵文字の個数(最大3)。confidence は 0〜100 のキャリブレーション済み値。
+# 閾値は実データ174件の分布から決めた: 70未満52% / 70〜84が28% / 85以上21%。
+# 3個が常に出るような刻み方だと「多いほど確度が高い」という情報にならない。
+CONFIDENCE_STEPS = (70, 85)
+MAX_MARKS = 3
+
+# ntfy のタグ。既知の絵文字名はアイコンに変換される。
 TAGS = {
     "positive": ["rotating_light", "chart_with_upwards_trend"],
     "negative": ["rotating_light", "chart_with_downwards_trend"],
 }
 
 
+def mark_count(confidence: object) -> int:
+    """信頼度に応じた絵文字の個数(1〜3)。値が無ければ最小の1個。"""
+    if not isinstance(confidence, (int, float)):
+        return 1
+    n = 1
+    for step in CONFIDENCE_STEPS:
+        if confidence >= step:
+            n += 1
+    return min(n, MAX_MARKS)
+
+
+def hhmm(time_str: object) -> str:
+    """開示時刻を HH:MM で返す。取れなければ空文字。
+
+    time は "2026-09-11T15:00" や "2026-09-11T15:00:00+09:00" の形で入る。
+    日付は通知が届いた時点で自明なので、時刻だけを出す。
+    """
+    if not isinstance(time_str, str) or "T" not in time_str:
+        return ""
+    clock = time_str.split("T", 1)[1][:5]
+    return clock if len(clock) == 5 and clock[2] == ":" else ""
+
+
 def _payload(d: dict, topic: str, priority: int) -> dict:
     direction = d.get("direction", "")
-    mark = "📈" if direction == "positive" else "📉"
+    # 赤=好材料 / 緑=悪材料。個数が信頼度(最大3個)。
+    marks = MARK.get(direction, "\u26AA") * mark_count(d.get("confidence"))
     code = d.get("code") or ""
     company = d.get("company") or ""
     body = d.get("summary") or d.get("title") or ""
     # 本文の頭に開示名を出す。要約だけだと何の開示か分からないことがある。
     if d.get("summary") and d.get("title"):
         body = f"{d['title']}\n\n{d['summary']}"
+    # 色 → 時刻 → コード → 社名。通知一覧では先頭しか読めないので、
+    # 一目で判断できる順に並べる。
+    head = " ".join(x for x in (marks, hhmm(d.get("time")), code, company) if x)
     payload: dict = {
         "topic": topic,
-        # 銘柄コードを先に置く。通知一覧では先頭しか読めないため。
-        "title": f"{mark} {code} {company} (score {d.get('score', '-')})".strip(),
+        "title": head,
         "message": body[:1500],
         "priority": priority,
         "tags": TAGS.get(direction, ["rotating_light"]),

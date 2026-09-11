@@ -191,7 +191,15 @@ jobs:
                 echo "disclosures 変更なし"
               fi
             fi
-            sleep 90
+            # 待機中も特大材料だけは20秒間隔で見る。通常の巡回は当日+前日の
+            # 全件取得・PDF精査・git操作まで含むため検知までに数分かかるが、
+            # こちらは直近一覧1リクエストと未通知分の解析だけなので速い。
+            # 取りこぼしは次の通常巡回が拾う(二重通知は通知台帳で防ぐ)。
+            for _ in 1 2 3 4; do
+              sleep 20
+              python -m src.fastlane || echo "fastlane failed (continue)"
+            done
+            sleep 10
           done
 
           # 自己連鎖: cron の間引きを待たずに次の330分ループを即座に起動する。

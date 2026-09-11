@@ -65,6 +65,11 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          # 特大材料のスマホ通知(ntfy)。未設定なら no-op。
+          # topic名がそのまま購読キーになるので秘密として扱う(推測されると読める)。
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_SERVER: ${{ vars.NTFY_SERVER }}
+          NTFY_PRIORITY: ${{ vars.NTFY_PRIORITY }}
           LLM_MIN_SCORE: ${{ vars.LLM_MIN_SCORE }}
           MIN_SCORE: ${{ vars.MIN_SCORE }}
           MAX_ITEMS: ${{ vars.MAX_ITEMS }}

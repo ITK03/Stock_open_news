@@ -18,7 +18,8 @@ from .analyzer.llm import get_provider
 from .analyzer.earnings import extract_earnings
 from .analyzer.content import should_refine, refine_from_pdf, apply_content
 from .store import jsonstore, archive
-from .notify import discord
+from .notify import discord, ntfy
+from .notify import select as notify_select
 
 logging.basicConfig(
     level=os.environ.get("LOG_LEVEL", "INFO"),
@@ -172,8 +173,14 @@ def run(limit: int = 3000, date: str | None = None, path: str = jsonstore.DEFAUL
     # 日付別アーカイブにも蓄積(過去に遡って閲覧できるようにする)
     archive.archive_items(curated)
 
-    # 新着のうち urgent を Discord 通知(Webhook 未設定なら no-op)
-    sent = discord.notify_urgent(fresh)
+    # 新着のうち特大材料(画面の「特大」と同じ定義)を通知する。
+    # 送り先が未設定のものは no-op。ntfy と Discord の両方に同じ集合を送る。
+    picked, dropped = notify_select.select(fresh)
+    if dropped:
+        # 上限に当たるのは、ストアの取り込み失敗で全件が「新着」になった疑いが
+        # 濃い。黙って切らずに残す。
+        log.warning("通知を上限で打ち切り: %d件送信 / %d件破棄", len(picked), dropped)
+    sent = ntfy.notify(picked) + discord.notify(picked)
 
     high = sum(1 for d in curated if d.get("impact") == "high")
     summary = {
@@ -184,7 +191,8 @@ def run(limit: int = 3000, date: str | None = None, path: str = jsonstore.DEFAUL
         "high_impact": high,
         "earnings_new": n_earnings,
         "content_new": n_content,
-        "urgent_notified": sent,
+        "mega_notified": sent,
+        "mega_dropped": dropped,
     }
     log.info("完了: %s", summary)
     return summary

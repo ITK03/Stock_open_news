@@ -1,7 +1,8 @@
-"""Discord 通知(後段機能)。
+"""Discord 通知。DISCORD_WEBHOOK_URL が未設定なら何もしない(no-op)。
 
-urgent=True の新着開示を Discord Webhook に送る。DISCORD_WEBHOOK_URL が未設定なら
-何もしない(no-op)。今回の第一段では配線のみ用意し、既定では呼ばれても安全。
+送る対象の選別は notify.select が行う。以前はこのモジュール内で urgent=True を
+条件にしていたが、送り先ごとに条件が散ると「どれが何を送るのか」が追えなく
+なるため、選別は1箇所に寄せた。ntfy と併送するときも同じ集合が飛ぶ。
 """
 from __future__ import annotations
 
@@ -39,14 +40,16 @@ def _embed(d: dict) -> dict:
     return embed
 
 
-def notify_urgent(items: list[dict], webhook_url: str | None = None) -> int:
-    """urgent な開示を通知。送信した件数を返す。"""
+def notify(items: list[dict], webhook_url: str | None = None) -> int:
+    """渡された開示をそのまま通知。送信した件数を返す。
+
+    1件の失敗で全体を止めない(残りは送る)。
+    """
     webhook_url = webhook_url or os.environ.get("DISCORD_WEBHOOK_URL")
     if not webhook_url:
         return 0
-    urgent = [d for d in items if d.get("urgent")]
     sent = 0
-    for d in urgent:
+    for d in items:
         try:
             r = requests.post(webhook_url, json={"embeds": [_embed(d)]}, timeout=TIMEOUT)
             r.raise_for_status()

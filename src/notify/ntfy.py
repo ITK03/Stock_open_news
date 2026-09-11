@@ -137,14 +137,21 @@ def _selftest() -> int:
     if not os.environ.get("NTFY_TOPIC"):
         print("NTFY_TOPIC が未設定です。ntfyアプリで購読した topic 名を入れてください。")
         return 1
+    # 実物と同じ形で送る。confidence と time が入っていないと、絵文字の個数と
+    # 時刻表示という「見た目の確認」にならない(最初の疎通確認がそれだった)。
+    from datetime import datetime, timedelta, timezone
+
+    now = datetime.now(timezone(timedelta(hours=9)))
     sample = {
         "id": "selftest",
         "code": "0000",
         "company": "疎通確認",
         "score": 99,
         "direction": "positive",
+        "confidence": 88,      # 3個出る値
+        "time": now.strftime("%Y-%m-%dT%H:%M:%S+09:00"),
         "title": "通知の疎通確認",
-        "summary": "これが届いていれば特大材料の通知経路は動いています。",
+        "summary": "赤3つと時刻が見えていれば表示設定は反映されています。",
     }
     sent = notify([sample])
     print(f"送信 {sent}件")

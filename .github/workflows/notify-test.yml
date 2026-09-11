@@ -1,0 +1,47 @@
+name: Notify Test
+
+# 通知経路の疎通確認を1回だけ行う。特大材料を待たずに「鳴るかどうか」を確かめる。
+#
+# ntfy.sh は開発環境からネットワークポリシーで遮断されており、payload の形を
+# 実物に対して検証できない。届くかどうかを確かめる手段が無いまま運用を始めると、
+# 「静かなのは特大材料が無いからか、壊れているからか」が区別できなくなる。
+#
+# .github/notify-test-kick を書き換えて push すると1通だけ送る。
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: [".github/notify-test-kick"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: notify-test
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+
+      - name: 通知を1通送る
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_SERVER: ${{ vars.NTFY_SERVER }}
+          NTFY_PRIORITY: ${{ vars.NTFY_PRIORITY }}
+        run: |
+          if [ -z "${NTFY_TOPIC:-}" ]; then
+            echo "::error title=NTFY_TOPIC が未設定::リポジトリのシークレットに NTFY_TOPIC を登録してください"
+            exit 1
+          fi
+          python -m src.notify.ntfy
+          echo "### 通知を送りました" >> "$GITHUB_STEP_SUMMARY"
+          echo "スマホに届いていれば経路は動いています。" >> "$GITHUB_STEP_SUMMARY"

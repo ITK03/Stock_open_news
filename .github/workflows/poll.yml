@@ -28,6 +28,14 @@ on:
     # いる限りこの cron は主な起動源ではなく、連鎖切れ時の保険として働く。
     - cron: "0 23 * * 0-4"    # JST 08:00 (月-金)
     - cron: "0 0-10 * * 1-5"  # JST 09:00-19:59 (月-金)
+  # .github/poll-kick を更新する push でも起動する。
+  # このループは起動時のコードと環境変数を330分掴んだまま走るため、通知先の
+  # シークレットを追加しても走行中のジョブには反映されない。cron は数時間
+  # 間引かれ、workflow_dispatch はトークン次第で叩けないことがある。
+  # concurrency の cancel-in-progress で古いループを置き換えられる。
+  push:
+    branches: [main]
+    paths: [".github/poll-kick"]
 
 permissions:
   contents: write

@@ -35,11 +35,8 @@ MARK = {"positive": "\U0001F534", "negative": "\U0001F7E2"}
 CONFIDENCE_STEPS = (70, 85)
 MAX_MARKS = 3
 
-# ntfy のタグ。既知の絵文字名はアイコンに変換される。
-TAGS = {
-    "positive": ["rotating_light", "chart_with_upwards_trend"],
-    "negative": ["rotating_light", "chart_with_downwards_trend"],
-}
+# タグは付けない。ntfy は既知の絵文字名(rotating_light 等)をアイコンに変換して
+# 件名の前に並べるため、🔴🟢 と情報が重複して見た目がうるさくなる。
 
 
 def mark_count(confidence: object) -> int:
@@ -83,7 +80,6 @@ def _payload(d: dict, topic: str, priority: int) -> dict:
         "title": head,
         "message": body[:1500],
         "priority": priority,
-        "tags": TAGS.get(direction, ["rotating_light"]),
     }
     if d.get("pdf_url"):
         payload["click"] = d["pdf_url"]

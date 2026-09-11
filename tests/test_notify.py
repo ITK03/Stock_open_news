@@ -75,9 +75,10 @@ class TestNtfy:
         assert "4385 メルカリ" in p["title"]
         assert p["topic"] == "t" and p["priority"] == 5
 
-    def test_negative_direction_uses_down_tag(self):
-        p = ntfy._payload(d(direction="negative"), "t", 5)
-        assert "chart_with_downwards_trend" in p["tags"]
+    def test_no_tags_are_sent(self):
+        """ntfy はタグを絵文字アイコンにして件名の前に並べる。🔴🟢 と重複して
+        見た目がうるさくなるので付けない。"""
+        assert "tags" not in ntfy._payload(d(direction="negative"), "t", 5)
 
     def test_body_keeps_both_title_and_summary(self):
         """要約だけだと何の開示か分からないことがある。"""

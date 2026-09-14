@@ -21,7 +21,7 @@ import sys
 
 from .analyzer import analyze_many
 from .analyzer.llm import get_provider
-from .fetcher import fetch_recent
+from .fetcher import canonical_id, fetch_recent
 from .notify import discord, ledger, ntfy
 from .notify import select as notify_select
 from .store import jsonstore
@@ -38,6 +38,13 @@ def run(limit: int = RECENT_LIMIT, path: str = jsonstore.DEFAULT_PATH,
     raws = fetch_recent(limit=limit)
     if not raws:
         return {"fetched": 0, "notified": 0}
+
+    # 正規IDに揃える。fetch_full は id を canonical_id に書き換えるが
+    # fetch_recent は書き換えないため、そのまま比べると保存済みIDと一致せず
+    # 全件が「新着」になる。実際これで月曜の朝に金曜の開示が通知された。
+    for d in raws:
+        d["id"] = canonical_id(d.get("pdf_url", ""), d.get("code", ""),
+                               d.get("title", ""), d.get("time", ""))
 
     # 既に保存済み(=通常の巡回が処理済み)と、既に通知済みのものを除く。
     # ストア側も見るのは、ジョブが再起動して台帳が消えた場合の重複を防ぐため。

@@ -6,16 +6,24 @@
 """
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
+
 import pytest
 
 from src.notify import discord, ntfy
 from src.notify import select as notify_select
 
 
+def _now_iso() -> str:
+    """いまの時刻。通知には鮮度の上限があるため、固定日時では落ちる。"""
+    from datetime import datetime, timedelta, timezone
+    return datetime.now(timezone(timedelta(hours=9))).strftime("%Y-%m-%dT%H:%M:%S+09:00")
+
+
 def d(code="7203", score=90, direction="positive", **kw):
     base = {"id": f"{code}-{score}", "code": code, "company": "テスト社",
             "score": score, "direction": direction, "title": "業績予想の修正",
-            "summary": "営業利益を上方修正", "time": "2026-09-11T15:00"}
+            "summary": "営業利益を上方修正", "time": _now_iso()}
     base.update(kw)
     return base
 
@@ -261,3 +269,53 @@ class TestLedger:
         p = str(tmp_path / "n.json")
         ledger.record([{"code": "1"}], path=p)
         assert ledger.load(path=p) == []
+
+
+class TestFreshness:
+    """古い開示を通知しないこと。
+
+    リアルタイム通知は「今知る価値があるか」が全て。実際、正規IDの不一致で
+    重複排除が外れたとき、月曜の朝に金曜の開示が通知された。重複排除は直したが、
+    ここでも止める。
+    """
+
+    NOW = datetime(2026, 9, 14, 9, 0, tzinfo=timezone(timedelta(hours=9)))
+
+    def _at(self, iso):
+        return d(time=iso)
+
+    def test_recent_is_notified(self):
+        picked, _ = notify_select.select([self._at("2026-09-14T08:30:00+09:00")], now=self.NOW)
+        assert len(picked) == 1
+
+    def test_last_friday_is_not_notified(self):
+        """実際に起きた事象そのもの。"""
+        picked, _ = notify_select.select([self._at("2026-09-11T15:00:00+09:00")], now=self.NOW)
+        assert picked == []
+
+    def test_boundary_is_inclusive(self):
+        picked, _ = notify_select.select([self._at("2026-09-14T08:00:00+09:00")], now=self.NOW)
+        assert len(picked) == 1
+
+    def test_just_over_the_boundary_is_dropped(self):
+        picked, _ = notify_select.select([self._at("2026-09-14T07:59:00+09:00")], now=self.NOW)
+        assert picked == []
+
+    def test_naive_time_is_treated_as_jst(self):
+        picked, _ = notify_select.select([self._at("2026-09-14T08:30")], now=self.NOW)
+        assert len(picked) == 1
+
+    def test_future_time_is_allowed(self):
+        """時計のずれや予約公開で未来になることがある。古い扱いにはしない。"""
+        picked, _ = notify_select.select([self._at("2026-09-14T09:30:00+09:00")], now=self.NOW)
+        assert len(picked) == 1
+
+    def test_unparsable_time_is_not_notified(self):
+        """読めない時刻を通すと、重複排除が外れたときに無制限に古いものが飛ぶ。"""
+        for v in ("", "2026-09-14", "ごみ", None):
+            assert notify_select.select([d(time=v)], now=self.NOW)[0] == []
+
+    def test_window_is_configurable(self):
+        item = self._at("2026-09-11T15:00:00+09:00")
+        picked, _ = notify_select.select([item], now=self.NOW, max_age_minutes=60 * 24 * 7)
+        assert len(picked) == 1

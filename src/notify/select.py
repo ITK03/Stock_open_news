@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import logging
 import os
+import re
 from datetime import datetime, timedelta, timezone
 
 log = logging.getLogger(__name__)
@@ -65,6 +66,44 @@ def is_fresh(d: dict, now: datetime | None = None,
     return age <= max_age_minutes
 
 
+# 通知しない開示の表題パターン。
+#
+# 特大材料に「どうでもいいもの」が混ざる、という指摘を受けて直近12営業日の
+# 特大材料70件を全部読んで分類した。混入は2種類だった。
+#
+# 1. すでに知られていること。公開買付けの結果(賛同表明の時点で株価は動き
+#    終わっている)、既報の一部変更、XBRLの数値データ訂正。
+# 2. 事務手続き。新株予約権の大量行使・取得消却、調達資金の支出予定時期の変更、
+#    転換価額の修正、更生計画案の提出期間の伸長。
+#
+# あわせて、悪材料として分類されていたが実際は悪材料でないものも落とす。
+# 「継続企業の前提に関する重要事象等の記載解消」(=懸念が消えた)、
+# 「監理銘柄の指定解除」「上場承認」「市場区分変更承認」。これらは分類器の
+# 符号が逆で、通知としては鳴らすべきでない。
+#
+# 実測: 70件中17件(24%)が除外され、1日5.8件 → 4.4件になる。除外された17件は
+# 全部が上記のいずれかだった。本物のTOB賛同表明(レオパレス21など)は残る。
+#
+# confidence の下限では切らない。TOB賛同表明は calibration の実測的中率が低く
+# confidence 44 になるため、下限を引くと最も価格を動かす開示を落としてしまう。
+_SKIP_TITLE = re.compile("|".join([
+    # すでに知られている
+    r"買付け[のに].*結果", r"公開買付けの結果", r"取得終了",
+    r"数値データ訂正", r"訂正報告書", r"^（訂正", r"^\(訂正",
+    r"^（変更）", r"^\(変更\)", r"一部変更",
+    # 事務手続き
+    r"新株予約権.*大量行使", r"新株予約権の取得・消却", r"取得・消却の完了",
+    r"支出予定時期", r"転換価額の修正", r"期間の伸長",
+    # 悪材料ではない(分類器の符号が逆)
+    r"記載解消", r"指定解除", r"上場承認", r"区分変更承認",
+]))
+
+
+def is_noteworthy(d: dict) -> bool:
+    """通知する価値がある表題か。既知・事務手続き・符号が逆のものを落とす。"""
+    return not _SKIP_TITLE.search(d.get("title") or "")
+
+
 def is_mega(d: dict) -> bool:
     """特大材料か。スコアが閾値以上で、かつ方向が明確なもの。
 
@@ -85,12 +124,27 @@ def select(items: list[dict], limit: int = MAX_PER_RUN,
     スコアの高い順に送る。上限で切るとき、残すべきは重いほうなので。
     古い開示は落とす(リアルタイム通知の価値が無いため)。
     """
-    stale = [d for d in items
-             if is_mega(d) and not is_fresh(d, now, max_age_minutes)]
+    mega = [d for d in items if is_mega(d)]
+    stale = [d for d in mega if not is_fresh(d, now, max_age_minutes)]
     if stale:
         log.info("古いため通知しない特大材料: %d件 (上限%d分)", len(stale), max_age_minutes)
-    picked = [d for d in items if is_mega(d) and is_fresh(d, now, max_age_minutes)]
+    fresh_mega = [d for d in mega if is_fresh(d, now, max_age_minutes)]
+    noise = [d for d in fresh_mega if not is_noteworthy(d)]
+    if noise:
+        log.info("既知・事務手続きのため通知しない: %d件", len(noise))
+    picked = [d for d in fresh_mega if is_noteworthy(d)]
     picked.sort(key=lambda d: (-(d.get("score") or 0), d.get("time") or ""))
+    # 同じ銘柄が同じ話題で複数出ることがある(同時刻にほぼ同内容の表題が2本など)。
+    # スコアの高い1本だけ残す。実測では53件中1件。
+    seen_topic: set[tuple] = set()
+    unique = []
+    for d in picked:
+        key = (d.get("code"), d.get("category"))
+        if key in seen_topic:
+            continue
+        seen_topic.add(key)
+        unique.append(d)
+    picked = unique
     if len(picked) <= limit:
         return picked, 0
     return picked[:limit], len(picked) - limit

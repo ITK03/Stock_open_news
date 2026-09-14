@@ -319,3 +319,104 @@ class TestFreshness:
         item = self._at("2026-09-11T15:00:00+09:00")
         picked, _ = notify_select.select([item], now=self.NOW, max_age_minutes=60 * 24 * 7)
         assert len(picked) == 1
+
+
+class TestNoteworthy:
+    """特大材料に混ざる「どうでもいいもの」を落とすこと。
+
+    直近12営業日の特大材料70件を全部読んで分類した結果に基づく。混入は
+    「すでに知られていること」と「事務手続き」、それに「悪材料として分類された
+    が実際は悪材料でないもの」の3種類だった。実測で70件中17件(24%)が該当。
+    表題はすべて実データから取っている。
+    """
+
+    def _fires(self, title):
+        picked, _ = notify_select.select([d(title=title)])
+        return len(picked) == 1
+
+    # --- すでに知られている ---
+    def test_tob_result_is_skipped(self):
+        """賛同表明の時点で株価は動き終わっている。"""
+        assert not self._fires("株式会社桃の木による当社株式に対する公開買付けの結果並びに主要株主の異動に関するお知らせ")
+
+    def test_tob_proposal_itself_still_fires(self):
+        """本物のTOB賛同表明は残す。最も価格を動かす開示なので。"""
+        assert self._fires("株式会社K891による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ")
+
+    def test_xbrl_correction_is_skipped(self):
+        assert not self._fires("（数値データ訂正）「業績予想の修正に関するお知らせ」における数値データ（XBRL）の訂正について")
+
+    def test_amendment_of_earlier_release_is_skipped(self):
+        assert not self._fires("（変更）「公開買付けに関する賛同の意見表明及び応募推奨のお知らせ」の一部変更")
+
+    # --- 事務手続き ---
+    def test_warrant_mass_exercise_is_skipped(self):
+        assert not self._fires("第三者割当により発行された第７回新株予約権（行使価額修正条項付）の大量行使に関するお知らせ")
+
+    def test_fund_use_schedule_change_is_skipped(self):
+        assert not self._fires("第三者割当による新株式発行により調達した資金の支出予定時期の変更に関するお知らせ")
+
+    def test_conversion_price_revision_is_skipped(self):
+        assert not self._fires("第１回無担保転換社債型新株予約権付社債の転換価額の修正に関するお知らせ")
+
+    def test_new_share_issue_still_fires(self):
+        """希薄化そのものは通知する。落とすのはその後の事務連絡だけ。"""
+        assert self._fires("第三者割当による新株式の発行に関するお知らせ")
+
+    # --- 悪材料ではない(分類器の符号が逆だったもの) ---
+    def test_going_concern_resolution_is_skipped(self):
+        """「記載解消」は懸念が消えたという良い知らせ。悪材料として鳴らさない。"""
+        assert not self._fires("「継続企業の前提に関する重要事象等」の記載解消に関するお知らせ")
+
+    def test_supervision_release_is_skipped(self):
+        assert not self._fires("東京証券取引所スタンダード市場への上場市場区分変更承認及び当社株式の監理銘柄(審査中)指定解除に関するお知らせ")
+
+    def test_new_listing_approval_is_skipped(self):
+        assert not self._fires("名証ネクスト市場及び福証Q-Board市場への上場承認に関するお知らせ")
+
+    def test_actual_delisting_still_fires(self):
+        assert self._fires("当社株式の上場廃止のお知らせ")
+
+    # --- 巻き添えが無いこと ---
+    def test_clinical_trial_result_still_fires(self):
+        """「結果」で一律に弾くと治験結果を落とす。TOBの結果に限って落とす。"""
+        assert self._fires("国内第III相臨床試験の結果に関するお知らせ")
+
+    def test_large_order_still_fires(self):
+        assert self._fires("大型受注の獲得に関するお知らせ")
+
+    def test_upward_revision_still_fires(self):
+        assert self._fires("2027年２月期業績予想の修正（上方修正）に関するお知らせ")
+
+
+class TestSameTopicDedupe:
+    """同じ銘柄が同じ話題で複数出たら1本にする。
+
+    実データで 246A が同時刻に「株主優待額の増額および業績予想の修正について」と
+    「…に関するお知らせ」の2本を出していた。2回鳴らす意味が無い。
+    """
+
+    def test_keeps_one_per_code_and_category(self):
+        items = [d(code="246A", score=87, category="業績修正", title="株主優待額の増額および業績予想の修正について"),
+                 d(code="246A", score=92, category="業績修正", title="株主優待額の増額および業績予想の修正に関するお知らせ")]
+        picked, _ = notify_select.select(items)
+        assert len(picked) == 1
+
+    def test_keeps_the_higher_score(self):
+        items = [d(code="246A", score=87, category="業績修正", title="業績予想の修正について"),
+                 d(code="246A", score=92, category="業績修正", title="業績予想の修正に関するお知らせ")]
+        picked, _ = notify_select.select(items)
+        assert picked[0]["score"] == 92
+
+    def test_different_categories_both_fire(self):
+        """同じ銘柄でも別の話題なら両方通知する。"""
+        items = [d(code="246A", category="業績修正", title="業績予想の修正に関するお知らせ"),
+                 d(code="246A", category="TOB・買収", title="公開買付けに関する賛同の意見表明")]
+        picked, _ = notify_select.select(items)
+        assert len(picked) == 2
+
+    def test_different_codes_both_fire(self):
+        items = [d(code="1111", category="業績修正", title="業績予想の修正に関するお知らせ"),
+                 d(code="2222", category="業績修正", title="業績予想の修正に関するお知らせ")]
+        picked, _ = notify_select.select(items)
+        assert len(picked) == 2

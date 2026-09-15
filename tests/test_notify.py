@@ -420,3 +420,79 @@ class TestSameTopicDedupe:
                  d(code="2222", category="業績修正", title="業績予想の修正に関するお知らせ")]
         picked, _ = notify_select.select(items)
         assert len(picked) == 2
+
+
+class TestTradableMarket:
+    """SBIで売買できない市場の開示を通知しないこと。
+
+    「Ｐ－」は TOKYO PRO Market(特定投資家限定)。開示データの markets は全件空で
+    exchange は一律「東証」なので、市場は社名の接頭辞しか手がかりが無い。
+    JPXの上場一覧から作ったユニバース(3,708銘柄)との収録率で確認した:
+    接頭辞なし86.8% / Ｇ－(グロース)75.6% / Ｐ－ 0.0%。実測で通知の15%。
+    """
+
+    def _fires(self, company):
+        picked, _ = notify_select.select([d(company=company)])
+        return len(picked) == 1
+
+    def test_pro_market_is_skipped(self):
+        assert not self._fires("Ｐ－一寸房")
+
+    def test_prime_and_standard_fire(self):
+        assert self._fires("トヨタ自動車")
+
+    def test_growth_fires(self):
+        """グロースはSBIで売買できる。"""
+        assert self._fires("Ｇ－クオリプス")
+
+    def test_etf_and_reit_are_not_excluded(self):
+        """ETF・REITはユニバース収録率が低いが売買できる。除外しない。"""
+        assert self._fires("Ｅ－上場インデックス")
+        assert self._fires("Ｒ－日本ビルファンド")
+
+    def test_prefix_must_be_at_the_start(self):
+        """社名の途中に「Ｐ－」があっても市場とは無関係。"""
+        assert self._fires("テストＰ－カンパニー")
+
+
+class TestUnreliableNegative:
+    """悪材料としての判定が当てにならない表題を、悪材料のときだけ落とすこと。
+
+    直近13営業日の悪材料36件を読んで特定した。分類は合っているが市場がそれを
+    悪材料として受け取るとは限らないもの。好材料と判定されたなら通知する。
+    """
+
+    def _fires(self, title, direction):
+        picked, _ = notify_select.select([d(title=title, direction=direction)])
+        return len(picked) == 1
+
+    def test_capital_alliance_is_not_a_negative(self):
+        """提携相手が大手なら買われることが多い。実データではSBIホールディングス
+        との提携、大和ハウス工業との提携が悪材料で鳴っていた。"""
+        t = "SBIホールディングス株式会社との資本業務提携、第三者割当による新株式の発行に関するお知らせ"
+        assert not self._fires(t, "negative")
+
+    def test_capital_alliance_still_fires_as_positive(self):
+        t = "SBIホールディングス株式会社との資本業務提携に関するお知らせ"
+        assert self._fires(t, "positive")
+
+    def test_underwriting_someone_elses_issue_is_not_a_negative(self):
+        """希薄化する側ではなく投資する側。分類が逆。"""
+        t = "米国NASDAQ市場上場のSunPower Inc.が発行する第三者割当増資を当社が引き受けることに関するお知らせ"
+        assert not self._fires(t, "negative")
+
+    def test_moving_to_another_exchange_is_not_a_failure_delisting(self):
+        t = "東京証券取引所における当社株式の上場廃止申請および名古屋証券取引所への単独上場移行見込みに関するお知らせ"
+        assert not self._fires(t, "negative")
+
+    def test_plain_delisting_still_fires(self):
+        assert self._fires("当社株式の上場廃止に関するお知らせ", "negative")
+
+    def test_plain_third_party_allotment_still_fires(self):
+        """提携を伴わない希薄化はそのまま悪材料として通知する。"""
+        assert self._fires("第三者割当による新株式の発行に関するお知らせ", "negative")
+
+    def test_mass_conversion_is_procedural(self):
+        """大量行使と同じ事務手続き。方向に関係なく落とす。"""
+        t = "第三者割当により発行された第３回無担保転換社債型新株予約権付社債の大量転換に関するお知らせ"
+        assert not self._fires(t, "negative")

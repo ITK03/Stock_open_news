@@ -92,16 +92,61 @@ _SKIP_TITLE = re.compile("|".join([
     r"数値データ訂正", r"訂正報告書", r"^（訂正", r"^\(訂正",
     r"^（変更）", r"^\(変更\)", r"一部変更",
     # 事務手続き
-    r"新株予約権.*大量行使", r"新株予約権の取得・消却", r"取得・消却の完了",
+    r"新株予約権.*大量行使", r"大量転換", r"新株予約権の取得・消却", r"取得・消却の完了",
     r"支出予定時期", r"転換価額の修正", r"期間の伸長",
     # 悪材料ではない(分類器の符号が逆)
     r"記載解消", r"指定解除", r"上場承認", r"区分変更承認",
 ]))
 
 
+# 悪材料としての判定が当てにならない表題。direction が negative のときだけ落とす。
+#
+# 直近13営業日の悪材料36件を読んで特定した。いずれも「希薄化・上場廃止」という
+# 分類は合っているが、市場がそれを悪材料として受け取るとは限らないもの。
+#  - 資本業務提携を伴う第三者割当: 提携相手が大手なら買われることが多い
+#    (SBIホールディングスとの提携、大和ハウス工業との提携が悪材料で鳴っていた)
+#  - 当社が他社の増資を引き受ける: 希薄化する側ではなく投資する側。分類が逆
+#  - 他市場への単独上場移行: 東証からは外れるが上場は続く。経営難の上場廃止とは別
+# 好材料として分類された場合は通知する(提携が買い材料になる場合がそれ)。
+_SKIP_NEGATIVE_TITLE = re.compile("|".join([
+    r"資本業務提携",
+    r"引き受けること", r"引受けること",
+    r"単独上場移行",
+]))
+
+# SBIで売買できない市場。社名の接頭辞で判別する。
+#
+# 「Ｐ－」は TOKYO PRO Market(特定投資家限定)で、個人は売買できない。
+# 開示データの markets は全件空で exchange は一律「東証」なので、市場は社名の
+# 接頭辞しか手がかりが無い。JPXの上場一覧から作ったユニバース(3,708銘柄)と
+# 突き合わせて確認した:
+#   接頭辞なし 86.8% / Ｇ－(グロース) 75.6% / Ｐ－ 0.0%
+# ユニバース生成は PRO Market を除外する作りなので、収録率0%はPRO Market を
+# 意味する。実測で通知の15%がこれだった。
+#
+# Ｅ－(ETF/ETN) と Ｒ－(REIT) も収録率が低いが、これはユニバースが4桁コードの
+# 現物株だけを持つためで、SBIで売買できる。除外しない(そもそも特大材料には
+# 現れていない)。
+_UNTRADABLE_PREFIX = re.compile(r"^Ｐ－")
+
+
+def is_tradable(d: dict) -> bool:
+    """SBIで売買できる市場の銘柄か。"""
+    return not _UNTRADABLE_PREFIX.match(d.get("company") or "")
+
+
 def is_noteworthy(d: dict) -> bool:
-    """通知する価値がある表題か。既知・事務手続き・符号が逆のものを落とす。"""
-    return not _SKIP_TITLE.search(d.get("title") or "")
+    """通知する価値がある表題か。既知・事務手続き・符号が逆のものを落とす。
+
+    悪材料としての判定が当てにならない表題は、negative のときだけ落とす。
+    同じ開示が好材料と判定されたなら、それは通知する価値がある。
+    """
+    title = d.get("title") or ""
+    if _SKIP_TITLE.search(title):
+        return False
+    if d.get("direction") == "negative" and _SKIP_NEGATIVE_TITLE.search(title):
+        return False
+    return True
 
 
 def is_mega(d: dict) -> bool:
@@ -129,10 +174,14 @@ def select(items: list[dict], limit: int = MAX_PER_RUN,
     if stale:
         log.info("古いため通知しない特大材料: %d件 (上限%d分)", len(stale), max_age_minutes)
     fresh_mega = [d for d in mega if is_fresh(d, now, max_age_minutes)]
-    noise = [d for d in fresh_mega if not is_noteworthy(d)]
+    untradable = [d for d in fresh_mega if not is_tradable(d)]
+    if untradable:
+        log.info("売買できない市場のため通知しない: %d件", len(untradable))
+    tradable = [d for d in fresh_mega if is_tradable(d)]
+    noise = [d for d in tradable if not is_noteworthy(d)]
     if noise:
-        log.info("既知・事務手続きのため通知しない: %d件", len(noise))
-    picked = [d for d in fresh_mega if is_noteworthy(d)]
+        log.info("既知・事務手続き・判定不確かのため通知しない: %d件", len(noise))
+    picked = [d for d in tradable if is_noteworthy(d)]
     picked.sort(key=lambda d: (-(d.get("score") or 0), d.get("time") or ""))
     # 同じ銘柄が同じ話題で複数出ることがある(同時刻にほぼ同内容の表題が2本など)。
     # スコアの高い1本だけ残す。実測では53件中1件。

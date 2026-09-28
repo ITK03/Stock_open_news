@@ -1,7 +1,114 @@
 {
-  "updated_at": "2026-09-28T10:28:30+09:00",
-  "count": 11,
+  "updated_at": "2026-09-28T10:30:18+09:00",
+  "count": 15,
   "items": [
+    {
+      "id": "140120260928540717",
+      "time": "2026-09-28T10:30:00+09:00",
+      "code": "13294",
+      "company": "Ｅ－ブラックロック",
+      "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260928540717.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
+    },
+    {
+      "id": "140120260928540734",
+      "time": "2026-09-28T10:30:00+09:00",
+      "code": "4272",
+      "company": "日化薬",
+      "title": "連結子会社からの配当金受領に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260928540734.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
+    },
+    {
+      "id": "140120260925540578",
+      "time": "2026-09-28T10:30:00+09:00",
+      "code": "7460",
+      "company": "ヤギ",
+      "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260925540578.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 75,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 53,
+      "is_correction": false,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "立会外"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
+    },
+    {
+      "id": "140120260928540755",
+      "time": "2026-09-28T10:30:00+09:00",
+      "code": "9514",
+      "company": "ＥＦ－ＯＮ",
+      "title": "支配株主等（その他の関係会社）に関する事項について",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260928540755.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
+    },
     {
       "id": "140120260928540707",
       "time": "2026-09-28T10:00:00+09:00",
@@ -25,7 +132,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260928540658",
@@ -50,7 +157,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260928540751",
@@ -78,7 +185,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260925540239",
@@ -103,7 +210,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260928540673",
@@ -128,7 +235,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260928540660",
@@ -153,7 +260,7 @@
       ],
       "summary": "社債発行・借入等の資金調達。財務面の動き。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260925540546",
@@ -180,7 +287,7 @@
       ],
       "summary": "訴訟・係争。金額と勝敗次第でインパクト。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260928540647",
@@ -205,7 +312,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260928540648",
@@ -230,7 +337,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260926540606",
@@ -255,7 +362,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     },
     {
       "id": "140120260928540618",
@@ -280,7 +387,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-09-28T10:28:30+09:00"
+      "analyzed_at": "2026-09-28T10:30:18+09:00"
     }
   ]
 }

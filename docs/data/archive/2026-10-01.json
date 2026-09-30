@@ -1,7 +1,91 @@
 {
-  "updated_at": "2026-10-01T08:44:56+09:00",
-  "count": 5,
+  "updated_at": "2026-10-01T08:47:04+09:00",
+  "count": 8,
   "items": [
+    {
+      "id": "140120260928541055",
+      "time": "2026-10-01T08:45:00+09:00",
+      "code": "6072",
+      "company": "ＥＲＴＨ　Ｇｒｏｕｐ",
+      "title": "（開示事項の経過）商号変更のお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260928541055.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:開示事項の経過"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-01T08:46:46+09:00"
+    },
+    {
+      "id": "140120261001543803",
+      "time": "2026-10-01T08:45:00+09:00",
+      "code": "8002",
+      "company": "丸紅",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261001543803.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-01T08:46:46+09:00"
+    },
+    {
+      "id": "140120260929542194",
+      "time": "2026-10-01T08:45:00+09:00",
+      "code": "8031",
+      "company": "三井物産",
+      "title": "自己株式の取得状況（途中経過）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260929542194.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 51,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:取得状況"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-01T08:46:46+09:00"
+    },
     {
       "id": "140120260930543137",
       "time": "2026-10-01T08:30:00+09:00",
@@ -29,7 +113,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-01T08:44:38+09:00"
+      "analyzed_at": "2026-10-01T08:46:46+09:00"
     },
     {
       "id": "140120261001543778",
@@ -55,7 +139,7 @@
       ],
       "summary": "受注・契約締結。規模次第で業績寄与。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-01T08:44:38+09:00"
+      "analyzed_at": "2026-10-01T08:46:46+09:00"
     },
     {
       "id": "140120260930543527",
@@ -82,7 +166,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-01T08:44:38+09:00"
+      "analyzed_at": "2026-10-01T08:46:46+09:00"
     },
     {
       "id": "9753869c8d441b89",

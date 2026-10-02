@@ -1,7 +1,234 @@
 {
-  "updated_at": "2026-10-02T09:58:23+09:00",
-  "count": 17,
+  "updated_at": "2026-10-02T10:00:17+09:00",
+  "count": 25,
   "items": [
+    {
+      "id": "140120261002545014",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "16714",
+      "company": "Ｅ－シンプレクス",
+      "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261002545014.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
+    },
+    {
+      "id": "140120261002545007",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "3675",
+      "company": "クロスマーケティング",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261002545007.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
+    },
+    {
+      "id": "140120261002544998",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "4527",
+      "company": "ロート薬",
+      "title": "「中長期成長戦略2026」",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261002544998.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
+    },
+    {
+      "id": "140120261002545003",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "4527",
+      "company": "ロート薬",
+      "title": "経営戦略説明会資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261002545003.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 5,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:説明会"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
+    },
+    {
+      "id": "140120261002545013",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "5408",
+      "company": "中山鋼",
+      "title": "第三者割当による新株式の発行及び自己株式の処分に係る払込完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261002545013.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自己株処分",
+      "score": 23,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 51,
+      "is_correction": true,
+      "tags": [
+        "第三者割当"
+      ],
+      "reasons": [
+        "自己株式の処分",
+        "減衰:払込完了"
+      ],
+      "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
+    },
+    {
+      "id": "140120261001544464",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "5463",
+      "company": "丸一鋼管",
+      "title": "自己株式の取得状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261001544464.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "自社株買い",
+      "score": 53,
+      "impact": "medium",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [
+        "自己株式の取得"
+      ],
+      "reasons": [
+        "自己株式の取得",
+        "減衰:状況に関するお知らせ"
+      ],
+      "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
+    },
+    {
+      "id": "140120260929542140",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "556A",
+      "company": "Ｇ－犬猫生活",
+      "title": "2027年４月期 第１四半期決算発表における質疑応答（要旨）について",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260929542140.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "四半期決算"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00",
+      "earnings": {
+        "period": null,
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "20百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261002544982",
+      "time": "2026-10-02T10:00:00+09:00",
+      "code": "585A4",
+      "company": "Ｅ－ＪＡＭＰＦＭ",
+      "title": "上場ETF（管理会社：JAMPファンド・マネジメント）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261002544982.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
+    },
     {
       "id": "140120261001544794",
       "time": "2026-10-02T09:30:00+09:00",
@@ -28,7 +255,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261002544986",
@@ -54,7 +281,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261002544988",
@@ -80,7 +307,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261001544963",
@@ -107,7 +334,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00",
+      "analyzed_at": "2026-10-02T10:00:16+09:00",
       "earnings": {
         "period": "2027年2月期 第2四半期",
         "figures": [],
@@ -139,7 +366,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00",
+      "analyzed_at": "2026-10-02T10:00:16+09:00",
       "earnings": {
         "period": "2027年2月期 第2四半期",
         "figures": [],
@@ -170,7 +397,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261002544953",
@@ -196,7 +423,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261001544939",
@@ -222,7 +449,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120260930543628",
@@ -248,7 +475,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261001544129",
@@ -274,7 +501,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261001543947",
@@ -300,7 +527,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120260925540089",
@@ -326,7 +553,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120260925540086",
@@ -352,7 +579,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120260925540093",
@@ -378,7 +605,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "140120261001544948",
@@ -407,7 +634,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-02T09:58:21+09:00"
+      "analyzed_at": "2026-10-02T10:00:16+09:00"
     },
     {
       "id": "9753869c8d441b89",

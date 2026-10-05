@@ -1,7 +1,77 @@
 {
-  "updated_at": "2026-10-05T09:00:10+09:00",
-  "count": 10,
+  "updated_at": "2026-10-05T09:01:59+09:00",
+  "count": 12,
   "items": [
+    {
+      "id": "140120260926540626",
+      "time": "2026-10-05T09:00:00+09:00",
+      "code": "2753",
+      "company": "あみやき",
+      "title": "2027年3月期第2四半期（中間期）決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260926540626.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220260926540626.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-05T09:01:58+09:00",
+      "earnings": {
+        "period": "2027年３月期  第２四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120260926540628",
+      "time": "2026-10-05T09:00:00+09:00",
+      "code": "2753",
+      "company": "あみやき",
+      "title": "第２四半期（累計）連結業績予想と実績値との差異 及び通期業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120260926540628.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 88,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "本文:下方修正(-25.6%)"
+      ],
+      "summary": "下方修正(-25.6%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-10-05T09:01:58+09:00",
+      "content_analysis": {
+        "direction": "negative",
+        "score_bonus": 4,
+        "note": "下方修正(-25.6%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
     {
       "id": "140120261005545641",
       "time": "2026-10-05T08:55:00+09:00",
@@ -26,7 +96,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "140120261005545642",
@@ -52,7 +122,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "140120261005545643",
@@ -78,7 +148,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "140120261005545644",
@@ -104,7 +174,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "140120261005545645",
@@ -130,7 +200,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "140120261005545614",
@@ -159,7 +229,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "140120261005545622",
@@ -185,7 +255,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "140120261005545623",
@@ -211,7 +281,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-05T09:00:10+09:00"
+      "analyzed_at": "2026-10-05T09:01:58+09:00"
     },
     {
       "id": "9753869c8d441b89",

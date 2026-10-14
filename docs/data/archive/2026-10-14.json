@@ -1,7 +1,464 @@
 {
-  "updated_at": "2026-10-14T12:00:24+09:00",
-  "count": 21,
+  "updated_at": "2026-10-14T12:02:31+09:00",
+  "count": 36,
   "items": [
+    {
+      "id": "140120261014550349",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "13494",
+      "company": "Ｅ－ＳＳＧＡ－ＳＩＮ",
+      "title": "アジア国債・公債ＥＴＦ（正式名称：ＡＢＦ汎アジア債券インデックス・ファンド）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550349.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
+    {
+      "id": "140120261014550151",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "1783",
+      "company": "ｆａｎｔａｓｉｓｔａ",
+      "title": "系統用高圧蓄電所「fantasista nagahama PSS（長浜蓄電所）の建設開始に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550151.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
+    {
+      "id": "140120261014550301",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "209A",
+      "company": "Ｐ－小野谷機工",
+      "title": "2026年８月期 決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550301.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
+      "earnings": {
+        "period": "2026年８月期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261014550303",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "209A",
+      "company": "Ｐ－小野谷機工",
+      "title": "通期業績予想と実績の差異に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550303.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 96,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "通期業績予想",
+        "本文:上方修正(+942.5%)"
+      ],
+      "summary": "上方修正(+942.5%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 12,
+        "note": "上方修正(+942.5%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120261014550305",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "209A",
+      "company": "Ｐ－小野谷機工",
+      "title": "剰余金の配当に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550305.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "配当",
+      "score": 80,
+      "impact": "high",
+      "direction": "unknown",
+      "urgent": true,
+      "confidence": 83,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "剰余金の配当"
+      ],
+      "summary": "配当予想の修正。増減を本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
+    {
+      "id": "140120261013550040",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "2764",
+      "company": "ひらまつ",
+      "title": "ひらまつＩＲレポート（月次売上速報）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261013550040.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "月次",
+      "score": 50,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "月次"
+      ],
+      "summary": "月次・速報。トレンド確認材料。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
+    {
+      "id": "140120261014550241",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "2882",
+      "company": "イートアンドＨＤ",
+      "title": "2027年２月期第２四半期 決算説明資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550241.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:説明資料"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
+    {
+      "id": "140120261014550244",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "2882",
+      "company": "イートアンドＨＤ",
+      "title": "2027年２月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550244.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261014550244.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
+      "earnings": {
+        "period": "2027年２月期\n第２四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261014550279",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "2882",
+      "company": "イートアンドＨＤ",
+      "title": "中期経営計画の策定に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550279.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
+    {
+      "id": "140120261008548034",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "4432",
+      "company": "ウイングアーク",
+      "title": "2027年２月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261008548034.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261008548034.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
+      "earnings": {
+        "period": "2027年２月期  第２四半期",
+        "figures": [],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261013549846",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "7608",
+      "company": "ＳＫジャパン",
+      "title": "通期業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261013549846.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220261013549846.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "本文:上方修正(+8.0%)"
+      ],
+      "summary": "上方修正(+8.0%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 0,
+        "note": "上方修正(+8.0%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120261014550258",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "7608",
+      "company": "ＳＫジャパン",
+      "title": "令和９年２月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550258.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261014550258.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
+      "earnings": {
+        "period": null,
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261014550234",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "7805",
+      "company": "プリントネット",
+      "title": "資本金の額の減少（減資）に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550234.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "減資",
+      "score": 50,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [
+        "減資"
+      ],
+      "reasons": [
+        "資本金の額の減少"
+      ],
+      "summary": "資本金の減少。欠損填補や税務目的が多く影響は限定的なことも。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
+    {
+      "id": "140120261014550257",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "7805",
+      "company": "プリントネット",
+      "title": "2026年８月期 決算短信〔日本基準〕（非連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550257.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261014550257.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
+      "earnings": {
+        "period": "2026年８月期",
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "１百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261014550267",
+      "time": "2026-10-14T12:00:00+09:00",
+      "code": "7805",
+      "company": "プリントネット",
+      "title": "2026年８月期決算補足説明資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261014550267.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:補足説明"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
+    },
     {
       "id": "140120261014550233",
       "time": "2026-10-14T11:30:00+09:00",
@@ -25,7 +482,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261013549507",
@@ -50,7 +507,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
       "earnings": {
         "period": "2027年５月期  第１四半期",
         "figures": [
@@ -91,7 +548,7 @@
       ],
       "summary": "特別利益の計上。一時的な利益押し上げ要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261013550092",
@@ -119,7 +576,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261012549105",
@@ -147,7 +604,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550225",
@@ -172,7 +629,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550226",
@@ -197,7 +654,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550175",
@@ -225,7 +682,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550189",
@@ -250,7 +707,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550176",
@@ -275,7 +732,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550135",
@@ -300,7 +757,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550198",
@@ -328,7 +785,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550115",
@@ -354,7 +811,7 @@
       ],
       "summary": "営業増益(+3%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
       "earnings": {
         "period": null,
         "figures": [
@@ -400,7 +857,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261014550106",
@@ -425,7 +882,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261013549735",
@@ -450,7 +907,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
       "earnings": {
         "period": "2027年５月期\n第１四半期",
         "figures": [
@@ -485,7 +942,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00",
+      "analyzed_at": "2026-10-14T12:02:13+09:00",
       "earnings": {
         "period": "2027年5月期第1四半期",
         "figures": [],
@@ -517,7 +974,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "140120261013550102",
@@ -545,7 +1002,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-14T12:00:06+09:00"
+      "analyzed_at": "2026-10-14T12:02:13+09:00"
     },
     {
       "id": "9753869c8d441b89",

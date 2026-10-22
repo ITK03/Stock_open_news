@@ -1,7 +1,122 @@
 {
-  "updated_at": "2026-10-22T11:29:11+09:00",
-  "count": 14,
+  "updated_at": "2026-10-22T11:31:06+09:00",
+  "count": 18,
   "items": [
+    {
+      "id": "140120261022554438",
+      "time": "2026-10-22T11:30:00+09:00",
+      "code": "20704",
+      "company": "Ｎ－三菱ＵＦＪ証ＨＤ",
+      "title": "上場ETN（発行者：三菱UFJ証券ホールディングス株式会社）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554438.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
+    },
+    {
+      "id": "140120261022554360",
+      "time": "2026-10-22T11:30:00+09:00",
+      "code": "549A",
+      "company": "ヒトトヒトＨＤ",
+      "title": "2027年3月期通期業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554360.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220261022554360.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "本文:上方修正"
+      ],
+      "summary": "上方修正。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-10-22T11:30:59+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 0,
+        "note": "上方修正",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120261022554396",
+      "time": "2026-10-22T11:30:00+09:00",
+      "code": "549A",
+      "company": "ヒトトヒトＨＤ",
+      "title": "2027年3月期通期業績予想の修正に関するお知らせ　補足説明資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554396.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 49,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 71,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "減衰:補足説明"
+      ],
+      "summary": "業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
+    },
+    {
+      "id": "140120261022554504",
+      "time": "2026-10-22T11:30:00+09:00",
+      "code": "8783",
+      "company": "ａｂｃ",
+      "title": "上場株式のトレーディングによる営業外収益の計上並びにウインテスト第13回新株予約権の行使完了に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554504.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [
+        "新株予約権"
+      ],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
+    },
     {
       "id": "140120261022554326",
       "time": "2026-10-22T11:00:00+09:00",
@@ -25,7 +140,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261022554355",
@@ -50,7 +165,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261016552304",
@@ -75,7 +190,7 @@
       ],
       "summary": "株式の売出し・分売は短期的な需給悪化要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261022554371",
@@ -100,7 +215,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261022554407",
@@ -125,7 +240,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261021554193",
@@ -150,7 +265,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261022554327",
@@ -175,7 +290,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261021554277",
@@ -202,7 +317,7 @@
       ],
       "summary": "公開買付け(TOB/MBO)。買付価格次第で株価が大きく動く。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261022554305",
@@ -227,7 +342,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261022554306",
@@ -252,7 +367,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261021554206",
@@ -277,7 +392,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "140120261020553245",
@@ -302,7 +417,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-22T11:29:04+09:00"
+      "analyzed_at": "2026-10-22T11:30:59+09:00"
     },
     {
       "id": "9753869c8d441b89",

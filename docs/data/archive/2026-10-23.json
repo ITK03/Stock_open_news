@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-23T14:21:13+09:00",
+  "updated_at": "2026-10-23T14:23:13+09:00",
   "count": 57,
   "items": [
     {
@@ -26,7 +26,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261020553625",
@@ -53,7 +53,7 @@
       ],
       "summary": "下方修正(-59.0%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "content_analysis": {
         "direction": "negative",
         "score_bonus": 12,
@@ -86,7 +86,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555247",
@@ -112,7 +112,7 @@
       ],
       "summary": "社債発行・借入等の資金調達。財務面の動き。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554776",
@@ -138,7 +138,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2027年３月期\n第２四半期",
         "figures": [
@@ -179,7 +179,7 @@
       ],
       "summary": "上方修正(+343.5%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -212,7 +212,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555135",
@@ -238,7 +238,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2027年３月期\n第２四半期",
         "figures": [
@@ -256,10 +256,11 @@
       "code": "7381",
       "company": "ＣＣＩグループ",
       "title": "2027年3月期第2四半期末の有価証券含み損に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554701.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554701.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -273,7 +274,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554921",
@@ -281,10 +282,11 @@
       "code": "1807",
       "company": "佐藤渡辺",
       "title": "従業員持株会向け譲渡制限付株式インセンティブとしての自己株式の処分に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554921.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554921.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "自己株処分",
       "score": 11,
       "impact": "low",
@@ -299,7 +301,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554487",
@@ -307,10 +309,11 @@
       "code": "1997",
       "company": "暁飯島",
       "title": "資本コストや株価を意識した経営の実現に向けた対応について（アップデート）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554487.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554487.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ガバナンス定例",
       "score": 25,
       "impact": "low",
@@ -324,7 +327,7 @@
       ],
       "summary": "ガバナンス・IR方針系の定例開示。影響は限定的。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554527",
@@ -332,10 +335,11 @@
       "code": "3912",
       "company": "モバファク",
       "title": "2026年12月期　第３四半期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554527.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554527.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261022554527.zip",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -349,7 +353,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年12月期\n第３四半期",
         "figures": [
@@ -367,10 +371,11 @@
       "code": "3912",
       "company": "モバファク",
       "title": "2026年12月期　第３四半期決算説明資料",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554528.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554528.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 18,
       "impact": "low",
@@ -385,7 +390,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年12月期\n第３四半期",
         "figures": [],
@@ -398,10 +403,11 @@
       "code": "4396",
       "company": "システムサポートＨＤ",
       "title": "連結子会社に対する債権放棄に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554807.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554807.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -415,7 +421,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555078",
@@ -423,10 +429,11 @@
       "code": "4728",
       "company": "トーセ",
       "title": "剰余金の配当に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555078.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555078.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "配当",
       "score": 80,
       "impact": "high",
@@ -440,7 +447,7 @@
       ],
       "summary": "配当予想の修正。増減を本文で要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554863",
@@ -448,10 +455,11 @@
       "code": "6535",
       "company": "アイモバイル",
       "title": "取締役の選任及び代表取締役・役付取締役の選定に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554863.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554863.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -465,7 +473,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554867",
@@ -473,10 +481,11 @@
       "code": "6535",
       "company": "アイモバイル",
       "title": "毎期付与型譲渡制限付株式報酬としての自己株式処分に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554867.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554867.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 0,
       "impact": "low",
@@ -490,7 +499,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554870",
@@ -498,10 +507,11 @@
       "code": "6535",
       "company": "アイモバイル",
       "title": "一括付与型譲渡制限付株式報酬としての自己株式処分に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554870.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554870.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 0,
       "impact": "low",
@@ -515,7 +525,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554458",
@@ -523,10 +533,11 @@
       "code": "8381",
       "company": "山陰合銀",
       "title": "業績予想の修正に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554458.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554458.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220261022554458.zip",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "業績修正",
       "score": 96,
       "impact": "high",
@@ -541,7 +552,7 @@
       ],
       "summary": "上方修正(+55.0%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -556,10 +567,11 @@
       "code": "3382",
       "company": "７＆ｉＨＤ",
       "title": "無担保社債発行に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555162.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555162.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -573,7 +585,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555170",
@@ -581,10 +593,11 @@
       "code": "587A4",
       "company": "Ｅ－インベスコＱＱＱ",
       "title": "インベスコQQQトラスト シリーズ1 に関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555170.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555170.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -598,7 +611,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555145",
@@ -606,10 +619,11 @@
       "code": "1788",
       "company": "三東工業",
       "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555145.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555145.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "自己株処分",
       "score": 11,
       "impact": "low",
@@ -624,7 +638,7 @@
       ],
       "summary": "自己株式の処分。目的(提携/報酬等)を要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261021554116",
@@ -632,10 +646,11 @@
       "code": "1870",
       "company": "矢作建",
       "title": "社債発行に係る発行登録書の提出に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261021554116.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261021554116.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -649,18 +664,19 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555126",
       "time": "2026-10-23T11:45:00+09:00",
       "code": "15574",
       "company": "Ｅ－ＳＳＧＡＴＣ",
-      "title": "State Street SPDR S&amp;P500 ETFに関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555126.pdf",
+      "title": "State Street SPDR S&P500 ETFに関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555126.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -674,7 +690,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555125",
@@ -682,10 +698,11 @@
       "code": "13264",
       "company": "Ｅ－ワールド",
       "title": "SPDRゴールド・シェアに関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555125.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555125.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -699,7 +716,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555118",
@@ -707,10 +724,11 @@
       "code": "13494",
       "company": "Ｅ－ＳＳＧＡ－ＳＩＮ",
       "title": "アジア国債・公債ＥＴＦ（正式名称：ＡＢＦ汎アジア債券インデックス・ファンド）に関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555118.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555118.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -724,7 +742,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555041",
@@ -732,10 +750,11 @@
       "code": "20704",
       "company": "Ｎ－三菱ＵＦＪ証ＨＤ",
       "title": "上場ETN（発行者：三菱UFJ証券ホールディングス株式会社）に関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555041.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555041.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -749,7 +768,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555092",
@@ -757,10 +776,11 @@
       "code": "2237",
       "company": "ｉＦＳＰ５００ダブル",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555092.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555092.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -774,7 +794,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [],
@@ -787,10 +807,11 @@
       "code": "2238",
       "company": "ｉＦＳＰ５００ベア",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555097.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555097.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -804,7 +825,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -823,10 +844,11 @@
       "code": "2247",
       "company": "ｉＦＳＰ５００Ｈ無",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555102.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555102.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -840,7 +862,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -859,10 +881,11 @@
       "code": "2248",
       "company": "ｉＦＳＰ５００Ｈ有",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555106.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555106.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -876,7 +899,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -895,10 +918,11 @@
       "code": "2249",
       "company": "ｉＦＳＰ５００Ｗベア",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555114.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555114.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -912,7 +936,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -931,10 +955,11 @@
       "code": "2528",
       "company": "ｉＦＪリートコア",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555049.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555049.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -948,7 +973,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -967,10 +992,11 @@
       "code": "2840",
       "company": "ｉＦナス１００Ｈ無",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555057.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555057.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -984,7 +1010,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -1003,10 +1029,11 @@
       "code": "2841",
       "company": "ｉＦナス１００Ｈ有",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555053.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555053.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1020,7 +1047,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -1039,10 +1066,11 @@
       "code": "2842",
       "company": "ｉＦナス１００ベア",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555081.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555081.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1056,7 +1084,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -1075,10 +1103,11 @@
       "code": "2869",
       "company": "ｉＦナス１００ダブル",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555084.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555084.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1092,7 +1121,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [],
@@ -1105,10 +1134,11 @@
       "code": "2870",
       "company": "ｉＦナス１００Ｗベア",
       "title": "2026年9月期（2026年3月11日～2026年9月10日）決算短信",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555087.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555087.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -1122,7 +1152,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00",
+      "analyzed_at": "2026-10-23T14:23:04+09:00",
       "earnings": {
         "period": "2026年9月期",
         "figures": [
@@ -1141,10 +1171,11 @@
       "code": "4992",
       "company": "北興化",
       "title": "当社岡山工場からのベンゼン等を含む排水の流出について（第３報）",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261021554000.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261021554000.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -1158,7 +1189,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554799",
@@ -1166,10 +1197,11 @@
       "code": "7326",
       "company": "Ｇ－ＳＢＩインシュ",
       "title": "主要株主の異動に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554799.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554799.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "大株主異動",
       "score": 62,
       "impact": "medium",
@@ -1183,7 +1215,7 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023555022",
@@ -1191,10 +1223,11 @@
       "code": "9984",
       "company": "ソフトバンクグループ",
       "title": "2021年発行ユーロ建普通社債の期限前償還完了のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023555022.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023555022.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "資金調達",
       "score": 45,
       "impact": "medium",
@@ -1208,7 +1241,7 @@
       ],
       "summary": "社債発行・借入等の資金調達。財務面の動き。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554913",
@@ -1216,10 +1249,11 @@
       "code": "8425",
       "company": "みずほリース",
       "title": "第38回無担保普通社債（社債間限定同順位特約付）の発行に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554913.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554913.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "資金調達",
       "score": 45,
       "impact": "medium",
@@ -1233,7 +1267,7 @@
       ],
       "summary": "社債発行・借入等の資金調達。財務面の動き。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554924",
@@ -1241,10 +1275,11 @@
       "code": "13294",
       "company": "Ｅ－ブラックロック",
       "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554924.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554924.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -1258,7 +1293,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554925",
@@ -1266,10 +1301,11 @@
       "code": "16714",
       "company": "Ｅ－シンプレクス",
       "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554925.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554925.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -1283,7 +1319,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554294",
@@ -1291,10 +1327,11 @@
       "code": "190A",
       "company": "Ｇ－Ｃｈｏｒｄｉａ",
       "title": "資本準備金の額の減少及び剰余金の処分に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554294.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554294.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "減資",
       "score": 50,
       "impact": "medium",
@@ -1308,7 +1345,7 @@
       ],
       "summary": "資本金の減少。欠損填補や税務目的が多く影響は限定的なことも。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554814",
@@ -1316,10 +1353,11 @@
       "code": "3815",
       "company": "Ｇ－メディア",
       "title": "2026年８月期　決算説明会資料",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554814.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554814.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 5,
       "impact": "low",
@@ -1333,7 +1371,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554903",
@@ -1341,10 +1379,11 @@
       "code": "585A4",
       "company": "Ｅ－ＪＡＭＰＦＭ",
       "title": "上場ETF（管理会社：JAMPファンド・マネジメント）に関する日々の開示事項",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554903.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554903.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -1358,7 +1397,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554973",
@@ -1366,10 +1405,11 @@
       "code": "413A",
       "company": "ｉＦ台湾テック",
       "title": "「iFreeETF キャセイ台湾テックリーダー指数」設定・解約の停止に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554973.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554973.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 38,
       "impact": "low",
@@ -1383,18 +1423,19 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554905",
       "time": "2026-10-23T09:00:00+09:00",
       "code": "16724",
       "company": "Ｅ－ＷｉｓｄｏｍＴｒ",
-      "title": "上場ETF（管理会社：WisdomTree、外国投資法人：MSL）に関する日々の開示事項　",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554905.pdf",
+      "title": "上場ETF（管理会社：WisdomTree、外国投資法人：MSL）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554905.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -1408,18 +1449,19 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554906",
       "time": "2026-10-23T09:00:00+09:00",
       "code": "16724",
       "company": "Ｅ－ＷｉｓｄｏｍＴｒ",
-      "title": "上場ETF（管理会社：WisdomTree、外国投資法人：CSL）に関する日々の開示事項　",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554906.pdf",
+      "title": "上場ETF（管理会社：WisdomTree、外国投資法人：CSL）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554906.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "ETF・定例",
       "score": 7,
       "impact": "low",
@@ -1433,7 +1475,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554909",
@@ -1441,10 +1483,11 @@
       "code": "6289",
       "company": "技研製作所",
       "title": "（訂正）「有償ストック・オプション（新株予約権）の発行に関するお知らせ」の一部訂正のお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554909.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554909.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 0,
       "impact": "low",
@@ -1460,7 +1503,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554534",
@@ -1468,10 +1511,11 @@
       "code": "1554",
       "company": "上場ＭＳ世",
       "title": "台湾証券取引所の取引停止に伴なう一部ＥＴＦの設定・解約等の申込みの受付中止についてのお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554534.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554534.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 38,
       "impact": "low",
@@ -1485,7 +1529,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261023554535",
@@ -1493,10 +1537,11 @@
       "code": "1681",
       "company": "上場ＭＳエマ",
       "title": "台湾証券取引所の取引停止に伴なう一部ＥＴＦの設定・解約等の申込みの受付中止についてのお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261023554535.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261023554535.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 38,
       "impact": "low",
@@ -1510,7 +1555,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554877",
@@ -1518,10 +1563,11 @@
       "code": "4578",
       "company": "大塚ＨＤ",
       "title": "IgA腎症治療薬「VOYXACT（シベプレンリマブ）」米国腎臓学会（ASN）でフェーズ3試験の最終結果を発表",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554877.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554877.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "新薬・開発",
       "score": 67,
       "impact": "medium",
@@ -1535,7 +1581,7 @@
       ],
       "summary": "承認・治験等の進展。将来収益の期待材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "140120261022554887",
@@ -1543,10 +1589,11 @@
       "code": "7138",
       "company": "Ｇ－ＴＯＲＩＣＯ",
       "title": "イーサリアム（ETH）の追加取得に関するお知らせ",
-      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554887.pdf",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261022554887.pdf",
+      "xbrl_url": "",
       "exchange": "東証",
       "markets": "",
-      "source": "yanoshin",
+      "source": "scraper",
       "category": "その他開示",
       "score": 38,
       "impact": "low",
@@ -1560,7 +1607,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-23T14:21:04+09:00"
+      "analyzed_at": "2026-10-23T14:23:04+09:00"
     },
     {
       "id": "9753869c8d441b89",

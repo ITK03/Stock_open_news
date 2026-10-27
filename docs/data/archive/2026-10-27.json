@@ -1,7 +1,67 @@
 {
-  "updated_at": "2026-10-27T10:59:20+09:00",
-  "count": 13,
+  "updated_at": "2026-10-27T11:01:15+09:00",
+  "count": 15,
   "items": [
+    {
+      "id": "140120261026556084",
+      "time": "2026-10-27T11:00:00+09:00",
+      "code": "2816",
+      "company": "ダイショー",
+      "title": "業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261026556084.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220261026556084.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 96,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "本文:上方修正(+250.0%)"
+      ],
+      "summary": "上方修正(+250.0%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-10-27T11:01:10+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 12,
+        "note": "上方修正(+250.0%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120261027556513",
+      "time": "2026-10-27T11:00:00+09:00",
+      "code": "4536",
+      "company": "参天薬",
+      "title": "主要株主の異動に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261027556513.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "大株主異動",
+      "score": 62,
+      "impact": "medium",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "主要株主の異動"
+      ],
+      "summary": "主要株主・親会社の異動。支配構造の変化。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
+    },
     {
       "id": "140120261027556460",
       "time": "2026-10-27T10:40:00+09:00",
@@ -29,7 +89,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261027556529",
@@ -55,7 +115,7 @@
       ],
       "summary": "株式の売出し・分売は短期的な需給悪化要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261027556500",
@@ -81,7 +141,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261027556484",
@@ -107,7 +167,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261026556298",
@@ -133,7 +193,7 @@
       ],
       "summary": "株式の売出し・分売は短期的な需給悪化要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261027556464",
@@ -159,7 +219,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261026555969",
@@ -185,7 +245,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261026556090",
@@ -211,7 +271,7 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261027556455",
@@ -237,7 +297,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261027556457",
@@ -263,7 +323,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "140120261026556237",
@@ -289,7 +349,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T10:59:15+09:00"
+      "analyzed_at": "2026-10-27T11:01:10+09:00"
     },
     {
       "id": "9753869c8d441b89",

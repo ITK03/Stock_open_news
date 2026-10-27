@@ -1,7 +1,87 @@
 {
-  "updated_at": "2026-10-27T11:30:04+09:00",
-  "count": 15,
+  "updated_at": "2026-10-27T11:32:00+09:00",
+  "count": 18,
   "items": [
+    {
+      "id": "140120261027556634",
+      "time": "2026-10-27T11:30:00+09:00",
+      "code": "13494",
+      "company": "Ｅ－ＳＳＧＡ－ＳＩＮ",
+      "title": "アジア国債・公債ＥＴＦ（正式名称：ＡＢＦ汎アジア債券インデックス・ファンド）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261027556634.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
+    },
+    {
+      "id": "140120261027556573",
+      "time": "2026-10-27T11:30:00+09:00",
+      "code": "20704",
+      "company": "Ｎ－三菱ＵＦＪ証ＨＤ",
+      "title": "上場ETN（発行者：三菱UFJ証券ホールディングス株式会社）に関する日々の開示事項",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261027556573.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "ETF・定例",
+      "score": 7,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "日々の開示事項"
+      ],
+      "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
+    },
+    {
+      "id": "140120261026555772",
+      "time": "2026-10-27T11:30:00+09:00",
+      "code": "5076",
+      "company": "インフロニアＨＤ",
+      "title": "2029年満期ユーロ円建転換社債型新株予約権付社債（グリーンCB）の転換価額の調整に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261026555772.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "増資・希薄化",
+      "score": 85,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 51,
+      "is_correction": false,
+      "tags": [
+        "新株予約権"
+      ],
+      "reasons": [
+        "転換社債"
+      ],
+      "summary": "新株発行・希薄化は短期的に売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
+    },
     {
       "id": "140120261026556084",
       "time": "2026-10-27T11:00:00+09:00",
@@ -27,7 +107,7 @@
       ],
       "summary": "上方修正(+250.0%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-10-27T11:29:57+09:00",
+      "analyzed_at": "2026-10-27T11:31:55+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -60,7 +140,7 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261027556460",
@@ -89,7 +169,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261027556529",
@@ -115,7 +195,7 @@
       ],
       "summary": "株式の売出し・分売は短期的な需給悪化要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261027556500",
@@ -141,7 +221,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261027556484",
@@ -167,7 +247,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261026556298",
@@ -193,7 +273,7 @@
       ],
       "summary": "株式の売出し・分売は短期的な需給悪化要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261027556464",
@@ -219,7 +299,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261026555969",
@@ -245,7 +325,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261026556090",
@@ -271,7 +351,7 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261027556455",
@@ -297,7 +377,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261027556457",
@@ -323,7 +403,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "140120261026556237",
@@ -349,7 +429,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-10-27T11:29:57+09:00"
+      "analyzed_at": "2026-10-27T11:31:55+09:00"
     },
     {
       "id": "9753869c8d441b89",

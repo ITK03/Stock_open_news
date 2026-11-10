@@ -1,7 +1,454 @@
 {
-  "updated_at": "2026-11-10T12:00:39+09:00",
-  "count": 57,
+  "updated_at": "2026-11-10T12:02:50+09:00",
+  "count": 70,
   "items": [
+    {
+      "id": "140120261110570464",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "1979",
+      "company": "大気社",
+      "title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570464.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261110570464.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "earnings": {
+        "period": "2027年３月期\n第２四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261110570475",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "1979",
+      "company": "大気社",
+      "title": "業績予想の修正に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570475.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220261110570475.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想の修正",
+        "本文:上方修正(+0.0%)"
+      ],
+      "summary": "上方修正(+0.0%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 0,
+        "note": "上方修正(+0.0%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120261109568848",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "3682",
+      "company": "エンカレッジ",
+      "title": "2027年3月期第2四半期(中間期)決算短信[日本基準](非連結)",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261109568848.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261109568848.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "earnings": {
+        "period": "2027年３月期\n第２四半期",
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "１百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261109569960",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "3682",
+      "company": "エンカレッジ",
+      "title": "2027年3月期第2四半期(中間期)決算説明補足資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261109569960.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
+    },
+    {
+      "id": "140120261109570099",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "6800",
+      "company": "ヨコオ",
+      "title": "2027年3月期第2四半期(中間期)決算短信〔日本基準〕(連結)",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261109570099.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261109570099.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "earnings": {
+        "period": "2027年3月期\n第2四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "1百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261109569919",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "6800",
+      "company": "ヨコオ",
+      "title": "CTCセグメントにおける生産能力の追加増強投資に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261109569919.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
+    },
+    {
+      "id": "140120261110570471",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "6982",
+      "company": "リード",
+      "title": "2027年３月期 第２四半期(中間期)決算短信 [日本基準] (非連結)",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570471.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261110570471.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "earnings": {
+        "period": "2027年３月期\n第２四半期",
+        "figures": [
+          {
+            "label": "経常利益",
+            "value": "１百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261110570581",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "6982",
+      "company": "リード",
+      "title": "2027年３月期 第２四半期(中間期)業績予想と実績との差異に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570581.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 84,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "業績予想と実績",
+        "本文:上方修正(+2.0%)"
+      ],
+      "summary": "上方修正(+2.0%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 0,
+        "note": "上方修正(+2.0%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120261110570341",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "7832",
+      "company": "バンダイナムコ",
+      "title": "2027年３月期  第２四半期（中間期）決算短信〔日本基準〕（連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570341.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261110570341.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "earnings": {
+        "period": "2027年３月期  第２四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261110570344",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "7832",
+      "company": "バンダイナムコ",
+      "title": "2027年3月期第２四半期連結累計期間業績予想数値と実績値の差異及び通期連結業績予想修正のお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570344.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/091220261110570344.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "業績修正",
+      "score": 92,
+      "impact": "high",
+      "direction": "positive",
+      "urgent": true,
+      "confidence": 88,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "通期連結業績予想",
+        "本文:上方修正(+39.8%)"
+      ],
+      "summary": "上方修正(+39.8%)。業績予想の修正。上下いずれかを本文で要確認。",
+      "analyzed_by": "rules+pdf",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "content_analysis": {
+        "direction": "positive",
+        "score_bonus": 8,
+        "note": "上方修正(+39.8%)",
+        "confidence": 88,
+        "source": "pdf"
+      }
+    },
+    {
+      "id": "140120261110570351",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "7832",
+      "company": "バンダイナムコ",
+      "title": "連結子会社の解散及び清算に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570351.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 35,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 40,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "その他開示"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
+    },
+    {
+      "id": "140120261109569608",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "9343",
+      "company": "Ｇ－アイビス",
+      "title": "2026年12月期第３四半期決算短信〔日本基準〕(連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261109569608.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261109569608.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "earnings": {
+        "period": "2026年12月期\n第３四半期",
+        "figures": [
+          {
+            "label": "純利益",
+            "value": "１百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261110570414",
+      "time": "2026-11-10T12:00:00+09:00",
+      "code": "9343",
+      "company": "Ｇ－アイビス",
+      "title": "2026年12月期第３四半期決算説明会資料",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261110570414.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 23,
+      "impact": "low",
+      "direction": "positive",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "四半期決算",
+        "減衰:説明会"
+      ],
+      "summary": "営業増益(+0%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
+      "earnings": {
+        "period": "2026年12月期第3四半期",
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "12百万円",
+            "yoy": "+5%"
+          },
+          {
+            "label": "営業利益",
+            "value": "30百万円",
+            "yoy": "+0%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
     {
       "id": "140120261106567322",
       "time": "2026-11-10T11:30:00+09:00",
@@ -26,7 +473,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2026年12月期\n第３四半期",
         "figures": [
@@ -62,7 +509,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261105565568",
@@ -88,7 +535,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期  第２四半期",
         "figures": [
@@ -125,7 +572,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期",
         "figures": [],
@@ -156,7 +603,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261105565626",
@@ -182,7 +629,7 @@
       ],
       "summary": "配当予想の修正。増減を本文で要確認。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109570253",
@@ -208,7 +655,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570348",
@@ -234,7 +681,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2026年12月期\n第３四半期",
         "figures": [
@@ -271,7 +718,7 @@
       ],
       "summary": "上方修正(+330.3%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -304,7 +751,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2026年12月期  第３四半期",
         "figures": [
@@ -341,7 +788,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2026年12月期第３四半期",
         "figures": [],
@@ -372,7 +819,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年3月期第2四半期",
         "figures": [
@@ -408,7 +855,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期\n第２四半期",
         "figures": [
@@ -444,7 +891,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期\n第２四半期",
         "figures": [],
@@ -476,7 +923,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569913",
@@ -504,7 +951,7 @@
       ],
       "summary": "新株発行・希薄化は短期的に売られやすい。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570504",
@@ -531,7 +978,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570929",
@@ -559,7 +1006,7 @@
       ],
       "summary": "上場廃止・監理/整理。重大な下落リスク。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570453",
@@ -587,7 +1034,7 @@
       ],
       "summary": "上方修正(+519.8%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 12,
@@ -620,7 +1067,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期\n第２四半期",
         "figures": [
@@ -657,7 +1104,7 @@
       ],
       "summary": "営業増益(+３%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期 第２四半期",
         "figures": [
@@ -699,7 +1146,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570474",
@@ -725,7 +1172,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期  第２四半期",
         "figures": [
@@ -761,7 +1208,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570639",
@@ -787,7 +1234,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570812",
@@ -814,7 +1261,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年3月期",
         "figures": [],
@@ -848,7 +1295,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570305",
@@ -877,7 +1324,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261104563445",
@@ -906,7 +1353,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570345",
@@ -935,7 +1382,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261106567741",
@@ -964,7 +1411,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569832",
@@ -993,7 +1440,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570476",
@@ -1022,7 +1469,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570422",
@@ -1048,7 +1495,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570424",
@@ -1074,7 +1521,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570472",
@@ -1103,7 +1550,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109568432",
@@ -1129,7 +1576,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570486",
@@ -1158,7 +1605,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261022554731",
@@ -1185,7 +1632,7 @@
       ],
       "summary": "上方修正(+2.0%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 0,
@@ -1218,7 +1665,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261106568277",
@@ -1244,7 +1691,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期  第２四半期",
         "figures": [
@@ -1283,7 +1730,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570451",
@@ -1312,7 +1759,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570310",
@@ -1338,7 +1785,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261110570311",
@@ -1364,7 +1811,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261106567332",
@@ -1391,7 +1838,7 @@
       ],
       "summary": "上方修正(+35.7%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 8,
@@ -1424,7 +1871,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00",
+      "analyzed_at": "2026-11-10T12:02:31+09:00",
       "earnings": {
         "period": "2027年３月期\n第２四半期",
         "figures": [
@@ -1464,7 +1911,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569743",
@@ -1490,7 +1937,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109570271",
@@ -1518,7 +1965,7 @@
       ],
       "summary": "承認・治験等の進展。将来収益の期待材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569944",
@@ -1546,7 +1993,7 @@
       ],
       "summary": "M&A・経営統合。条件次第で株価インパクト大。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569737",
@@ -1572,7 +2019,7 @@
       ],
       "summary": "主要株主・親会社の異動。支配構造の変化。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569477",
@@ -1598,7 +2045,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569706",
@@ -1624,7 +2071,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "140120261109569771",
@@ -1650,7 +2097,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-10T11:59:58+09:00"
+      "analyzed_at": "2026-11-10T12:02:31+09:00"
     },
     {
       "id": "9753869c8d441b89",

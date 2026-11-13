@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T09:42:25+09:00",
+  "updated_at": "2026-11-13T09:45:31+09:00",
   "count": 27,
   "items": [
     {
@@ -8,11 +8,10 @@
       "code": "6145",
       "company": "ＮＩＴＴＯＫＵ",
       "title": "大型受注に関するお知らせ（開示事項の経過）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576682.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576682.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "大型受注・契約",
       "score": 26,
       "impact": "low",
@@ -29,7 +28,7 @@
       ],
       "summary": "受注・契約締結。規模次第で業績寄与。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261113577823",
@@ -37,11 +36,10 @@
       "code": "9274",
       "company": "ＫＰＰグループＨＤ",
       "title": "剰余金の配当（中間配当）に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261113577823.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113577823.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "配当",
       "score": 84,
       "impact": "high",
@@ -56,7 +54,7 @@
       ],
       "summary": "増配。配当予想の修正。増減を本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-11-13T09:41:59+09:00",
+      "analyzed_at": "2026-11-13T09:45:00+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 4,
@@ -71,11 +69,10 @@
       "code": "7309",
       "company": "シマノ",
       "title": "自己株式の取得結果及び取得終了に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577500.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112577500.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "自社株買い",
       "score": 81,
       "impact": "high",
@@ -91,7 +88,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261113577675",
@@ -99,11 +96,10 @@
       "code": "9274",
       "company": "ＫＰＰグループＨＤ",
       "title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261113577675.pdf",
-      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261113577675.zip",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113577675.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -117,7 +113,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261113577591",
@@ -125,11 +121,10 @@
       "code": "4523",
       "company": "エーザイ",
       "title": "「レケンビ」の皮下注製剤「レケンビ皮下注250mg ペン」日本において早期アルツハイマー病治療剤として新発売",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261113577591.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113577591.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "新製品",
       "score": 55,
       "impact": "medium",
@@ -143,7 +138,7 @@
       ],
       "summary": "新製品・新サービス。話題性に応じた短期材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112574957",
@@ -151,11 +146,10 @@
       "code": "4578",
       "company": "大塚ＨＤ",
       "title": "EGFRエクソン20挿入変異を伴う非小細胞肺がんの一次治療に対するジパレルチニブと化学療法の併用について米国FDAへの新薬承認申請の提出を完了",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112574957.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112574957.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -169,7 +163,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112577401",
@@ -177,11 +171,10 @@
       "code": "7138",
       "company": "Ｇ－ＴＯＲＩＣＯ",
       "title": "イーサリアム（ETH）の追加取得に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577401.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112577401.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 38,
       "impact": "low",
@@ -195,7 +188,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112575664",
@@ -203,11 +196,10 @@
       "code": "7600",
       "company": "ＭＤＭ",
       "title": "2027年3月期 第2四半期（中間期）決算説明会資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112575664.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112575664.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 5,
       "impact": "low",
@@ -221,7 +213,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261113577627",
@@ -229,11 +221,10 @@
       "code": "7522",
       "company": "ワタミ",
       "title": "本日の一部報道について",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261113577627.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113577627.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -247,7 +238,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261030561591",
@@ -255,11 +246,10 @@
       "code": "186A",
       "company": "Ｇ－アストロスケール",
       "title": "米国連結子会社に対する債権の株式化（デット・エクイティ・スワップ）の実施及び金融費用の計上に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261030561591.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261030561591.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -273,7 +263,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112577545",
@@ -281,11 +271,10 @@
       "code": "241A",
       "company": "Ｇ－ＲＯＸＸ",
       "title": "2026年９月期通期 決算説明会 Transcriptの公開に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577545.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112577545.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 5,
       "impact": "low",
@@ -299,19 +288,18 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112577550",
       "time": "2026-11-13T08:00:00+09:00",
       "code": "241A",
       "company": "Ｇ－ＲＯＸＸ",
-      "title": "2026年９月期通期 決算説明会 Q&Aの公開に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577550.pdf",
-      "xbrl_url": "",
+      "title": "2026年９月期通期 決算説明会 Q&amp;Aの公開に関するお知らせ",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112577550.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 5,
       "impact": "low",
@@ -325,7 +313,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112576374",
@@ -333,11 +321,10 @@
       "code": "3556",
       "company": "Ｇ－リネットジャパン",
       "title": "2026年9月期 決算短信〔日本基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576374.pdf",
-      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261112576374.zip",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576374.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -351,7 +338,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00",
+      "analyzed_at": "2026-11-13T09:45:00+09:00",
       "earnings": {
         "period": "2026年９月期",
         "figures": [
@@ -369,11 +356,10 @@
       "code": "3556",
       "company": "Ｇ－リネットジャパン",
       "title": "2026年9月期決算補足資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576447.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576447.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -387,7 +373,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112576474",
@@ -395,11 +381,10 @@
       "code": "3556",
       "company": "Ｇ－リネットジャパン",
       "title": "通期連結業績予想と実績値との差異及び個別決算における前事業年度の実績値との差異に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576474.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576474.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "業績修正",
       "score": 88,
       "impact": "high",
@@ -414,7 +399,7 @@
       ],
       "summary": "上方修正(+23.0%)。業績予想の修正。上下いずれかを本文で要確認。",
       "analyzed_by": "rules+pdf",
-      "analyzed_at": "2026-11-13T09:41:59+09:00",
+      "analyzed_at": "2026-11-13T09:45:00+09:00",
       "content_analysis": {
         "direction": "positive",
         "score_bonus": 4,
@@ -429,11 +414,10 @@
       "code": "3556",
       "company": "Ｇ－リネットジャパン",
       "title": "事業計画及び成長可能性に関する事項",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576503.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576503.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 35,
       "impact": "low",
@@ -447,7 +431,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112576528",
@@ -455,11 +439,10 @@
       "code": "3556",
       "company": "Ｇ－リネットジャパン",
       "title": "2027年9月期配当予想（初配）及び株主優待制度の変更に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576528.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576528.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "株主還元・優待",
       "score": 58,
       "impact": "medium",
@@ -475,7 +458,7 @@
       ],
       "summary": "株主優待の新設・変更。個人投資家の関心材料。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112576538",
@@ -483,11 +466,10 @@
       "code": "3556",
       "company": "Ｇ－リネットジャパン",
       "title": "定款一部変更に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576538.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576538.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 10,
       "impact": "low",
@@ -501,7 +483,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112576547",
@@ -509,11 +491,10 @@
       "code": "3556",
       "company": "Ｇ－リネットジャパン",
       "title": "役員人事に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112576547.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576547.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 17,
       "impact": "low",
@@ -527,7 +508,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261112575868",
@@ -535,11 +516,10 @@
       "code": "4875",
       "company": "メディシノバ",
       "title": "2026年12月期 第3四半期決算短信〔米国基準〕（連結）",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112575868.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112575868.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -553,7 +533,7 @@
       ],
       "summary": "純利益増(+12%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00",
+      "analyzed_at": "2026-11-13T09:45:00+09:00",
       "earnings": {
         "period": "2026年12月期",
         "figures": [
@@ -572,11 +552,10 @@
       "code": "4875",
       "company": "メディシノバ",
       "title": "2026年12月期 第3四半期決算補足説明資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112575887.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112575887.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 18,
       "impact": "low",
@@ -591,7 +570,7 @@
       ],
       "summary": "営業増益(+557%)。決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00",
+      "analyzed_at": "2026-11-13T09:45:00+09:00",
       "earnings": {
         "period": "2026年12月期第3四半期",
         "figures": [
@@ -620,11 +599,10 @@
       "code": "5137",
       "company": "Ｇ－スマートドライブ",
       "title": "特別損失の計上に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112575498.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112575498.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "特損・減損",
       "score": 78,
       "impact": "high",
@@ -640,7 +618,7 @@
       ],
       "summary": "特別損失・減損計上。業績下振れ要因。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261111574294",
@@ -648,11 +626,10 @@
       "code": "5137",
       "company": "Ｇ－スマートドライブ",
       "title": "2026年９月期決算短信〔日本基準〕(連結)",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261111574294.pdf",
-      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261111574294.zip",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111574294.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "決算",
       "score": 53,
       "impact": "medium",
@@ -666,7 +643,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00",
+      "analyzed_at": "2026-11-13T09:45:00+09:00",
       "earnings": {
         "period": "2026年９月期",
         "figures": [
@@ -684,11 +661,10 @@
       "code": "5137",
       "company": "Ｇ－スマートドライブ",
       "title": "自己株式取得に係る事項の決定に関するお知らせ",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261111574316.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111574316.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "自社株買い",
       "score": 81,
       "impact": "high",
@@ -702,7 +678,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "140120261111574309",
@@ -710,11 +686,10 @@
       "code": "5137",
       "company": "Ｇ－スマートドライブ",
       "title": "2026年９月期第４四半期　決算説明資料",
-      "pdf_url": "https://www.release.tdnet.info/inbs/140120261111574309.pdf",
-      "xbrl_url": "",
+      "pdf_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111574309.pdf",
       "exchange": "東証",
       "markets": "",
-      "source": "scraper",
+      "source": "yanoshin",
       "category": "その他開示",
       "score": 0,
       "impact": "low",
@@ -728,7 +703,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-13T09:41:59+09:00"
+      "analyzed_at": "2026-11-13T09:45:00+09:00"
     },
     {
       "id": "9753869c8d441b89",

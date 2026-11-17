@@ -1,7 +1,108 @@
 {
-  "updated_at": "2026-11-17T10:29:51+09:00",
-  "count": 18,
+  "updated_at": "2026-11-17T10:32:05+09:00",
+  "count": 21,
   "items": [
+    {
+      "id": "140120261117581824",
+      "time": "2026-11-17T10:30:00+09:00",
+      "code": "1397",
+      "company": "ＳＭＤＡＭ　２２５",
+      "title": "2026年10月期　決算短信（2026年4月9日～2026年10月8日）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261117581824.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-17T10:31:43+09:00",
+      "earnings": {
+        "period": "2026年10月期",
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "1,567,535,030百万円",
+            "yoy": "+1%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261117581830",
+      "time": "2026-11-17T10:30:00+09:00",
+      "code": "2557",
+      "company": "ＳＭＤＡＭトピックス",
+      "title": "2026年10月期　決算短信（2026年4月9日～2026年10月8日）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261117581830.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-17T10:31:43+09:00",
+      "earnings": {
+        "period": "2026年10月期",
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "1,104,032,852百万円",
+            "yoy": "+1%"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261116581333",
+      "time": "2026-11-17T10:30:00+09:00",
+      "code": "9008",
+      "company": "京王",
+      "title": "2027年３月期第２四半期決算の発表延期に伴う事業の進捗状況に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261116581333.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 31,
+      "impact": "low",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 58,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "四半期決算",
+        "減衰:進捗状況"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
+    },
     {
       "id": "140120261116581702",
       "time": "2026-11-17T10:10:00+09:00",
@@ -28,7 +129,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261117581763",
@@ -53,7 +154,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261117581748",
@@ -78,7 +179,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261116581349",
@@ -103,7 +204,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261117581724",
@@ -128,7 +229,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261116581698",
@@ -153,7 +254,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261116581688",
@@ -178,7 +279,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261116581040",
@@ -203,7 +304,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261116581123",
@@ -231,7 +332,7 @@
       ],
       "summary": "自己株式取得は需給改善・株主還元でポジティブ。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261117581734",
@@ -258,7 +359,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261117581736",
@@ -283,7 +384,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261115580475",
@@ -309,7 +410,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00",
+      "analyzed_at": "2026-11-17T10:31:43+09:00",
       "earnings": {
         "period": "2027年３月期\n第２四半期",
         "figures": [],
@@ -340,7 +441,7 @@
       ],
       "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00",
+      "analyzed_at": "2026-11-17T10:31:43+09:00",
       "earnings": {
         "period": "2027年3月期\n第2四半期",
         "figures": [],
@@ -370,7 +471,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261117581723",
@@ -395,7 +496,7 @@
       ],
       "summary": "ETF/ETNの定例開示。個別株の材料性は無い。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "140120261113579767",
@@ -420,7 +521,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-17T10:29:28+09:00"
+      "analyzed_at": "2026-11-17T10:31:43+09:00"
     },
     {
       "id": "9753869c8d441b89",

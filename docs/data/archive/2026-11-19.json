@@ -1,7 +1,304 @@
 {
-  "updated_at": "2026-11-19T08:28:31+09:00",
-  "count": 3,
+  "updated_at": "2026-11-19T08:30:33+09:00",
+  "count": 13,
   "items": [
+    {
+      "id": "140120261118583043",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "（訂正・数値データ訂正）令和８年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）」の一部訂正について",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261118583043.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261118583043.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 23,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "決算短信",
+        "減衰:一部訂正"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00",
+      "earnings": {
+        "period": null,
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "1,183,453百万円",
+            "yoy": "+24%"
+          },
+          {
+            "label": "営業利益",
+            "value": "75,089百万円"
+          },
+          {
+            "label": "純利益",
+            "value": "1百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261118583049",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "（訂正・数値データ訂正）令和８年12月期 第３四半期決算短信〔日本基準〕（連結）」の一部訂正について",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261118583049.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261118583049.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 23,
+      "impact": "low",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 53,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "決算短信",
+        "減衰:一部訂正"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00",
+      "earnings": {
+        "period": null,
+        "figures": [
+          {
+            "label": "売上高",
+            "value": "1,880,912百万円",
+            "yoy": "+523%"
+          },
+          {
+            "label": "営業利益",
+            "value": "40,389百万円"
+          }
+        ],
+        "source": "regex"
+      }
+    },
+    {
+      "id": "140120261117582374",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "（訂正）「過年度有価証券報告書等の訂正報告書の提出及び過年度決算短信等の訂正に関するお知らせ」の一部訂正について",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261117582374.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "会計・不正",
+      "score": 58,
+      "impact": "medium",
+      "direction": "negative",
+      "urgent": false,
+      "confidence": 59,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "過年度",
+        "減衰:一部訂正"
+      ],
+      "summary": "会計問題・過年度訂正。信認低下で売られやすい。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
+    {
+      "id": "140120261112577355",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "（数値データ訂正）令和６年12月期 第３四半期決算短信〔日本基準〕（非連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577355.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261112577355.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
+    {
+      "id": "140120261112577360",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "（数値データ訂正）令和７年12月期 第１四半期決算短信〔日本基準〕（非連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577360.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261112577360.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
+    {
+      "id": "140120261112577361",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "（数値データ訂正）令和７年12月期 第３四半期決算短信〔日本基準〕（非連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577361.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261112577361.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
+    {
+      "id": "140120261112577367",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "（数値データ訂正）令和７年12月期 決算短信〔日本基準〕（非連結）",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261112577367.pdf",
+      "xbrl_url": "https://www.release.tdnet.info/inbs/081220261112577367.zip",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "決算",
+      "score": 53,
+      "impact": "medium",
+      "direction": "neutral",
+      "urgent": false,
+      "confidence": 65,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "決算短信"
+      ],
+      "summary": "決算発表。コンセンサス比で方向が決まる(本文要確認)。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
+    {
+      "id": "140120261118582946",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "財務報告に係る内部統制の開示すべき重要な不備及び内部統制報告書の訂正報告書の提出に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261118582946.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 10,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:内部統制"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
+    {
+      "id": "140120261118582950",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "3719",
+      "company": "ＡＩストーム",
+      "title": "「契約精算損」及び「貸倒引当金」の計上に関するお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261118582950.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "特損・減損",
+      "score": 78,
+      "impact": "high",
+      "direction": "negative",
+      "urgent": true,
+      "confidence": 65,
+      "is_correction": false,
+      "tags": [],
+      "reasons": [
+        "貸倒引当"
+      ],
+      "summary": "特別損失・減損計上。業績下振れ要因。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
+    {
+      "id": "140120261119583084",
+      "time": "2026-11-19T08:30:00+09:00",
+      "code": "4596",
+      "company": "Ｇ－窪田製薬ＨＤ",
+      "title": "（開示事項の経過）フランスのコンパッショネート・アクセス認可に向けたスターガルト病治療候補薬「エミクススタト塩酸塩」製剤製造開始のお知らせ",
+      "pdf_url": "https://www.release.tdnet.info/inbs/140120261119583084.pdf",
+      "xbrl_url": "",
+      "exchange": "東証",
+      "markets": "",
+      "source": "scraper",
+      "category": "その他開示",
+      "score": 0,
+      "impact": "low",
+      "direction": "unknown",
+      "urgent": false,
+      "confidence": 30,
+      "is_correction": true,
+      "tags": [],
+      "reasons": [
+        "減衰:開示事項の経過"
+      ],
+      "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
+      "analyzed_by": "rules",
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
+    },
     {
       "id": "140120261118582867",
       "time": "2026-11-19T08:00:00+09:00",
@@ -25,7 +322,7 @@
       ],
       "summary": "定例・補足的な開示。株価への影響は限定的とみられる。",
       "analyzed_by": "rules",
-      "analyzed_at": "2026-11-19T08:28:15+09:00"
+      "analyzed_at": "2026-11-19T08:30:21+09:00"
     },
     {
       "id": "9753869c8d441b89",
